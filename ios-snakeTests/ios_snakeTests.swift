@@ -1,11 +1,4 @@
-//
-//  ios_snakeTests.swift
-//  ios-snakeTests
-//
-//  Created by Joey Lai on 2015-07-12.
-//  Copyright (c) 2015 Joey Lai. All rights reserved.
-//
-
+import snake
 import UIKit
 import XCTest
 
@@ -21,16 +14,18 @@ class ios_snakeTests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
-        // This is an example of a functional test case.
-        XCTAssert(true, "Pass")
+    func moveUp() {
+        // assemble
+        var snake = Snake()
+        var zeroPosition = CGPointMake(0.0, 0.0)
+        snake.position(zeroPosition)
+        
+        // act
+        snake.move(.Up)
+               
+        // assert
+        XCTAssertEqual(snake.body[0].position, CGPointMake(0.0, 16.0), "position should be (0.0, 16.0)")
+        XCTAssertEqual(snake.body[1].position, CGPointMake(0.0, 0.0), "position should be (0.0, 0.0)")
+        XCTAssertEqual(snake.body[2].position, CGPointMake(0.0, -16.0), "position should be (0.0, -16.0)")
     }
-    
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measureBlock() {
-            // Put the code you want to measure the time of here.
-        }
-    }
-    
 }

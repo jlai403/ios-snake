@@ -15,8 +15,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "6CB575ED1B531B4C00DEDCCE"
-               BuildableName = "ios-snake.app"
-               BlueprintName = "ios-snake"
+               BuildableName = "snake.app"
+               BlueprintName = "snake"
                ReferencedContainer = "container:ios-snake.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -29,8 +29,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "6CB576021B531B4C00DEDCCE"
-               BuildableName = "ios-snakeTests.xctest"
-               BlueprintName = "ios-snakeTests"
+               BuildableName = "snakeTests.xctest"
+               BlueprintName = "snakeTests"
                ReferencedContainer = "container:ios-snake.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -47,8 +47,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "6CB576021B531B4C00DEDCCE"
-               BuildableName = "ios-snakeTests.xctest"
-               BlueprintName = "ios-snakeTests"
+               BuildableName = "snakeTests.xctest"
+               BlueprintName = "snakeTests"
                ReferencedContainer = "container:ios-snake.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -57,8 +57,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "6CB575ED1B531B4C00DEDCCE"
-            BuildableName = "ios-snake.app"
-            BlueprintName = "ios-snake"
+            BuildableName = "snake.app"
+            BlueprintName = "snake"
             ReferencedContainer = "container:ios-snake.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -77,8 +77,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "6CB575ED1B531B4C00DEDCCE"
-            BuildableName = "ios-snake.app"
-            BlueprintName = "ios-snake"
+            BuildableName = "snake.app"
+            BlueprintName = "snake"
             ReferencedContainer = "container:ios-snake.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -96,8 +96,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "6CB575ED1B531B4C00DEDCCE"
-            BuildableName = "ios-snake.app"
-            BlueprintName = "ios-snake"
+            BuildableName = "snake.app"
+            BlueprintName = "snake"
             ReferencedContainer = "container:ios-snake.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

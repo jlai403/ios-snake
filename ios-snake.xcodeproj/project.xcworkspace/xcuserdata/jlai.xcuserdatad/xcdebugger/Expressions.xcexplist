@@ -3,6 +3,14 @@
    version = "1.0">
    <ContextStates>
       <ContextState
+         contextName = "ios_snake.Snake.(moveUp in _426132F8F95AE8998C2462B891EE9939) (ios_snake.Snake)() -&gt; ():SnakeNode.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.body[0]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "ios_snake.GameController.viewDidAppear (ios_snake.GameController)(Swift.Bool) -&gt; ():GameEnvironmentController.swift">
          <PersistentStrings>
             <PersistentString
@@ -17,6 +25,9 @@
                value = "self">
             </PersistentString>
          </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "ios_snake.GameScene.updateDirection (ios_snake.GameScene)(ios_snake.SnakeMovementDirection) -&gt; ():GameScene.swift">
       </ContextState>
       <ContextState
          contextName = "ios_snake.Snake.position (ios_snake.Snake)(C.CGPoint) -&gt; ():SnakeNode.swift">

@@ -1,6 +1,6 @@
 import SpriteKit
 
-class Snake {
+public class Snake {
     
     let START_BODY_LENGTH = 3
     
@@ -12,7 +12,7 @@ class Snake {
         }
     }
     
-    init() {
+    public init() {
         initSnake()
     }
     
@@ -25,7 +25,7 @@ class Snake {
         }
     }
     
-    func position(position: CGPoint) {
+    public func position(position: CGPoint) {
         for bodyNode in body {
             if (bodyNode.isHead) {
                 bodyNode.updatePosition(position: position)
@@ -34,13 +34,32 @@ class Snake {
             }
         }
     }
+    
+    public func move(direction: SnakeMovementDirection) {
+        switch (direction) {
+        case SnakeMovementDirection.Up:
+            moveUp()
+        default:
+            fatalError("impossible snake movemment")
+        }
+    }
+    
+    private func moveUp() {
+        var debug = self.body
+        for bodyNode in body.reverse() {
+            if (bodyNode.isHead) {
+                bodyNode.position.y += bodyNode.frame.height
+            } else {
+                bodyNode.position = bodyNode.nextNode!.position
+            }
+            println(bodyNode.position)
+        }
+    }
 }
 
-
-
-class SnakeBody: SKShapeNode {
+public class SnakeBody: SKShapeNode {
     
-    private static let BODY_SIZE: CGSize = CGSizeMake(20.0, 20.0)
+    private static let BODY_SIZE: CGSize = CGSizeMake(15.0, 15.0)
     
     var nextNode: SnakeBody?
     var prevNode: SnakeBody?
@@ -60,17 +79,17 @@ class SnakeBody: SKShapeNode {
         return bodyPart
     }
     
-    func update(parent: SnakeBody?) {
-        self.nextNode = parent
+    public func update(parent: SnakeBody?) {
         parent?.prevNode = self
+        self.nextNode = parent
     }
     
-    func updatePosition(position: CGPoint? = nil) {
+    public func updatePosition(position: CGPoint? = nil) {
         if let newPosition = position {
             self.position = newPosition
         } else {
             self.position = nextNode!.position
-            self.position.y += nextNode!.frame.size.height
+            self.position.y -= nextNode!.frame.size.height
         }
     }
 }

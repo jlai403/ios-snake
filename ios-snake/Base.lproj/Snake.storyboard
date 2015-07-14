@@ -16,12 +16,39 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.53725492949999998" green="0.76862746479999999" blue="0.95686274770000002" alpha="1" colorSpace="deviceRGB"/>
+                        <gestureRecognizers/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="gHG-XN-BEt" appends="YES" id="3MY-AM-AWF"/>
+                            <outletCollection property="gestureRecognizers" destination="gAL-OS-R25" appends="YES" id="PwB-nc-IpQ"/>
+                            <outletCollection property="gestureRecognizers" destination="8C4-Ih-CcO" appends="YES" id="Cxc-lV-S76"/>
+                            <outletCollection property="gestureRecognizers" destination="gm1-2g-c0U" appends="YES" id="gsk-eK-Qk0"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="gameView" destination="8bC-Xf-vdC" id="fZo-cZ-fsW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="up" id="8C4-Ih-CcO">
+                    <connections>
+                        <action selector="changeDirections:" destination="BYZ-38-t0r" id="HqN-wc-7C5"/>
+                    </connections>
+                </swipeGestureRecognizer>
+                <swipeGestureRecognizer direction="down" id="gm1-2g-c0U">
+                    <connections>
+                        <action selector="changeDirections:" destination="BYZ-38-t0r" id="1NV-xm-7IW"/>
+                    </connections>
+                </swipeGestureRecognizer>
+                <swipeGestureRecognizer direction="left" id="gHG-XN-BEt">
+                    <connections>
+                        <action selector="changeDirections:" destination="BYZ-38-t0r" id="0Ys-HB-qwF"/>
+                    </connections>
+                </swipeGestureRecognizer>
+                <swipeGestureRecognizer direction="right" id="gAL-OS-R25">
+                    <connections>
+                        <action selector="changeDirections:" destination="BYZ-38-t0r" id="doQ-8O-34e"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
         </scene>
     </scenes>
