@@ -38,14 +38,14 @@
 		6C0CB2851B531FA000796B92 /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		6C0CB2871B532A9600796B92 /* ConfigConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigConstants.swift; sourceTree = "<group>"; };
 		6C287A541B54A291009994F5 /* SnakeMoveDirection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnakeMoveDirection.swift; sourceTree = "<group>"; };
-		6CB575EE1B531B4C00DEDCCE /* ios-snake.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ios-snake.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6CB575EE1B531B4C00DEDCCE /* snake.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = snake.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6CB575F21B531B4C00DEDCCE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6CB575F31B531B4C00DEDCCE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6CB575F51B531B4C00DEDCCE /* GameController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameController.swift; sourceTree = "<group>"; };
 		6CB575F81B531B4C00DEDCCE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Snake.storyboard; sourceTree = "<group>"; };
 		6CB575FA1B531B4C00DEDCCE /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		6CB575FD1B531B4C00DEDCCE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		6CB576031B531B4C00DEDCCE /* ios-snakeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ios-snakeTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6CB576031B531B4C00DEDCCE /* snakeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = snakeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6CB576081B531B4C00DEDCCE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6CB576091B531B4C00DEDCCE /* ios_snakeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ios_snakeTests.swift; sourceTree = "<group>"; };
 		6CB576131B531C1700DEDCCE /* SpriteKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpriteKit.framework; path = System/Library/Frameworks/SpriteKit.framework; sourceTree = SDKROOT; };
@@ -101,8 +101,8 @@
 		6CB575EF1B531B4C00DEDCCE /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				6CB575EE1B531B4C00DEDCCE /* ios-snake.app */,
-				6CB576031B531B4C00DEDCCE /* ios-snakeTests.xctest */,
+				6CB575EE1B531B4C00DEDCCE /* snake.app */,
+				6CB576031B531B4C00DEDCCE /* snakeTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -174,7 +174,7 @@
 			);
 			name = snake;
 			productName = "ios-snake";
-			productReference = 6CB575EE1B531B4C00DEDCCE /* ios-snake.app */;
+			productReference = 6CB575EE1B531B4C00DEDCCE /* snake.app */;
 			productType = "com.apple.product-type.application";
 		};
 		6CB576021B531B4C00DEDCCE /* snakeTests */ = {
@@ -192,7 +192,7 @@
 			);
 			name = snakeTests;
 			productName = "ios-snakeTests";
-			productReference = 6CB576031B531B4C00DEDCCE /* ios-snakeTests.xctest */;
+			productReference = 6CB576031B531B4C00DEDCCE /* snakeTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */

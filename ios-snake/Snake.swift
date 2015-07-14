@@ -6,6 +6,10 @@ public class Snake {
     
     var body: [SnakeBody] = []
     
+    var reverseBody: [SnakeBody] {
+        get { return body.reverse() }
+    }
+    
     var length: Int {
         get {
             return self.body.count
@@ -39,20 +43,54 @@ public class Snake {
         switch (direction) {
         case SnakeMovementDirection.Up:
             moveUp()
+        case SnakeMovementDirection.Down:
+            moveDown()
+        case SnakeMovementDirection.Right:
+            moveRight()
+        case SnakeMovementDirection.Left:
+            moveLeft()
         default:
             fatalError("impossible snake movemment")
         }
     }
     
     private func moveUp() {
-        var debug = self.body
-        for bodyNode in body.reverse() {
+        for bodyNode in reverseBody {
             if (bodyNode.isHead) {
                 bodyNode.position.y += bodyNode.frame.height
             } else {
                 bodyNode.position = bodyNode.nextNode!.position
             }
-            println(bodyNode.position)
+        }
+    }
+    
+    private func moveDown() {
+        for bodyNode in reverseBody {
+            if (bodyNode.isHead) {
+                bodyNode.position.y -= bodyNode.frame.height
+            } else {
+                bodyNode.position = bodyNode.nextNode!.position
+            }
+        }
+    }
+    
+    private func moveRight() {
+        for bodyNode in reverseBody {
+            if (bodyNode.isHead) {
+                bodyNode.position.x += bodyNode.frame.width
+            } else {
+                bodyNode.position = bodyNode.nextNode!.position
+            }
+        }
+    }
+    
+    private func moveLeft() {
+        for bodyNode in reverseBody {
+            if (bodyNode.isHead) {
+                bodyNode.position.x -= bodyNode.frame.width
+            } else {
+                bodyNode.position = bodyNode.nextNode!.position
+            }
         }
     }
 }
