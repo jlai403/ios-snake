@@ -106,6 +106,10 @@ public class SnakeBodyNode: SKShapeNode {
     public func update(parent: SnakeBodyNode?) {
         parent?.prevNode = self
         self.nextNode = parent
+        
+        //TODO: bug? - fillColor doubles the number of nodes created
+        self.fillColor = Colors.lightBlue
+        self.strokeColor = Colors.whiteColor()
     }
     
     public func position(position: CGPoint? = nil) {

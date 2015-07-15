@@ -23,6 +23,7 @@
 		6CB576191B531C9200DEDCCE /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB576181B531C9200DEDCCE /* GameScene.swift */; };
 		6CE494641B55E34A00E193A9 /* ArrayExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CE494631B55E34A00E193A9 /* ArrayExtensions.swift */; };
 		6CE494651B55E6C700E193A9 /* ArrayExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CE494631B55E34A00E193A9 /* ArrayExtensions.swift */; };
+		6CE494661B55F36F00E193A9 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C0CB2851B531FA000796B92 /* Colors.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -284,6 +285,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6CE494661B55F36F00E193A9 /* Colors.swift in Sources */,
 				6CE494651B55E6C700E193A9 /* ArrayExtensions.swift in Sources */,
 				6C287A571B54A2AC009994F5 /* Snake.swift in Sources */,
 				6C287A561B54A2A3009994F5 /* CardinalDirection.swift in Sources */,

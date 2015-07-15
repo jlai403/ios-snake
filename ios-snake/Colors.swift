@@ -1,6 +1,6 @@
 import UIKit
 
-class Colors: UIColor {
+public class Colors: UIColor {
     
     static let lightBlue = UIColor(red: 0.4, green: 0.8, blue: 1, alpha: 1)
     static let jordyBlue = UIColor(red: 0.5372, green: 0.7686, blue: 0.9568, alpha: 1)

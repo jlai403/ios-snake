@@ -19,7 +19,7 @@ class GameScene: SKScene {
     }
 
     private func setupEnvironment() {
-        self.backgroundColor = Colors.lightBlue
+        self.backgroundColor = Colors.whiteColor()
     }
     
     override func didMoveToView(view: SKView) {
