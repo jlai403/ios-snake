@@ -3,7 +3,7 @@ import SpriteKit
 class GameScene: SKScene {
     
     private var player: Snake
-    private var moveDirection: SnakeMovementDirection = .Up
+    private var moveDirection: CardinalDirection = .North
     
     
     override init(size: CGSize) {
@@ -35,7 +35,7 @@ class GameScene: SKScene {
         }
     }
     
-    func updateDirection(direction: SnakeMovementDirection) {
+    func updateDirection(direction: CardinalDirection) {
         self.moveDirection = direction
         movePlayerOne()
     }

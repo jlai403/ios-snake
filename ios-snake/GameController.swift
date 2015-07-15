@@ -20,22 +20,22 @@ class GameController: UIViewController {
     }
     
     @IBAction func changeDirections(sender: UISwipeGestureRecognizer) {
-        var direction = getSnakeMovementDirection(sender.direction)
+        var direction = getCardinalDirection(sender.direction)
         gameScene!.updateDirection(direction)
     }
     
-    private func getSnakeMovementDirection(swipeDirection: UISwipeGestureRecognizerDirection) -> SnakeMovementDirection {
+    private func getCardinalDirection(swipeDirection: UISwipeGestureRecognizerDirection) -> CardinalDirection {
         switch (swipeDirection) {
         case UISwipeGestureRecognizerDirection.Up:
-            return .Up
+            return .North
         case UISwipeGestureRecognizerDirection.Down:
-            return .Down
-        case UISwipeGestureRecognizerDirection.Left:
-            return .Left
+            return .South
         case UISwipeGestureRecognizerDirection.Right:
-            return .Right
+            return .East
+        case UISwipeGestureRecognizerDirection.Left:
+            return .West
         default:
-            fatalError("impossible swipe direction")
+            fatalError("invalid direction")
         }
     }
 }

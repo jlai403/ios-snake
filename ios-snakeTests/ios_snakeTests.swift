@@ -14,14 +14,14 @@ class ios_snakeTests: XCTestCase {
         super.tearDown()
     }
     
-    func test_moveUp() {
+    func test_moveNorth() {
         // assemble
         var snake = Snake()
         var zeroPosition = CGPointMake(0.0, 0.0)
         snake.position(zeroPosition)
         
         // act
-        snake.move(.Up)
+        snake.move(.North)
                
         // assert
         XCTAssertEqual(snake.body[0].position, CGPointMake(0.0, 16.0), "position should be (0.0, 16.0)")
@@ -29,14 +29,14 @@ class ios_snakeTests: XCTestCase {
         XCTAssertEqual(snake.body[2].position, CGPointMake(0.0, -16.0), "position should be (0.0, -16.0)")
     }
     
-    func test_moveRight() {
+    func test_moveEast() {
         // assemble
         var snake = Snake()
         var zeroPosition = CGPointMake(0.0, 0.0)
         snake.position(zeroPosition)
         
         // act
-        snake.move(.Right)
+        snake.move(.East)
         
         // assert
         XCTAssertEqual(snake.body[0].position, CGPointMake(16.0, 0.0), "position should be (16.0, 0.0)")
@@ -44,14 +44,14 @@ class ios_snakeTests: XCTestCase {
         XCTAssertEqual(snake.body[2].position, CGPointMake(0.0, -16.0), "position should be (0.0, -16.0)")
     }
     
-    func test_moveLeft() {
+    func test_moveWest() {
         // assemble
         var snake = Snake()
         var zeroPosition = CGPointMake(0.0, 0.0)
         snake.position(zeroPosition)
         
         // act
-        snake.move(.Left)
+        snake.move(.West)
         
         // assert
         XCTAssertEqual(snake.body[0].position, CGPointMake(-16.0, 0.0), "position should be (-16.0, 0.0)")
@@ -59,22 +59,103 @@ class ios_snakeTests: XCTestCase {
         XCTAssertEqual(snake.body[2].position, CGPointMake(0.0, -16.0), "position should be (0.0, -16.0)")
     }
     
-    func test_moveDown_moveRight3x() {
+    func test_moveSouth_moveEast3x() {
         // assemble
         var snake = Snake()
         var zeroPosition = CGPointMake(0.0, 0.0)
         snake.position(zeroPosition)
         
-        snake.move(.Right) // (16.0, 0.0), (0.0, 0.0), (0.0, -16.0)
-        snake.move(.Right) // (32.0, 0.0), (16.0, 0.0), (0.0, 0.0)
-        snake.move(.Right) // (48.0, 0.0), (32.0, 0.0), (16.0, 0.0)
+        snake.move(.East) // (16.0, 0.0), (0.0, 0.0), (0.0, -16.0)
+        snake.move(.East) // (32.0, 0.0), (16.0, 0.0), (0.0, 0.0)
+        snake.move(.East) // (48.0, 0.0), (32.0, 0.0), (16.0, 0.0)
         
         // act
-        snake.move(.Down)
+        snake.move(.South)
         
         // assert
-        XCTAssertEqual(snake.body[0].position, CGPointMake(48, -16.0), "position should be (-16.0, 0.0)")
-        XCTAssertEqual(snake.body[1].position, CGPointMake(48.0, 0.0), "position should be (0.0, 0.0)")
-        XCTAssertEqual(snake.body[2].position, CGPointMake(32.0, 0.0), "position should be (0.0, -16.0)")
+        XCTAssertEqual(snake.body[0].position, CGPointMake(48, -16.0), "position should be (48.0, -16.0)")
+        XCTAssertEqual(snake.body[1].position, CGPointMake(48.0, 0.0), "position should be (48.0, 0.0)")
+        XCTAssertEqual(snake.body[2].position, CGPointMake(32.0, 0.0), "position should be (32.0, 0.0)")
+    }
+    
+    func test_moveSouth_blockedByBodyNode() {
+        // assemble
+        var snake = Snake()
+        var zeroPosition = CGPointMake(0.0, 0.0)
+        snake.position(zeroPosition)
+        
+        // act
+        snake.move(.South)
+        
+        // assert
+        XCTAssertEqual(snake.body[0].position, CGPointMake(0.0, 0.0), "position should be (0.0, 0.0)")
+        XCTAssertEqual(snake.body[1].position, CGPointMake(0.0, -16.0), "position should be (0.0, -16.0)")
+        XCTAssertEqual(snake.body[2].position, CGPointMake(0.0, -32.0), "position should be (0.0, -32.0)")
+    }
+    
+    func test_moveNorth_moveWest1xSouth2x_blockedByBodyNode() {
+        // assemble
+        var snake = Snake()
+        var zeroPosition = CGPointMake(0.0, 0.0)
+        snake.position(zeroPosition)
+        
+        snake.move(.West)
+        snake.move(.South)
+        snake.move(.South)
+        
+        var expectedHeadPosition = snake.head.position
+        var expectedMiddlePosition = snake.body[1].position
+        var expectedTailPosition = snake.body[2].position
+        
+        // act
+        snake.move(.North)
+        
+        // assert
+        XCTAssertEqual(snake.head.position, expectedHeadPosition, "position should have stayed the same")
+        XCTAssertEqual(snake.body[1].position, expectedMiddlePosition, "position should have stayed the same")
+        XCTAssertEqual(snake.body[2].position, expectedTailPosition, "position should have stayed the same")
+    }
+    
+    func test_moveEast_moveWest1x_blockedByBodyNode() {
+        // assemble
+        var snake = Snake()
+        var zeroPosition = CGPointMake(0.0, 0.0)
+        snake.position(zeroPosition)
+        
+        snake.move(.West)
+        
+        var expectedHeadPosition = snake.head.position
+        var expectedMiddlePosition = snake.body[1].position
+        var expectedTailPosition = snake.body[2].position
+        
+        // act
+        snake.move(.East)
+        
+        // assert
+        XCTAssertEqual(snake.head.position, expectedHeadPosition, "position should have stayed the same")
+        XCTAssertEqual(snake.body[1].position, expectedMiddlePosition, "position should have stayed the same")
+        XCTAssertEqual(snake.body[2].position, expectedTailPosition, "position should have stayed the same")
+    }
+    
+    
+    func test_moveWest_moveEast1x_blockedByBodyNode() {
+        // assemble
+        var snake = Snake()
+        var zeroPosition = CGPointMake(0.0, 0.0)
+        snake.position(zeroPosition)
+        
+        snake.move(.East)
+        
+        var expectedHeadPosition = snake.head.position
+        var expectedMiddlePosition = snake.body[1].position
+        var expectedTailPosition = snake.body[2].position
+        
+        // act
+        snake.move(.West)
+        
+        // assert
+        XCTAssertEqual(snake.head.position, expectedHeadPosition, "position should have stayed the same")
+        XCTAssertEqual(snake.body[1].position, expectedMiddlePosition, "position should have stayed the same")
+        XCTAssertEqual(snake.body[2].position, expectedTailPosition, "position should have stayed the same")
     }
 }

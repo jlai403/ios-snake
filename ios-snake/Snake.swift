@@ -4,11 +4,7 @@ public class Snake {
     
     let START_BODY_LENGTH = 3
     
-    var body: [SnakeBody] = []
-    
-    var reverseBody: [SnakeBody] {
-        get { return body.reverse() }
-    }
+    var body: [SnakeBodyNode] = []
     
     var length: Int {
         get {
@@ -20,114 +16,118 @@ public class Snake {
         initSnake()
     }
     
+    var head: SnakeBodyNode {
+        get {
+            return self.body.firstOrDefault({ (bodyNode) in bodyNode.isHead() })!
+        }
+    }
+    
+    var tail: SnakeBodyNode {
+        get {
+            return self.body.firstOrDefault({ (bodyNode) in bodyNode.isTail() })!
+        }
+    }
+    
     private func initSnake() {
         for (var i=0; i<START_BODY_LENGTH; i++) {
-            var parentNode: SnakeBody? = i==0 ? nil : body[i-1]
+            var parentNode: SnakeBodyNode? = i==0 ? nil : body[i-1]
             
-            var newNode = SnakeBody.new(parentNode)
+            var newNode = SnakeBodyNode.new(parentNode)
             body.append(newNode)
         }
     }
     
     public func position(position: CGPoint) {
         for bodyNode in body {
-            if (bodyNode.isHead) {
-                bodyNode.updatePosition(position: position)
+            if (bodyNode.isHead()) {
+                bodyNode.position(position: position)
             } else {
-                bodyNode.updatePosition()
+                bodyNode.position()
             }
         }
     }
     
-    public func move(direction: SnakeMovementDirection) {
+    public func move(direction: CardinalDirection) {
+        var destination = getDestinationPoint(direction)
+        
+        if (canMoveTo(destination)) {
+            moveBodyForward()
+            head.position = destination
+        }
+        
+    }
+    
+    private func canMoveTo(destination: CGPoint) -> Bool {
+        return self.head.prevNode!.position != destination
+    }
+    
+    private func getDestinationPoint(direction: CardinalDirection) -> CGPoint {
+        var destinationPoint = head.position
+        
         switch (direction) {
-        case SnakeMovementDirection.Up:
-            moveUp()
-        case SnakeMovementDirection.Down:
-            moveDown()
-        case SnakeMovementDirection.Right:
-            moveRight()
-        case SnakeMovementDirection.Left:
-            moveLeft()
+        case .North:
+            destinationPoint.y += head.frame.height
+        case .South:
+            destinationPoint.y -= head.frame.height
+        case .East:
+            destinationPoint.x += head.frame.width
+        case .West:
+            destinationPoint.x -= head.frame.width
         default:
             fatalError("impossible snake movemment")
         }
+        
+        return destinationPoint
     }
     
-    private func moveUp() {
-        for bodyNode in reverseBody {
-            if (bodyNode.isHead) {
-                bodyNode.position.y += bodyNode.frame.height
-            } else {
-                bodyNode.position = bodyNode.nextNode!.position
-            }
-        }
-    }
-    
-    private func moveDown() {
-        for bodyNode in reverseBody {
-            if (bodyNode.isHead) {
-                bodyNode.position.y -= bodyNode.frame.height
-            } else {
-                bodyNode.position = bodyNode.nextNode!.position
-            }
-        }
-    }
-    
-    private func moveRight() {
-        for bodyNode in reverseBody {
-            if (bodyNode.isHead) {
-                bodyNode.position.x += bodyNode.frame.width
-            } else {
-                bodyNode.position = bodyNode.nextNode!.position
-            }
-        }
-    }
-    
-    private func moveLeft() {
-        for bodyNode in reverseBody {
-            if (bodyNode.isHead) {
-                bodyNode.position.x -= bodyNode.frame.width
-            } else {
-                bodyNode.position = bodyNode.nextNode!.position
-            }
+    private func moveBodyForward() {
+        var traverseNode:SnakeBodyNode? = tail
+        
+        while (traverseNode != nil) {
+            traverseNode!.moveForward()
+            traverseNode = traverseNode?.nextNode
         }
     }
 }
 
-public class SnakeBody: SKShapeNode {
+public class SnakeBodyNode: SKShapeNode {
     
     private static let BODY_SIZE: CGSize = CGSizeMake(15.0, 15.0)
     
-    var nextNode: SnakeBody?
-    var prevNode: SnakeBody?
+    var nextNode: SnakeBodyNode?
+    var prevNode: SnakeBodyNode?
     
-    var isHead: Bool {
-        get { return nextNode == nil }
-    }
-    
-    var isTail: Bool {
-        get { return prevNode == nil }
-    }
-    
-    
-    class func new(parent: SnakeBody?) -> SnakeBody {
-        var bodyPart = SnakeBody(rectOfSize: BODY_SIZE)
+    class func new(parent: SnakeBodyNode?) -> SnakeBodyNode {
+        var bodyPart = SnakeBodyNode(rectOfSize: BODY_SIZE)
         bodyPart.update(parent)
         return bodyPart
     }
     
-    public func update(parent: SnakeBody?) {
+    public func update(parent: SnakeBodyNode?) {
         parent?.prevNode = self
         self.nextNode = parent
     }
     
-    public func updatePosition(position: CGPoint? = nil) {
+    public func position(position: CGPoint? = nil) {
         if let newPosition = position {
             self.position = newPosition
         } else {
             self.position = nextNode!.position
             self.position.y -= nextNode!.frame.size.height
         }
+    }
+    
+    public func moveForward() {
+        if let nextNode = self.nextNode {
+            self.position = nextNode.position
+        }
+    }
+    
+    public func isHead() -> Bool {
+        return nextNode == nil
+    }
+   
+    public func isTail() -> Bool {
+        return prevNode == nil
     }
 }

@@ -3,6 +3,17 @@
    version = "1.0">
    <ContextStates>
       <ContextState
+         contextName = "ios_snake.GameScene.(renderSnake in _9E7B8915311B94F625DF3AD27E2C9684) (ios_snake.GameScene)() -&gt; ():GameScene.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "snakeTests.Snake.(moveNorth in _B06FD6F758A08C83451176BBDD1310EC) (snakeTests.Snake)() -&gt; ():Snake.swift">
+      </ContextState>
+      <ContextState
          contextName = "ios_snake.Snake.(moveUp in _426132F8F95AE8998C2462B891EE9939) (ios_snake.Snake)() -&gt; ():SnakeNode.swift">
          <PersistentStrings>
             <PersistentString
@@ -19,14 +30,6 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "ios_snake.GameScene.(renderSnake in _9E7B8915311B94F625DF3AD27E2C9684) (ios_snake.GameScene)() -&gt; ():GameScene.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "self">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
          contextName = "ios_snake.GameScene.updateDirection (ios_snake.GameScene)(ios_snake.SnakeMovementDirection) -&gt; ():GameScene.swift">
       </ContextState>
       <ContextState
@@ -37,6 +40,14 @@
             </PersistentString>
             <PersistentString
                value = "self.body[0].position">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "snakeTests.SnakeBodyNode.moveForward (snakeTests.SnakeBodyNode)() -&gt; ():Snake.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "nextNode!.position">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
