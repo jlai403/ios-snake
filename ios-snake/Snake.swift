@@ -74,7 +74,7 @@ public class Snake {
         case .West:
             destinationPoint.x -= head.frame.width
         default:
-            fatalError("impossible snake movemment")
+            fatalError("invalid cardinal direction")
         }
         
         return destinationPoint
@@ -92,7 +92,7 @@ public class Snake {
 
 public class SnakeBodyNode: SKShapeNode {
     
-    private static let BODY_SIZE: CGSize = CGSizeMake(15.0, 15.0)
+    public static let BODY_SIZE: CGSize = CGSizeMake(9.0, 9.0)
     
     var nextNode: SnakeBodyNode?
     var prevNode: SnakeBodyNode?
@@ -107,7 +107,7 @@ public class SnakeBodyNode: SKShapeNode {
         parent?.prevNode = self
         self.nextNode = parent
         
-        //TODO: bug? - fillColor doubles the number of nodes created
+        
         self.fillColor = Colors.lightBlue
         self.strokeColor = Colors.whiteColor()
     }

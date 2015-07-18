@@ -7,7 +7,7 @@ class GameController: UIViewController {
     var gameScene: GameScene?
     
     override func viewDidLoad() {
-        self.gameScene = GameScene(size: self.gameView.frame.size)
+        self.gameScene = GameScene()
         
         if (ConfigConstants.DEBUG) {
             self.gameView.showsFPS = true
