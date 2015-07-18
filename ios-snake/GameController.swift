@@ -4,10 +4,10 @@ import SpriteKit
 class GameController: UIViewController {
 
     @IBOutlet var gameView: SKView!
-    var gameScene: GameScene?
+    var gameGrid: GameGridScene?
     
     override func viewDidLoad() {
-        self.gameScene = GameScene()
+        self.gameGrid = GameGridScene()
         
         if (ConfigConstants.DEBUG) {
             self.gameView.showsFPS = true
@@ -16,12 +16,12 @@ class GameController: UIViewController {
     }
     
     override func viewDidAppear(animated: Bool) {
-        self.gameView.presentScene(self.gameScene)
+        self.gameView.presentScene(self.gameGrid)
     }
     
     @IBAction func changeDirections(sender: UISwipeGestureRecognizer) {
         var direction = getCardinalDirection(sender.direction)
-        gameScene!.updateDirection(direction)
+        gameGrid!.updateDirection(direction)
     }
     
     private func getCardinalDirection(swipeDirection: UISwipeGestureRecognizerDirection) -> CardinalDirection {

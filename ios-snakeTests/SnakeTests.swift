@@ -2,7 +2,7 @@ import snake
 import UIKit
 import XCTest
 
-class ios_snakeTests: XCTestCase {
+class SnakeTests: XCTestCase {
     
     override func setUp() {
         super.setUp()

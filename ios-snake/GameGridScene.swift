@@ -1,25 +1,23 @@
 import SpriteKit
 
-class GameScene: SKScene {
+class GameGridScene: SKScene {
     
     private var player: Snake
-    private var moveDirection: CardinalDirection = .North
-    
+    private var cardinalDirection: CardinalDirection = .North
     
     override init() {
         self.player = Snake()
-        var size = CGSizeMake(100, 100)
-        super.init(size: size)
-        setupEnvironment()
+        super.init(size: UIScreen.mainScreen().bounds.size)
+        styleGrid()
     }
 
     required init?(coder aDecoder: NSCoder) {
         self.player = Snake()
         super.init(coder: aDecoder)
-        setupEnvironment()
+        styleGrid()
     }
 
-    private func setupEnvironment() {
+    private func styleGrid() {
         self.backgroundColor = Colors.whiteColor()
     }
     
@@ -42,7 +40,7 @@ class GameScene: SKScene {
         if (!canUpdateDirection(direction)) {
             return
         }
-        self.moveDirection = direction
+        self.cardinalDirection = direction
         // TODO: moving player should be done by timer
         movePlayerOne()
     }
@@ -50,20 +48,20 @@ class GameScene: SKScene {
     private func canUpdateDirection(updatedDirection: CardinalDirection) -> Bool {
         switch (updatedDirection) {
         case .North:
-            return self.moveDirection != CardinalDirection.South
+            return self.cardinalDirection != CardinalDirection.South
         case .South:
-            return self.moveDirection != CardinalDirection.North
+            return self.cardinalDirection != CardinalDirection.North
         case .East:
-            return self.moveDirection != CardinalDirection.West
+            return self.cardinalDirection != CardinalDirection.West
         case .West:
-            return self.moveDirection != CardinalDirection.East
+            return self.cardinalDirection != CardinalDirection.East
         default:
             fatalError("invalid cardinal direction")
         }
     }
     
     private func movePlayerOne() {
-        self.player.move(self.moveDirection)
+        self.player.move(self.cardinalDirection)
     }
     
     // MARK: Food
