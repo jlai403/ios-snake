@@ -54,5 +54,13 @@
       <ContextState
          contextName = "ios_snake.GameController.viewDidLoad (ios_snake.GameController)() -&gt; ():GameEnvironmentController.swift">
       </ContextState>
+      <ContextState
+         contextName = "snake.GameGridScene.init (snake.GameGridScene.Type)(viewSize : C.CGSize) -&gt; snake.GameGridScene:GameGridScene.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "UIScreen.mainApplication()">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
    </ContextStates>
 </VariablesViewState>

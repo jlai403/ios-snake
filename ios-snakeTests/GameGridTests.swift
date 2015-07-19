@@ -14,9 +14,9 @@ class GameGridTests: XCTestCase {
         var grid = GridGenerator.createGrid(viewSize: viewSize, rows: rows, columns: columns)
         
         // assert
-        XCTAssertEqual(300, grid.width, "wrong grid width")
-        XCTAssertEqual(300, grid.height, "wrong grid height")
-        XCTAssertEqual(CGSize(width: 30.0, height: 30.0), grid.tileSize, "wrong tile size floor(325/10)")
+        XCTAssertEqual(350, grid.width, "wrong grid width")
+        XCTAssertEqual(350, grid.height, "wrong grid height")
+        XCTAssertEqual(CGSize(width: 35.0, height: 35.0), grid.tileSize, "wrong tile size floor(325/10)")
         XCTAssertEqual(10, grid.tiles.count, "wrong row count")
         XCTAssertEqual(10, grid.tiles[0].count, "wrong column count for row 1")
         XCTAssertEqual(10, grid.tiles[1].count, "wrong column count for row 2")
@@ -40,9 +40,9 @@ class GameGridTests: XCTestCase {
         var grid = GridGenerator.createGrid(viewSize: viewSize, rows: rows, columns: columns)
         
         // assert
-        XCTAssertEqual(300, grid.width, "wrong grid width")
-        XCTAssertEqual(600, grid.height, "wrong grid height")
-        XCTAssertEqual(CGSize(width: 30.0, height: 30.0), grid.tileSize, "wrong tile size floor(325/10)")
+        XCTAssertEqual(350, grid.width, "wrong grid width")
+        XCTAssertEqual(700, grid.height, "wrong grid height")
+        XCTAssertEqual(CGSize(width: 35.0, height: 35.0), grid.tileSize, "wrong tile size")
         XCTAssertEqual(20, grid.tiles.count, "wrong row count")
         XCTAssertEqual(10, grid.tiles[0].count, "wrong column count for row 1")
         XCTAssertEqual(10, grid.tiles[1].count, "wrong column count for row 2")
@@ -76,9 +76,9 @@ class GameGridTests: XCTestCase {
         var grid = GridGenerator.createGrid(viewSize: viewSize, rows: rows, columns: columns)
         
         // assert
-        XCTAssertEqual(250, grid.width, "wrong grid width")
-        XCTAssertEqual(500, grid.height, "wrong grid height")
-        XCTAssertEqual(CGSize(width: 25.0, height: 25.0), grid.tileSize, "wrong tile size floor(270/10)")
+        XCTAssertEqual(300, grid.width, "wrong grid width")
+        XCTAssertEqual(600, grid.height, "wrong grid height")
+        XCTAssertEqual(CGSize(width: 30.0, height: 30.0), grid.tileSize, "wrong tile size")
         XCTAssertEqual(20, grid.tiles.count, "wrong row count")
         XCTAssertEqual(10, grid.tiles[0].count, "wrong column count for row 1")
         XCTAssertEqual(10, grid.tiles[1].count, "wrong column count for row 2")
@@ -112,9 +112,9 @@ class GameGridTests: XCTestCase {
         var grid = GridGenerator.createGrid(viewSize: viewSize, rows: rows, columns: columns)
         
         // assert
-        XCTAssertEqual(610, grid.width, "wrong grid width")
-        XCTAssertEqual(1220, grid.height, "wrong grid height")
-        XCTAssertEqual(CGSize(width: 61.0, height: 61.0), grid.tileSize, "wrong tile size floor(270/10)")
+        XCTAssertEqual(740, grid.width, "wrong grid width")
+        XCTAssertEqual(1480, grid.height, "wrong grid height")
+        XCTAssertEqual(CGSize(width: 74.0, height: 74.0), grid.tileSize, "wrong tile size floor")
         XCTAssertEqual(20, grid.tiles.count, "wrong row count")
         XCTAssertEqual(10, grid.tiles[0].count, "wrong column count for row 1")
         XCTAssertEqual(10, grid.tiles[1].count, "wrong column count for row 2")

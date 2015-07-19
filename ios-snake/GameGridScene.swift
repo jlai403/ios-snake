@@ -4,21 +4,21 @@ class GameGridScene: SKScene {
     
     private var player: Snake
     private var cardinalDirection: CardinalDirection = .North
+    private var grid: Grid
     
-    override init() {
+    init(grid: Grid) {
         self.player = Snake()
-        super.init(size: UIScreen.mainScreen().bounds.size)
+        self.grid = grid
+        super.init(size: grid.size)
         styleGrid()
     }
 
     required init?(coder aDecoder: NSCoder) {
-        self.player = Snake()
-        super.init(coder: aDecoder)
-        styleGrid()
+        fatalError("Not implemented")
     }
 
     private func styleGrid() {
-        self.backgroundColor = Colors.whiteColor()
+        self.backgroundColor = Colors.colorFor(0xFEFEFE)
     }
     
     override func didMoveToView(view: SKView) {

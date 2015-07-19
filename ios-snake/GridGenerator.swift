@@ -1,12 +1,12 @@
 import UIKit
 
-class GridGenerator {
-    
-    private static let widthMarginsPercent: CGFloat = 0.1
+public class GridGenerator {
+
+    public static let MARGIN: CGFloat = 10.0
     
     class func createGrid(#viewSize: CGSize, rows: Int, columns: Int) -> Grid {
         
-        var gridWidth = viewSize.width * (1.0 - 2 * widthMarginsPercent)
+        var gridWidth = viewSize.width - (2 * MARGIN )
         var tileLength = floor(gridWidth / CGFloat(columns))
         var tileSize = CGSizeMake(tileLength, tileLength)
         
@@ -14,7 +14,7 @@ class GridGenerator {
     }
 }
 
-class Grid {
+public class Grid {
 
     var tileSize: CGSize
     var rows: Int
@@ -28,6 +28,11 @@ class Grid {
         get { return self.tileSize.height * CGFloat(self.rows) }
     }
 
+    var size: CGSize {
+        get { return CGSizeMake(self.width, self.height) }
+    }
+    
+    
     var tiles: [[TileType]]
     
     init(tileSize: CGSize, rows: Int, columns: Int) {
@@ -41,7 +46,7 @@ class Grid {
     }
 }
 
-enum TileType: Int {
+public enum TileType: Int {
     case Empty = 0
     case Snake = 1
     case Food = 2

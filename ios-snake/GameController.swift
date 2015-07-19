@@ -3,20 +3,30 @@ import SpriteKit
 
 class GameController: UIViewController {
 
-    @IBOutlet var gameView: SKView!
+    @IBOutlet var gameGridView: SKView!
     var gameGrid: GameGridScene?
     
     override func viewDidLoad() {
-        self.gameGrid = GameGridScene()
-        
         if (ConfigConstants.DEBUG) {
-            self.gameView.showsFPS = true
-            self.gameView.showsNodeCount = true
+            self.gameGridView.showsFPS = true
+            self.gameGridView.showsNodeCount = true
         }
     }
     
+    override func viewDidLayoutSubviews() {
+        var grid = GridGenerator.createGrid(viewSize: gameGridView.frame.size, rows: ConfigConstants.GAME_GRID_ROWS, columns: ConfigConstants.GAME_GRID_COLS)
+       
+        self.gameGrid = GameGridScene(grid: grid)
+        
+        self.gameGridView.frame.size = grid.size
+        self.gameGridView.center = self.view.center
+        self.gameGridView.layer.borderColor = Colors.colorFor(0x888888).CGColor
+        self.gameGridView.layer.borderWidth = 1.0
+    }
+    
+
     override func viewDidAppear(animated: Bool) {
-        self.gameView.presentScene(self.gameGrid)
+        self.gameGridView.presentScene(self.gameGrid)
     }
     
     @IBAction func changeDirections(sender: UISwipeGestureRecognizer) {
