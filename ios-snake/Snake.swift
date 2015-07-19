@@ -4,7 +4,7 @@ public class Snake {
     
     let START_BODY_LENGTH = 3
     
-    var body: [SnakeBodyNode] = []
+    var body: [SnakeTileNode] = []
     
     var length: Int {
         get {
@@ -12,126 +12,71 @@ public class Snake {
         }
     }
     
-    public init() {
-        initSnake()
+    public init(initPosition: GridPosition) {
+        
+        var position = initPosition
+        
+        for (var i=0; i<START_BODY_LENGTH; i++) {
+            var parentNode: SnakeTileNode? = i==0 ? nil : body[i-1]
+            var newNode = SnakeTileNode.new(parentNode, gridPosition: position)
+            body.append(newNode)
+
+            position.y -= 1
+        }
     }
     
-    var head: SnakeBodyNode {
+    var head: SnakeTileNode {
         get {
             return self.body.firstOrDefault({ (bodyNode) in bodyNode.isHead() })!
         }
     }
     
-    var tail: SnakeBodyNode {
+    var tail: SnakeTileNode {
         get {
             return self.body.firstOrDefault({ (bodyNode) in bodyNode.isTail() })!
         }
     }
-    
-    private func initSnake() {
-        for (var i=0; i<START_BODY_LENGTH; i++) {
-            var parentNode: SnakeBodyNode? = i==0 ? nil : body[i-1]
-            
-            var newNode = SnakeBodyNode.new(parentNode)
-            body.append(newNode)
-        }
-    }
-    
-    public func position(position: CGPoint) {
-        for bodyNode in body {
-            if (bodyNode.isHead()) {
-                bodyNode.position(position: position)
-            } else {
-                bodyNode.position()
-            }
-        }
-    }
-    
+   
     public func move(direction: CardinalDirection) {
-        var destination = getDestinationPoint(direction)
+        var destination = getDestinationGridPosition(direction)
         
         if (canMoveTo(destination)) {
             moveBodyForward()
-            head.position = destination
+            head.setPosition(destination)
         }
         
     }
     
-    private func canMoveTo(destination: CGPoint) -> Bool {
-        return self.head.prevNode!.position != destination
+    private func canMoveTo(destination: GridPosition) -> Bool {
+        var debug = self.head.prevNode!
+        return self.head.prevNode!.gridPosition!.position != destination.position
     }
     
-    private func getDestinationPoint(direction: CardinalDirection) -> CGPoint {
-        var destinationPoint = head.position
+    private func getDestinationGridPosition(direction: CardinalDirection) -> GridPosition {
+        var destinationGridPosition = head.gridPosition!
         
         switch (direction) {
         case .North:
-            destinationPoint.y += head.frame.height
+            destinationGridPosition.y += 1
         case .South:
-            destinationPoint.y -= head.frame.height
+            destinationGridPosition.y -= 1
         case .East:
-            destinationPoint.x += head.frame.width
+            destinationGridPosition.x += 1
         case .West:
-            destinationPoint.x -= head.frame.width
+            destinationGridPosition.x -= 1
         default:
             fatalError("invalid cardinal direction")
         }
         
-        return destinationPoint
+        return destinationGridPosition
     }
     
     private func moveBodyForward() {
-        var traverseNode:SnakeBodyNode? = tail
+        var traverseNode:SnakeTileNode? = tail
         
         while (traverseNode != nil) {
             traverseNode!.moveForward()
             traverseNode = traverseNode?.nextNode
         }
-    }
-}
-
-public class SnakeBodyNode: SKShapeNode {
-    
-    public static let BODY_SIZE: CGSize = CGSizeMake(9.0, 9.0)
-    
-    var nextNode: SnakeBodyNode?
-    var prevNode: SnakeBodyNode?
-    
-    class func new(parent: SnakeBodyNode?) -> SnakeBodyNode {
-        var bodyPart = SnakeBodyNode(rectOfSize: BODY_SIZE)
-        bodyPart.update(parent)
-        return bodyPart
-    }
-    
-    public func update(parent: SnakeBodyNode?) {
-        parent?.prevNode = self
-        self.nextNode = parent
-        
-        
-        self.fillColor = Colors.lightBlue
-        self.strokeColor = Colors.whiteColor()
-    }
-    
-    public func position(position: CGPoint? = nil) {
-        if let newPosition = position {
-            self.position = newPosition
-        } else {
-            self.position = nextNode!.position
-            self.position.y -= nextNode!.frame.size.height
-        }
-    }
-    
-    public func moveForward() {
-        if let nextNode = self.nextNode {
-            self.position = nextNode.position
-        }
-    }
-    
-    public func isHead() -> Bool {
-        return nextNode == nil
-    }
-   
-    public func isTail() -> Bool {
-        return prevNode == nil
     }
 }

@@ -7,8 +7,8 @@ class GameGridScene: SKScene {
     private var grid: Grid
     
     init(grid: Grid) {
-        self.player = Snake()
         self.grid = grid
+        self.player = Snake(initPosition: grid.center())
         super.init(size: grid.size)
         styleGrid()
     }
@@ -22,15 +22,12 @@ class GameGridScene: SKScene {
     }
     
     override func didMoveToView(view: SKView) {
-        positionPlayer()
+        presentPlayer()
     }
     
     // MARK: Player
     
-    private func positionPlayer() {
-        var midPoint = CGPointMake(self.frame.midX, self.frame.midY)
-        player.position(midPoint)
-        
+    private func presentPlayer() {
         for snakeNode in player.body {
             self.addChild(snakeNode)
         }
