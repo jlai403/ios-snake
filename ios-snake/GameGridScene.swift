@@ -28,8 +28,8 @@ class GameGridScene: SKScene {
     // MARK: Player
     
     private func presentPlayer() {
-        for snakeNode in player.body {
-            self.addChild(snakeNode)
+        for snakeCell in player.cells {
+            self.addChild(snakeCell)
         }
     }
     

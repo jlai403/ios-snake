@@ -2,7 +2,7 @@ import UIKit
 
 public class GridGenerator {
 
-    public static let MARGIN: CGFloat = 10.0
+    public static let MARGIN: CGFloat = 1.0
     
     class func createGrid(#viewSize: CGSize, rows: Int, columns: Int) -> Grid {
         

@@ -21,7 +21,7 @@ class GameController: UIViewController {
         self.gameGridView.frame.size = grid.size
         self.gameGridView.center = self.view.center
         self.gameGridView.layer.borderColor = Colors.colorFor(0x888888).CGColor
-        self.gameGridView.layer.borderWidth = 1.0
+        self.gameGridView.layer.borderWidth = 3.0
     }
     
 

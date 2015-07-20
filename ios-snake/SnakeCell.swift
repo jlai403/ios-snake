@@ -1,25 +1,25 @@
 import SpriteKit
 
-public class SnakeTile: SKShapeNode {
+public class SnakeCell: SKShapeNode {
     
     var cell: Cell?
     
-    var successor: SnakeTile?
-    var predecessor: SnakeTile?
+    var successor: SnakeCell?
+    var predecessor: SnakeCell?
     
-    class func new(successor: SnakeTile?, cell: Cell) -> SnakeTile {
-        var snakeTile = SnakeTile(rect: CGRect(origin: CGPointZero, size: cell.size))
+    class func new(successor: SnakeCell?, cell: Cell) -> SnakeCell {
+        var snakeTile = SnakeCell(rect: CGRect(origin: CGPointZero, size: cell.size))
         snakeTile.update(successor, cell: cell)
         return snakeTile
     }
     
-    public func update(parent: SnakeTile?, cell: Cell) {
+    public func update(parent: SnakeCell?, cell: Cell) {
         self.setParent(parent)
         self.setPosition(cell)
         self.style()
     }
     
-    private func setParent(parent: SnakeTile?) {
+    private func setParent(parent: SnakeCell?) {
         parent?.predecessor = self
         self.successor = parent
     }
@@ -30,6 +30,7 @@ public class SnakeTile: SKShapeNode {
     }
     
     private func style() {
+        self.lineWidth = 3.0
         self.fillColor = Colors.lightBlue
         self.strokeColor = Colors.whiteColor()
     }

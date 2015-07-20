@@ -4,11 +4,11 @@ public class Snake {
     
     let START_BODY_LENGTH = 3
     
-    var body: [SnakeTile] = []
+    var cells: [SnakeCell] = []
     
     var length: Int {
         get {
-            return self.body.count
+            return self.cells.count
         }
     }
     
@@ -16,23 +16,23 @@ public class Snake {
         var cell = cell
         
         for (var i=0; i<START_BODY_LENGTH; i++) {
-            var successor: SnakeTile? = i==0 ? nil : body[i-1]
-            var predecessor = SnakeTile.new(successor, cell: cell)
-            body.append(predecessor)
+            var successor: SnakeCell? = i==0 ? nil : cells[i-1]
+            var predecessor = SnakeCell.new(successor, cell: cell)
+            cells.append(predecessor)
 
             cell.y -= 1
         }
     }
     
-    var head: SnakeTile {
+    var head: SnakeCell {
         get {
-            return self.body.firstOrDefault({ (bodyNode) in bodyNode.isHead() })!
+            return self.cells.firstOrDefault({ (bodyNode) in bodyNode.isHead() })!
         }
     }
     
-    var tail: SnakeTile {
+    var tail: SnakeCell {
         get {
-            return self.body.firstOrDefault({ (bodyNode) in bodyNode.isTail() })!
+            return self.cells.firstOrDefault({ (bodyNode) in bodyNode.isTail() })!
         }
     }
    
@@ -51,30 +51,30 @@ public class Snake {
     }
     
     private func getDestinationCell(direction: CardinalDirection) -> Cell {
-        var destinationGridElement = head.cell!
+        var destinationCell = head.cell!
         
         switch (direction) {
         case .North:
-            destinationGridElement.y += 1
+            destinationCell.y += 1
         case .South:
-            destinationGridElement.y -= 1
+            destinationCell.y -= 1
         case .East:
-            destinationGridElement.x += 1
+            destinationCell.x += 1
         case .West:
-            destinationGridElement.x -= 1
+            destinationCell.x -= 1
         default:
             fatalError("invalid cardinal direction")
         }
         
-        return destinationGridElement
+        return destinationCell
     }
     
     private func moveBodyForward() {
-        var traverse:SnakeTile? = tail
+        var snakeCell:SnakeCell? = tail
         
-        while (traverse != nil) {
-            traverse!.moveForward()
-            traverse = traverse?.successor
+        while (snakeCell != nil) {
+            snakeCell!.moveForward()
+            snakeCell = snakeCell?.successor
         }
     }
 }
