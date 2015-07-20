@@ -30,7 +30,7 @@ public class SnakeCell: SKShapeNode {
     }
     
     private func style() {
-        self.lineWidth = 3.0
+        self.lineWidth = 2.5
         self.fillColor = Colors.lightBlue
         self.strokeColor = Colors.whiteColor()
     }
