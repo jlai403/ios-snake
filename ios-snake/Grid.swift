@@ -30,12 +30,12 @@ public struct Grid {
     }
     
     public func center() -> GridPosition {
-        var x = Int(ceil(Double(self.columns / 2)))
-        var y = Int(ceil(Double(self.rows / 2)))
-        return GridPosition(grid: self, x: x, y: y)
+        var x = Int(floor(Double(self.columns) / 2))
+        var y = Int(floor(Double(self.rows) / 2))
+        return GridPosition(size: tileSize, x: x, y: y)
     }
     
-    public func position(x: Int, y: Int) -> GridPosition {
-        return GridPosition(grid: self, x: x, y: y)
+    public func position(#x: Int, y: Int) -> GridPosition {
+        return GridPosition(size: tileSize, x: x, y: y)
     }
 }

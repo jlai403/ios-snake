@@ -4,7 +4,7 @@ public class Snake {
     
     let START_BODY_LENGTH = 3
     
-    var body: [SnakeTileNode] = []
+    var body: [SnakeTile] = []
     
     var length: Int {
         get {
@@ -17,21 +17,21 @@ public class Snake {
         var position = initPosition
         
         for (var i=0; i<START_BODY_LENGTH; i++) {
-            var parentNode: SnakeTileNode? = i==0 ? nil : body[i-1]
-            var newNode = SnakeTileNode.new(parentNode, gridPosition: position)
-            body.append(newNode)
+            var successor: SnakeTile? = i==0 ? nil : body[i-1]
+            var predecessor = SnakeTile.new(successor, gridPosition: position)
+            body.append(predecessor)
 
             position.y -= 1
         }
     }
     
-    var head: SnakeTileNode {
+    var head: SnakeTile {
         get {
             return self.body.firstOrDefault({ (bodyNode) in bodyNode.isHead() })!
         }
     }
     
-    var tail: SnakeTileNode {
+    var tail: SnakeTile {
         get {
             return self.body.firstOrDefault({ (bodyNode) in bodyNode.isTail() })!
         }
@@ -48,8 +48,7 @@ public class Snake {
     }
     
     private func canMoveTo(destination: GridPosition) -> Bool {
-        var debug = self.head.prevNode!
-        return self.head.prevNode!.gridPosition!.position != destination.position
+        return self.head.predecessor!.gridPosition!.position != destination.position
     }
     
     private func getDestinationGridPosition(direction: CardinalDirection) -> GridPosition {
@@ -72,11 +71,11 @@ public class Snake {
     }
     
     private func moveBodyForward() {
-        var traverseNode:SnakeTileNode? = tail
+        var traverse:SnakeTile? = tail
         
-        while (traverseNode != nil) {
-            traverseNode!.moveForward()
-            traverseNode = traverseNode?.nextNode
+        while (traverse != nil) {
+            traverse!.moveForward()
+            traverse = traverse?.successor
         }
     }
 }

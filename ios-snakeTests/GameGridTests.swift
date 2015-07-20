@@ -30,7 +30,7 @@ class GameGridTests: XCTestCase {
         XCTAssertEqual(10, grid.tiles[9].count, "wrong column count for row 10")
     }
     
-    func test_20x10Grid_375x667ViewSize() {
+    func test_10x20Grid_375x667ViewSize() {
         // assemble
         let viewSize = CGSizeMake(375.0, 667.0)
         let rows = 20
@@ -66,7 +66,7 @@ class GameGridTests: XCTestCase {
         XCTAssertEqual(10, grid.tiles[19].count, "wrong column count for row 20")
     }
     
-    func test_20x10Grid_320x568ViewSize() {
+    func test_10x20Grid_320x568ViewSize() {
         // assemble
         let viewSize = CGSizeMake(320.0, 568.0)
         let rows = 20
@@ -102,7 +102,7 @@ class GameGridTests: XCTestCase {
         XCTAssertEqual(10, grid.tiles[19].count, "wrong column count for row 20")
     }
     
-    func test_20x10Grid_768x1068ViewSize() {
+    func test_10x20Grid_768x1068ViewSize() {
         // assemble
         let viewSize = CGSizeMake(768.0, 1024.0)
         let rows = 20
@@ -137,4 +137,61 @@ class GameGridTests: XCTestCase {
         XCTAssertEqual(10, grid.tiles[18].count, "wrong column count for row 19")
         XCTAssertEqual(10, grid.tiles[19].count, "wrong column count for row 20")
     }
+    
+    func test_15x25Grid_375x667ViewSize_centerCoordinates() {
+        // assemble
+        let viewSize = CGSizeMake(375.0, 667.0)
+        let rows = 25
+        let columns = 15
+        
+        var grid = GridGenerator.createGrid(viewSize: viewSize, rows: rows, columns: columns)
+        
+        // act
+        var center = grid.center()
+        
+        // assert
+        XCTAssertEqual(7, center.x, "wrong center x")
+        XCTAssertEqual(12, center.y, "wrong center y")
+        XCTAssertEqual(CGPointMake(161, 276), center.position, "wrong center position")
+        
+    }
+    
+    func test_15x25Grid_375x667ViewSize_zeroCoordinates() {
+        // assemble
+        let viewSize = CGSizeMake(375.0, 667.0)
+        let rows = 25
+        let columns = 15
+        
+        var grid = GridGenerator.createGrid(viewSize: viewSize, rows: rows, columns: columns)
+        
+        // act
+        var zeroPosition = grid.position(x: 0, y: 0)
+            
+        // assert
+        XCTAssertEqual(0, zeroPosition.x, "wrong center x")
+        XCTAssertEqual(0, zeroPosition.y, "wrong center y")
+        XCTAssertEqual(CGPointZero, zeroPosition.position, "should be 0,0")
+        
+    }
+    
+    func test_15x25Grid_375x667ViewSize_1x1Position() {
+        // assemble
+        let viewSize = CGSizeMake(375.0, 667.0)
+        let rows = 25
+        let columns = 15
+        
+        var grid = GridGenerator.createGrid(viewSize: viewSize, rows: rows, columns: columns)
+        
+        // act
+        var gridPosition = grid.position(x: 1, y: 1)
+        
+        // assert
+        XCTAssertEqual(1, gridPosition.x, "wrong center x")
+        XCTAssertEqual(1, gridPosition.y, "wrong center y")
+        XCTAssertEqual(CGPointMake(23, 23), gridPosition.position, "should be 23,23")
+        
+    }
 }
+
+
+
