@@ -6,10 +6,10 @@ public class GridGenerator {
     
     class func createGrid(#viewSize: CGSize, rows: Int, columns: Int) -> Grid {
         
-        var gridWidth = viewSize.width - (2 * MARGIN )
-        var tileLength = floor(gridWidth / CGFloat(columns))
-        var tileSize = CGSizeMake(tileLength, tileLength)
+        var width = viewSize.width - (2 * MARGIN )
+        var cellLength = floor(width / CGFloat(columns))
+        var cellSize = CGSizeMake(cellLength, cellLength)
         
-        return Grid(tileSize: tileSize, rows: rows, columns: columns)
+        return Grid(cellSize: cellSize, rows: rows, columns: columns)
     }
 }

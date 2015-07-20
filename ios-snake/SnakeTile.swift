@@ -2,19 +2,20 @@ import SpriteKit
 
 public class SnakeTile: SKShapeNode {
     
-    var gridPosition: GridPosition?
+    var cell: Cell?
+    
     var successor: SnakeTile?
     var predecessor: SnakeTile?
     
-    class func new(successor: SnakeTile?, gridPosition: GridPosition) -> SnakeTile {
-        var snakeTile = SnakeTile(rect: CGRect(origin: CGPointZero, size: gridPosition.size))
-        snakeTile.update(successor, gridPosition: gridPosition)
+    class func new(successor: SnakeTile?, cell: Cell) -> SnakeTile {
+        var snakeTile = SnakeTile(rect: CGRect(origin: CGPointZero, size: cell.size))
+        snakeTile.update(successor, cell: cell)
         return snakeTile
     }
     
-    public func update(parent: SnakeTile?, gridPosition: GridPosition) {
+    public func update(parent: SnakeTile?, cell: Cell) {
         self.setParent(parent)
-        self.setPosition(gridPosition)
+        self.setPosition(cell)
         self.style()
     }
     
@@ -23,9 +24,9 @@ public class SnakeTile: SKShapeNode {
         self.successor = parent
     }
     
-    public func setPosition(gridPosition: GridPosition) {
-        self.gridPosition = gridPosition
-        self.position = gridPosition.position
+    public func setPosition(cell: Cell) {
+        self.cell = cell
+        self.position = cell.position
     }
     
     private func style() {
@@ -35,7 +36,7 @@ public class SnakeTile: SKShapeNode {
     
     public func moveForward() {
         if let nextNode = self.successor {
-            self.setPosition(nextNode.gridPosition!)
+            self.setPosition(nextNode.cell!)
         }
     }
     

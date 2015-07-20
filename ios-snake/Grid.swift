@@ -2,40 +2,41 @@ import UIKit
 
 public struct Grid {
     
-    var tileSize: CGSize
+    var cellSize: CGSize
     var rows: Int
     var columns: Int
-    var tiles: [[TileType]]
+    
+    var cells: [[CellType]]
     
     var width: CGFloat {
-        get { return self.tileSize.width * CGFloat(self.columns) }
+        get { return self.cellSize.width * CGFloat(self.columns) }
     }
     
     var height: CGFloat {
-        get { return self.tileSize.height * CGFloat(self.rows) }
+        get { return self.cellSize.height * CGFloat(self.rows) }
     }
     
     var size: CGSize {
         get { return CGSizeMake(self.width, self.height) }
     }
     
-    init(tileSize: CGSize, rows: Int, columns: Int) {
-        self.tileSize = tileSize
+    init(cellSize: CGSize, rows: Int, columns: Int) {
+        self.cellSize = cellSize
         self.rows = rows
         self.columns = columns
         
-        var columns = Array(count: self.columns, repeatedValue: TileType.Empty)
+        var columns = Array(count: self.columns, repeatedValue: CellType.Empty)
         var matrix = Array(count: self.rows, repeatedValue: columns)
-        self.tiles = matrix
+        self.cells = matrix
     }
     
-    public func center() -> GridPosition {
+    public func center() -> Cell {
         var x = Int(floor(Double(self.columns) / 2))
         var y = Int(floor(Double(self.rows) / 2))
-        return GridPosition(size: tileSize, x: x, y: y)
+        return Cell(size: cellSize, x: x, y: y)
     }
     
-    public func position(#x: Int, y: Int) -> GridPosition {
-        return GridPosition(size: tileSize, x: x, y: y)
+    public func position(#x: Int, y: Int) -> Cell {
+        return Cell(size: cellSize, x: x, y: y)
     }
 }

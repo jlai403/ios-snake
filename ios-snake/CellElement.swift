@@ -1,6 +1,6 @@
 import UIKit
 
-public struct GridPosition {
+public struct Cell {
     var size: CGSize
     var x: Int
     var y: Int

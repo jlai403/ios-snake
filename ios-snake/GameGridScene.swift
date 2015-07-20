@@ -8,7 +8,7 @@ class GameGridScene: SKScene {
     
     init(grid: Grid) {
         self.grid = grid
-        self.player = Snake(initPosition: grid.center())
+        self.player = Snake(cell: grid.center())
         super.init(size: grid.size)
         styleGrid()
     }

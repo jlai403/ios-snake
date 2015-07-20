@@ -12,16 +12,15 @@ public class Snake {
         }
     }
     
-    public init(initPosition: GridPosition) {
-        
-        var position = initPosition
+    public init(cell: Cell) {
+        var cell = cell
         
         for (var i=0; i<START_BODY_LENGTH; i++) {
             var successor: SnakeTile? = i==0 ? nil : body[i-1]
-            var predecessor = SnakeTile.new(successor, gridPosition: position)
+            var predecessor = SnakeTile.new(successor, cell: cell)
             body.append(predecessor)
 
-            position.y -= 1
+            cell.y -= 1
         }
     }
     
@@ -38,7 +37,7 @@ public class Snake {
     }
    
     public func move(direction: CardinalDirection) {
-        var destination = getDestinationGridPosition(direction)
+        var destination = getDestinationCell(direction)
         
         if (canMoveTo(destination)) {
             moveBodyForward()
@@ -47,27 +46,27 @@ public class Snake {
         
     }
     
-    private func canMoveTo(destination: GridPosition) -> Bool {
-        return self.head.predecessor!.gridPosition!.position != destination.position
+    private func canMoveTo(destination: Cell) -> Bool {
+        return self.head.predecessor!.cell!.position != destination.position
     }
     
-    private func getDestinationGridPosition(direction: CardinalDirection) -> GridPosition {
-        var destinationGridPosition = head.gridPosition!
+    private func getDestinationCell(direction: CardinalDirection) -> Cell {
+        var destinationGridElement = head.cell!
         
         switch (direction) {
         case .North:
-            destinationGridPosition.y += 1
+            destinationGridElement.y += 1
         case .South:
-            destinationGridPosition.y -= 1
+            destinationGridElement.y -= 1
         case .East:
-            destinationGridPosition.x += 1
+            destinationGridElement.x += 1
         case .West:
-            destinationGridPosition.x -= 1
+            destinationGridElement.x -= 1
         default:
             fatalError("invalid cardinal direction")
         }
         
-        return destinationGridPosition
+        return destinationGridElement
     }
     
     private func moveBodyForward() {
