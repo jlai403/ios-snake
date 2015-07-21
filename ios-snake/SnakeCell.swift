@@ -8,7 +8,7 @@ public class SnakeCell: SKShapeNode {
     var predecessor: SnakeCell?
     
     class func new(successor: SnakeCell?, cell: Cell) -> SnakeCell {
-        var snakeTile = SnakeCell(rect: CGRect(origin: CGPointZero, size: cell.size))
+        var snakeTile = SnakeCell(rect: CGRect(origin: CGPointZero, size: cell.size), cornerRadius: 2.5)
         snakeTile.update(successor, cell: cell)
         return snakeTile
     }
@@ -30,7 +30,7 @@ public class SnakeCell: SKShapeNode {
     }
     
     private func style() {
-        self.lineWidth = 2.5
+        self.lineWidth = 1.5
         self.fillColor = Colors.lightBlue
         self.strokeColor = Colors.whiteColor()
     }

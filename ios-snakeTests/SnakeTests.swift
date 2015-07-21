@@ -26,9 +26,9 @@ class SnakeTests: XCTestCase {
         snake.move(.North)
                
         // assert
-        assertSnakeTilePosition(expected: (7,13), actual: snake.cells[0].cell!, message: "head")
-        assertSnakeTilePosition(expected: (7,12), actual: snake.cells[1].cell!, message: "middle")
-        assertSnakeTilePosition(expected: (7,11), actual: snake.cells[2].cell!, message: "tail")
+        assertSnakeTilePosition(expected: (7,13), actual: snake.vector[0].cell!, message: "head")
+        assertSnakeTilePosition(expected: (7,12), actual: snake.vector[1].cell!, message: "middle")
+        assertSnakeTilePosition(expected: (7,11), actual: snake.vector[2].cell!, message: "tail")
     }
     
     func test_moveEast() {
@@ -40,9 +40,9 @@ class SnakeTests: XCTestCase {
         snake.move(.East)
         
         // assert
-        assertSnakeTilePosition(expected: (8,12), actual: snake.cells[0].cell!, message: "head")
-        assertSnakeTilePosition(expected: (7,12), actual: snake.cells[1].cell!, message: "middle")
-        assertSnakeTilePosition(expected: (7,11), actual: snake.cells[2].cell!, message: "tail")
+        assertSnakeTilePosition(expected: (8,12), actual: snake.vector[0].cell!, message: "head")
+        assertSnakeTilePosition(expected: (7,12), actual: snake.vector[1].cell!, message: "middle")
+        assertSnakeTilePosition(expected: (7,11), actual: snake.vector[2].cell!, message: "tail")
     }
     
     func test_moveWest() {
@@ -54,9 +54,9 @@ class SnakeTests: XCTestCase {
         snake.move(.West)
         
         // assert
-        assertSnakeTilePosition(expected: (6,12), actual: snake.cells[0].cell!, message: "head")
-        assertSnakeTilePosition(expected: (7,12), actual: snake.cells[1].cell!, message: "middle")
-        assertSnakeTilePosition(expected: (7,11), actual: snake.cells[2].cell!, message: "tail")
+        assertSnakeTilePosition(expected: (6,12), actual: snake.vector[0].cell!, message: "head")
+        assertSnakeTilePosition(expected: (7,12), actual: snake.vector[1].cell!, message: "middle")
+        assertSnakeTilePosition(expected: (7,11), actual: snake.vector[2].cell!, message: "tail")
     }
     
     func test_moveSouth_moveEast2x() {
@@ -71,12 +71,12 @@ class SnakeTests: XCTestCase {
         snake.move(.South)
         
         // assert
-        assertSnakeTilePosition(expected: (9,11), actual: snake.cells[0].cell!, message: "head")
-        assertSnakeTilePosition(expected: (9,12), actual: snake.cells[1].cell!, message: "middle")
-        assertSnakeTilePosition(expected: (8,12), actual: snake.cells[2].cell!, message: "tail")
+        assertSnakeTilePosition(expected: (9,11), actual: snake.vector[0].cell!, message: "head")
+        assertSnakeTilePosition(expected: (9,12), actual: snake.vector[1].cell!, message: "middle")
+        assertSnakeTilePosition(expected: (8,12), actual: snake.vector[2].cell!, message: "tail")
     }
     
-    func test_moveSouth_blockedBycellsNode() {
+    func test_moveSouth_blockedByvectorNode() {
         // assemble
         var centerCell = grid!.center()
         var snake = Snake(cell: centerCell) // (7,12)
@@ -85,12 +85,12 @@ class SnakeTests: XCTestCase {
         snake.move(.South)
         
         // assert
-        assertSnakeTilePosition(expected: (7,12), actual: snake.cells[0].cell!, message: "head")
-        assertSnakeTilePosition(expected: (7,11), actual: snake.cells[1].cell!, message: "middle")
-        assertSnakeTilePosition(expected: (7,10), actual: snake.cells[2].cell!, message: "tail")
+        assertSnakeTilePosition(expected: (7,12), actual: snake.vector[0].cell!, message: "head")
+        assertSnakeTilePosition(expected: (7,11), actual: snake.vector[1].cell!, message: "middle")
+        assertSnakeTilePosition(expected: (7,10), actual: snake.vector[2].cell!, message: "tail")
     }
     
-    func test_moveNorth_moveWest1xSouth1x_blockedBycellsNode() {
+    func test_moveNorth_moveWest1xSouth1x_blockedByvectorNode() {
         // assemble
         var centerCell = grid!.center()
         var snake = Snake(cell: centerCell) // (7,12)
@@ -101,12 +101,12 @@ class SnakeTests: XCTestCase {
         snake.move(.North)
         
         // assert
-        assertSnakeTilePosition(expected: (6,11), actual: snake.cells[0].cell!, message: "head")
-        assertSnakeTilePosition(expected: (6,12), actual: snake.cells[1].cell!, message: "middle")
-        assertSnakeTilePosition(expected: (7,12), actual: snake.cells[2].cell!, message: "tail")
+        assertSnakeTilePosition(expected: (6,11), actual: snake.vector[0].cell!, message: "head")
+        assertSnakeTilePosition(expected: (6,12), actual: snake.vector[1].cell!, message: "middle")
+        assertSnakeTilePosition(expected: (7,12), actual: snake.vector[2].cell!, message: "tail")
     }
     
-    func test_moveEast_moveWest1x_blockedBycellsNode() {
+    func test_moveEast_moveWest1x_blockedByvectorNode() {
         // assemble
         var centerCell = grid!.center()
         var snake = Snake(cell: centerCell) // (7,12)
@@ -117,13 +117,13 @@ class SnakeTests: XCTestCase {
         snake.move(.East)
         
         // assert
-        assertSnakeTilePosition(expected: (6,12), actual: snake.cells[0].cell!, message: "head")
-        assertSnakeTilePosition(expected: (7,12), actual: snake.cells[1].cell!, message: "middle")
-        assertSnakeTilePosition(expected: (7,11), actual: snake.cells[2].cell!, message: "tail")
+        assertSnakeTilePosition(expected: (6,12), actual: snake.vector[0].cell!, message: "head")
+        assertSnakeTilePosition(expected: (7,12), actual: snake.vector[1].cell!, message: "middle")
+        assertSnakeTilePosition(expected: (7,11), actual: snake.vector[2].cell!, message: "tail")
     }
     
     
-    func test_moveWest_moveEast1x_blockedBycellsNode() {
+    func test_moveWest_moveEast1x_blockedByvectorNode() {
         // assemble
         var centerCell = grid!.center()
         var snake = Snake(cell: centerCell) // (7,12)
@@ -134,9 +134,9 @@ class SnakeTests: XCTestCase {
         snake.move(.West)
         
         // assert
-        assertSnakeTilePosition(expected: (8,12), actual: snake.cells[0].cell!, message: "head")
-        assertSnakeTilePosition(expected: (7,12), actual: snake.cells[1].cell!, message: "middle")
-        assertSnakeTilePosition(expected: (7,11), actual: snake.cells[2].cell!, message: "tail")
+        assertSnakeTilePosition(expected: (8,12), actual: snake.vector[0].cell!, message: "head")
+        assertSnakeTilePosition(expected: (7,12), actual: snake.vector[1].cell!, message: "middle")
+        assertSnakeTilePosition(expected: (7,11), actual: snake.vector[2].cell!, message: "tail")
     }
     
     //MARK: assert helpers

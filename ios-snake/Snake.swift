@@ -4,11 +4,11 @@ public class Snake {
     
     let START_BODY_LENGTH = 3
     
-    var cells: [SnakeCell] = []
+    var vector: [SnakeCell] = []
     
     var length: Int {
         get {
-            return self.cells.count
+            return self.vector.count
         }
     }
     
@@ -16,9 +16,9 @@ public class Snake {
         var cell = cell
         
         for (var i=0; i<START_BODY_LENGTH; i++) {
-            var successor: SnakeCell? = i==0 ? nil : cells[i-1]
+            var successor: SnakeCell? = i==0 ? nil : vector[i-1]
             var predecessor = SnakeCell.new(successor, cell: cell)
-            cells.append(predecessor)
+            vector.append(predecessor)
 
             cell.y -= 1
         }
@@ -26,13 +26,13 @@ public class Snake {
     
     var head: SnakeCell {
         get {
-            return self.cells.firstOrDefault({ (bodyNode) in bodyNode.isHead() })!
+            return self.vector.firstOrDefault({ (bodyNode) in bodyNode.isHead() })!
         }
     }
     
     var tail: SnakeCell {
         get {
-            return self.cells.firstOrDefault({ (bodyNode) in bodyNode.isTail() })!
+            return self.vector.firstOrDefault({ (bodyNode) in bodyNode.isTail() })!
         }
     }
    
