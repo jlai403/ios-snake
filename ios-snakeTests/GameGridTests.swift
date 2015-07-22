@@ -14,20 +14,10 @@ class GameGridTests: XCTestCase {
         var grid = GridGenerator.createGrid(viewSize: viewSize, rows: rows, columns: columns)
         
         // assert
-        XCTAssertEqual(350, grid.width, "wrong grid width")
-        XCTAssertEqual(350, grid.height, "wrong grid height")
-        XCTAssertEqual(CGSize(width: 35.0, height: 35.0), grid.cellSize, "wrong cell size")
-        XCTAssertEqual(10, grid.cells.count, "wrong row count")
-        XCTAssertEqual(10, grid.cells[0].count, "wrong column count for row 1")
-        XCTAssertEqual(10, grid.cells[1].count, "wrong column count for row 2")
-        XCTAssertEqual(10, grid.cells[2].count, "wrong column count for row 3")
-        XCTAssertEqual(10, grid.cells[3].count, "wrong column count for row 4")
-        XCTAssertEqual(10, grid.cells[4].count, "wrong column count for row 5")
-        XCTAssertEqual(10, grid.cells[5].count, "wrong column count for row 6")
-        XCTAssertEqual(10, grid.cells[6].count, "wrong column count for row 7")
-        XCTAssertEqual(10, grid.cells[7].count, "wrong column count for row 8")
-        XCTAssertEqual(10, grid.cells[8].count, "wrong column count for row 9")
-        XCTAssertEqual(10, grid.cells[9].count, "wrong column count for row 10")
+        XCTAssertEqual(370, grid.width, "wrong grid width")
+        XCTAssertEqual(370, grid.height, "wrong grid height")
+        XCTAssertEqual(CGSize(width: 37.0, height: 37.0), grid.cellSize, "wrong cell size")
+        XCTAssertEqual(100, grid.count, "wrong cell count")
     }
     
     func test_10x20Grid_375x667ViewSize() {
@@ -40,30 +30,10 @@ class GameGridTests: XCTestCase {
         var grid = GridGenerator.createGrid(viewSize: viewSize, rows: rows, columns: columns)
         
         // assert
-        XCTAssertEqual(350, grid.width, "wrong grid width")
-        XCTAssertEqual(700, grid.height, "wrong grid height")
-        XCTAssertEqual(CGSize(width: 35.0, height: 35.0), grid.cellSize, "wrong cell size")
-        XCTAssertEqual(20, grid.cells.count, "wrong row count")
-        XCTAssertEqual(10, grid.cells[0].count, "wrong column count for row 1")
-        XCTAssertEqual(10, grid.cells[1].count, "wrong column count for row 2")
-        XCTAssertEqual(10, grid.cells[2].count, "wrong column count for row 3")
-        XCTAssertEqual(10, grid.cells[3].count, "wrong column count for row 4")
-        XCTAssertEqual(10, grid.cells[4].count, "wrong column count for row 5")
-        XCTAssertEqual(10, grid.cells[5].count, "wrong column count for row 6")
-        XCTAssertEqual(10, grid.cells[6].count, "wrong column count for row 7")
-        XCTAssertEqual(10, grid.cells[7].count, "wrong column count for row 8")
-        XCTAssertEqual(10, grid.cells[8].count, "wrong column count for row 9")
-        XCTAssertEqual(10, grid.cells[9].count, "wrong column count for row 10")
-        XCTAssertEqual(10, grid.cells[10].count, "wrong column count for row 11")
-        XCTAssertEqual(10, grid.cells[11].count, "wrong column count for row 12")
-        XCTAssertEqual(10, grid.cells[12].count, "wrong column count for row 13")
-        XCTAssertEqual(10, grid.cells[13].count, "wrong column count for row 14")
-        XCTAssertEqual(10, grid.cells[14].count, "wrong column count for row 15")
-        XCTAssertEqual(10, grid.cells[15].count, "wrong column count for row 16")
-        XCTAssertEqual(10, grid.cells[16].count, "wrong column count for row 17")
-        XCTAssertEqual(10, grid.cells[17].count, "wrong column count for row 18")
-        XCTAssertEqual(10, grid.cells[18].count, "wrong column count for row 19")
-        XCTAssertEqual(10, grid.cells[19].count, "wrong column count for row 20")
+        XCTAssertEqual(370, grid.width, "wrong grid width")
+        XCTAssertEqual(740, grid.height, "wrong grid height")
+        XCTAssertEqual(CGSize(width: 37.0, height: 37.0), grid.cellSize, "wrong cell size")
+        XCTAssertEqual(200, grid.count, "wrong cell count")
     }
     
     func test_10x20Grid_320x568ViewSize() {
@@ -76,30 +46,10 @@ class GameGridTests: XCTestCase {
         var grid = GridGenerator.createGrid(viewSize: viewSize, rows: rows, columns: columns)
         
         // assert
-        XCTAssertEqual(300, grid.width, "wrong grid width")
-        XCTAssertEqual(600, grid.height, "wrong grid height")
-        XCTAssertEqual(CGSize(width: 30.0, height: 30.0), grid.cellSize, "wrong cell size")
-        XCTAssertEqual(20, grid.cells.count, "wrong row count")
-        XCTAssertEqual(10, grid.cells[0].count, "wrong column count for row 1")
-        XCTAssertEqual(10, grid.cells[1].count, "wrong column count for row 2")
-        XCTAssertEqual(10, grid.cells[2].count, "wrong column count for row 3")
-        XCTAssertEqual(10, grid.cells[3].count, "wrong column count for row 4")
-        XCTAssertEqual(10, grid.cells[4].count, "wrong column count for row 5")
-        XCTAssertEqual(10, grid.cells[5].count, "wrong column count for row 6")
-        XCTAssertEqual(10, grid.cells[6].count, "wrong column count for row 7")
-        XCTAssertEqual(10, grid.cells[7].count, "wrong column count for row 8")
-        XCTAssertEqual(10, grid.cells[8].count, "wrong column count for row 9")
-        XCTAssertEqual(10, grid.cells[9].count, "wrong column count for row 10")
-        XCTAssertEqual(10, grid.cells[10].count, "wrong column count for row 11")
-        XCTAssertEqual(10, grid.cells[11].count, "wrong column count for row 12")
-        XCTAssertEqual(10, grid.cells[12].count, "wrong column count for row 13")
-        XCTAssertEqual(10, grid.cells[13].count, "wrong column count for row 14")
-        XCTAssertEqual(10, grid.cells[14].count, "wrong column count for row 15")
-        XCTAssertEqual(10, grid.cells[15].count, "wrong column count for row 16")
-        XCTAssertEqual(10, grid.cells[16].count, "wrong column count for row 17")
-        XCTAssertEqual(10, grid.cells[17].count, "wrong column count for row 18")
-        XCTAssertEqual(10, grid.cells[18].count, "wrong column count for row 19")
-        XCTAssertEqual(10, grid.cells[19].count, "wrong column count for row 20")
+        XCTAssertEqual(310, grid.width, "wrong grid width")
+        XCTAssertEqual(620, grid.height, "wrong grid height")
+        XCTAssertEqual(CGSize(width: 31.0, height: 31.0), grid.cellSize, "wrong cell size")
+        XCTAssertEqual(200, grid.count, "wrong cell count")
     }
     
     func test_10x20Grid_768x1068ViewSize() {
@@ -112,30 +62,10 @@ class GameGridTests: XCTestCase {
         var grid = GridGenerator.createGrid(viewSize: viewSize, rows: rows, columns: columns)
         
         // assert
-        XCTAssertEqual(740, grid.width, "wrong grid width")
-        XCTAssertEqual(1480, grid.height, "wrong grid height")
-        XCTAssertEqual(CGSize(width: 74.0, height: 74.0), grid.cellSize, "wrong cell size")
-        XCTAssertEqual(20, grid.cells.count, "wrong row count")
-        XCTAssertEqual(10, grid.cells[0].count, "wrong column count for row 1")
-        XCTAssertEqual(10, grid.cells[1].count, "wrong column count for row 2")
-        XCTAssertEqual(10, grid.cells[2].count, "wrong column count for row 3")
-        XCTAssertEqual(10, grid.cells[3].count, "wrong column count for row 4")
-        XCTAssertEqual(10, grid.cells[4].count, "wrong column count for row 5")
-        XCTAssertEqual(10, grid.cells[5].count, "wrong column count for row 6")
-        XCTAssertEqual(10, grid.cells[6].count, "wrong column count for row 7")
-        XCTAssertEqual(10, grid.cells[7].count, "wrong column count for row 8")
-        XCTAssertEqual(10, grid.cells[8].count, "wrong column count for row 9")
-        XCTAssertEqual(10, grid.cells[9].count, "wrong column count for row 10")
-        XCTAssertEqual(10, grid.cells[10].count, "wrong column count for row 11")
-        XCTAssertEqual(10, grid.cells[11].count, "wrong column count for row 12")
-        XCTAssertEqual(10, grid.cells[12].count, "wrong column count for row 13")
-        XCTAssertEqual(10, grid.cells[13].count, "wrong column count for row 14")
-        XCTAssertEqual(10, grid.cells[14].count, "wrong column count for row 15")
-        XCTAssertEqual(10, grid.cells[15].count, "wrong column count for row 16")
-        XCTAssertEqual(10, grid.cells[16].count, "wrong column count for row 17")
-        XCTAssertEqual(10, grid.cells[17].count, "wrong column count for row 18")
-        XCTAssertEqual(10, grid.cells[18].count, "wrong column count for row 19")
-        XCTAssertEqual(10, grid.cells[19].count, "wrong column count for row 20")
+        XCTAssertEqual(760, grid.width, "wrong grid width")
+        XCTAssertEqual(1520, grid.height, "wrong grid height")
+        XCTAssertEqual(CGSize(width: 76.0, height: 76.0), grid.cellSize, "wrong cell size")
+        XCTAssertEqual(200, grid.count, "wrong cell count")
     }
     
     func test_15x25Grid_375x667ViewSize_centerCoordinates() {
@@ -150,9 +80,9 @@ class GameGridTests: XCTestCase {
         var center = grid.center()
         
         // assert
-        XCTAssertEqual(7, center.x, "wrong center x")
-        XCTAssertEqual(12, center.y, "wrong center y")
-        XCTAssertEqual(CGPointMake(161, 276), center.position, "wrong center position")
+        XCTAssertEqual(7, center.column, "wrong center column")
+        XCTAssertEqual(12, center.row, "wrong center row")
+        XCTAssertEqual(CGPointMake(168, 288), center.position, "wrong center position")
         
     }
     
@@ -165,11 +95,11 @@ class GameGridTests: XCTestCase {
         var grid = GridGenerator.createGrid(viewSize: viewSize, rows: rows, columns: columns)
         
         // act
-        var zeroPosition = grid.position(x: 0, y: 0)
+        var zeroPosition = grid.position(row: 0, col: 0)
             
         // assert
-        XCTAssertEqual(0, zeroPosition.x, "wrong center x")
-        XCTAssertEqual(0, zeroPosition.y, "wrong center y")
+        XCTAssertEqual(0, zeroPosition.column, "wrong center column")
+        XCTAssertEqual(0, zeroPosition.row, "wrong center row")
         XCTAssertEqual(CGPointZero, zeroPosition.position, "should be 0,0")
         
     }
@@ -183,12 +113,12 @@ class GameGridTests: XCTestCase {
         var grid = GridGenerator.createGrid(viewSize: viewSize, rows: rows, columns: columns)
         
         // act
-        var gridPosition = grid.position(x: 1, y: 1)
+        var gridPosition = grid.position(row: 1, col: 1)
         
         // assert
-        XCTAssertEqual(1, gridPosition.x, "wrong center x")
-        XCTAssertEqual(1, gridPosition.y, "wrong center y")
-        XCTAssertEqual(CGPointMake(23, 23), gridPosition.position, "should be 23,23")
+        XCTAssertEqual(1, gridPosition.column, "wrong center column")
+        XCTAssertEqual(1, gridPosition.row, "wrong center row")
+        XCTAssertEqual(CGPointMake(24, 24), gridPosition.position, "should be 23,23")
         
     }
 }

@@ -1,22 +1,27 @@
 import UIKit
 
-public struct Cell {
+public class Cell {
     var size: CGSize
-    var x: Int
-    var y: Int
+    var row: Int
+    var column: Int
+    var type: CellType
     
     var position: CGPoint {
         get {
-            var x = CGFloat(self.x) * size.width
-            var y = CGFloat(self.y) * size.height
+            var x = CGFloat(self.column) * size.width
+            var y = CGFloat(self.row) * size.height
             return CGPointMake(x, y)
         }
     }
     
-    init(size: CGSize, x: Int, y: Int) {
+    private init(size: CGSize, row: Int, column: Int, type: CellType) {
         self.size = size
-        self.x = x
-        self.y = y
+        self.row = row
+        self.column = column
+        self.type = type
     }
     
+    class func empty(#size: CGSize, row: Int, column: Int) -> Cell {
+        return Cell(size: size, row: row, column: column, type: .Empty)
+    }
 }

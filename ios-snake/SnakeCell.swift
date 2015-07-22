@@ -26,6 +26,7 @@ public class SnakeCell: SKShapeNode {
     
     public func setPosition(cell: Cell) {
         self.cell = cell
+        self.cell!.type = .Snake
         self.position = cell.position
     }
     
@@ -36,6 +37,10 @@ public class SnakeCell: SKShapeNode {
     }
     
     public func moveForward() {
+        if (self.isTail()) {
+            cell!.type = .Empty
+        }
+        
         if let nextNode = self.successor {
             self.setPosition(nextNode.cell!)
         }

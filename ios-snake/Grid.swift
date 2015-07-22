@@ -1,12 +1,12 @@
 import UIKit
 
-public struct Grid {
+public class Grid {
     
     var cellSize: CGSize
     var rows: Int
     var columns: Int
     
-    var cells: [[CellType]]
+    private var cells: [[Cell?]]
     
     var width: CGFloat {
         get { return self.cellSize.width * CGFloat(self.columns) }
@@ -20,23 +20,40 @@ public struct Grid {
         get { return CGSizeMake(self.width, self.height) }
     }
     
+    var count: Int {
+        get {
+            var rows = cells.count
+            var columns = cells[0].count
+            return rows*columns
+        }
+    }
+    
     init(cellSize: CGSize, rows: Int, columns: Int) {
         self.cellSize = cellSize
         self.rows = rows
         self.columns = columns
         
-        var columns = Array(count: self.columns, repeatedValue: CellType.Empty)
-        var matrix = Array(count: self.rows, repeatedValue: columns)
-        self.cells = matrix
+        var columns = Array<Cell?>(count: self.columns, repeatedValue: nil)
+        var rows = Array(count: self.rows, repeatedValue: columns)
+        self.cells = rows
+        
+        initDefaultGrid()
     }
     
+    private func initDefaultGrid() {
+        for (var row=0; row<self.rows; row++) {
+            for (var col=0; col<self.columns; col++) {
+                cells[row][col] = Cell.empty(size: cellSize, row: row, column: col)
+            }
+        }
+    }
     public func center() -> Cell {
-        var x = Int(floor(Double(self.columns) / 2))
-        var y = Int(floor(Double(self.rows) / 2))
-        return Cell(size: cellSize, x: x, y: y)
+        var row = Int(floor(Double(self.rows) / 2))
+        var col = Int(floor(Double(self.columns) / 2))
+        return cells[row][col]!
     }
     
-    public func position(#x: Int, y: Int) -> Cell {
-        return Cell(size: cellSize, x: x, y: y)
+    public func position(#row: Int, col: Int) -> Cell {
+        return cells[row][col]!
     }
 }
