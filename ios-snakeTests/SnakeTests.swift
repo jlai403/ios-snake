@@ -20,18 +20,18 @@ class SnakeTests: XCTestCase {
         // assemble
         var snake = Snake()
         var debug = self.grid!
-        var snakeGameControl = SnakeGameControl(grid: grid!)
-        snakeGameControl.initiateGame(snake) // (12,7), (11,7), (10,7)
+        var snakeGridControl = SnakeGridControl(grid: grid!)
+        snakeGridControl.initiateGame(snake) // (12,7), (11,7), (10,7)
 
-        snakeGameControl.updateDirection(.North)
+        snakeGridControl.updateDirection(.North)
     
         // act
-        snakeGameControl.move(snake)
+        snakeGridControl.move(snake)
         
         // assert
-        assertSnakeTilePosition(expected: (13,7), actual: snake.vector[0].cell!, message: "head")
-        assertSnakeTilePosition(expected: (12,7), actual: snake.vector[1].cell!, message: "middle")
-        assertSnakeTilePosition(expected: (11,7), actual: snake.vector[2].cell!, message: "tail")
+        assertSnakeTilePosition(expected: (13,7), actual: snake.vector[0].cell, message: "head")
+        assertSnakeTilePosition(expected: (12,7), actual: snake.vector[1].cell, message: "middle")
+        assertSnakeTilePosition(expected: (11,7), actual: snake.vector[2].cell, message: "tail")
     
         XCTAssertEqual(CellType.Snake, grid!.position(row: 13, col: 7).type, "cell type should be of type Snake")
         XCTAssertEqual(CellType.Snake, grid!.position(row: 12, col: 7).type, "cell type should be of type Snake")
@@ -42,18 +42,18 @@ class SnakeTests: XCTestCase {
     func test_moveEast() {
         // assemble
         var snake = Snake()
-        var snakeGameControl = SnakeGameControl(grid: grid!)
-        snakeGameControl.initiateGame(snake) // (12,7), (11,7), (10,7)
+        var snakeGridControl = SnakeGridControl(grid: grid!)
+        snakeGridControl.initiateGame(snake) // (12,7), (11,7), (10,7)
         
-        snakeGameControl.updateDirection(.East)
+        snakeGridControl.updateDirection(.East)
         
         // act
-        snakeGameControl.move(snake)
+        snakeGridControl.move(snake)
         
         // assert
-        assertSnakeTilePosition(expected: (12,8), actual: snake.vector[0].cell!, message: "head")
-        assertSnakeTilePosition(expected: (12,7), actual: snake.vector[1].cell!, message: "middle")
-        assertSnakeTilePosition(expected: (11,7), actual: snake.vector[2].cell!, message: "tail")
+        assertSnakeTilePosition(expected: (12,8), actual: snake.vector[0].cell, message: "head")
+        assertSnakeTilePosition(expected: (12,7), actual: snake.vector[1].cell, message: "middle")
+        assertSnakeTilePosition(expected: (11,7), actual: snake.vector[2].cell, message: "tail")
         
         XCTAssertEqual(CellType.Snake, grid!.position(row: 12, col: 8).type, "cell type should be of type Snake")
         XCTAssertEqual(CellType.Snake, grid!.position(row: 12, col: 7).type, "cell type should be of type Snake")
@@ -64,18 +64,18 @@ class SnakeTests: XCTestCase {
     func test_moveWest() {
         // assemble
         var snake = Snake()
-        var snakeGameControl = SnakeGameControl(grid: grid!)
-        snakeGameControl.initiateGame(snake) // (12,7), (11,7), (10,7)
+        var snakeGridControl = SnakeGridControl(grid: grid!)
+        snakeGridControl.initiateGame(snake) // (12,7), (11,7), (10,7)
         
-        snakeGameControl.updateDirection(.West)
+        snakeGridControl.updateDirection(.West)
         
         // act
-        snakeGameControl.move(snake)
+        snakeGridControl.move(snake)
         
         // assert
-        assertSnakeTilePosition(expected: (12,6), actual: snake.vector[0].cell!, message: "head")
-        assertSnakeTilePosition(expected: (12,7), actual: snake.vector[1].cell!, message: "middle")
-        assertSnakeTilePosition(expected: (11,7), actual: snake.vector[2].cell!, message: "tail")
+        assertSnakeTilePosition(expected: (12,6), actual: snake.vector[0].cell, message: "head")
+        assertSnakeTilePosition(expected: (12,7), actual: snake.vector[1].cell, message: "middle")
+        assertSnakeTilePosition(expected: (11,7), actual: snake.vector[2].cell, message: "tail")
         
         XCTAssertEqual(CellType.Snake, grid!.position(row: 12, col: 6).type, "cell type should be of type Snake")
         XCTAssertEqual(CellType.Snake, grid!.position(row: 12, col: 7).type, "cell type should be of type Snake")
@@ -86,22 +86,22 @@ class SnakeTests: XCTestCase {
     func test_moveSouth_moveEast2x() {
         // assemble
         var snake = Snake()
-        var snakeGameControl = SnakeGameControl(grid: grid!)
-        snakeGameControl.initiateGame(snake) // (12,7), (11,7), (10,7)
+        var snakeGridControl = SnakeGridControl(grid: grid!)
+        snakeGridControl.initiateGame(snake) // (12,7), (11,7), (10,7)
         
-        snakeGameControl.updateDirection(.East)
-        snakeGameControl.move(snake) // (12,8), (12,7), (11,7)
-        snakeGameControl.move(snake) // (12,8), (12,8), (12,7)
+        snakeGridControl.updateDirection(.East)
+        snakeGridControl.move(snake) // (12,8), (12,7), (11,7)
+        snakeGridControl.move(snake) // (12,8), (12,8), (12,7)
         
-        snakeGameControl.updateDirection(.South)
+        snakeGridControl.updateDirection(.South)
 
         // act
-        snakeGameControl.move(snake)
+        snakeGridControl.move(snake)
         
         // assert
-        assertSnakeTilePosition(expected: (11,9), actual: snake.vector[0].cell!, message: "head")
-        assertSnakeTilePosition(expected: (12,9), actual: snake.vector[1].cell!, message: "middle")
-        assertSnakeTilePosition(expected: (12,8), actual: snake.vector[2].cell!, message: "tail")
+        assertSnakeTilePosition(expected: (11,9), actual: snake.vector[0].cell, message: "head")
+        assertSnakeTilePosition(expected: (12,9), actual: snake.vector[1].cell, message: "middle")
+        assertSnakeTilePosition(expected: (12,8), actual: snake.vector[2].cell, message: "tail")
         
         XCTAssertEqual(CellType.Snake, grid!.position(row: 11, col: 9).type, "cell type should be of type Snake")
         XCTAssertEqual(CellType.Snake, grid!.position(row: 12, col: 9).type, "cell type should be of type Snake")
@@ -112,78 +112,78 @@ class SnakeTests: XCTestCase {
     func test_updateDirectionSouth_currentDirectionNorth() {
         // assemble
         var snake = Snake()
-        var snakeGameControl = SnakeGameControl(grid: grid!)
-        snakeGameControl.initiateGame(snake) // (12,7), (11,7), (10,7)
+        var snakeGridControl = SnakeGridControl(grid: grid!)
+        snakeGridControl.initiateGame(snake) // (12,7), (11,7), (10,7)
         
         // act
-        snakeGameControl.updateDirection(.South)
-        snakeGameControl.move(snake)
+        snakeGridControl.updateDirection(.South)
+        snakeGridControl.move(snake)
         
         // assert
-        assertSnakeTilePosition(expected: (13,7), actual: snake.vector[0].cell!, message: "head")
-        assertSnakeTilePosition(expected: (12,7), actual: snake.vector[1].cell!, message: "middle")
-        assertSnakeTilePosition(expected: (11,7), actual: snake.vector[2].cell!, message: "tail")
+        assertSnakeTilePosition(expected: (13,7), actual: snake.vector[0].cell, message: "head")
+        assertSnakeTilePosition(expected: (12,7), actual: snake.vector[1].cell, message: "middle")
+        assertSnakeTilePosition(expected: (11,7), actual: snake.vector[2].cell, message: "tail")
     }
     
     func test_updateDirectionNorth_currentDirectionSouth() {
         // assemble
         var snake = Snake()
-        var snakeGameControl = SnakeGameControl(grid: grid!)
-        snakeGameControl.initiateGame(snake) // (12,7), (11,7), (10,7)
+        var snakeGridControl = SnakeGridControl(grid: grid!)
+        snakeGridControl.initiateGame(snake) // (12,7), (11,7), (10,7)
         
-        snakeGameControl.updateDirection(.West)
-        snakeGameControl.move(snake)  // (12,6), (12,7), (11,7)
+        snakeGridControl.updateDirection(.West)
+        snakeGridControl.move(snake)  // (12,6), (12,7), (11,7)
 
-        snakeGameControl.updateDirection(.South)
-        snakeGameControl.move(snake) // (11,6), (12,6), (12,7)
+        snakeGridControl.updateDirection(.South)
+        snakeGridControl.move(snake) // (11,6), (12,6), (12,7)
         
         // act
-        snakeGameControl.updateDirection(.North)
-        snakeGameControl.move(snake)
+        snakeGridControl.updateDirection(.North)
+        snakeGridControl.move(snake)
         
         // assert
-        assertSnakeTilePosition(expected: (10,6), actual: snake.vector[0].cell!, message: "head")
-        assertSnakeTilePosition(expected: (11,6), actual: snake.vector[1].cell!, message: "middle")
-        assertSnakeTilePosition(expected: (12,6), actual: snake.vector[2].cell!, message: "tail")
+        assertSnakeTilePosition(expected: (10,6), actual: snake.vector[0].cell, message: "head")
+        assertSnakeTilePosition(expected: (11,6), actual: snake.vector[1].cell, message: "middle")
+        assertSnakeTilePosition(expected: (12,6), actual: snake.vector[2].cell, message: "tail")
     }
     
     func test_updateDirectionEast_currentDirectionWest() {
         // assemble
         var snake = Snake()
-        var snakeGameControl = SnakeGameControl(grid: grid!)
-        snakeGameControl.initiateGame(snake) // (12,7), (11,7), (10,7)
+        var snakeGridControl = SnakeGridControl(grid: grid!)
+        snakeGridControl.initiateGame(snake) // (12,7), (11,7), (10,7)
         
-        snakeGameControl.updateDirection(.West)
-        snakeGameControl.move(snake) // (12,6), (12,7), (11,77)
+        snakeGridControl.updateDirection(.West)
+        snakeGridControl.move(snake) // (12,6), (12,7), (11,77)
         
         // act
-        snakeGameControl.updateDirection(.East)
-        snakeGameControl.move(snake)
+        snakeGridControl.updateDirection(.East)
+        snakeGridControl.move(snake)
         
         // assert
-        assertSnakeTilePosition(expected: (12,5), actual: snake.vector[0].cell!, message: "head")
-        assertSnakeTilePosition(expected: (12,6), actual: snake.vector[1].cell!, message: "middle")
-        assertSnakeTilePosition(expected: (12,7), actual: snake.vector[2].cell!, message: "tail")
+        assertSnakeTilePosition(expected: (12,5), actual: snake.vector[0].cell, message: "head")
+        assertSnakeTilePosition(expected: (12,6), actual: snake.vector[1].cell, message: "middle")
+        assertSnakeTilePosition(expected: (12,7), actual: snake.vector[2].cell, message: "tail")
     }
     
     
     func test_updateDirectionWest_currentDirectionEast() {
         // assemble
         var snake = Snake()
-        var snakeGameControl = SnakeGameControl(grid: grid!)
-        snakeGameControl.initiateGame(snake) // (12,7), (11,7), (10,7)
+        var snakeGridControl = SnakeGridControl(grid: grid!)
+        snakeGridControl.initiateGame(snake) // (12,7), (11,7), (10,7)
         
-        snakeGameControl.updateDirection(.East)
-        snakeGameControl.move(snake) // (12,8), (12,7), (11,7)
+        snakeGridControl.updateDirection(.East)
+        snakeGridControl.move(snake) // (12,8), (12,7), (11,7)
         
         // act
-        snakeGameControl.updateDirection(.West)
-        snakeGameControl.move(snake)
+        snakeGridControl.updateDirection(.West)
+        snakeGridControl.move(snake)
         
         // assert
-        assertSnakeTilePosition(expected: (12,9), actual: snake.vector[0].cell!, message: "head")
-        assertSnakeTilePosition(expected: (12,8), actual: snake.vector[1].cell!, message: "middle")
-        assertSnakeTilePosition(expected: (12,7), actual: snake.vector[2].cell!, message: "tail")
+        assertSnakeTilePosition(expected: (12,9), actual: snake.vector[0].cell, message: "head")
+        assertSnakeTilePosition(expected: (12,8), actual: snake.vector[1].cell, message: "middle")
+        assertSnakeTilePosition(expected: (12,7), actual: snake.vector[2].cell, message: "tail")
     }
     
     

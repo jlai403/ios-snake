@@ -1,6 +1,6 @@
 import UIKit
 
-public class Cell {
+public class Cell: Equatable {
     var size: CGSize
     var row: Int
     var column: Int
@@ -24,4 +24,10 @@ public class Cell {
     class func empty(#size: CGSize, row: Int, column: Int) -> Cell {
         return Cell(size: size, row: row, column: column, type: .Empty)
     }
+}
+
+public func ==(lhs: Cell, rhs: Cell) -> Bool {
+    var rowsEqual = lhs.row == rhs.row
+    var columnsEqual = lhs.column == rhs.column
+    return rowsEqual && columnsEqual
 }

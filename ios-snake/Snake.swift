@@ -2,7 +2,7 @@ import SpriteKit
 
 public class Snake {
     
-    var vector: [SnakeCell] = []
+    var vector: [SnakeElement] = []
     
     var length: Int {
         get {
@@ -10,13 +10,13 @@ public class Snake {
         }
     }
     
-    var head: SnakeCell {
+    var head: SnakeElement {
         get {
             return self.vector.firstOrDefault({ (bodyNode) in bodyNode.isHead() })!
         }
     }
     
-    var tail: SnakeCell {
+    var tail: SnakeElement {
         get {
             return self.vector.firstOrDefault({ (bodyNode) in bodyNode.isTail() })!
         }
@@ -24,20 +24,20 @@ public class Snake {
        
     public func move(destination: Cell) {
         if (canMoveTo(destination)) {
-            moveBodyForward()
+            moveVectorForward()
             head.setPosition(destination)
         }
     }
     
     private func canMoveTo(destination: Cell) -> Bool {
-        return self.head.predecessor!.cell!.position != destination.position
+        return self.head.predecessor!.cell != destination
     }
     
-    private func moveBodyForward() {
-        var snakeCell:SnakeCell? = tail
-        while (snakeCell != nil) {
-            snakeCell!.moveForward()
-            snakeCell = snakeCell?.successor
+    private func moveVectorForward() {
+        var snakeElement = tail
+        while let successor = snakeElement.successor {
+            snakeElement.moveForward()
+            snakeElement = successor
         }
     }
 }

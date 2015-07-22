@@ -1,4 +1,4 @@
-public class SnakeGameControl {
+public class SnakeGridControl {
     
     private var grid: Grid
     private var cardinalDirection: CardinalDirection = .North
@@ -12,8 +12,8 @@ public class SnakeGameControl {
         var cell = grid.center()
         
         for (var i=0; i<ConfigConstants.START_SNAKE_LENGTH; i++) {
-            var successor: SnakeCell? = i==0 ? nil : player.vector[i-1]
-            var predecessor = SnakeCell.new(successor, cell: cell)
+            var successor: SnakeElement? = i==0 ? nil : player.vector[i-1]
+            var predecessor = SnakeElement(cell: cell, successor:successor)
             player.vector.append(predecessor)
             
             cell = grid.position(row: cell.row-1, col: cell.column)
@@ -47,7 +47,7 @@ public class SnakeGameControl {
     }
     
     private func getDestinationCell(player: Snake, direction: CardinalDirection) -> Cell {
-        var currentHeadCell = player.head.cell!
+        var currentHeadCell = player.head.cell
         var currentRow = currentHeadCell.row
         var currentCol = currentHeadCell.column
         
