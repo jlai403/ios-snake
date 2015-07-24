@@ -10,8 +10,6 @@ public class SnakeElement: SKShapeNode {
     init(cell: Cell, successor: SnakeElement?) {
         self.cell = cell
         super.init()
-        self.path = CGPathCreateWithRoundedRect(CGRect(origin: CGPointZero, size: cell.size), 2.5, 2.5, nil)
-        
         self.update(successor)
     }
 
@@ -21,8 +19,8 @@ public class SnakeElement: SKShapeNode {
     
     public func update(successor: SnakeElement?) {
         self.setSuccessor(successor)
-        self.setPosition(self.cell)
         self.style()
+        self.setPosition(self.cell)
     }
     
     private func setSuccessor(successor: SnakeElement?) {
@@ -37,8 +35,9 @@ public class SnakeElement: SKShapeNode {
     }
     
     private func style() {
+        self.path = CGPathCreateWithRoundedRect(CGRect(origin: CGPointZero, size: cell.size), 0, 0, nil)
         self.lineWidth = 1.5
-        self.fillColor = Colors.lightBlue
+        self.fillColor = Colors.pictonBlue
         self.strokeColor = Colors.whiteColor()
     }
     

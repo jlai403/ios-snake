@@ -30,15 +30,17 @@
 		6CB575F91B531B4C00DEDCCE /* Snake.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6CB575F71B531B4C00DEDCCE /* Snake.storyboard */; };
 		6CB575FB1B531B4C00DEDCCE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6CB575FA1B531B4C00DEDCCE /* Images.xcassets */; };
 		6CB575FE1B531B4C00DEDCCE /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6CB575FC1B531B4C00DEDCCE /* LaunchScreen.xib */; };
-		6CB5760A1B531B4C00DEDCCE /* SnakeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB576091B531B4C00DEDCCE /* SnakeTests.swift */; };
+		6CB5760A1B531B4C00DEDCCE /* GameGridControlTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB576091B531B4C00DEDCCE /* GameGridControlTests.swift */; };
 		6CB576141B531C1700DEDCCE /* SpriteKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CB576131B531C1700DEDCCE /* SpriteKit.framework */; };
 		6CB576191B531C9200DEDCCE /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB576181B531C9200DEDCCE /* GameScene.swift */; };
-		6CB5DB581B5F4FF700739D68 /* SnakeGridControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB5DB571B5F4FF700739D68 /* SnakeGridControl.swift */; };
-		6CB5DB591B5F500A00739D68 /* SnakeGridControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB5DB571B5F4FF700739D68 /* SnakeGridControl.swift */; };
+		6CB5DB581B5F4FF700739D68 /* GameGridControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB5DB571B5F4FF700739D68 /* GameGridControl.swift */; };
+		6CB5DB591B5F500A00739D68 /* GameGridControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB5DB571B5F4FF700739D68 /* GameGridControl.swift */; };
 		6CB5DB5A1B5F583900739D68 /* ConfigConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C0CB2871B532A9600796B92 /* ConfigConstants.swift */; };
 		6CE494641B55E34A00E193A9 /* ArrayExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CE494631B55E34A00E193A9 /* ArrayExtensions.swift */; };
 		6CE494651B55E6C700E193A9 /* ArrayExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CE494631B55E34A00E193A9 /* ArrayExtensions.swift */; };
 		6CE494661B55F36F00E193A9 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C0CB2851B531FA000796B92 /* Colors.swift */; };
+		6CF8F0ED1B61D99500AE3361 /* PowerUpElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CF8F0EC1B61D99500AE3361 /* PowerUpElement.swift */; };
+		6CF8F0EE1B61DAA000AE3361 /* PowerUpElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CF8F0EC1B61D99500AE3361 /* PowerUpElement.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,11 +73,12 @@
 		6CB575FD1B531B4C00DEDCCE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		6CB576031B531B4C00DEDCCE /* snakeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = snakeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6CB576081B531B4C00DEDCCE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		6CB576091B531B4C00DEDCCE /* SnakeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnakeTests.swift; sourceTree = "<group>"; };
+		6CB576091B531B4C00DEDCCE /* GameGridControlTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameGridControlTests.swift; sourceTree = "<group>"; };
 		6CB576131B531C1700DEDCCE /* SpriteKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpriteKit.framework; path = System/Library/Frameworks/SpriteKit.framework; sourceTree = SDKROOT; };
 		6CB576181B531C9200DEDCCE /* GameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
-		6CB5DB571B5F4FF700739D68 /* SnakeGridControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnakeGridControl.swift; sourceTree = "<group>"; };
+		6CB5DB571B5F4FF700739D68 /* GameGridControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameGridControl.swift; sourceTree = "<group>"; };
 		6CE494631B55E34A00E193A9 /* ArrayExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayExtensions.swift; sourceTree = "<group>"; };
+		6CF8F0EC1B61D99500AE3361 /* PowerUpElement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PowerUpElement.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,10 +111,10 @@
 		6C287A531B54A282009994F5 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				6C0CB2831B531E6400796B92 /* Snake.swift */,
 				6C287A541B54A291009994F5 /* CardinalDirection.swift */,
+				6C0CB2831B531E6400796B92 /* Snake.swift */,
 				6C851EF61B5B6178002225A9 /* SnakeElement.swift */,
-				6CB5DB571B5F4FF700739D68 /* SnakeGridControl.swift */,
+				6CF8F0EC1B61D99500AE3361 /* PowerUpElement.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -144,7 +147,7 @@
 				6CE494621B55E33700E193A9 /* Utility */,
 				6C0CB2821B531DE800796B92 /* Controllers */,
 				6C287A531B54A282009994F5 /* Models */,
-				6CB576151B531C2E00DEDCCE /* SpriteKit */,
+				6CB576151B531C2E00DEDCCE /* Game */,
 				6CB575F31B531B4C00DEDCCE /* AppDelegate.swift */,
 				6CB575FA1B531B4C00DEDCCE /* Images.xcassets */,
 				6CB575F11B531B4C00DEDCCE /* Supporting Files */,
@@ -164,7 +167,7 @@
 			isa = PBXGroup;
 			children = (
 				6C6ED5AD1B59D540004B3633 /* GameGridTests.swift */,
-				6CB576091B531B4C00DEDCCE /* SnakeTests.swift */,
+				6CB576091B531B4C00DEDCCE /* GameGridControlTests.swift */,
 				6CB576071B531B4C00DEDCCE /* Supporting Files */,
 			);
 			path = "ios-snakeTests";
@@ -178,16 +181,17 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		6CB576151B531C2E00DEDCCE /* SpriteKit */ = {
+		6CB576151B531C2E00DEDCCE /* Game */ = {
 			isa = PBXGroup;
 			children = (
 				6CB576181B531C9200DEDCCE /* GameScene.swift */,
+				6CB5DB571B5F4FF700739D68 /* GameGridControl.swift */,
 				6C6ED5B01B59DBB8004B3633 /* GridGenerator.swift */,
 				6C851EF81B5B6193002225A9 /* Grid.swift */,
 				6C851EFA1B5B61A5002225A9 /* Cell.swift */,
 				6C851EFC1B5B61DA002225A9 /* CellType.swift */,
 			);
-			name = SpriteKit;
+			name = Game;
 			sourceTree = "<group>";
 		};
 		6CE494621B55E33700E193A9 /* Utility */ = {
@@ -299,7 +303,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6CB5DB581B5F4FF700739D68 /* SnakeGridControl.swift in Sources */,
+				6CF8F0ED1B61D99500AE3361 /* PowerUpElement.swift in Sources */,
+				6CB5DB581B5F4FF700739D68 /* GameGridControl.swift in Sources */,
 				6C6ED5B11B59DBB8004B3633 /* GridGenerator.swift in Sources */,
 				6CB575F61B531B4C00DEDCCE /* GameController.swift in Sources */,
 				6C851EF71B5B6178002225A9 /* SnakeElement.swift in Sources */,
@@ -320,8 +325,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6CF8F0EE1B61DAA000AE3361 /* PowerUpElement.swift in Sources */,
 				6CB5DB5A1B5F583900739D68 /* ConfigConstants.swift in Sources */,
-				6CB5DB591B5F500A00739D68 /* SnakeGridControl.swift in Sources */,
+				6CB5DB591B5F500A00739D68 /* GameGridControl.swift in Sources */,
 				6C851F001B5B6482002225A9 /* GameScene.swift in Sources */,
 				6C851F011B5B6482002225A9 /* Cell.swift in Sources */,
 				6C851F021B5B6482002225A9 /* CellType.swift in Sources */,
@@ -332,7 +338,7 @@
 				6CE494651B55E6C700E193A9 /* ArrayExtensions.swift in Sources */,
 				6C287A571B54A2AC009994F5 /* Snake.swift in Sources */,
 				6C287A561B54A2A3009994F5 /* CardinalDirection.swift in Sources */,
-				6CB5760A1B531B4C00DEDCCE /* SnakeTests.swift in Sources */,
+				6CB5760A1B531B4C00DEDCCE /* GameGridControlTests.swift in Sources */,
 				6C6ED5AF1B59D595004B3633 /* GameGridTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

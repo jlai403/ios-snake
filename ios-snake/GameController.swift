@@ -29,8 +29,8 @@ class GameController: UIViewController {
         var origin = CGPointMake(x, y)
         self.gameGridView.frame = CGRect(origin: origin, size: self.gameScene!.size)
         
-        self.gameGridView.layer.borderColor = Colors.colorFor(0x888888).CGColor
-        self.gameGridView.layer.borderWidth = 3.0
+        self.gameGridView.layer.borderColor = Colors.pictonBlue.CGColor
+        self.gameGridView.layer.borderWidth = 1.0
     }
 
     override func viewDidAppear(animated: Bool) {

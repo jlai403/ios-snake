@@ -1,4 +1,6 @@
-public class SnakeGridControl {
+import Foundation
+
+public class GameGridControl {
     
     private var grid: Grid
     private var cardinalDirection: CardinalDirection = .North
@@ -8,6 +10,7 @@ public class SnakeGridControl {
         self.cardinalDirection = CardinalDirection.North
     }
     
+    // MARK: Snake
     public func initiateGame(player: Snake) {
         var cell = grid.center()
         
@@ -68,4 +71,27 @@ public class SnakeGridControl {
 
         return destinationCell
     }
+    
+    // MARK: Power ups
+    
+    public func createNewPowerUp() -> PowerUpElement {
+        var powerUpCell = getRandomEmptyCell()
+        var powerUp = PowerUpElement(cell: powerUpCell)
+        return powerUp
+    }
+    
+    private func getRandomEmptyCell() -> Cell {
+        // not a really elegant solution, but will do for now...
+        
+        var randomRow = Int(arc4random_uniform(UInt32(self.grid.rows)))
+        var randomCol = Int(arc4random_uniform(UInt32(self.grid.columns)))
+        var potentialCell = grid.position(row: randomRow, col: randomCol)
+        
+        while (potentialCell.type != .Empty) {
+            potentialCell = grid.position(row: randomRow, col: randomCol)
+        }
+        
+        return potentialCell
+    }
+    
 }
