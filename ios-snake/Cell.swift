@@ -1,10 +1,16 @@
 import UIKit
 
 public class Cell: Equatable {
-    var size: CGSize
+
+    var grid: Grid
     var row: Int
     var column: Int
     var type: CellType
+
+    
+    var size: CGSize {
+        get { return self.grid.cellSize }
+    }
     
     var position: CGPoint {
         get {
@@ -14,15 +20,19 @@ public class Cell: Equatable {
         }
     }
     
-    private init(size: CGSize, row: Int, column: Int, type: CellType) {
-        self.size = size
+    private init(grid: Grid, row: Int, column: Int, type: CellType) {
+        self.grid = grid
         self.row = row
         self.column = column
         self.type = type
     }
     
-    class func empty(#size: CGSize, row: Int, column: Int) -> Cell {
-        return Cell(size: size, row: row, column: column, type: .Empty)
+    class func empty(#grid: Grid, row: Int, column: Int) -> Cell {
+        return Cell(grid: grid, row: row, column: column, type: .Empty)
+    }
+    
+    func below() -> Cell {
+        return self.grid.position(row: self.row-1, col: self.column)
     }
 }
 

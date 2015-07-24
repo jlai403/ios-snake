@@ -43,7 +43,7 @@ public class Grid {
     private func initDefaultGrid() {
         for (var row=0; row<self.rows; row++) {
             for (var col=0; col<self.columns; col++) {
-                cells[row][col] = Cell.empty(size: cellSize, row: row, column: col)
+                cells[row][col] = Cell.empty(grid: self, row: row, column: col)
             }
         }
     }

@@ -2,12 +2,11 @@ import SpriteKit
 
 public class GameScene: SKScene {
     
-    var player: Snake
-    var gameGridControl: GameGridControl
+    var snakeGame: SnakeGame
     
-    public init(grid: Grid) {
-        self.player = Snake()
-        self.gameGridControl = GameGridControl(grid: grid)
+    public init(gameView: SKView) {
+        var grid = GridGenerator.createGrid(viewSize: gameView.frame.size, rows: ConfigConstants.GAME_GRID_ROWS, columns: ConfigConstants.GAME_GRID_COLS)
+        self.snakeGame = SnakeGame(grid: grid)
         super.init(size: grid.size)
         styleGrid()
     }
@@ -21,9 +20,8 @@ public class GameScene: SKScene {
     }
     
     override public func didMoveToView(view: SKView) {
-        self.gameGridControl.initiateGame(player)
-        self.present(self.player)
-        self.present(self.gameGridControl.createNewPowerUp())
+        self.present(self.snakeGame.player)
+        self.present(self.snakeGame.powerUp)
     }
     
     // MARK: Player
@@ -35,10 +33,10 @@ public class GameScene: SKScene {
     }
     
     func updateDirection(direction: CardinalDirection) {
-        self.gameGridControl.updateDirection(direction)
+        self.snakeGame.updateDirection(direction)
         
         //TODO: player should be moved by timer
-        self.gameGridControl.move(player)
+        self.snakeGame.updatePlayerMovements()
     }
     
     // MARK: Food

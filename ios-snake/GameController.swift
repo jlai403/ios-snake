@@ -3,38 +3,35 @@ import SpriteKit
 
 class GameController: UIViewController {
 
-    @IBOutlet var gameGridView: SKView!
-    var gameScene: GameScene?
+    @IBOutlet var gameView: SKView!
+    var gameScene: GameScene!
     
     override func viewDidLoad() {
         if (ConfigConstants.DEBUG) {
-            self.gameGridView.showsFPS = true
-            self.gameGridView.showsNodeCount = true
+            self.gameView.showsFPS = true
+            self.gameView.showsNodeCount = true
         }
     }
     
     override func viewDidLayoutSubviews() {
-        updateGameScene()
-        updateGameGridView()
+        initGameScene()
+        realignGameView()
     }
     
-    private func updateGameScene() {
-        var grid = GridGenerator.createGrid(viewSize: gameGridView.frame.size, rows: ConfigConstants.GAME_GRID_ROWS, columns: ConfigConstants.GAME_GRID_COLS)
-        self.gameScene = GameScene(grid: grid)
+    private func initGameScene() {
+        self.gameScene = GameScene(gameView: gameView)
     }
     
-    private func updateGameGridView() {
-        var x = self.view.center.x - (self.gameScene!.size.width / 2)
-        var y = self.view.frame.height - self.gameScene!.size.height - 10.0
-        var origin = CGPointMake(x, y)
-        self.gameGridView.frame = CGRect(origin: origin, size: self.gameScene!.size)
+    private func realignGameView() {
+        self.gameView.frame.size = self.gameScene.size
+        self.gameView.center = self.view.center
         
-        self.gameGridView.layer.borderColor = Colors.pictonBlue.CGColor
-        self.gameGridView.layer.borderWidth = 1.0
+        self.gameView.layer.borderColor = Colors.pictonBlue.CGColor
+        self.gameView.layer.borderWidth = 1.0
     }
 
     override func viewDidAppear(animated: Bool) {
-        self.gameGridView.presentScene(self.gameScene)
+        self.gameView.presentScene(self.gameScene)
     }
     
     @IBAction func changeDirections(sender: UISwipeGestureRecognizer) {

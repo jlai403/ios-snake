@@ -21,7 +21,19 @@ public class Snake {
             return self.vector.firstOrDefault({ (bodyNode) in bodyNode.isTail() })!
         }
     }
-       
+    
+    init(startingCell: Cell) {
+        var cell = startingCell
+        
+        for (var i=0; i<ConfigConstants.START_SNAKE_LENGTH; i++) {
+            var successor: SnakeElement? = i==0 ? nil : self.vector[i-1]
+            var predecessor = SnakeElement(cell: cell, successor:successor)
+            self.vector.append(predecessor)
+            
+            cell = cell.below()
+        }
+    }
+    
     public func move(destination: Cell) {
         if (canMoveTo(destination)) {
             moveVectorForward()

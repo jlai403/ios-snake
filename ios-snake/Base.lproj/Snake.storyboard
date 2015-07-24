@@ -68,7 +68,7 @@
                         </connections>
                     </view>
                     <connections>
-                        <outlet property="gameGridView" destination="tuN-rZ-kpl" id="zaP-kB-49Y"/>
+                        <outlet property="gameView" destination="tuN-rZ-kpl" id="UYR-sy-84d"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

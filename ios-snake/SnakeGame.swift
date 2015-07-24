@@ -1,26 +1,18 @@
 import Foundation
 
-public class GameGridControl {
+public class SnakeGame {
     
     private var grid: Grid
-    private var cardinalDirection: CardinalDirection = .North
+    private var cardinalDirection: CardinalDirection
+    
+    var player: Snake
+    var powerUp: PowerUpElement!
     
     init(grid: Grid) {
         self.grid = grid
         self.cardinalDirection = CardinalDirection.North
-    }
-    
-    // MARK: Snake
-    public func initiateGame(player: Snake) {
-        var cell = grid.center()
-        
-        for (var i=0; i<ConfigConstants.START_SNAKE_LENGTH; i++) {
-            var successor: SnakeElement? = i==0 ? nil : player.vector[i-1]
-            var predecessor = SnakeElement(cell: cell, successor:successor)
-            player.vector.append(predecessor)
-            
-            cell = grid.position(row: cell.row-1, col: cell.column)
-        }
+        self.player = Snake(startingCell: grid.center())
+        self.powerUp = PowerUpElement(cell: getRandomEmptyCell())
     }
     
     public func updateDirection(direction: CardinalDirection) {
@@ -45,7 +37,11 @@ public class GameGridControl {
         }
     }
     
-    public func move(player: Snake) {
+    public func updatePlayerMovements() {
+        self.move(self.player)
+    }
+    
+    private func move(player: Snake) {
         player.move(getDestinationCell(player, direction: self.cardinalDirection))
     }
     
@@ -74,14 +70,8 @@ public class GameGridControl {
     
     // MARK: Power ups
     
-    public func createNewPowerUp() -> PowerUpElement {
-        var powerUpCell = getRandomEmptyCell()
-        var powerUp = PowerUpElement(cell: powerUpCell)
-        return powerUp
-    }
-    
     private func getRandomEmptyCell() -> Cell {
-        // not a really elegant solution, but will do for now...
+        // not a very elegant solution, but will do for now...
         
         var randomRow = Int(arc4random_uniform(UInt32(self.grid.rows)))
         var randomCol = Int(arc4random_uniform(UInt32(self.grid.columns)))
