@@ -1,18 +1,26 @@
 import Foundation
+import SpriteKit
 
 public class SnakeGame {
     
-    private var grid: Grid
-    private var cardinalDirection: CardinalDirection
+    var scene: GameScene
+    var grid: Grid
+    var cardinalDirection: CardinalDirection
     
     var player: Snake
     var powerUp: PowerUpElement!
     
-    init(grid: Grid) {
-        self.grid = grid
+    init(gameViewSize: CGSize, rows: Int, columns: Int) {
+        self.scene = GameScene(size: gameViewSize)
+        self.grid = GridGenerator.createGrid(viewSize: gameViewSize, rows: rows, columns: columns)
         self.cardinalDirection = CardinalDirection.North
         self.player = Snake(startingCell: grid.center())
         self.powerUp = PowerUpElement(cell: getRandomEmptyCell())
+    }
+    
+    public func prepareScene() {
+        self.scene.present(player)
+        self.scene.present(powerUp)
     }
     
     public func updateDirection(direction: CardinalDirection) {
@@ -42,7 +50,8 @@ public class SnakeGame {
     }
     
     private func move(player: Snake) {
-        player.move(getDestinationCell(player, direction: self.cardinalDirection))
+        var destination = getDestinationCell(player, direction: self.cardinalDirection)
+        player.move(destination)
     }
     
     private func getDestinationCell(player: Snake, direction: CardinalDirection) -> Cell {

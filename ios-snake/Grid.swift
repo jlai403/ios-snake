@@ -37,10 +37,10 @@ public class Grid {
         var rows = Array(count: self.rows, repeatedValue: columns)
         self.cells = rows
         
-        initDefaultGrid()
+        initEmptyGrid()
     }
     
-    private func initDefaultGrid() {
+    private func initEmptyGrid() {
         for (var row=0; row<self.rows; row++) {
             for (var col=0; col<self.columns; col++) {
                 cells[row][col] = Cell.empty(grid: self, row: row, column: col)

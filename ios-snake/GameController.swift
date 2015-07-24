@@ -4,7 +4,8 @@ import SpriteKit
 class GameController: UIViewController {
 
     @IBOutlet var gameView: SKView!
-    var gameScene: GameScene!
+    
+    var snakeGame: SnakeGame!
     
     override func viewDidLoad() {
         if (ConfigConstants.DEBUG) {
@@ -14,16 +15,16 @@ class GameController: UIViewController {
     }
     
     override func viewDidLayoutSubviews() {
-        initGameScene()
+        initSnakeGame()
         realignGameView()
     }
     
-    private func initGameScene() {
-        self.gameScene = GameScene(gameView: gameView)
+    private func initSnakeGame() {
+        self.snakeGame = SnakeGame(gameViewSize: self.gameView.frame.size, rows: ConfigConstants.GAME_GRID_ROWS, columns: ConfigConstants.GAME_GRID_COLS)
     }
-    
+
     private func realignGameView() {
-        self.gameView.frame.size = self.gameScene.size
+        self.gameView.frame.size = self.snakeGame.scene.size
         self.gameView.center = self.view.center
         
         self.gameView.layer.borderColor = Colors.pictonBlue.CGColor
@@ -31,12 +32,16 @@ class GameController: UIViewController {
     }
 
     override func viewDidAppear(animated: Bool) {
-        self.gameView.presentScene(self.gameScene)
+        self.snakeGame.prepareScene()
+        self.gameView.presentScene(self.snakeGame.scene)
     }
     
     @IBAction func changeDirections(sender: UISwipeGestureRecognizer) {
         var direction = getCardinalDirection(sender.direction)
-        gameScene!.updateDirection(direction)
+        self.snakeGame.updateDirection(direction)
+        
+        // TODO: player movements should be handled by a timer -- possible a separate class too (i.e. SnakeMovementUpdater)
+        self.snakeGame.updatePlayerMovements()
     }
     
     private func getCardinalDirection(swipeDirection: UISwipeGestureRecognizerDirection) -> CardinalDirection {

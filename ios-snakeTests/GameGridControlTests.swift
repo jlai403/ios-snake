@@ -14,8 +14,8 @@ class SnakeGameTests: XCTestCase {
     
     func test_moveNorth() {
         // assemble
-        var grid = GridGenerator.createGrid(viewSize: CGSizeMake(375.0, 667.0), rows: 25, columns: 15)
-        var snakeGame = SnakeGame(grid: grid)
+        var snakeGame = SnakeGame(gameViewSize: CGSizeMake(375.0, 667.0), rows: 25, columns: 15)
+        var grid = snakeGame.grid
         var snake = snakeGame.player// (12,7), (11,7), (10,7)
 
         snakeGame.updateDirection(.North)
@@ -36,8 +36,8 @@ class SnakeGameTests: XCTestCase {
     
     func test_moveEast() {
         // assemble
-        var grid = GridGenerator.createGrid(viewSize: CGSizeMake(375.0, 667.0), rows: 25, columns: 15)
-        var snakeGame = SnakeGame(grid: grid)
+        var snakeGame = SnakeGame(gameViewSize: CGSizeMake(375.0, 667.0), rows: 25, columns: 15)
+        var grid = snakeGame.grid
         var snake = snakeGame.player// (12,7), (11,7), (10,7)
         
         snakeGame.updateDirection(.East)
@@ -58,8 +58,8 @@ class SnakeGameTests: XCTestCase {
     
     func test_moveWest() {
         // assemble
-        var grid = GridGenerator.createGrid(viewSize: CGSizeMake(375.0, 667.0), rows: 25, columns: 15)
-        var snakeGame = SnakeGame(grid: grid)
+        var snakeGame = SnakeGame(gameViewSize: CGSizeMake(375.0, 667.0), rows: 25, columns: 15)
+        var grid = snakeGame.grid
         var snake = snakeGame.player// (12,7), (11,7), (10,7)
         
         snakeGame.updateDirection(.West)
@@ -80,8 +80,8 @@ class SnakeGameTests: XCTestCase {
     
     func test_moveSouth_moveEast2x() {
         // assemble
-        var grid = GridGenerator.createGrid(viewSize: CGSizeMake(375.0, 667.0), rows: 25, columns: 15)
-        var snakeGame = SnakeGame(grid: grid)
+        var snakeGame = SnakeGame(gameViewSize: CGSizeMake(375.0, 667.0), rows: 25, columns: 15)
+        var grid = snakeGame.grid
         var snake = snakeGame.player// (12,7), (11,7), (10,7)
         
         snakeGame.updateDirection(.East)
@@ -106,8 +106,8 @@ class SnakeGameTests: XCTestCase {
     
     func test_updateDirectionSouth_currentDirectionNorth() {
         // assemble
-        var grid = GridGenerator.createGrid(viewSize: CGSizeMake(375.0, 667.0), rows: 25, columns: 15)
-        var snakeGame = SnakeGame(grid: grid)
+        var snakeGame = SnakeGame(gameViewSize: CGSizeMake(375.0, 667.0), rows: 25, columns: 15)
+        var grid = snakeGame.grid
         var snake = snakeGame.player// (12,7), (11,7), (10,7)
         
         // act
@@ -122,8 +122,8 @@ class SnakeGameTests: XCTestCase {
     
     func test_updateDirectionNorth_currentDirectionSouth() {
         // assemble
-        var grid = GridGenerator.createGrid(viewSize: CGSizeMake(375.0, 667.0), rows: 25, columns: 15)
-        var snakeGame = SnakeGame(grid: grid)
+        var snakeGame = SnakeGame(gameViewSize: CGSizeMake(375.0, 667.0), rows: 25, columns: 15)
+        var grid = snakeGame.grid
         var snake = snakeGame.player// (12,7), (11,7), (10,7)
         
         snakeGame.updateDirection(.West)
@@ -144,8 +144,8 @@ class SnakeGameTests: XCTestCase {
     
     func test_updateDirectionEast_currentDirectionWest() {
         // assemble
-        var grid = GridGenerator.createGrid(viewSize: CGSizeMake(375.0, 667.0), rows: 25, columns: 15)
-        var snakeGame = SnakeGame(grid: grid)
+        var snakeGame = SnakeGame(gameViewSize: CGSizeMake(375.0, 667.0), rows: 25, columns: 15)
+        var grid = snakeGame.grid
         var snake = snakeGame.player// (12,7), (11,7), (10,7)
         
         snakeGame.updateDirection(.West)
@@ -163,8 +163,8 @@ class SnakeGameTests: XCTestCase {
     
     func test_updateDirectionWest_currentDirectionEast() {
         // assemble
-        var grid = GridGenerator.createGrid(viewSize: CGSizeMake(375.0, 667.0), rows: 25, columns: 15)
-        var snakeGame = SnakeGame(grid: grid)
+        var snakeGame = SnakeGame(gameViewSize: CGSizeMake(375.0, 667.0), rows: 25, columns: 15)
+        var grid = snakeGame.grid
         var snake = snakeGame.player// (12,7), (11,7), (10,7)
         
         snakeGame.updateDirection(.East)
@@ -182,8 +182,8 @@ class SnakeGameTests: XCTestCase {
     
     func test_powerUpPosition() {
         // assemble
-        var grid = GridGenerator.createGrid(viewSize: CGSizeMake(375.0, 667.0), rows: 25, columns: 15)
-        var snakeGame = SnakeGame(grid: grid)
+        var snakeGame = SnakeGame(gameViewSize: CGSizeMake(375.0, 667.0), rows: 25, columns: 15)
+        var grid = snakeGame.grid
         var snake = snakeGame.player// (12,7), (11,7), (10,7)
         
         // act
