@@ -107,19 +107,9 @@
 			isa = PBXGroup;
 			children = (
 				6CB575F51B531B4C00DEDCCE /* GameController.swift */,
+				6CB576181B531C9200DEDCCE /* GameScene.swift */,
 			);
 			name = Controllers;
-			sourceTree = "<group>";
-		};
-		6C287A531B54A282009994F5 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				6C287A541B54A291009994F5 /* CardinalDirection.swift */,
-				6C0CB2831B531E6400796B92 /* Snake.swift */,
-				6C851EF61B5B6178002225A9 /* SnakeElement.swift */,
-				6CF8F0EC1B61D99500AE3361 /* PowerUpElement.swift */,
-			);
-			name = Models;
 			sourceTree = "<group>";
 		};
 		6CB575E51B531B4C00DEDCCE = {
@@ -149,7 +139,6 @@
 				6C0CB2871B532A9600796B92 /* ConfigConstants.swift */,
 				6CE494621B55E33700E193A9 /* Utility */,
 				6C0CB2821B531DE800796B92 /* Controllers */,
-				6C287A531B54A282009994F5 /* Models */,
 				6CB576151B531C2E00DEDCCE /* Game */,
 				6CB575F31B531B4C00DEDCCE /* AppDelegate.swift */,
 				6CB575FA1B531B4C00DEDCCE /* Images.xcassets */,
@@ -187,13 +176,9 @@
 		6CB576151B531C2E00DEDCCE /* Game */ = {
 			isa = PBXGroup;
 			children = (
-				6CB5DB571B5F4FF700739D68 /* SnakeGame.swift */,
-				6CB576181B531C9200DEDCCE /* GameScene.swift */,
-				6C6ED5B01B59DBB8004B3633 /* GridGenerator.swift */,
-				6C851EF81B5B6193002225A9 /* Grid.swift */,
-				6C851EFA1B5B61A5002225A9 /* Cell.swift */,
-				6C851EFC1B5B61DA002225A9 /* CellType.swift */,
-				6CEF650D1B631CB000D28E6D /* SnakeMovement.swift */,
+				6CEF65121B631F4400D28E6D /* Power Up */,
+				6CEF65111B631F3D00D28E6D /* Snake */,
+				6CEF65101B631F0200D28E6D /* Environment */,
 			);
 			name = Game;
 			sourceTree = "<group>";
@@ -205,6 +190,37 @@
 				6CE494631B55E34A00E193A9 /* ArrayExtensions.swift */,
 			);
 			name = Utility;
+			sourceTree = "<group>";
+		};
+		6CEF65101B631F0200D28E6D /* Environment */ = {
+			isa = PBXGroup;
+			children = (
+				6C6ED5B01B59DBB8004B3633 /* GridGenerator.swift */,
+				6C851EF81B5B6193002225A9 /* Grid.swift */,
+				6C851EFA1B5B61A5002225A9 /* Cell.swift */,
+				6C851EFC1B5B61DA002225A9 /* CellType.swift */,
+			);
+			name = Environment;
+			sourceTree = "<group>";
+		};
+		6CEF65111B631F3D00D28E6D /* Snake */ = {
+			isa = PBXGroup;
+			children = (
+				6CB5DB571B5F4FF700739D68 /* SnakeGame.swift */,
+				6C0CB2831B531E6400796B92 /* Snake.swift */,
+				6C851EF61B5B6178002225A9 /* SnakeElement.swift */,
+				6C287A541B54A291009994F5 /* CardinalDirection.swift */,
+				6CEF650D1B631CB000D28E6D /* SnakeMovement.swift */,
+			);
+			name = Snake;
+			sourceTree = "<group>";
+		};
+		6CEF65121B631F4400D28E6D /* Power Up */ = {
+			isa = PBXGroup;
+			children = (
+				6CF8F0EC1B61D99500AE3361 /* PowerUpElement.swift */,
+			);
+			name = "Power Up";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
