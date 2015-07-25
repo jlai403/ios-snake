@@ -1,8 +1,28 @@
-public class SnakeMovement {
+import Foundation
+
+public class SnakeGameControlDelegate {
+
+    var gridDelegate: GridDelegate!
+    var gameSceneDelegate: GameSceneDelegate!
+    
     var cardinalDirection: CardinalDirection
     
-    init() {
+    var player: Snake!
+    var powerUp: PowerUpElement!
+    
+    init(delegates: SnakeGame) {
+        self.gridDelegate = delegates
+        self.gameSceneDelegate = delegates
+        
         self.cardinalDirection = CardinalDirection.North
+
+        self.player = Snake(startingCell: self.gridDelegate.center())
+        self.powerUp = PowerUpElement(cell: self.gridDelegate.getRandomEmptyCell())
+    }
+    
+    public func presentScene() {
+        gameSceneDelegate.present(self.player)
+        gameSceneDelegate.present(self.powerUp)
     }
     
     public func updateDirection(direction: CardinalDirection) {
@@ -27,9 +47,20 @@ public class SnakeMovement {
         }
     }
     
-    public func move(player: Snake) {
+    public func updatePlayerMovements() {
+        self.move(player)
+    }
+    
+    private func move(player: Snake) {
         var destination = getDestinationCell(player, direction: self.cardinalDirection)
-        player.move(destination)
+        if (destination.type == .PowerUp) {
+            self.player.consume(self.powerUp)
+            self.powerUp.setPosition(self.gridDelegate.getRandomEmptyCell())
+        } else {
+            self.player.move(destination)
+        }
+        
+        self.gameSceneDelegate.present(player)
     }
     
     private func getDestinationCell(player: Snake, direction: CardinalDirection) -> Cell {
@@ -52,5 +83,4 @@ public class SnakeMovement {
         
         return destinationCell
     }
-    
 }

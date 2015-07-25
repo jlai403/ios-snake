@@ -3,11 +3,12 @@ import SpriteKit
 public class SnakeElement: SKShapeNode {
     
     var cell: Cell
-    
     var successor: SnakeElement?
     var predecessor: SnakeElement?
     
-    init(cell: Cell, successor: SnakeElement?) {
+    var presented: Bool = false
+    
+    init(cell: Cell, successor: SnakeElement? = nil) {
         self.cell = cell
         super.init()
         self.update(successor)
@@ -18,12 +19,12 @@ public class SnakeElement: SKShapeNode {
     }
     
     public func update(successor: SnakeElement?) {
-        self.setSuccessor(successor)
+        self.setElementSuccessor(successor)
         self.style()
         self.setPosition(self.cell)
     }
     
-    private func setSuccessor(successor: SnakeElement?) {
+    public func setElementSuccessor(successor: SnakeElement?) {
         successor?.predecessor = self
         self.successor = successor
     }

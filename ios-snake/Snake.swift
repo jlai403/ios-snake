@@ -52,4 +52,10 @@ public class Snake {
             snakeElement = successor
         }
     }
+    
+    public func consume(powerUp: PowerUpElement) {
+        var newHead = SnakeElement(cell: powerUp.cell)
+        self.head.setElementSuccessor(newHead)
+        self.vector.insert(newHead, atIndex: 0)
+    }
 }

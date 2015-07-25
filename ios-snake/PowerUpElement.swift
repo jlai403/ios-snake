@@ -15,12 +15,13 @@ public class PowerUpElement: SKShapeNode {
     }
     
     func update() {
-        self.setPosition()
+        self.setPosition(self.cell)
         self.style()
     }
     
     
-    private func setPosition() {
+    public func setPosition(cell: Cell) {
+        self.cell = cell
         self.cell.type = .PowerUp
         self.position = cell.position
     }

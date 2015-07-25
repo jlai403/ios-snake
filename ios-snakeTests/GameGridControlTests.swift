@@ -16,7 +16,7 @@ class SnakeGameTests: XCTestCase {
         // assemble
         var snakeGame = SnakeGame(gameViewSize: CGSizeMake(375.0, 667.0), rows: 25, columns: 15)
         var grid = snakeGame.grid
-        var snake = snakeGame.player// (12,7), (11,7), (10,7)
+        var snake = snakeGame.snakeGameControl.player // (12,7), (11,7), (10,7)
 
         snakeGame.updateDirection(.North)
     
@@ -38,7 +38,7 @@ class SnakeGameTests: XCTestCase {
         // assemble
         var snakeGame = SnakeGame(gameViewSize: CGSizeMake(375.0, 667.0), rows: 25, columns: 15)
         var grid = snakeGame.grid
-        var snake = snakeGame.player// (12,7), (11,7), (10,7)
+        var snake = snakeGame.snakeGameControl.player // (12,7), (11,7), (10,7)
         
         snakeGame.updateDirection(.East)
         
@@ -60,7 +60,7 @@ class SnakeGameTests: XCTestCase {
         // assemble
         var snakeGame = SnakeGame(gameViewSize: CGSizeMake(375.0, 667.0), rows: 25, columns: 15)
         var grid = snakeGame.grid
-        var snake = snakeGame.player// (12,7), (11,7), (10,7)
+        var snake = snakeGame.snakeGameControl.player // (12,7), (11,7), (10,7)
         
         snakeGame.updateDirection(.West)
         
@@ -82,7 +82,7 @@ class SnakeGameTests: XCTestCase {
         // assemble
         var snakeGame = SnakeGame(gameViewSize: CGSizeMake(375.0, 667.0), rows: 25, columns: 15)
         var grid = snakeGame.grid
-        var snake = snakeGame.player// (12,7), (11,7), (10,7)
+        var snake = snakeGame.snakeGameControl.player // (12,7), (11,7), (10,7)
         
         snakeGame.updateDirection(.East)
         snakeGame.updatePlayerMovements() // (12,8), (12,7), (11,7)
@@ -108,7 +108,7 @@ class SnakeGameTests: XCTestCase {
         // assemble
         var snakeGame = SnakeGame(gameViewSize: CGSizeMake(375.0, 667.0), rows: 25, columns: 15)
         var grid = snakeGame.grid
-        var snake = snakeGame.player// (12,7), (11,7), (10,7)
+        var snake = snakeGame.snakeGameControl.player // (12,7), (11,7), (10,7)
         
         // act
         snakeGame.updateDirection(.South)
@@ -124,7 +124,7 @@ class SnakeGameTests: XCTestCase {
         // assemble
         var snakeGame = SnakeGame(gameViewSize: CGSizeMake(375.0, 667.0), rows: 25, columns: 15)
         var grid = snakeGame.grid
-        var snake = snakeGame.player// (12,7), (11,7), (10,7)
+        var snake = snakeGame.snakeGameControl.player // (12,7), (11,7), (10,7)
         
         snakeGame.updateDirection(.West)
         snakeGame.updatePlayerMovements()  // (12,6), (12,7), (11,7)
@@ -146,7 +146,7 @@ class SnakeGameTests: XCTestCase {
         // assemble
         var snakeGame = SnakeGame(gameViewSize: CGSizeMake(375.0, 667.0), rows: 25, columns: 15)
         var grid = snakeGame.grid
-        var snake = snakeGame.player// (12,7), (11,7), (10,7)
+        var snake = snakeGame.snakeGameControl.player // (12,7), (11,7), (10,7)
         
         snakeGame.updateDirection(.West)
         snakeGame.updatePlayerMovements() // (12,6), (12,7), (11,77)
@@ -165,7 +165,7 @@ class SnakeGameTests: XCTestCase {
         // assemble
         var snakeGame = SnakeGame(gameViewSize: CGSizeMake(375.0, 667.0), rows: 25, columns: 15)
         var grid = snakeGame.grid
-        var snake = snakeGame.player// (12,7), (11,7), (10,7)
+        var snake = snakeGame.snakeGameControl.player // (12,7), (11,7), (10,7)
         
         snakeGame.updateDirection(.East)
         snakeGame.updatePlayerMovements() // (12,8), (12,7), (11,7)
@@ -184,16 +184,39 @@ class SnakeGameTests: XCTestCase {
         // assemble
         var snakeGame = SnakeGame(gameViewSize: CGSizeMake(375.0, 667.0), rows: 25, columns: 15)
         var grid = snakeGame.grid
-        var snake = snakeGame.player// (12,7), (11,7), (10,7)
+        var snake = snakeGame.snakeGameControl.player // (12,7), (11,7), (10,7)
         
         // act
-        var powerUp = snakeGame.powerUp
+        var powerUp = snakeGame.snakeGameControl.powerUp
         
         // assert
         XCTAssertNotEqual(powerUp.cell, snake.vector[0].cell, "power up cell position is already taken by snake")
         XCTAssertEqual(powerUp.cell.type, CellType.PowerUp, "cell type should be power up")
     }
     
+    func test_consumePowerUp() {
+        // assemble
+        var snakeGame = SnakeGame(gameViewSize: CGSizeMake(375.0, 667.0), rows: 25, columns: 15)
+        var grid = snakeGame.grid
+        var snake = snakeGame.snakeGameControl.player // (12,7), (11,7), (10,7)
+
+        snakeGame.snakeGameControl.powerUp = PowerUpElement(cell: grid.position(row: 13, col: 7))
+
+        // act
+        snakeGame.updatePlayerMovements()
+
+        // assert
+        XCTAssertEqual(4, snake.length, "snake should have a length of 4")
+        assertSnakeTilePosition(expected: (13,7), actual: snake.vector[0].cell, message: "head")
+        assertSnakeTilePosition(expected: (12,7), actual: snake.vector[1].cell, message: "middle 1")
+        assertSnakeTilePosition(expected: (11,7), actual: snake.vector[2].cell, message: "middle 2")
+        assertSnakeTilePosition(expected: (10,7), actual: snake.vector[3].cell, message: "tail")
+        
+        XCTAssertEqual(CellType.Snake, grid.position(row: 13, col: 7).type, "cell type should be of type Snake")
+        XCTAssertEqual(CellType.Snake, grid.position(row: 12, col: 7).type, "cell type should be of type Snake")
+        XCTAssertEqual(CellType.Snake, grid.position(row: 11, col: 7).type, "cell type should be of type Snake")
+        XCTAssertEqual(CellType.Snake, grid.position(row: 10, col: 7).type, "cell type should be of type Empty")
+    }
     
     //MARK: assert helpers
     
