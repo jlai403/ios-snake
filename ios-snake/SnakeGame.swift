@@ -14,15 +14,15 @@ public class SnakeGame: GridDelegate, GameSceneDelegate {
     }
     
     public func prepareScene() {
-        self.snakeGameControl.presentScene()
+        self.snakeGameControl.presentElementsForScene()
+    }
+    
+    public func start() {
+        self.snakeGameControl.startTimer()
     }
     
     public func updateDirection(direction: CardinalDirection) {
         self.snakeGameControl.updateDirection(direction)
-    }
-    
-    public func updatePlayerMovements() {
-        self.snakeGameControl.updatePlayerMovements()
     }
     
     // MARK: Grid Delegate
@@ -46,6 +46,7 @@ public class SnakeGame: GridDelegate, GameSceneDelegate {
     }
     
     // MARK: GameSceneDelegate
+    
     func present(snake: Snake) {
         var unpresentedSnakeElements = snake.vector.filter { (element) in !element.presented }
         for snakeElement in unpresentedSnakeElements {

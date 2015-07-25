@@ -2,7 +2,6 @@ import SpriteKit
 
 public class GameScene: SKScene {
     
-  
     public override init(size: CGSize) {
         super.init(size: size)
         styleGrid()
@@ -17,17 +16,5 @@ public class GameScene: SKScene {
     }
     
     override public func didMoveToView(view: SKView) {
-
     }
-    
-    public func present(player: Snake) {
-        for snakeCell in player.vector {
-            self.addChild(snakeCell)
-        }
-    }
-
-    public func present(powerUp: PowerUpElement) {
-        self.addChild(powerUp)
-    }
-
 }

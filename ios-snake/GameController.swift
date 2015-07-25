@@ -34,14 +34,12 @@ class GameController: UIViewController {
     override func viewDidAppear(animated: Bool) {
         self.snakeGame.prepareScene()
         self.gameView.presentScene(self.snakeGame.scene)
+        self.snakeGame.start()
     }
     
     @IBAction func changeDirections(sender: UISwipeGestureRecognizer) {
         var direction = getCardinalDirection(sender.direction)
         self.snakeGame.updateDirection(direction)
-        
-        // TODO: player movements should be handled by a timer -- possible a separate class too (i.e. SnakeMovementUpdater)
-        self.snakeGame.updatePlayerMovements()
     }
     
     private func getCardinalDirection(swipeDirection: UISwipeGestureRecognizerDirection) -> CardinalDirection {

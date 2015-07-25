@@ -1,14 +1,16 @@
 import Foundation
 
-public class SnakeGameControlDelegate {
+public class SnakeGameControlDelegate: NSObject {
 
-    var gridDelegate: GridDelegate!
-    var gameSceneDelegate: GameSceneDelegate!
+    private let PLAYER_MOVE_INTERVAL: Double = 0.25
+    private var timer: NSTimer?
     
     var cardinalDirection: CardinalDirection
-    
     var player: Snake!
     var powerUp: PowerUpElement!
+    
+    var gridDelegate: GridDelegate!
+    var gameSceneDelegate: GameSceneDelegate!
     
     init(delegates: SnakeGame) {
         self.gridDelegate = delegates
@@ -20,7 +22,11 @@ public class SnakeGameControlDelegate {
         self.powerUp = PowerUpElement(cell: self.gridDelegate.getRandomEmptyCell())
     }
     
-    public func presentScene() {
+    public func startTimer() {
+        self.timer = NSTimer.scheduledTimerWithTimeInterval(PLAYER_MOVE_INTERVAL, target: self, selector: Selector("updatePlayerMovements"), userInfo: nil, repeats: true)
+    }
+    
+    public func presentElementsForScene() {
         gameSceneDelegate.present(self.player)
         gameSceneDelegate.present(self.powerUp)
     }

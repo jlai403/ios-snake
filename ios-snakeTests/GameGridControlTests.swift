@@ -21,7 +21,7 @@ class SnakeGameTests: XCTestCase {
         snakeGame.updateDirection(.North)
     
         // act
-        snakeGame.updatePlayerMovements()
+        snakeGame.snakeGameControl.updatePlayerMovements()
         
         // assert
         assertSnakeTilePosition(expected: (13,7), actual: snake.vector[0].cell, message: "head")
@@ -43,7 +43,7 @@ class SnakeGameTests: XCTestCase {
         snakeGame.updateDirection(.East)
         
         // act
-        snakeGame.updatePlayerMovements()
+        snakeGame.snakeGameControl.updatePlayerMovements()
         
         // assert
         assertSnakeTilePosition(expected: (12,8), actual: snake.vector[0].cell, message: "head")
@@ -65,7 +65,7 @@ class SnakeGameTests: XCTestCase {
         snakeGame.updateDirection(.West)
         
         // act
-        snakeGame.updatePlayerMovements()
+        snakeGame.snakeGameControl.updatePlayerMovements()
         
         // assert
         assertSnakeTilePosition(expected: (12,6), actual: snake.vector[0].cell, message: "head")
@@ -85,13 +85,13 @@ class SnakeGameTests: XCTestCase {
         var snake = snakeGame.snakeGameControl.player // (12,7), (11,7), (10,7)
         
         snakeGame.updateDirection(.East)
-        snakeGame.updatePlayerMovements() // (12,8), (12,7), (11,7)
-        snakeGame.updatePlayerMovements() // (12,8), (12,8), (12,7)
+        snakeGame.snakeGameControl.updatePlayerMovements() // (12,8), (12,7), (11,7)
+        snakeGame.snakeGameControl.updatePlayerMovements() // (12,8), (12,8), (12,7)
         
         snakeGame.updateDirection(.South)
 
         // act
-        snakeGame.updatePlayerMovements()
+        snakeGame.snakeGameControl.updatePlayerMovements()
         
         // assert
         assertSnakeTilePosition(expected: (11,9), actual: snake.vector[0].cell, message: "head")
@@ -112,7 +112,7 @@ class SnakeGameTests: XCTestCase {
         
         // act
         snakeGame.updateDirection(.South)
-        snakeGame.updatePlayerMovements()
+        snakeGame.snakeGameControl.updatePlayerMovements()
         
         // assert
         assertSnakeTilePosition(expected: (13,7), actual: snake.vector[0].cell, message: "head")
@@ -127,14 +127,14 @@ class SnakeGameTests: XCTestCase {
         var snake = snakeGame.snakeGameControl.player // (12,7), (11,7), (10,7)
         
         snakeGame.updateDirection(.West)
-        snakeGame.updatePlayerMovements()  // (12,6), (12,7), (11,7)
+        snakeGame.snakeGameControl.updatePlayerMovements()  // (12,6), (12,7), (11,7)
 
         snakeGame.updateDirection(.South)
-        snakeGame.updatePlayerMovements() // (11,6), (12,6), (12,7)
+        snakeGame.snakeGameControl.updatePlayerMovements() // (11,6), (12,6), (12,7)
         
         // act
         snakeGame.updateDirection(.North)
-        snakeGame.updatePlayerMovements()
+        snakeGame.snakeGameControl.updatePlayerMovements()
         
         // assert
         assertSnakeTilePosition(expected: (10,6), actual: snake.vector[0].cell, message: "head")
@@ -149,11 +149,11 @@ class SnakeGameTests: XCTestCase {
         var snake = snakeGame.snakeGameControl.player // (12,7), (11,7), (10,7)
         
         snakeGame.updateDirection(.West)
-        snakeGame.updatePlayerMovements() // (12,6), (12,7), (11,77)
+        snakeGame.snakeGameControl.updatePlayerMovements() // (12,6), (12,7), (11,77)
         
         // act
         snakeGame.updateDirection(.East)
-        snakeGame.updatePlayerMovements()
+        snakeGame.snakeGameControl.updatePlayerMovements()
         
         // assert
         assertSnakeTilePosition(expected: (12,5), actual: snake.vector[0].cell, message: "head")
@@ -168,11 +168,11 @@ class SnakeGameTests: XCTestCase {
         var snake = snakeGame.snakeGameControl.player // (12,7), (11,7), (10,7)
         
         snakeGame.updateDirection(.East)
-        snakeGame.updatePlayerMovements() // (12,8), (12,7), (11,7)
+        snakeGame.snakeGameControl.updatePlayerMovements() // (12,8), (12,7), (11,7)
         
         // act
         snakeGame.updateDirection(.West)
-        snakeGame.updatePlayerMovements()
+        snakeGame.snakeGameControl.updatePlayerMovements()
         
         // assert
         assertSnakeTilePosition(expected: (12,9), actual: snake.vector[0].cell, message: "head")
@@ -203,7 +203,7 @@ class SnakeGameTests: XCTestCase {
         snakeGame.snakeGameControl.powerUp = PowerUpElement(cell: grid.position(row: 13, col: 7))
 
         // act
-        snakeGame.updatePlayerMovements()
+        snakeGame.snakeGameControl.updatePlayerMovements()
 
         // assert
         XCTAssertEqual(4, snake.length, "snake should have a length of 4")
