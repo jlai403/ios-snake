@@ -59,4 +59,11 @@ public class SnakeElement: SKShapeNode {
     public func isTail() -> Bool {
         return predecessor == nil
     }
+    
+    public func blink() {
+        var fade = SKAction.runBlock{ self.alpha = 0.25 }
+        var wait = SKAction.waitForDuration(0.25)
+        var brighten = SKAction.runBlock{ self.alpha = 1.0 }
+        self.runAction(SKAction.sequence([fade, wait, brighten, wait, fade, wait, brighten]))
+    }
 }
