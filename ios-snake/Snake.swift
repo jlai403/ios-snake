@@ -30,7 +30,7 @@ public class Snake {
             var predecessor = SnakeElement(cell: cell, successor:successor)
             self.vector.append(predecessor)
             
-            cell = cell.below()
+            cell = cell.south()
         }
     }
     

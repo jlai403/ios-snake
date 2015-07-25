@@ -31,8 +31,20 @@ public class Cell: Equatable {
         return Cell(grid: grid, row: row, column: column, type: .Empty)
     }
     
-    func below() -> Cell {
+    func north() -> Cell {
+        return self.grid.position(row: self.row+1, col: self.column)
+    }
+    
+    func south() -> Cell {
         return self.grid.position(row: self.row-1, col: self.column)
+    }
+    
+    func east() -> Cell {
+        return self.grid.position(row: self.row, col: self.column+1)
+    }
+    
+    func west() -> Cell {
+        return self.grid.position(row: self.row, col: self.column-1)
     }
 }
 

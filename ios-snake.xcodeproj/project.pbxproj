@@ -39,6 +39,8 @@
 		6CE494641B55E34A00E193A9 /* ArrayExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CE494631B55E34A00E193A9 /* ArrayExtensions.swift */; };
 		6CE494651B55E6C700E193A9 /* ArrayExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CE494631B55E34A00E193A9 /* ArrayExtensions.swift */; };
 		6CE494661B55F36F00E193A9 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C0CB2851B531FA000796B92 /* Colors.swift */; };
+		6CEF650E1B631CB000D28E6D /* SnakeMovement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CEF650D1B631CB000D28E6D /* SnakeMovement.swift */; };
+		6CEF650F1B631CDF00D28E6D /* SnakeMovement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CEF650D1B631CB000D28E6D /* SnakeMovement.swift */; };
 		6CF8F0ED1B61D99500AE3361 /* PowerUpElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CF8F0EC1B61D99500AE3361 /* PowerUpElement.swift */; };
 		6CF8F0EE1B61DAA000AE3361 /* PowerUpElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CF8F0EC1B61D99500AE3361 /* PowerUpElement.swift */; };
 /* End PBXBuildFile section */
@@ -78,6 +80,7 @@
 		6CB576181B531C9200DEDCCE /* GameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		6CB5DB571B5F4FF700739D68 /* SnakeGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnakeGame.swift; sourceTree = "<group>"; };
 		6CE494631B55E34A00E193A9 /* ArrayExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayExtensions.swift; sourceTree = "<group>"; };
+		6CEF650D1B631CB000D28E6D /* SnakeMovement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnakeMovement.swift; sourceTree = "<group>"; };
 		6CF8F0EC1B61D99500AE3361 /* PowerUpElement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PowerUpElement.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -190,6 +193,7 @@
 				6C851EF81B5B6193002225A9 /* Grid.swift */,
 				6C851EFA1B5B61A5002225A9 /* Cell.swift */,
 				6C851EFC1B5B61DA002225A9 /* CellType.swift */,
+				6CEF650D1B631CB000D28E6D /* SnakeMovement.swift */,
 			);
 			name = Game;
 			sourceTree = "<group>";
@@ -314,6 +318,7 @@
 				6C0CB2881B532A9600796B92 /* ConfigConstants.swift in Sources */,
 				6C851EFD1B5B61DA002225A9 /* CellType.swift in Sources */,
 				6C0CB2841B531E6400796B92 /* Snake.swift in Sources */,
+				6CEF650E1B631CB000D28E6D /* SnakeMovement.swift in Sources */,
 				6C851EFB1B5B61A5002225A9 /* Cell.swift in Sources */,
 				6C287A551B54A291009994F5 /* CardinalDirection.swift in Sources */,
 				6CB575F41B531B4C00DEDCCE /* AppDelegate.swift in Sources */,
@@ -325,6 +330,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6CEF650F1B631CDF00D28E6D /* SnakeMovement.swift in Sources */,
 				6CF8F0EE1B61DAA000AE3361 /* PowerUpElement.swift in Sources */,
 				6CB5DB5A1B5F583900739D68 /* ConfigConstants.swift in Sources */,
 				6CB5DB591B5F500A00739D68 /* SnakeGame.swift in Sources */,
