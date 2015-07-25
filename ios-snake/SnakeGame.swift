@@ -36,10 +36,10 @@ public class SnakeGame: GridDelegate, GameSceneDelegate {
         
         var randomRow = Int(arc4random_uniform(UInt32(self.grid.rows)))
         var randomCol = Int(arc4random_uniform(UInt32(self.grid.columns)))
-        var potentialCell = grid.position(row: randomRow, col: randomCol)
+        var potentialCell = grid.position(rowIndex: randomRow, colIndex: randomCol)!
         
         while (potentialCell.type != .Empty) {
-            potentialCell = grid.position(row: randomRow, col: randomCol)
+            potentialCell = grid.position(rowIndex: randomRow, colIndex: randomCol)!
         }
         
         return potentialCell
@@ -63,6 +63,13 @@ public class SnakeGame: GridDelegate, GameSceneDelegate {
         self.scene.addChild(node)
     }
     
+    func presentGameOver() {
+        var gameOverAlert = UIAlertView()
+        gameOverAlert.title = "Game Over"
+        gameOverAlert.addButtonWithTitle("OK")
+        gameOverAlert.show()
+    }
+    
 }
 
 protocol GridDelegate {
@@ -74,4 +81,5 @@ protocol GameSceneDelegate {
     func present(snake: Snake)
     func present(node: SnakeElement)
     func present(node: PowerUpElement)
+    func presentGameOver()
 }

@@ -53,7 +53,17 @@ public class Grid {
         return cells[row][col]!
     }
     
-    public func position(#row: Int, col: Int) -> Cell {
-        return cells[row][col]!
+    public func position(#rowIndex: Int, colIndex: Int) -> Cell? {
+        if (outOfBounds(rowIndex, colIndex)) {
+            return nil
+        } else {
+            return cells[rowIndex][colIndex]!
+        }
+    }
+    
+    private func outOfBounds(rowIndex: Int, _ colIndex: Int) -> Bool {
+        var invalidRow = rowIndex < 0 || rowIndex >= self.rows
+        var invalidCol = colIndex < 0 || colIndex >= self.columns
+        return invalidRow || invalidCol
     }
 }

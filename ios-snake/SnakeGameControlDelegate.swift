@@ -4,6 +4,8 @@ public class SnakeGameControlDelegate: NSObject {
 
     private let PLAYER_MOVE_INTERVAL: Double = 0.25
     private var timer: NSTimer?
+
+    var isGameOver: Bool = false
     
     var cardinalDirection: CardinalDirection
     var player: Snake!
@@ -24,6 +26,13 @@ public class SnakeGameControlDelegate: NSObject {
     
     public func startTimer() {
         self.timer = NSTimer.scheduledTimerWithTimeInterval(PLAYER_MOVE_INTERVAL, target: self, selector: Selector("updatePlayerMovements"), userInfo: nil, repeats: true)
+    }
+    
+    public func gameOver() {
+        self.timer?.invalidate()
+        self.timer = nil
+        self.isGameOver = true
+        self.gameSceneDelegate.presentGameOver()
     }
     
     public func presentElementsForScene() {
@@ -58,21 +67,22 @@ public class SnakeGameControlDelegate: NSObject {
     }
     
     private func move(player: Snake) {
-        var destination = getDestinationCell(player, direction: self.cardinalDirection)
-        if (destination.type == .PowerUp) {
-            self.player.consume(self.powerUp)
-            self.powerUp.setPosition(self.gridDelegate.getRandomEmptyCell())
+        if let destination = getDestinationCell(player, direction: self.cardinalDirection) {
+            if (destination.type == .PowerUp) {
+                self.player.consume(self.powerUp)
+                self.powerUp.setPosition(self.gridDelegate.getRandomEmptyCell())
+            } else {
+                self.player.move(destination)
+            }
+            self.gameSceneDelegate.present(player)
         } else {
-            self.player.move(destination)
+            self.gameOver()
         }
-        
-        self.gameSceneDelegate.present(player)
     }
     
-    private func getDestinationCell(player: Snake, direction: CardinalDirection) -> Cell {
+    private func getDestinationCell(player: Snake, direction: CardinalDirection) -> Cell? {
         var headCell = player.head.cell
-        
-        var destinationCell: Cell
+        var destinationCell: Cell?
         
         switch (direction) {
         case .North:

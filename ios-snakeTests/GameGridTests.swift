@@ -95,7 +95,7 @@ class GameGridTests: XCTestCase {
         var grid = GridGenerator.createGrid(viewSize: viewSize, rows: rows, columns: columns)
         
         // act
-        var zeroPosition = grid.position(row: 0, col: 0)
+        var zeroPosition = grid.position(rowIndex: 0, colIndex: 0)!
             
         // assert
         XCTAssertEqual(0, zeroPosition.column, "wrong center column")
@@ -113,7 +113,7 @@ class GameGridTests: XCTestCase {
         var grid = GridGenerator.createGrid(viewSize: viewSize, rows: rows, columns: columns)
         
         // act
-        var gridPosition = grid.position(row: 1, col: 1)
+        var gridPosition = grid.position(rowIndex: 1, colIndex: 1)!
         
         // assert
         XCTAssertEqual(1, gridPosition.column, "wrong center column")
