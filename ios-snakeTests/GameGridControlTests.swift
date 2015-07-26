@@ -292,6 +292,29 @@ class SnakeGameTests: XCTestCase {
         XCTAssertTrue(snakeGame.snakeGameControl.isGameOver, "should be Game Over")
     }
     
+    
+    func test_gameOver_snakeInTheWay() {
+        // assemble
+        var snakeGame = SnakeGame(gameViewSize: CGSizeMake(375.0, 667.0), rows: 25, columns: 15)
+        var snakeGameControl = snakeGame.snakeGameControl
+        var player = snakeGameControl.player
+        
+        snakeGameControl.powerUp.setPosition(player.head.cell.north()!)
+        snakeGame.snakeGameControl.updatePlayerMovements()
+        snakeGameControl.powerUp.setPosition(player.head.cell.north()!)
+        snakeGame.snakeGameControl.updatePlayerMovements()
+        
+        // act
+        snakeGame.updateDirection(.West)
+        snakeGame.snakeGameControl.updatePlayerMovements()
+        snakeGame.updateDirection(.South)
+        snakeGame.snakeGameControl.updatePlayerMovements()
+        snakeGame.updateDirection(.East)
+        snakeGame.snakeGameControl.updatePlayerMovements()
+        // assert
+        XCTAssertTrue(snakeGame.snakeGameControl.isGameOver, "should be Game Over")
+    }
+    
     //MARK: assert helpers
     
     private func assertSnakeTilePosition(#expected: (row: Int, column: Int), actual: Cell, message: String = "") {

@@ -70,21 +70,28 @@ public class SnakeGameControlDelegate: NSObject {
     }
     
     private func move(player: Snake) {
-        if let destination = getDestinationCell(player, direction: self.cardinalDirection) {
+        var destination = getDestinationCell(player, direction: self.cardinalDirection)
+        if (self.isGameOver(destination)) {
+            self.gameOver()
+        } else {
+            let destination = destination!
             if (destination.type == .PowerUp) {
                 self.player.consume(self.powerUp)
                 self.powerUp.setPosition(self.gridDelegate.getRandomEmptyCell())
                 
                 self.snakeStylerDelegate.style(self.player)
                 self.snakeStylerDelegate.blink(self.player.tail)
-                
             } else {
                 self.player.move(destination)
             }
             self.gameSceneDelegate.present(player)
-        } else {
-            self.gameOver()
         }
+    }
+    
+    private func isGameOver(destination: Cell?) -> Bool {
+        var outOfBounds = destination == nil
+        var blocked = destination?.type == .Snake
+        return outOfBounds || blocked
     }
     
     private func getDestinationCell(player: Snake, direction: CardinalDirection) -> Cell? {
