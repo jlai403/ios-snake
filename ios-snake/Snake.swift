@@ -59,7 +59,5 @@ public class Snake {
         var newHead = SnakeElement(cell: powerUp.cell)
         self.head.setElementSuccessor(newHead)
         self.vector.insert(newHead, atIndex: 0)
-        
-        self.tail.blink()
     }
 }

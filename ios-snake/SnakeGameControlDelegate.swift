@@ -11,12 +11,14 @@ public class SnakeGameControlDelegate: NSObject {
     var player: Snake!
     var powerUp: PowerUpElement!
     
+    var snakeStylerDelegate: SnakeStylerDelegate
     var gridDelegate: GridDelegate!
     var gameSceneDelegate: GameSceneDelegate!
     
     init(delegates: SnakeGame) {
         self.gridDelegate = delegates
         self.gameSceneDelegate = delegates
+        self.snakeStylerDelegate = SnakeStylerDelegate()
         
         self.cardinalDirection = CardinalDirection.North
 
@@ -36,6 +38,7 @@ public class SnakeGameControlDelegate: NSObject {
     }
     
     public func presentElementsForScene() {
+        self.snakeStylerDelegate.style(self.player)
         gameSceneDelegate.present(self.player)
         gameSceneDelegate.present(self.powerUp)
     }
@@ -71,6 +74,10 @@ public class SnakeGameControlDelegate: NSObject {
             if (destination.type == .PowerUp) {
                 self.player.consume(self.powerUp)
                 self.powerUp.setPosition(self.gridDelegate.getRandomEmptyCell())
+                
+                self.snakeStylerDelegate.style(self.player)
+                self.snakeStylerDelegate.blink(self.player.tail)
+                
             } else {
                 self.player.move(destination)
             }

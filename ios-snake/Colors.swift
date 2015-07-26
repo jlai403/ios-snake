@@ -2,7 +2,7 @@ import UIKit
 
 public class Colors: UIColor {
     
-    static let pictonBlue = Colors.colorFor(0x22A7F0)
+    static let blue = Colors.colorFor(0x306AFF)
     
     static let pomegranate = Colors.colorFor(0xF22613)
     

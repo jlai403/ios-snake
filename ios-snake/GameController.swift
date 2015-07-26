@@ -29,7 +29,7 @@ class GameController: UIViewController {
         var gameView = self.gameView
         var game = self.snakeGame
         
-        self.gameView.layer.borderColor = Colors.pictonBlue.CGColor
+        self.gameView.layer.borderColor = Colors.blue.CGColor
         self.gameView.layer.borderWidth = 1.0
     }
 

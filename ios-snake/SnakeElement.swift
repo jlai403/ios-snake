@@ -19,8 +19,8 @@ public class SnakeElement: SKShapeNode {
     }
     
     public func update(successor: SnakeElement?) {
+        self.path = CGPathCreateWithRoundedRect(CGRect(origin: CGPointZero, size: cell.size), 0, 0, nil)
         self.setElementSuccessor(successor)
-        self.style()
         self.setPosition(self.cell)
     }
     
@@ -33,13 +33,6 @@ public class SnakeElement: SKShapeNode {
         self.cell = cell
         self.cell.type = .Snake
         self.position = cell.position
-    }
-    
-    private func style() {
-        self.path = CGPathCreateWithRoundedRect(CGRect(origin: CGPointZero, size: cell.size), 0, 0, nil)
-        self.lineWidth = 1.5
-        self.fillColor = Colors.pictonBlue
-        self.strokeColor = Colors.whiteColor()
     }
     
     public func moveForward() {
@@ -58,12 +51,5 @@ public class SnakeElement: SKShapeNode {
     
     public func isTail() -> Bool {
         return predecessor == nil
-    }
-    
-    public func blink() {
-        var fade = SKAction.runBlock{ self.alpha = 0.25 }
-        var wait = SKAction.waitForDuration(0.25)
-        var brighten = SKAction.runBlock{ self.alpha = 1.0 }
-        self.runAction(SKAction.sequence([fade, wait, brighten, wait, fade, wait, brighten]))
     }
 }
