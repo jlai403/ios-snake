@@ -8,9 +8,6 @@ TODO:
 
 - Pause game
 
-- Game over
-	- Replay option
-
 - Home screen
 
 - Special effects
