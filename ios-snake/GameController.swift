@@ -24,8 +24,10 @@ class GameController: UIViewController {
     }
 
     private func realignGameView() {
-        self.gameView.frame.size = self.snakeGame.scene.size
+        self.gameView.frame.size = self.snakeGame.grid.size
         self.gameView.center = self.view.center
+        var gameView = self.gameView
+        var game = self.snakeGame
         
         self.gameView.layer.borderColor = Colors.pictonBlue.CGColor
         self.gameView.layer.borderWidth = 1.0

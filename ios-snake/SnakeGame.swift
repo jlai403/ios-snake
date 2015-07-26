@@ -8,8 +8,8 @@ public class SnakeGame: GridDelegate, GameSceneDelegate {
     var snakeGameControl: SnakeGameControlDelegate!
     
     init(gameViewSize: CGSize, rows: Int, columns: Int) {
-        self.scene = GameScene(size: gameViewSize)
         self.grid = GridGenerator.createGrid(viewSize: gameViewSize, rows: rows, columns: columns)
+        self.scene = GameScene(size: grid.size)
         self.snakeGameControl = SnakeGameControlDelegate(delegates: self)
     }
     
