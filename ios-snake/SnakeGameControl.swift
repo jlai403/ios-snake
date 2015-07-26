@@ -13,17 +13,28 @@ public class SnakeGameControl: NSObject {
     var powerUp: PowerUpElement!
     
     var snakeStyler: SnakeStyler
-    var delegate: SnakeGameControlDelegate!
+    var delegate: SnakeGameControlDelegate
     
     init(delegate: SnakeGameControlDelegate) {
         self.delegate = delegate
         self.snakeStyler = SnakeStyler()
         super.init()
         
-        self.reset()
+        initializePlayer()
+        initializePowerUp()
     }
     
-    public func startTimer() {
+    private func initializePlayer() {
+        self.cardinalDirection = CardinalDirection.North
+        self.player = Snake(startingCell: self.delegate.center())
+    }
+    
+    private func initializePowerUp() {
+        self.powerUp = PowerUpElement(cell: self.delegate.getRandomEmptyCell())
+    }
+    
+    public func startGame() {
+        self.snakeStyler.style(self.player)
         self.timer = NSTimer.scheduledTimerWithTimeInterval(PLAYER_MOVE_INTERVAL, target: self, selector: Selector("updatePlayerMovements"), userInfo: nil, repeats: true)
     }
     
@@ -31,7 +42,7 @@ public class SnakeGameControl: NSObject {
         self.timer?.invalidate()
         self.timer = nil
         self.isGameOver = true
-        self.delegate.presentGameOver()
+        self.delegate.notifyGameOver()
     }
     
     private func isGameOver(destination: Cell?) -> Bool {
@@ -40,16 +51,14 @@ public class SnakeGameControl: NSObject {
         return outOfBounds || blocked
     }
     
-    public func reset() {
+    public func resetGame() {
         self.delegate.clear()
-        self.cardinalDirection = CardinalDirection.North
-        self.player = Snake(startingCell: self.delegate.center())
-        self.powerUp = PowerUpElement(cell: self.delegate.getRandomEmptyCell())
         self.isGameOver = false
+        self.initializePlayer()
+        self.powerUp.setPosition(self.delegate.getRandomEmptyCell()) // power up does not get deinit, therefore not removed from parent.
     }
     
     public func presentElementsForScene() {
-        self.snakeStyler.style(self.player)
         delegate.present(self.player)
         delegate.present(self.powerUp)
     }

@@ -1,7 +1,7 @@
 import UIKit
 import SpriteKit
 
-class GameController: UIViewController {
+class GameController: UIViewController, SnakeGameDelegate, UIAlertViewDelegate {
 
     @IBOutlet var gameView: SKView!
     
@@ -21,6 +21,7 @@ class GameController: UIViewController {
     
     private func initSnakeGame() {
         self.snakeGame = SnakeGame(gameViewSize: self.gameView.frame.size, rows: ConfigConstants.GAME_GRID_ROWS, columns: ConfigConstants.GAME_GRID_COLS)
+        self.snakeGame.delegate = self
     }
 
     private func realignGameView() {
@@ -58,6 +59,33 @@ class GameController: UIViewController {
             fatalError("invalid direction")
         }
     }
+    
+    // MARK: SnakeGameDelegate
+    func notifyGameOver() {
+        var gameOverAlert = GameOverAlertView()
+        gameOverAlert.delegate = self
+        gameOverAlert.title = "Game Over"
+        gameOverAlert.addButtonWithTitle("Retry")
+        gameOverAlert.addButtonWithTitle("Quit")
+        gameOverAlert.show()
+    }
+    
+    func alertView(alertView: UIAlertView, clickedButtonAtIndex buttonIndex: Int) {
+        if (alertView is GameOverAlertView){
+            gameOverAlertActions(buttonIndex)
+        }
+    }
+    
+    private func gameOverAlertActions(buttonIndex: Int) {
+        switch (buttonIndex) {
+        case 0:
+            snakeGame.reset()
+            snakeGame.start()
+            break
+        case 1:
+            exit(0)
+        default:
+            fatalError("impossible action")
+        }
+    }
 }
-
-

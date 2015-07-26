@@ -314,7 +314,7 @@ class SnakeGameTests: XCTestCase {
         XCTAssertTrue(snakeGame.snakeGameControl.isGameOver, "should be Game Over")
     }
     
-    func test_reset() {
+    func test_resetGame() {
         // assemble
         var snakeGame = SnakeGame(gameViewSize: CGSizeMake(375.0, 667.0), rows: 25, columns: 15)
         var grid = snakeGame.grid
@@ -334,7 +334,7 @@ class SnakeGameTests: XCTestCase {
         snakeGame.snakeGameControl.updatePlayerMovements()
         
         // act
-        snakeGameControl.reset()
+        snakeGameControl.resetGame()
         
         // assert
         snake = snakeGameControl.player

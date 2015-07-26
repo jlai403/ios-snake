@@ -27,6 +27,7 @@ public class PowerUpElement: SKShapeNode {
     public func setPosition(cell: Cell) {
         self.cell = cell
         self.cell.type = .PowerUp
+        var debug = self
         self.position = cell.position
     }
     

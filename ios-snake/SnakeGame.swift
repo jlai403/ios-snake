@@ -7,6 +7,8 @@ public class SnakeGame: SnakeGameControlDelegate {
     
     var snakeGameControl: SnakeGameControl!
     
+    var delegate: SnakeGameDelegate?
+    
     init(gameViewSize: CGSize, rows: Int, columns: Int) {
         self.grid = GridGenerator.createGrid(viewSize: gameViewSize, rows: rows, columns: columns)
         self.scene = GameScene(size: grid.size)
@@ -18,7 +20,11 @@ public class SnakeGame: SnakeGameControlDelegate {
     }
     
     public func start() {
-        self.snakeGameControl.startTimer()
+        self.snakeGameControl.startGame()
+    }
+    
+    public func reset() {
+        self.snakeGameControl.resetGame()
     }
     
     public func updateDirection(direction: CardinalDirection) {
@@ -65,21 +71,8 @@ public class SnakeGame: SnakeGameControlDelegate {
         self.scene.addChild(node)
     }
     
-    func presentGameOver() {
-        var gameOverAlert = UIAlertView()
-        gameOverAlert.title = "Game Over"
-        gameOverAlert.addButtonWithTitle("Quit")
-        gameOverAlert.show()
+    func notifyGameOver() {
+        self.delegate?.notifyGameOver()
     }
 }
 
-protocol SnakeGameControlDelegate {
-    func getRandomEmptyCell() -> Cell
-    func center() -> Cell
-    func clear()
-    
-    func present(snake: Snake)
-    func present(node: SnakeElement)
-    func present(node: PowerUpElement)
-    func presentGameOver()
-}
