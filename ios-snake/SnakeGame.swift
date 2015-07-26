@@ -1,16 +1,16 @@
 import SpriteKit
 
-public class SnakeGame: GridDelegate, GameSceneDelegate {
+public class SnakeGame: SnakeGameControlDelegate {
     
     var grid: Grid
     var scene: GameScene
     
-    var snakeGameControl: SnakeGameControlDelegate!
+    var snakeGameControl: SnakeGameControl!
     
     init(gameViewSize: CGSize, rows: Int, columns: Int) {
         self.grid = GridGenerator.createGrid(viewSize: gameViewSize, rows: rows, columns: columns)
         self.scene = GameScene(size: grid.size)
-        self.snakeGameControl = SnakeGameControlDelegate(delegates: self)
+        self.snakeGameControl = SnakeGameControl(delegate: self)
     }
     
     public func prepareScene() {
@@ -25,7 +25,7 @@ public class SnakeGame: GridDelegate, GameSceneDelegate {
         self.snakeGameControl.updateDirection(direction)
     }
     
-    // MARK: Grid Delegate
+    // MARK: SnakeGameControlDelegate
     
     func center() -> Cell {
         return self.grid.center()
@@ -45,7 +45,9 @@ public class SnakeGame: GridDelegate, GameSceneDelegate {
         return potentialCell
     }
     
-    // MARK: GameSceneDelegate
+    func clear() {
+        self.grid.clear()
+    }
     
     func present(snake: Snake) {
         var unpresentedSnakeElements = snake.vector.filter { (element) in !element.presented }
@@ -66,18 +68,16 @@ public class SnakeGame: GridDelegate, GameSceneDelegate {
     func presentGameOver() {
         var gameOverAlert = UIAlertView()
         gameOverAlert.title = "Game Over"
-        gameOverAlert.addButtonWithTitle("OK")
+        gameOverAlert.addButtonWithTitle("Quit")
         gameOverAlert.show()
     }
-    
 }
 
-protocol GridDelegate {
+protocol SnakeGameControlDelegate {
     func getRandomEmptyCell() -> Cell
     func center() -> Cell
-}
-
-protocol GameSceneDelegate {
+    func clear()
+    
     func present(snake: Snake)
     func present(node: SnakeElement)
     func present(node: PowerUpElement)

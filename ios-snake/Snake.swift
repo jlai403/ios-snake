@@ -36,6 +36,13 @@ public class Snake {
         }
     }
     
+    deinit {
+        for element in vector {
+            element.removeFromParent()
+        }
+        self.vector.removeAll(keepCapacity: false)
+    }
+    
     public func move(destination: Cell) {
         if (canMoveTo(destination)) {
             moveVectorForward()

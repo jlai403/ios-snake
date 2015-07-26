@@ -1,29 +1,26 @@
 import Foundation
 
-public class SnakeGameControlDelegate: NSObject {
+public class SnakeGameControl: NSObject {
 
     private let PLAYER_MOVE_INTERVAL: Double = 0.25
-    private var timer: NSTimer?
+    weak private var timer: NSTimer?
 
     var isGameOver: Bool = false
     
-    var cardinalDirection: CardinalDirection
+    var cardinalDirection: CardinalDirection!
+    
     var player: Snake!
     var powerUp: PowerUpElement!
     
-    var snakeStylerDelegate: SnakeStylerDelegate
-    var gridDelegate: GridDelegate!
-    var gameSceneDelegate: GameSceneDelegate!
+    var snakeStyler: SnakeStyler
+    var delegate: SnakeGameControlDelegate!
     
-    init(delegates: SnakeGame) {
-        self.gridDelegate = delegates
-        self.gameSceneDelegate = delegates
-        self.snakeStylerDelegate = SnakeStylerDelegate()
+    init(delegate: SnakeGameControlDelegate) {
+        self.delegate = delegate
+        self.snakeStyler = SnakeStyler()
+        super.init()
         
-        self.cardinalDirection = CardinalDirection.North
-
-        self.player = Snake(startingCell: self.gridDelegate.center())
-        self.powerUp = PowerUpElement(cell: self.gridDelegate.getRandomEmptyCell())
+        self.reset()
     }
     
     public func startTimer() {
@@ -34,13 +31,27 @@ public class SnakeGameControlDelegate: NSObject {
         self.timer?.invalidate()
         self.timer = nil
         self.isGameOver = true
-        self.gameSceneDelegate.presentGameOver()
+        self.delegate.presentGameOver()
+    }
+    
+    private func isGameOver(destination: Cell?) -> Bool {
+        var outOfBounds = destination == nil
+        var blocked = destination?.type == .Snake
+        return outOfBounds || blocked
+    }
+    
+    public func reset() {
+        self.delegate.clear()
+        self.cardinalDirection = CardinalDirection.North
+        self.player = Snake(startingCell: self.delegate.center())
+        self.powerUp = PowerUpElement(cell: self.delegate.getRandomEmptyCell())
+        self.isGameOver = false
     }
     
     public func presentElementsForScene() {
-        self.snakeStylerDelegate.style(self.player)
-        gameSceneDelegate.present(self.player)
-        gameSceneDelegate.present(self.powerUp)
+        self.snakeStyler.style(self.player)
+        delegate.present(self.player)
+        delegate.present(self.powerUp)
     }
     
     public func updateDirection(direction: CardinalDirection) {
@@ -77,21 +88,15 @@ public class SnakeGameControlDelegate: NSObject {
             let destination = destination!
             if (destination.type == .PowerUp) {
                 self.player.consume(self.powerUp)
-                self.powerUp.setPosition(self.gridDelegate.getRandomEmptyCell())
+                self.powerUp.setPosition(self.delegate.getRandomEmptyCell())
                 
-                self.snakeStylerDelegate.style(self.player)
-                self.snakeStylerDelegate.blink(self.player.tail)
+                self.snakeStyler.style(self.player)
+                self.snakeStyler.blink(self.player.tail)
             } else {
                 self.player.move(destination)
             }
-            self.gameSceneDelegate.present(player)
+            self.delegate.present(player)
         }
-    }
-    
-    private func isGameOver(destination: Cell?) -> Bool {
-        var outOfBounds = destination == nil
-        var blocked = destination?.type == .Snake
-        return outOfBounds || blocked
     }
     
     private func getDestinationCell(player: Snake, direction: CardinalDirection) -> Cell? {

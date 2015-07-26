@@ -2,8 +2,8 @@ iOS Snake
 
 TODO:
 - Snake Styler
-	- gradient/tone
-
+	- store user preferences
+	
 - Scoreboard
 
 - Pause game

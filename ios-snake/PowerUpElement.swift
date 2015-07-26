@@ -14,6 +14,10 @@ public class PowerUpElement: SKShapeNode {
         fatalError("not implemented")
     }
     
+    deinit {
+        self.removeFromParent()
+    }
+    
     func update() {
         self.setPosition(self.cell)
         self.style()

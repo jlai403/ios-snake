@@ -1,7 +1,7 @@
 import UIKit
 import SpriteKit
 
-public class SnakeStylerDelegate {
+public class SnakeStyler {
     
     public func style(player: Snake) {
         var opacityDifference = 1.0 / CGFloat(player.length)

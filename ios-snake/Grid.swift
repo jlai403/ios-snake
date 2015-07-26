@@ -40,6 +40,10 @@ public class Grid {
         initEmptyGrid()
     }
     
+    func clear() {
+        initEmptyGrid()
+    }
+    
     private func initEmptyGrid() {
         for (var row=0; row<self.rows; row++) {
             for (var col=0; col<self.columns; col++) {
