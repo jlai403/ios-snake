@@ -1,0 +1,24 @@
+iOS Snake
+
+TODO:
+- Snake Styler
+	- gradient/tone
+
+- Scoreboard
+
+- Pause game
+
+- Game over
+	- Replay option
+
+- Home screen
+
+- Special effects
+	- gravity on game over
+	- particle system on power up consumption
+
+- Bluetooth/ Multiplayer
+
+
+BUGS: 
+- Game over when the head's destination is the tail 
