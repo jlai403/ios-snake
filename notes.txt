@@ -1,18 +1,23 @@
 iOS Snake
 
 TODO:
-- Snake Styler
-	- store user preferences
+- Styling
+	- select color
+	- fonts
 	
 - Scoreboard
 
 - Pause game
+	- Countdown to game start
 
 - Home screen
 
 - Special effects
 	- gravity on game over
 	- particle system on power up consumption
+
+- Enhance gameplay
+	- making directions more responsive - queueing directional changes
 
 - Bluetooth/ Multiplayer
 
