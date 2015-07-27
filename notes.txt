@@ -2,6 +2,7 @@ iOS Snake
 
 TODO:
 - Styling
+	- darken gradient
 	- select color
 	- fonts
 	
@@ -18,6 +19,11 @@ TODO:
 
 - Enhance gameplay
 	- making directions more responsive - queueing directional changes
+
+- Power ups
+	- speed boost
+	- shoot
+	- +2
 
 - Bluetooth/ Multiplayer
 
