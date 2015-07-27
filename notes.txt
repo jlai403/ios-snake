@@ -23,4 +23,4 @@ TODO:
 
 
 BUGS: 
-- Game over when the head's destination is the tail 
+- game over when swiping too fast?
