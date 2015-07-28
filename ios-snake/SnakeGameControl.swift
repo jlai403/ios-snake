@@ -12,12 +12,12 @@ public class SnakeGameControl: NSObject {
     var player: Snake!
     var powerUp: PowerUpElement!
     
-    var snakeStyler: SnakeStyler
+    var snakeEffects: SnakeEffects
     var delegate: SnakeGameControlDelegate
     
     init(delegate: SnakeGameControlDelegate) {
         self.delegate = delegate
-        self.snakeStyler = SnakeStyler()
+        self.snakeEffects = SnakeEffects()
         super.init()
         
         initializePlayer()
@@ -34,7 +34,7 @@ public class SnakeGameControl: NSObject {
     }
     
     public func startGame() {
-        self.snakeStyler.style(self.player)
+        self.snakeEffects.applyGradient(self.player)
         self.timer = NSTimer.scheduledTimerWithTimeInterval(PLAYER_MOVE_INTERVAL, target: self, selector: Selector("updatePlayerMovements"), userInfo: nil, repeats: true)
     }
     
@@ -99,8 +99,8 @@ public class SnakeGameControl: NSObject {
                 self.player.consume(self.powerUp)
                 self.powerUp.setPosition(self.delegate.getRandomEmptyCell())
                 
-                self.snakeStyler.style(self.player)
-                self.snakeStyler.blink(self.player.head)
+                self.snakeEffects.applyGradient(self.player)
+                self.snakeEffects.blink(self.player.head)
             } else {
                 self.player.move(destination)
             }

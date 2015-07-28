@@ -17,8 +17,8 @@
 		6C6ED5AF1B59D595004B3633 /* GameGridTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C6ED5AD1B59D540004B3633 /* GameGridTests.swift */; };
 		6C6ED5B11B59DBB8004B3633 /* GridGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C6ED5B01B59DBB8004B3633 /* GridGenerator.swift */; };
 		6C6ED5B21B59DC01004B3633 /* GridGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C6ED5B01B59DBB8004B3633 /* GridGenerator.swift */; };
-		6C71AA871B646DC7009E80C8 /* SnakeStyler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C71AA861B646DC7009E80C8 /* SnakeStyler.swift */; };
-		6C71AA881B646E4E009E80C8 /* SnakeStyler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C71AA861B646DC7009E80C8 /* SnakeStyler.swift */; };
+		6C71AA871B646DC7009E80C8 /* SnakeEffects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C71AA861B646DC7009E80C8 /* SnakeEffects.swift */; };
+		6C71AA881B646E4E009E80C8 /* SnakeEffects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C71AA861B646DC7009E80C8 /* SnakeEffects.swift */; };
 		6C851EF71B5B6178002225A9 /* SnakeElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C851EF61B5B6178002225A9 /* SnakeElement.swift */; };
 		6C851EF91B5B6193002225A9 /* Grid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C851EF81B5B6193002225A9 /* Grid.swift */; };
 		6C851EFD1B5B61DA002225A9 /* CellType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C851EFC1B5B61DA002225A9 /* CellType.swift */; };
@@ -67,7 +67,7 @@
 		6C287A541B54A291009994F5 /* CardinalDirection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardinalDirection.swift; sourceTree = "<group>"; };
 		6C6ED5AD1B59D540004B3633 /* GameGridTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameGridTests.swift; sourceTree = "<group>"; };
 		6C6ED5B01B59DBB8004B3633 /* GridGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridGenerator.swift; sourceTree = "<group>"; };
-		6C71AA861B646DC7009E80C8 /* SnakeStyler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnakeStyler.swift; sourceTree = "<group>"; };
+		6C71AA861B646DC7009E80C8 /* SnakeEffects.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnakeEffects.swift; sourceTree = "<group>"; };
 		6C851EF61B5B6178002225A9 /* SnakeElement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnakeElement.swift; sourceTree = "<group>"; };
 		6C851EF81B5B6193002225A9 /* Grid.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Grid.swift; sourceTree = "<group>"; };
 		6C851EFA1B5B61A5002225A9 /* Cell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cell.swift; sourceTree = "<group>"; };
@@ -227,7 +227,7 @@
 				6CB5DB571B5F4FF700739D68 /* SnakeGame.swift */,
 				6C0CB2831B531E6400796B92 /* Snake.swift */,
 				6C851EF61B5B6178002225A9 /* SnakeElement.swift */,
-				6C71AA861B646DC7009E80C8 /* SnakeStyler.swift */,
+				6C71AA861B646DC7009E80C8 /* SnakeEffects.swift */,
 				6C287A541B54A291009994F5 /* CardinalDirection.swift */,
 				6CEF650D1B631CB000D28E6D /* SnakeGameControl.swift */,
 			);
@@ -349,7 +349,7 @@
 				6C6ED5B11B59DBB8004B3633 /* GridGenerator.swift in Sources */,
 				6CB575F61B531B4C00DEDCCE /* GameController.swift in Sources */,
 				6C851EF71B5B6178002225A9 /* SnakeElement.swift in Sources */,
-				6C71AA871B646DC7009E80C8 /* SnakeStyler.swift in Sources */,
+				6C71AA871B646DC7009E80C8 /* SnakeEffects.swift in Sources */,
 				6C0CB2861B531FA000796B92 /* Colors.swift in Sources */,
 				6C851EF91B5B6193002225A9 /* Grid.swift in Sources */,
 				6CB576191B531C9200DEDCCE /* GameScene.swift in Sources */,
@@ -369,7 +369,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6CC3DA951B64B60400D07BD9 /* Delegates.swift in Sources */,
-				6C71AA881B646E4E009E80C8 /* SnakeStyler.swift in Sources */,
+				6C71AA881B646E4E009E80C8 /* SnakeEffects.swift in Sources */,
 				6CEF650F1B631CDF00D28E6D /* SnakeGameControl.swift in Sources */,
 				6CF8F0EE1B61DAA000AE3361 /* PowerUpElement.swift in Sources */,
 				6CB5DB5A1B5F583900739D68 /* ConfigConstants.swift in Sources */,

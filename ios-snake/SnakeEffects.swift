@@ -1,18 +1,14 @@
 import UIKit
 import SpriteKit
 
-public class SnakeStyler {
+public class SnakeEffects {
     
-    public func style(player: Snake) {
-        var opacityDifference = 1.0 / CGFloat(player.length)
-        var opacity = CGFloat(1.0)
+    public func applyGradient(player: Snake) {
+        var alphaDifference = 1.0 / CGFloat(player.length)
+        var alpha = CGFloat(1.0)
         for element in player.vector {
-            element.lineWidth = 1.5
-            element.fillColor = Colors.blue
-            element.strokeColor = Colors.whiteColor()
-            element.alpha = opacity
-            
-            opacity -= opacityDifference
+            element.alpha = alpha
+            alpha -= alphaDifference
         }
     }
     
