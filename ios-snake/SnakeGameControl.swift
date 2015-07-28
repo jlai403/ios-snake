@@ -100,7 +100,7 @@ public class SnakeGameControl: NSObject {
                 self.powerUp.setPosition(self.delegate.getRandomEmptyCell())
                 
                 self.snakeStyler.style(self.player)
-                self.snakeStyler.blink(self.player.tail)
+                self.snakeStyler.blink(self.player.head)
             } else {
                 self.player.move(destination)
             }
