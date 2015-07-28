@@ -7,6 +7,7 @@ public class PowerUpElement: SKShapeNode {
         self.cell = cell
         super.init()
         
+        self.render()
         self.update()
     }
 
@@ -20,7 +21,6 @@ public class PowerUpElement: SKShapeNode {
     
     func update() {
         self.setPosition(self.cell)
-        self.style()
     }
     
     
@@ -31,7 +31,7 @@ public class PowerUpElement: SKShapeNode {
         self.position = cell.position
     }
     
-    private func style() {
+    private func render() {
         self.path = CGPathCreateWithRoundedRect(CGRect(origin: CGPointZero, size: cell.size), 0, 0, nil)
         
         self.lineWidth = 1.5

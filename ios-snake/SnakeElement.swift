@@ -11,6 +11,7 @@ public class SnakeElement: SKShapeNode {
     init(cell: Cell, successor: SnakeElement? = nil) {
         self.cell = cell
         super.init()
+        self.render()
         self.update(successor)
     }
 
@@ -18,8 +19,12 @@ public class SnakeElement: SKShapeNode {
         fatalError("not implemented")
     }
     
-    public func update(successor: SnakeElement?) {
+    private func render() {
         self.path = CGPathCreateWithRoundedRect(CGRect(origin: CGPointZero, size: cell.size), 0, 0, nil)
+        self.position = cell.position
+    }
+    
+    public func update(successor: SnakeElement?) {
         self.setElementSuccessor(successor)
         self.setPosition(self.cell)
     }
