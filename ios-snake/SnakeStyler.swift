@@ -18,9 +18,9 @@ public class SnakeStyler {
     
     public func blink(element: SnakeElement) {
         var alpha = element.alpha
-        var fade = SKAction.runBlock{ element.alpha *= 0.50 }
+        var fade = SKAction.runBlock{ element.alpha *= 0.10 }
         var wait = SKAction.waitForDuration(0.25)
-        var brighten = SKAction.runBlock{ element.alpha /= 0.50 }
+        var brighten = SKAction.runBlock{ element.alpha /= 0.10 }
         element.runAction(SKAction.sequence([fade, wait, brighten, wait, fade, wait, brighten]))
     }
 }
