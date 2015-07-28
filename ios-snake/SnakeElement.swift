@@ -32,7 +32,8 @@ public class SnakeElement: SKShapeNode {
     public func setPosition(cell: Cell) {
         self.cell = cell
         self.cell.type = .Snake
-        self.position = cell.position
+//        self.position = cell.position
+        self.runAction(SKAction.moveTo(cell.position, duration: 0.10))
     }
     
     public func moveForward() {

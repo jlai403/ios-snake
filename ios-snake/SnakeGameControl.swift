@@ -2,7 +2,7 @@ import Foundation
 
 public class SnakeGameControl: NSObject {
 
-    private let PLAYER_MOVE_INTERVAL: Double = 0.25
+    private let PLAYER_MOVE_INTERVAL: Double = 0.10
     weak private var timer: NSTimer?
 
     var isGameOver: Bool = false
