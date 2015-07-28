@@ -1,12 +1,13 @@
 iOS Snake
 
 TODO:
+- Scoreboard
+
+- Levels
+
 - Styling
-	- darken gradient
 	- select color
 	- fonts
-	
-- Scoreboard
 
 - Pause game
 	- Countdown to game start

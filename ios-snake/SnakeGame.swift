@@ -1,13 +1,14 @@
 import SpriteKit
 
-public class SnakeGame: SnakeGameControlDelegate {
+public class SnakeGame: SnakeGameDelegate {
     
     var grid: Grid
     var scene: GameScene
     
     var snakeGameControl: SnakeGameControl!
+    var score: Int = 0
     
-    var delegate: SnakeGameDelegate?
+    var delegate: SnakeGameControllerDelegate?
     
     init(gameViewSize: CGSize, rows: Int, columns: Int) {
         self.grid = GridGenerator.createGrid(viewSize: gameViewSize, rows: rows, columns: columns)
@@ -25,6 +26,7 @@ public class SnakeGame: SnakeGameControlDelegate {
     
     public func reset() {
         self.snakeGameControl.resetGame()
+        self.score = 0
     }
     
     public func updateDirection(direction: CardinalDirection) {

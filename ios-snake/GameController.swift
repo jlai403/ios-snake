@@ -1,7 +1,7 @@
 import UIKit
 import SpriteKit
 
-class GameController: UIViewController, SnakeGameDelegate, UIAlertViewDelegate {
+class GameController: UIViewController, SnakeGameControllerDelegate, UIAlertViewDelegate {
 
     @IBOutlet var gameView: SKView!
     
@@ -15,11 +15,11 @@ class GameController: UIViewController, SnakeGameDelegate, UIAlertViewDelegate {
     }
     
     override func viewDidLayoutSubviews() {
-        initSnakeGame()
+        initGame()
         realignGameView()
     }
     
-    private func initSnakeGame() {
+    private func initGame() {
         self.snakeGame = SnakeGame(gameViewSize: self.gameView.frame.size, rows: ConfigConstants.GAME_GRID_ROWS, columns: ConfigConstants.GAME_GRID_COLS)
         self.snakeGame.delegate = self
     }
@@ -32,6 +32,7 @@ class GameController: UIViewController, SnakeGameDelegate, UIAlertViewDelegate {
         
         self.gameView.layer.borderColor = Colors.blue.CGColor
         self.gameView.layer.borderWidth = 1.0
+        self.gameView.updateConstraints()
     }
 
     override func viewDidAppear(animated: Bool) {
@@ -61,6 +62,7 @@ class GameController: UIViewController, SnakeGameDelegate, UIAlertViewDelegate {
     }
     
     // MARK: SnakeGameDelegate
+
     func notifyGameOver() {
         var gameOverAlert = GameOverAlertView()
         gameOverAlert.delegate = self

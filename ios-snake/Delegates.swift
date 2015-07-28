@@ -1,8 +1,8 @@
-protocol SnakeGameDelegate {
+protocol SnakeGameControllerDelegate {
     func notifyGameOver()
 }
 
-protocol SnakeGameControlDelegate {
+protocol SnakeGameDelegate {
     func getRandomEmptyCell() -> Cell
     func center() -> Cell
     func clear()

@@ -13,9 +13,9 @@ public class SnakeGameControl: NSObject {
     var powerUp: PowerUpElement!
     
     var snakeEffects: SnakeEffects
-    var delegate: SnakeGameControlDelegate
+    var delegate: SnakeGameDelegate
     
-    init(delegate: SnakeGameControlDelegate) {
+    init(delegate: SnakeGameDelegate) {
         self.delegate = delegate
         self.snakeEffects = SnakeEffects()
         super.init()

@@ -13,19 +13,21 @@
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC" userLabel="Controller View">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tuN-rZ-kpl" userLabel="GameGrid" customClass="SKView">
-                                <rect key="frame" x="16" y="170" width="568" height="414"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tuN-rZ-kpl" userLabel="Grid View" customClass="SKView">
+                                <rect key="frame" x="16" y="45" width="568" height="530"/>
+                                <color key="backgroundColor" red="0.98039215686274506" green="0.98039215686274506" blue="0.98039215686274506" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" id="Do1-V3-A0H"/>
+                                    <constraint firstAttribute="height" constant="500" id="z8V-xc-U3G"/>
                                 </constraints>
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="Do1-V3-A0H"/>
+                                        <exclude reference="z8V-xc-U3G"/>
                                     </mask>
                                 </variation>
                             </view>
@@ -33,12 +35,15 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <gestureRecognizers/>
                         <constraints>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="tuN-rZ-kpl" secondAttribute="bottom" constant="25" id="1fz-HE-bzC"/>
                             <constraint firstItem="tuN-rZ-kpl" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="6Zs-FU-jO1"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="tuN-rZ-kpl" secondAttribute="bottom" id="ASy-we-2qd"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="tuN-rZ-kpl" secondAttribute="bottom" constant="5" id="CDS-Qd-pRA"/>
+                            <constraint firstAttribute="centerY" secondItem="tuN-rZ-kpl" secondAttribute="centerY" id="Cd7-FN-6bO"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="tuN-rZ-kpl" secondAttribute="bottom" constant="16" id="DAl-cN-dSs"/>
                             <constraint firstAttribute="trailingMargin" secondItem="tuN-rZ-kpl" secondAttribute="trailing" id="Lfm-vf-MSP"/>
                             <constraint firstItem="y3c-jy-aDJ" firstAttribute="top" secondItem="tuN-rZ-kpl" secondAttribute="bottom" id="P4I-e1-qs3"/>
+                            <constraint firstItem="tuN-rZ-kpl" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="25" id="Pod-NK-Z9Z"/>
                             <constraint firstItem="tuN-rZ-kpl" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="WBV-3t-hrP"/>
                             <constraint firstAttribute="trailingMargin" secondItem="tuN-rZ-kpl" secondAttribute="trailing" id="ZUq-c9-o27"/>
                             <constraint firstItem="y3c-jy-aDJ" firstAttribute="top" secondItem="tuN-rZ-kpl" secondAttribute="bottom" constant="150" id="Zfb-I7-KIa"/>
@@ -52,12 +57,15 @@
                                 <exclude reference="P4I-e1-qs3"/>
                                 <exclude reference="Zfb-I7-KIa"/>
                                 <exclude reference="6Zs-FU-jO1"/>
+                                <exclude reference="Cd7-FN-6bO"/>
                                 <exclude reference="Lfm-vf-MSP"/>
+                                <exclude reference="cC2-yv-d4R"/>
                                 <exclude reference="kGh-kv-qqU"/>
                                 <exclude reference="ruy-2r-egy"/>
                                 <exclude reference="zWe-fA-r5J"/>
                                 <exclude reference="ASy-we-2qd"/>
                                 <exclude reference="CDS-Qd-pRA"/>
+                                <exclude reference="DAl-cN-dSs"/>
                             </mask>
                         </variation>
                         <connections>
