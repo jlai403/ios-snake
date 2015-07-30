@@ -101,6 +101,8 @@ public class SnakeGameControl: NSObject {
                 
                 self.snakeEffects.applyGradient(self.player)
                 self.snakeEffects.blink(self.player.head)
+                
+                self.delegate.incrementScore(1)
             } else {
                 self.player.move(destination)
             }

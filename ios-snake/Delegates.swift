@@ -1,5 +1,6 @@
 protocol SnakeGameControllerDelegate {
     func notifyGameOver()
+    func updateScore(score: Int)
 }
 
 protocol SnakeGameDelegate {
@@ -11,4 +12,5 @@ protocol SnakeGameDelegate {
     func present(node: SnakeElement)
     func present(node: PowerUpElement)
     func notifyGameOver()
+    func incrementScore(increment: Int)
 }

@@ -5,6 +5,7 @@ class GameController: UIViewController, SnakeGameControllerDelegate, UIAlertView
 
     @IBOutlet var gameView: SKView!
     
+    @IBOutlet var scoreLabel: UILabel!
     var snakeGame: SnakeGame!
     
     override func viewDidLoad() {
@@ -16,7 +17,7 @@ class GameController: UIViewController, SnakeGameControllerDelegate, UIAlertView
     
     override func viewDidLayoutSubviews() {
         initGame()
-        realignGameView()
+        realignViews()
     }
     
     private func initGame() {
@@ -24,7 +25,7 @@ class GameController: UIViewController, SnakeGameControllerDelegate, UIAlertView
         self.snakeGame.delegate = self
     }
 
-    private func realignGameView() {
+    private func realignViews() {
         self.gameView.frame.size = self.snakeGame.grid.size
         self.gameView.center = self.view.center
         var gameView = self.gameView
@@ -32,7 +33,6 @@ class GameController: UIViewController, SnakeGameControllerDelegate, UIAlertView
         
         self.gameView.layer.borderColor = Colors.blue.CGColor
         self.gameView.layer.borderWidth = 1.0
-        self.gameView.updateConstraints()
     }
 
     override func viewDidAppear(animated: Bool) {
@@ -62,7 +62,9 @@ class GameController: UIViewController, SnakeGameControllerDelegate, UIAlertView
     }
     
     // MARK: SnakeGameDelegate
-
+    func updateScore(score: Int) {
+    }
+    
     func notifyGameOver() {
         var gameOverAlert = GameOverAlertView()
         gameOverAlert.delegate = self
@@ -77,7 +79,7 @@ class GameController: UIViewController, SnakeGameControllerDelegate, UIAlertView
             gameOverAlertActions(buttonIndex)
         }
     }
-    
+
     private func gameOverAlertActions(buttonIndex: Int) {
         switch (buttonIndex) {
         case 0:

@@ -34,7 +34,6 @@ public class SnakeGame: SnakeGameDelegate {
     }
     
     // MARK: SnakeGameControlDelegate
-    
     func center() -> Cell {
         return self.grid.center()
     }
@@ -71,6 +70,11 @@ public class SnakeGame: SnakeGameDelegate {
     
     func present(node: PowerUpElement) {
         self.scene.addChild(node)
+    }
+    
+    func incrementScore(increment: Int) {
+        self.score += increment
+        self.delegate?.updateScore(self.score)
     }
     
     func notifyGameOver() {
