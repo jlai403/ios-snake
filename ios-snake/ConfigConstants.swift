@@ -1,6 +1,6 @@
 struct ConfigConstants {
 
-    static let DEBUG = true
+    static let DEBUG = false
     
     static let START_SNAKE_LENGTH = 3
     static let GAME_GRID_ROWS = 45

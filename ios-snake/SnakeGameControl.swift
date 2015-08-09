@@ -27,10 +27,12 @@ public class SnakeGameControl: NSObject {
     private func initializePlayer() {
         self.cardinalDirection = CardinalDirection.North
         self.player = Snake(startingCell: self.delegate.center())
+        self.delegate.present(player)
     }
     
     private func initializePowerUp() {
         self.powerUp = PowerUpElement(cell: self.delegate.getRandomEmptyCell())
+        self.delegate.present(powerUp)
     }
     
     public func startGame() {
@@ -56,11 +58,6 @@ public class SnakeGameControl: NSObject {
         self.isGameOver = false
         self.initializePlayer()
         self.powerUp.setPosition(self.delegate.getRandomEmptyCell()) // power up does not get deinit, therefore not removed from parent.
-    }
-    
-    public func presentElementsForScene() {
-        delegate.present(self.player)
-        delegate.present(self.powerUp)
     }
     
     public func updateDirection(direction: CardinalDirection) {

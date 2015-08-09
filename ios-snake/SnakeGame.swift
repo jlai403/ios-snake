@@ -16,17 +16,18 @@ public class SnakeGame: SnakeGameDelegate {
         self.snakeGameControl = SnakeGameControl(delegate: self)
     }
     
-    public func prepareScene() {
-        self.snakeGameControl.presentElementsForScene()
-    }
-    
     public func start() {
+        self.updateScore()
         self.snakeGameControl.startGame()
     }
     
     public func reset() {
         self.snakeGameControl.resetGame()
         self.score = 0
+    }
+    
+    private func updateScore() {
+        self.scene.updateScore(self.score)
     }
     
     public func updateDirection(direction: CardinalDirection) {
@@ -64,16 +65,17 @@ public class SnakeGame: SnakeGameDelegate {
     }
     
     func present(node: SnakeElement) {
-        self.scene.addChild(node)
+        self.scene.insertChild(node, atIndex: GameSceneZPositions.GAME_ELEMENT)
         node.presented = true
     }
     
     func present(node: PowerUpElement) {
-        self.scene.addChild(node)
+        self.scene.insertChild(node, atIndex: GameSceneZPositions.GAME_ELEMENT)
     }
     
     func incrementScore(increment: Int) {
         self.score += increment
+        self.updateScore()
     }
     
     func notifyGameOver() {

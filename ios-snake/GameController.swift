@@ -35,7 +35,6 @@ class GameController: UIViewController, SnakeGameControllerDelegate, UIAlertView
     }
 
     override func viewDidAppear(animated: Bool) {
-        self.snakeGame.prepareScene()
         self.gameView.presentScene(self.snakeGame.scene)
         self.snakeGame.start()
     }
