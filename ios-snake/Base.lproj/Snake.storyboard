@@ -31,12 +31,6 @@
                                     </mask>
                                 </variation>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="SCORE: 0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="siL-XZ-9lr">
-                                <rect key="frame" x="511" y="43" width="73" height="19"/>
-                                <fontDescription key="fontDescription" name="DINAlternate-Bold" family="DIN Alternate" pointSize="16"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <gestureRecognizers/>
@@ -47,7 +41,6 @@
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="tuN-rZ-kpl" secondAttribute="bottom" constant="5" id="CDS-Qd-pRA"/>
                             <constraint firstAttribute="centerY" secondItem="tuN-rZ-kpl" secondAttribute="centerY" id="Cd7-FN-6bO"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="tuN-rZ-kpl" secondAttribute="bottom" constant="16" id="DAl-cN-dSs"/>
-                            <constraint firstItem="tuN-rZ-kpl" firstAttribute="top" secondItem="siL-XZ-9lr" secondAttribute="bottom" constant="8" id="ETf-8o-zdS"/>
                             <constraint firstAttribute="trailingMargin" secondItem="tuN-rZ-kpl" secondAttribute="trailing" id="Lfm-vf-MSP"/>
                             <constraint firstItem="y3c-jy-aDJ" firstAttribute="top" secondItem="tuN-rZ-kpl" secondAttribute="bottom" id="P4I-e1-qs3"/>
                             <constraint firstItem="tuN-rZ-kpl" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="50" id="Pod-NK-Z9Z"/>
@@ -55,7 +48,6 @@
                             <constraint firstAttribute="trailingMargin" secondItem="tuN-rZ-kpl" secondAttribute="trailing" id="ZUq-c9-o27"/>
                             <constraint firstItem="y3c-jy-aDJ" firstAttribute="top" secondItem="tuN-rZ-kpl" secondAttribute="bottom" constant="150" id="Zfb-I7-KIa"/>
                             <constraint firstItem="tuN-rZ-kpl" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="150" id="cC2-yv-d4R"/>
-                            <constraint firstItem="tuN-rZ-kpl" firstAttribute="trailing" secondItem="siL-XZ-9lr" secondAttribute="trailing" id="hkd-9v-yqS"/>
                             <constraint firstAttribute="width" secondItem="tuN-rZ-kpl" secondAttribute="width" id="kGh-kv-qqU"/>
                             <constraint firstAttribute="centerX" secondItem="tuN-rZ-kpl" secondAttribute="centerX" id="ruy-2r-egy"/>
                             <constraint firstItem="tuN-rZ-kpl" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="150" id="zWe-fA-r5J"/>
@@ -85,7 +77,6 @@
                     </view>
                     <connections>
                         <outlet property="gameView" destination="tuN-rZ-kpl" id="UYR-sy-84d"/>
-                        <outlet property="scoreLabel" destination="siL-XZ-9lr" id="FL2-Oc-D6G"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

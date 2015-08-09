@@ -5,7 +5,6 @@ class GameController: UIViewController, SnakeGameControllerDelegate, UIAlertView
 
     @IBOutlet var gameView: SKView!
     
-    @IBOutlet var scoreLabel: UILabel!
     var snakeGame: SnakeGame!
     
     override func viewDidLoad() {
@@ -62,8 +61,6 @@ class GameController: UIViewController, SnakeGameControllerDelegate, UIAlertView
     }
     
     // MARK: SnakeGameDelegate
-    func updateScore(score: Int) {
-    }
     
     func notifyGameOver() {
         var gameOverAlert = GameOverAlertView()

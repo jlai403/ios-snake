@@ -1,6 +1,5 @@
 protocol SnakeGameControllerDelegate {
     func notifyGameOver()
-    func updateScore(score: Int)
 }
 
 protocol SnakeGameDelegate {

@@ -74,7 +74,6 @@ public class SnakeGame: SnakeGameDelegate {
     
     func incrementScore(increment: Int) {
         self.score += increment
-        self.delegate?.updateScore(self.score)
     }
     
     func notifyGameOver() {
