@@ -1,16 +1,21 @@
 iOS Snake
 
 TODO:
-- Scoreboard
 
 - Levels
+    - pull snake timer one level up (refactor)
 
 - Styling
-	- select color
+	- select color/ background
 	- fonts
 
-- Pause game
-	- Countdown to game start
+- Pause menu
+    - Settings??
+    - Restart
+    - Quit
+
+
+- Countdown to game start
 
 - Home screen
 
@@ -18,15 +23,16 @@ TODO:
 	- gravity on game over
 	- particle system on power up consumption
 
-- Enhance gameplay
-	- making directions more responsive - queueing directional changes
-
 - Power ups
 	- speed boost
 	- shoot
 	- +2
 
 - Bluetooth/ Multiplayer
+
+
+TECH DEBT:
+- Make SKScene full size, scoring outside of gridview
 
 
 BUGS: 
