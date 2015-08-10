@@ -79,7 +79,7 @@ public class SnakeGame: SnakeGameDelegate {
     }
     
     func notifyGameOver() {
-        self.delegate?.notifyGameOver()
+        self.delegate?.notifyGameOver(self.score)
     }
 }
 

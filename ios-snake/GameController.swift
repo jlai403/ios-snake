@@ -61,13 +61,10 @@ class GameController: UIViewController, SnakeGameControllerDelegate, UIAlertView
     
     // MARK: SnakeGameDelegate
     
-    func notifyGameOver() {
+    func notifyGameOver(score: Int) {
         var gameOverAlert = GameOverAlertView()
         gameOverAlert.delegate = self
-        gameOverAlert.title = "Game Over"
-        gameOverAlert.addButtonWithTitle("Retry")
-        gameOverAlert.addButtonWithTitle("Quit")
-        gameOverAlert.show()
+        gameOverAlert.show(score)
     }
     
     func alertView(alertView: UIAlertView, clickedButtonAtIndex buttonIndex: Int) {
