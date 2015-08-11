@@ -1,11 +1,6 @@
 import Foundation
 
 public class SnakeGameControl: NSObject {
-
-    private let PLAYER_MOVE_INTERVAL: Double = 0.10
-    weak private var timer: NSTimer?
-
-    var isGameOver: Bool = false
     
     var cardinalDirection: CardinalDirection!
     
@@ -27,24 +22,13 @@ public class SnakeGameControl: NSObject {
     private func initializePlayer() {
         self.cardinalDirection = CardinalDirection.North
         self.player = Snake(startingCell: self.delegate.center())
+        self.snakeEffects.applyGradient(self.player)
         self.delegate.present(player)
     }
     
     private func initializePowerUp() {
         self.powerUp = PowerUpElement(cell: self.delegate.getRandomEmptyCell())
         self.delegate.present(powerUp)
-    }
-    
-    public func startGame() {
-        self.snakeEffects.applyGradient(self.player)
-        self.timer = NSTimer.scheduledTimerWithTimeInterval(PLAYER_MOVE_INTERVAL, target: self, selector: Selector("updatePlayerMovements"), userInfo: nil, repeats: true)
-    }
-    
-    public func gameOver() {
-        self.timer?.invalidate()
-        self.timer = nil
-        self.isGameOver = true
-        self.delegate.notifyGameOver()
     }
     
     private func isGameOver(destination: Cell?) -> Bool {
@@ -54,8 +38,6 @@ public class SnakeGameControl: NSObject {
     }
     
     public func resetGame() {
-        self.delegate.clear()
-        self.isGameOver = false
         self.initializePlayer()
         self.powerUp.setPosition(self.delegate.getRandomEmptyCell()) // power up does not get deinit, therefore not removed from parent.
     }
@@ -89,7 +71,7 @@ public class SnakeGameControl: NSObject {
     private func move(player: Snake) {
         var destination = getDestinationCell(player, direction: self.cardinalDirection)
         if (self.isGameOver(destination)) {
-            self.gameOver()
+            self.delegate.gameOver()
         } else {
             let destination = destination!
             if (destination.type == .PowerUp) {

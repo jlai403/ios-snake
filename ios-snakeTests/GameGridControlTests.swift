@@ -33,7 +33,7 @@ class SnakeGameTests: XCTestCase {
         XCTAssertEqual(CellType.Snake, grid.position(rowIndex: 11, colIndex: 7)!.type, "cell type should be of type Snake")
         XCTAssertEqual(CellType.Empty, grid.position(rowIndex: 10, colIndex: 7)!.type, "cell type should be of type Empty")
         
-        XCTAssertFalse(snakeGame.snakeGameControl.isGameOver, "should not be Game Over")
+        XCTAssertFalse(snakeGame.isGameOver, "should not be Game Over")
     }
     
     func test_moveEast() {
@@ -57,7 +57,7 @@ class SnakeGameTests: XCTestCase {
         XCTAssertEqual(CellType.Snake, grid.position(rowIndex: 11, colIndex: 7)!.type, "cell type should be of type Snake")
         XCTAssertEqual(CellType.Empty, grid.position(rowIndex: 10, colIndex: 7)!.type, "cell type should be of type Empty")
         
-        XCTAssertFalse(snakeGame.snakeGameControl.isGameOver, "should not be Game Over")
+        XCTAssertFalse(snakeGame.isGameOver, "should not be Game Over")
     }
     
     func test_moveWest() {
@@ -81,7 +81,7 @@ class SnakeGameTests: XCTestCase {
         XCTAssertEqual(CellType.Snake, grid.position(rowIndex: 11, colIndex: 7)!.type, "cell type should be of type Snake")
         XCTAssertEqual(CellType.Empty, grid.position(rowIndex: 10, colIndex: 7)!.type, "cell type should be of type Empty")
         
-        XCTAssertFalse(snakeGame.snakeGameControl.isGameOver, "should not be Game Over")
+        XCTAssertFalse(snakeGame.isGameOver, "should not be Game Over")
     }
     
     func test_moveSouth_moveEast2x() {
@@ -109,7 +109,7 @@ class SnakeGameTests: XCTestCase {
         XCTAssertEqual(CellType.Snake, grid.position(rowIndex: 12, colIndex: 8)!.type, "cell type should be of type Snake")
         XCTAssertEqual(CellType.Empty, grid.position(rowIndex: 12, colIndex: 7)!.type, "cell type should be of type Empty")
         
-        XCTAssertFalse(snakeGame.snakeGameControl.isGameOver, "should not be Game Over")
+        XCTAssertFalse(snakeGame.isGameOver, "should not be Game Over")
     }
     
     func test_updateDirectionSouth_currentDirectionNorth() {
@@ -225,7 +225,7 @@ class SnakeGameTests: XCTestCase {
         XCTAssertEqual(CellType.Snake, grid.position(rowIndex: 11, colIndex: 7)!.type, "cell type should be of type Snake")
         XCTAssertEqual(CellType.Snake, grid.position(rowIndex: 10, colIndex: 7)!.type, "cell type should be of type Empty")
         
-        XCTAssertFalse(snakeGame.snakeGameControl.isGameOver, "should not be Game Over")
+        XCTAssertFalse(snakeGame.isGameOver, "should not be Game Over")
     }
     
     func test_gameOver_north() {
@@ -238,7 +238,7 @@ class SnakeGameTests: XCTestCase {
         snakeGame.snakeGameControl.updatePlayerMovements()
         
         // assert
-        XCTAssertTrue(snakeGame.snakeGameControl.isGameOver, "should be Game Over")
+        XCTAssertTrue(snakeGame.isGameOver, "should be Game Over")
     }
     
     func test_gameOver_south() {
@@ -257,7 +257,7 @@ class SnakeGameTests: XCTestCase {
         snakeGame.snakeGameControl.updatePlayerMovements()
 
         // assert
-        XCTAssertTrue(snakeGame.snakeGameControl.isGameOver, "should be Game Over")
+        XCTAssertTrue(snakeGame.isGameOver, "should be Game Over")
     }
     
     func test_gameOver_east() {
@@ -273,7 +273,7 @@ class SnakeGameTests: XCTestCase {
         snakeGame.snakeGameControl.updatePlayerMovements()
         
         // assert
-        XCTAssertTrue(snakeGame.snakeGameControl.isGameOver, "should be Game Over")
+        XCTAssertTrue(snakeGame.isGameOver, "should be Game Over")
     }
     
     func test_gameOver_west() {
@@ -289,7 +289,7 @@ class SnakeGameTests: XCTestCase {
         snakeGame.snakeGameControl.updatePlayerMovements()
         
         // assert
-        XCTAssertTrue(snakeGame.snakeGameControl.isGameOver, "should be Game Over")
+        XCTAssertTrue(snakeGame.isGameOver, "should be Game Over")
     }
     
     func test_gameOver_snakeInTheWay() {
@@ -310,8 +310,9 @@ class SnakeGameTests: XCTestCase {
         snakeGame.snakeGameControl.updatePlayerMovements()
         snakeGame.updateDirection(.East)
         snakeGame.snakeGameControl.updatePlayerMovements()
+        
         // assert
-        XCTAssertTrue(snakeGame.snakeGameControl.isGameOver, "should be Game Over")
+        XCTAssertTrue(snakeGame.isGameOver, "should be Game Over")
     }
     
     func test_resetGame() {
@@ -333,8 +334,10 @@ class SnakeGameTests: XCTestCase {
         snakeGame.updateDirection(.East)
         snakeGame.snakeGameControl.updatePlayerMovements()
         
+        XCTAssertTrue(snakeGame.isGameOver, "should be Game Over")
+        
         // act
-        snakeGameControl.resetGame()
+        snakeGame.reset()
         
         // assert
         snake = snakeGameControl.player
@@ -349,7 +352,7 @@ class SnakeGameTests: XCTestCase {
         XCTAssertEqual(CellType.Snake, grid.position(rowIndex: 10, colIndex: 7)!.type, "cell type should be of type Snake")
         XCTAssertEqual(CellType.Empty, grid.position(rowIndex: 9, colIndex: 7)!.type, "cell type should be of type Empty")
         
-        XCTAssertFalse(snakeGame.snakeGameControl.isGameOver, "should not be Game Over")
+        XCTAssertFalse(snakeGame.isGameOver, "should not be Game Over")
     }
     
     //MARK: assert helpers

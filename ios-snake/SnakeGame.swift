@@ -4,9 +4,13 @@ public class SnakeGame: SnakeGameDelegate {
     
     var grid: Grid
     var scene: GameScene
+
+    private let PLAYER_MOVE_INTERVAL: Double = 0.10
+    weak private var timer: NSTimer?
     
     var snakeGameControl: SnakeGameControl!
     var score: Int = 0
+    var isGameOver: Bool = false
     
     var delegate: SnakeGameControllerDelegate?
     
@@ -18,12 +22,14 @@ public class SnakeGame: SnakeGameDelegate {
     
     public func start() {
         self.updateScore()
-        self.snakeGameControl.startGame()
+        self.timer = NSTimer.scheduledTimerWithTimeInterval(PLAYER_MOVE_INTERVAL, target: self.snakeGameControl, selector: Selector("updatePlayerMovements"), userInfo: nil, repeats: true)
     }
     
     public func reset() {
+        self.grid.clear()
         self.snakeGameControl.resetGame()
         self.score = 0
+        self.isGameOver = false
     }
     
     private func updateScore() {
@@ -53,10 +59,6 @@ public class SnakeGame: SnakeGameDelegate {
         return potentialCell
     }
     
-    func clear() {
-        self.grid.clear()
-    }
-    
     func present(snake: Snake) {
         var unpresentedSnakeElements = snake.vector.filter { (element) in !element.presented }
         for snakeElement in unpresentedSnakeElements {
@@ -78,7 +80,10 @@ public class SnakeGame: SnakeGameDelegate {
         self.updateScore()
     }
     
-    func notifyGameOver() {
+    func gameOver() {
+        self.isGameOver = true
+        self.timer?.invalidate()
+        self.timer = nil
         self.delegate?.notifyGameOver(self.score)
     }
 }
