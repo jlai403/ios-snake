@@ -3,7 +3,11 @@ iOS Snake
 TODO:
 
 - Levels
-    - pull snake timer one level up (refactor)
+    - notify level change
+	- tighten level threshold
+
+- Move score outside of grid
+	- smaller grid
 
 - Styling
 	- select color/ background
@@ -13,7 +17,6 @@ TODO:
     - Settings??
     - Restart
     - Quit
-
 
 - Countdown to game start
 
@@ -32,7 +35,6 @@ TODO:
 
 
 TECH DEBT:
-- Make SKScene full size, scoring outside of gridview
 - update grid to use subscript - remove 2D array
 
 BUGS: 
