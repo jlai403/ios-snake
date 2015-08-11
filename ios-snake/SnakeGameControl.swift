@@ -37,7 +37,7 @@ public class SnakeGameControl: NSObject {
         return outOfBounds || blocked
     }
     
-    public func resetGame() {
+    public func reset() {
         self.initializePlayer()
         self.powerUp.setPosition(self.delegate.getRandomEmptyCell()) // power up does not get deinit, therefore not removed from parent.
     }

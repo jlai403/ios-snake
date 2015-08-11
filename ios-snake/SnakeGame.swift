@@ -4,10 +4,8 @@ public class SnakeGame: SnakeGameDelegate {
     
     var grid: Grid
     var scene: GameScene
-
-    private let PLAYER_MOVE_INTERVAL: Double = 0.10
-    weak private var timer: NSTimer?
     
+    var levelManager: LevelManager!
     var snakeGameControl: SnakeGameControl!
     var score: Int = 0
     var isGameOver: Bool = false
@@ -18,26 +16,27 @@ public class SnakeGame: SnakeGameDelegate {
         self.grid = GridGenerator.createGrid(viewSize: gameViewSize, rows: rows, columns: columns)
         self.scene = GameScene(size: grid.size)
         self.snakeGameControl = SnakeGameControl(delegate: self)
+        self.levelManager = LevelManager(target: self.snakeGameControl, selector: "updatePlayerMovements")
     }
     
     public func start() {
-        self.updateScore()
-        self.timer = NSTimer.scheduledTimerWithTimeInterval(PLAYER_MOVE_INTERVAL, target: self.snakeGameControl, selector: Selector("updatePlayerMovements"), userInfo: nil, repeats: true)
+        self.scene.updateScore(self.score)
+        levelManager.startTimer()
     }
     
     public func reset() {
         self.grid.clear()
-        self.snakeGameControl.resetGame()
+        self.snakeGameControl.reset()
         self.score = 0
         self.isGameOver = false
     }
-    
-    private func updateScore() {
-        self.scene.updateScore(self.score)
-    }
-    
+   
     public func updateDirection(direction: CardinalDirection) {
         self.snakeGameControl.updateDirection(direction)
+    }
+    
+    public func currentLevel() -> Int {
+        return levelManager.currentLevel.level
     }
     
     // MARK: SnakeGameControlDelegate
@@ -77,14 +76,13 @@ public class SnakeGame: SnakeGameDelegate {
     
     func incrementScore(increment: Int) {
         self.score += increment
-        self.updateScore()
+        self.scene.updateScore(self.score)
+        levelManager.levelUp(self)
     }
     
     func gameOver() {
         self.isGameOver = true
-        self.timer?.invalidate()
-        self.timer = nil
+        self.levelManager.stopTimer()
         self.delegate?.notifyGameOver(self.score)
     }
 }
-

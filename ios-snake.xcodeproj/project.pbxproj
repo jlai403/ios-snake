@@ -27,6 +27,10 @@
 		6C851F001B5B6482002225A9 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB576181B531C9200DEDCCE /* GameScene.swift */; };
 		6C851F011B5B6482002225A9 /* Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C851EFA1B5B61A5002225A9 /* Cell.swift */; };
 		6C851F021B5B6482002225A9 /* CellType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C851EFC1B5B61DA002225A9 /* CellType.swift */; };
+		6C959BE01B799B2D00954D49 /* LevelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C959BDF1B799B2D00954D49 /* LevelManager.swift */; };
+		6C959BE21B799B4D00954D49 /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C959BE11B799B4D00954D49 /* Level.swift */; };
+		6C959BE31B799BBB00954D49 /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C959BE11B799B4D00954D49 /* Level.swift */; };
+		6C959BE41B799BBB00954D49 /* LevelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C959BDF1B799B2D00954D49 /* LevelManager.swift */; };
 		6CB575F41B531B4C00DEDCCE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB575F31B531B4C00DEDCCE /* AppDelegate.swift */; };
 		6CB575F61B531B4C00DEDCCE /* GameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB575F51B531B4C00DEDCCE /* GameController.swift */; };
 		6CB575F91B531B4C00DEDCCE /* Snake.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6CB575F71B531B4C00DEDCCE /* Snake.storyboard */; };
@@ -72,6 +76,8 @@
 		6C851EF81B5B6193002225A9 /* Grid.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Grid.swift; sourceTree = "<group>"; };
 		6C851EFA1B5B61A5002225A9 /* Cell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cell.swift; sourceTree = "<group>"; };
 		6C851EFC1B5B61DA002225A9 /* CellType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellType.swift; sourceTree = "<group>"; };
+		6C959BDF1B799B2D00954D49 /* LevelManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelManager.swift; sourceTree = "<group>"; };
+		6C959BE11B799B4D00954D49 /* Level.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Level.swift; sourceTree = "<group>"; };
 		6CB575EE1B531B4C00DEDCCE /* snake.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = snake.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6CB575F21B531B4C00DEDCCE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6CB575F31B531B4C00DEDCCE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -230,6 +236,8 @@
 				6C71AA861B646DC7009E80C8 /* SnakeEffects.swift */,
 				6C287A541B54A291009994F5 /* CardinalDirection.swift */,
 				6CEF650D1B631CB000D28E6D /* SnakeGameControl.swift */,
+				6C959BE11B799B4D00954D49 /* Level.swift */,
+				6C959BDF1B799B2D00954D49 /* LevelManager.swift */,
 			);
 			name = Snake;
 			sourceTree = "<group>";
@@ -350,12 +358,14 @@
 				6CB575F61B531B4C00DEDCCE /* GameController.swift in Sources */,
 				6C851EF71B5B6178002225A9 /* SnakeElement.swift in Sources */,
 				6C71AA871B646DC7009E80C8 /* SnakeEffects.swift in Sources */,
+				6C959BE01B799B2D00954D49 /* LevelManager.swift in Sources */,
 				6C0CB2861B531FA000796B92 /* Colors.swift in Sources */,
 				6C851EF91B5B6193002225A9 /* Grid.swift in Sources */,
 				6CB576191B531C9200DEDCCE /* GameScene.swift in Sources */,
 				6C0CB2881B532A9600796B92 /* ConfigConstants.swift in Sources */,
 				6C851EFD1B5B61DA002225A9 /* CellType.swift in Sources */,
 				6C0CB2841B531E6400796B92 /* Snake.swift in Sources */,
+				6C959BE21B799B4D00954D49 /* Level.swift in Sources */,
 				6CEF650E1B631CB000D28E6D /* SnakeGameControl.swift in Sources */,
 				6CC3DA941B64B5D500D07BD9 /* Delegates.swift in Sources */,
 				6C287A551B54A291009994F5 /* CardinalDirection.swift in Sources */,
@@ -368,6 +378,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6C959BE31B799BBB00954D49 /* Level.swift in Sources */,
+				6C959BE41B799BBB00954D49 /* LevelManager.swift in Sources */,
 				6CC3DA951B64B60400D07BD9 /* Delegates.swift in Sources */,
 				6C71AA881B646E4E009E80C8 /* SnakeEffects.swift in Sources */,
 				6CEF650F1B631CDF00D28E6D /* SnakeGameControl.swift in Sources */,

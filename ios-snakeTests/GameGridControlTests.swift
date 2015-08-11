@@ -358,6 +358,78 @@ class SnakeGameTests: XCTestCase {
         XCTAssertEqual(0, snakeGame.score, "score should be 0")
     }
     
+    func test_levelUp_2() {
+        // assemble
+        var snakeGame = SnakeGame(gameViewSize: CGSizeMake(375.0, 667.0), rows: 25, columns: 15)
+        var grid = snakeGame.grid
+        var snakeGameControl = snakeGame.snakeGameControl
+        var snake = snakeGameControl.player
+        
+        snakeGameControl.powerUp.setPosition(snake.head.cell.north()!)
+        snakeGame.snakeGameControl.updatePlayerMovements()
+        snakeGameControl.powerUp.setPosition(snake.head.cell.north()!)
+        snakeGame.snakeGameControl.updatePlayerMovements()
+        snakeGameControl.powerUp.setPosition(snake.head.cell.north()!)
+        snakeGame.snakeGameControl.updatePlayerMovements()
+        snakeGameControl.powerUp.setPosition(snake.head.cell.north()!)
+        snakeGame.snakeGameControl.updatePlayerMovements()
+        snakeGameControl.powerUp.setPosition(snake.head.cell.north()!)
+
+        
+        // act
+        snakeGame.snakeGameControl.updatePlayerMovements()
+        
+        // assert
+        XCTAssertEqual(2, snakeGame.currentLevel(), "current level should be 2")
+    }
+    
+    func test_levelUp_3() {
+        // assemble
+        var snakeGame = SnakeGame(gameViewSize: CGSizeMake(375.0, 667.0), rows: 25, columns: 15)
+        var grid = snakeGame.grid
+        var snakeGameControl = snakeGame.snakeGameControl
+        var snake = snakeGameControl.player
+        
+        snakeGameControl.powerUp.setPosition(snake.head.cell.north()!)
+        snakeGame.snakeGameControl.updatePlayerMovements()
+        snakeGameControl.powerUp.setPosition(snake.head.cell.north()!)
+        snakeGame.snakeGameControl.updatePlayerMovements()
+        snakeGameControl.powerUp.setPosition(snake.head.cell.north()!)
+        snakeGame.snakeGameControl.updatePlayerMovements()
+        snakeGameControl.powerUp.setPosition(snake.head.cell.north()!)
+        snakeGame.snakeGameControl.updatePlayerMovements()
+        snakeGameControl.powerUp.setPosition(snake.head.cell.north()!)
+        snakeGame.snakeGameControl.updatePlayerMovements()
+        snakeGameControl.powerUp.setPosition(snake.head.cell.north()!)
+        snakeGame.snakeGameControl.updatePlayerMovements()
+        snakeGameControl.powerUp.setPosition(snake.head.cell.north()!)
+        snakeGame.snakeGameControl.updatePlayerMovements()
+        snakeGameControl.powerUp.setPosition(snake.head.cell.north()!)
+        snakeGame.snakeGameControl.updatePlayerMovements()
+        snakeGameControl.powerUp.setPosition(snake.head.cell.north()!)
+        snakeGame.snakeGameControl.updatePlayerMovements()
+        snakeGameControl.powerUp.setPosition(snake.head.cell.north()!)
+        snakeGame.snakeGameControl.updatePlayerMovements()
+        
+        snakeGameControl.updateDirection(.West)
+        
+        snakeGameControl.powerUp.setPosition(snake.head.cell.west()!)
+        snakeGame.snakeGameControl.updatePlayerMovements()
+        snakeGameControl.powerUp.setPosition(snake.head.cell.west()!)
+        snakeGame.snakeGameControl.updatePlayerMovements()
+        snakeGameControl.powerUp.setPosition(snake.head.cell.west()!)
+        snakeGame.snakeGameControl.updatePlayerMovements()
+        snakeGameControl.powerUp.setPosition(snake.head.cell.west()!)
+        snakeGame.snakeGameControl.updatePlayerMovements()
+        
+        // act
+        snakeGameControl.powerUp.setPosition(snake.head.cell.west()!)
+        snakeGame.snakeGameControl.updatePlayerMovements()
+        
+        // assert
+        XCTAssertEqual(3, snakeGame.currentLevel(), "current level should be 3")
+    }
+    
     //MARK: assert helpers
     
     private func assertSnakeTilePosition(#expected: (row: Int, column: Int), actual: Cell, message: String = "") {
