@@ -33,7 +33,7 @@ TODO:
 
 TECH DEBT:
 - Make SKScene full size, scoring outside of gridview
-
+- update grid to use subscript - remove 2D array
 
 BUGS: 
 - game over when swiping too fast?
