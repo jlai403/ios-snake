@@ -214,6 +214,7 @@ class SnakeGameTests: XCTestCase {
         snakeGame.snakeGameControl.updatePlayerMovements()
 
         // assert
+        XCTAssertEqual(1, snakeGame.score, "score should be 1")
         XCTAssertEqual(4, snake.length, "snake should have a length of 4")
         assertSnakeTilePosition(expected: (13,7), actual: snake.vector[0].cell, message: "head")
         assertSnakeTilePosition(expected: (12,7), actual: snake.vector[1].cell, message: "middle 1")
@@ -335,6 +336,7 @@ class SnakeGameTests: XCTestCase {
         snakeGame.snakeGameControl.updatePlayerMovements()
         
         XCTAssertTrue(snakeGame.isGameOver, "should be Game Over")
+        XCTAssertEqual(2, snakeGame.score, "score should be 2")
         
         // act
         snakeGame.reset()
@@ -353,6 +355,7 @@ class SnakeGameTests: XCTestCase {
         XCTAssertEqual(CellType.Empty, grid.position(rowIndex: 9, colIndex: 7)!.type, "cell type should be of type Empty")
         
         XCTAssertFalse(snakeGame.isGameOver, "should not be Game Over")
+        XCTAssertEqual(0, snakeGame.score, "score should be 0")
     }
     
     //MARK: assert helpers
