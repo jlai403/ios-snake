@@ -23,7 +23,7 @@ public class SnakeElement: SKShapeNode {
         self.path = CGPathCreateWithRoundedRect(CGRect(origin: CGPointZero, size: cell.size), 0, 0, nil)
         self.position = cell.position
         
-        self.lineWidth = 1.5
+        self.lineWidth = 0.5
         self.fillColor = Colors.blue
         self.strokeColor = Colors.whiteColor()
     }
