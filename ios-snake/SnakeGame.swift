@@ -67,12 +67,12 @@ public class SnakeGame: SnakeGameDelegate {
     }
     
     func present(node: SnakeElement) {
-        self.scene.insertChild(node, atIndex: GameSceneZPositions.GAME_ELEMENT)
+        self.scene.addChild(node)
         node.presented = true
     }
     
     func present(node: PowerUpElement) {
-        self.scene.insertChild(node, atIndex: GameSceneZPositions.GAME_ELEMENT)
+        self.scene.addChild(node)
     }
     
     func incrementScore(increment: Int) {

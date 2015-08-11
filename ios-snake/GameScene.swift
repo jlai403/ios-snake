@@ -29,8 +29,8 @@ public class GameScene: SKScene {
         var scorePositionX = margin
         var scorePositionY = self.size.height - self.scoreLabel.frame.height - margin
         self.scoreLabel.position = CGPointMake(scorePositionX, scorePositionY)
-        
-        self.insertChild(self.scoreLabel, atIndex: GameSceneZPositions.INTERFACE)
+        self.scoreLabel.zPosition = GameSceneZPositions.INTERFACE
+        self.addChild(self.scoreLabel)
     }
     
     private func styleScene() {
@@ -47,7 +47,7 @@ public class GameScene: SKScene {
 
 public struct GameSceneZPositions {
 
-    static var INTERFACE: Int = 0
-    static var GAME_ELEMENT: Int = 1
+    static var INTERFACE: CGFloat = 100.0
+    static var GAME_ELEMENT: CGFloat = 0.0
     
 }

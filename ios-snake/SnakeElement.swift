@@ -26,6 +26,8 @@ public class SnakeElement: SKShapeNode {
         self.lineWidth = 0.5
         self.fillColor = Colors.blue
         self.strokeColor = Colors.whiteColor()
+        
+        self.zPosition = GameSceneZPositions.GAME_ELEMENT
     }
     
     public func update(successor: SnakeElement?) {

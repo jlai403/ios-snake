@@ -37,6 +37,8 @@ public class PowerUpElement: SKShapeNode {
         self.lineWidth = 1.5
         self.fillColor = Colors.pomegranate
         self.strokeColor = Colors.whiteColor()
+        
+        self.zPosition = GameSceneZPositions.GAME_ELEMENT
     }
 
     
