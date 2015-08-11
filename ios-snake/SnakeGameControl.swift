@@ -1,6 +1,6 @@
 import Foundation
 
-public class SnakeGameControl: NSObject {
+public class SnakeMechanic: NSObject {
     
     var cardinalDirection: CardinalDirection!
     
@@ -64,7 +64,7 @@ public class SnakeGameControl: NSObject {
         }
     }
     
-    public func updatePlayerMovements() {
+    public func updatePlayerPosition() {
         self.move(player)
     }
     
