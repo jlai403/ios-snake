@@ -9,7 +9,7 @@ public class LevelManager {
     weak private var timer: NSTimer?
     
     private var currentLevelIndex: Int
-    var levels: [Level] = [Level]()
+    private var levels: [Level] = [Level]()
     
     public var currentLevel: Level {
         get {
