@@ -27,21 +27,25 @@ public class LevelManager {
     
     private func loadLevels() {
         levels.append(Level(level: 1, scoreThreshold: 5, timerInterval: 0.18))
-        levels.append(Level(level: 2, scoreThreshold: 15, timerInterval: 0.16))
-        levels.append(Level(level: 3, scoreThreshold: 30, timerInterval: 0.14))
-        levels.append(Level(level: 4, scoreThreshold: 50, timerInterval: 0.11))
-        levels.append(Level(level: 5, scoreThreshold: 60, timerInterval: 0.08))
-        levels.append(Level(level: 6, scoreThreshold: 100, timerInterval: 0.05))
+        levels.append(Level(level: 2, scoreThreshold: 10, timerInterval: 0.17))
+        levels.append(Level(level: 3, scoreThreshold: 20, timerInterval: 0.16))
+        levels.append(Level(level: 4, scoreThreshold: 35, timerInterval: 0.14))
+        levels.append(Level(level: 5, scoreThreshold: 50, timerInterval: 0.12))
+        levels.append(Level(level: 6, scoreThreshold: 65, timerInterval: 0.10))
+        levels.append(Level(level: 7, scoreThreshold: 85, timerInterval: 0.08))
+        levels.append(Level(level: 8, scoreThreshold: 100, timerInterval: 0.05))
     }
     
-    public func levelUp(snakeGame: SnakeGame) {
+    public func levelUp(snakeGame: SnakeGame) -> Bool {
         if (snakeGame.score < currentLevel.scoreThreshold) {
-            return
+            return false
         }
         
         self.currentLevelIndex++
         self.stopTimer()
         self.startTimer()
+        
+        return true
     }
     
     public func startTimer() {
