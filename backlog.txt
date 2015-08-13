@@ -33,6 +33,8 @@ TODO:
 
 - Bluetooth/ Multiplayer
 
+- Hexagonal Grid
+
 
 TECH DEBT:
 - update grid to use subscript - remove 2D array
