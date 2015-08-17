@@ -32,19 +32,19 @@ public class Cell: Equatable {
     }
     
     func north() -> Cell? {
-        return self.grid.position(rowIndex: self.row+1, colIndex: self.column)
+        return self.grid[self.row+1, self.column]
     }
     
     func south() -> Cell? {
-        return self.grid.position(rowIndex: self.row-1, colIndex: self.column)
+        return self.grid[self.row-1, self.column]
     }
     
     func east() -> Cell? {
-        return self.grid.position(rowIndex: self.row, colIndex: self.column+1)
+        return self.grid[self.row, self.column+1]
     }
     
     func west() -> Cell? {
-        return self.grid.position(rowIndex: self.row, colIndex: self.column-1)
+        return self.grid[self.row, self.column-1]
     }
 }
 

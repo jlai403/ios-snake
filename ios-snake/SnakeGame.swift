@@ -49,10 +49,10 @@ public class SnakeGame: SnakeGameDelegate {
         
         var randomRow = Int(arc4random_uniform(UInt32(self.grid.rows)))
         var randomCol = Int(arc4random_uniform(UInt32(self.grid.columns)))
-        var potentialCell = grid.position(rowIndex: randomRow, colIndex: randomCol)!
+        var potentialCell = grid[randomRow, randomCol]!
         
         while (potentialCell.type != .Empty) {
-            potentialCell = grid.position(rowIndex: randomRow, colIndex: randomCol)!
+            potentialCell = grid[randomRow, randomCol]!
         }
         
         return potentialCell
