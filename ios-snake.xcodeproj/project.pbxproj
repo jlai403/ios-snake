@@ -551,7 +551,7 @@
 				INFOPLIST_FILE = "ios-snakeTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ios-snake.app/ios-snake";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/snake.app/snake";
 			};
 			name = Debug;
 		};
@@ -566,7 +566,7 @@
 				INFOPLIST_FILE = "ios-snakeTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ios-snake.app/ios-snake";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/snake.app/snake";
 			};
 			name = Release;
 		};
