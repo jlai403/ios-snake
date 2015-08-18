@@ -5,22 +5,20 @@ TODO:
 - Levels
     - notify level change
 	- tighten level threshold
+- Countdown to game start
+
+- Pause menu
+    - Settings
+    - Restart
+    - Quit
+
+- Home screen
 
 - Move score outside of grid
 	- smaller grid
 
 - Styling
 	- select color/ background
-	- fonts
-
-- Pause menu
-    - Settings??
-    - Restart
-    - Quit
-
-- Countdown to game start
-
-- Home screen
 
 - Special effects
 	- gravity on game over
@@ -37,7 +35,9 @@ TODO:
 
 
 TECH DEBT:
-- update grid to use subscript - remove 2D array
+- refactor grid row/column variables to be x/y
+- SKTextures for game elements (snake, powerup)
+
 
 BUGS: 
 - game over when swiping too fast?
