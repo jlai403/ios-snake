@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>877B4F4A-6F77-4054-A034-47F9D5E6E396</string>
+	<key>IDESourceControlProjectName</key>
+	<string>ios-snake</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>42DDBD47DCB90FAF7313551CE52D80D20B90A59A</key>
+		<string>https://github.com/jlai403/ios-snake.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>ios-snake.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>42DDBD47DCB90FAF7313551CE52D80D20B90A59A</key>
+		<string>..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/jlai403/ios-snake.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>42DDBD47DCB90FAF7313551CE52D80D20B90A59A</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>42DDBD47DCB90FAF7313551CE52D80D20B90A59A</string>
+			<key>IDESourceControlWCCName</key>
+			<string>ios-snake</string>
+		</dict>
+	</array>
+</dict>
+</plist>
