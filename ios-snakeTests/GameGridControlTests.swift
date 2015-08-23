@@ -16,7 +16,7 @@ class SnakeGameTests: XCTestCase {
         // assemble
         var snakeGame = SnakeGame(gameViewSize: CGSizeMake(375.0, 667.0), rows: 25, columns: 15)
         var grid = snakeGame.grid
-        var snake = snakeGame.snakeMechanic.player // (12,7), (11,7), (10,7)
+        var snake = snakeGame.snakeMechanic.player // (7,12), (7,11), (10,7)
 
         snakeGame.updateDirection(.North)
     
@@ -24,14 +24,14 @@ class SnakeGameTests: XCTestCase {
         snakeGame.snakeMechanic.updatePlayerPosition()
         
         // assert
-        assertSnakeTilePosition(expected: (13,7), actual: snake.vector[0].cell, message: "head")
-        assertSnakeTilePosition(expected: (12,7), actual: snake.vector[1].cell, message: "middle")
-        assertSnakeTilePosition(expected: (11,7), actual: snake.vector[2].cell, message: "tail")
+        assertSnakeTilePosition(expected: (7,13), actual: snake.vector[0].cell, message: "head")
+        assertSnakeTilePosition(expected: (7,12), actual: snake.vector[1].cell, message: "middle")
+        assertSnakeTilePosition(expected: (7,11), actual: snake.vector[2].cell, message: "tail")
     
-        XCTAssertEqual(CellType.Snake, grid[13,7]!.type, "cell type should be of type Snake")
-        XCTAssertEqual(CellType.Snake, grid[12,7]!.type, "cell type should be of type Snake")
-        XCTAssertEqual(CellType.Snake, grid[11,7]!.type, "cell type should be of type Snake")
-        XCTAssertEqual(CellType.Empty, grid[10,7]!.type, "cell type should be of type Empty")
+        XCTAssertEqual(CellType.Snake, grid[7,13]!.type, "cell type should be of type Snake")
+        XCTAssertEqual(CellType.Snake, grid[7,12]!.type, "cell type should be of type Snake")
+        XCTAssertEqual(CellType.Snake, grid[7,11]!.type, "cell type should be of type Snake")
+        XCTAssertEqual(CellType.Empty, grid[7,10]!.type, "cell type should be of type Empty")
         
         XCTAssertFalse(snakeGame.isGameOver, "should not be Game Over")
     }
@@ -40,7 +40,7 @@ class SnakeGameTests: XCTestCase {
         // assemble
         var snakeGame = SnakeGame(gameViewSize: CGSizeMake(375.0, 667.0), rows: 25, columns: 15)
         var grid = snakeGame.grid
-        var snake = snakeGame.snakeMechanic.player // (12,7), (11,7), (10,7)
+        var snake = snakeGame.snakeMechanic.player // (7,12), (7,11), (10,7)
         
         snakeGame.updateDirection(.East)
         
@@ -48,14 +48,14 @@ class SnakeGameTests: XCTestCase {
         snakeGame.snakeMechanic.updatePlayerPosition()
         
         // assert
-        assertSnakeTilePosition(expected: (12,8), actual: snake.vector[0].cell, message: "head")
-        assertSnakeTilePosition(expected: (12,7), actual: snake.vector[1].cell, message: "middle")
-        assertSnakeTilePosition(expected: (11,7), actual: snake.vector[2].cell, message: "tail")
+        assertSnakeTilePosition(expected: (8,12), actual: snake.vector[0].cell, message: "head")
+        assertSnakeTilePosition(expected: (7,12), actual: snake.vector[1].cell, message: "middle")
+        assertSnakeTilePosition(expected: (7,11), actual: snake.vector[2].cell, message: "tail")
         
-        XCTAssertEqual(CellType.Snake, grid[12,8]!.type, "cell type should be of type Snake")
-        XCTAssertEqual(CellType.Snake, grid[12,7]!.type, "cell type should be of type Snake")
-        XCTAssertEqual(CellType.Snake, grid[11,7]!.type, "cell type should be of type Snake")
-        XCTAssertEqual(CellType.Empty, grid[10,7]!.type, "cell type should be of type Empty")
+        XCTAssertEqual(CellType.Snake, grid[8,12]!.type, "cell type should be of type Snake")
+        XCTAssertEqual(CellType.Snake, grid[7,12]!.type, "cell type should be of type Snake")
+        XCTAssertEqual(CellType.Snake, grid[7,11]!.type, "cell type should be of type Snake")
+        XCTAssertEqual(CellType.Empty, grid[7,10]!.type, "cell type should be of type Empty")
         
         XCTAssertFalse(snakeGame.isGameOver, "should not be Game Over")
     }
@@ -64,7 +64,7 @@ class SnakeGameTests: XCTestCase {
         // assemble
         var snakeGame = SnakeGame(gameViewSize: CGSizeMake(375.0, 667.0), rows: 25, columns: 15)
         var grid = snakeGame.grid
-        var snake = snakeGame.snakeMechanic.player // (12,7), (11,7), (10,7)
+        var snake = snakeGame.snakeMechanic.player // (7,12), (7,11), (10,7)
         
         snakeGame.updateDirection(.West)
         
@@ -72,14 +72,14 @@ class SnakeGameTests: XCTestCase {
         snakeGame.snakeMechanic.updatePlayerPosition()
         
         // assert
-        assertSnakeTilePosition(expected: (12,6), actual: snake.vector[0].cell, message: "head")
-        assertSnakeTilePosition(expected: (12,7), actual: snake.vector[1].cell, message: "middle")
-        assertSnakeTilePosition(expected: (11,7), actual: snake.vector[2].cell, message: "tail")
+        assertSnakeTilePosition(expected: (6,12), actual: snake.vector[0].cell, message: "head")
+        assertSnakeTilePosition(expected: (7,12), actual: snake.vector[1].cell, message: "middle")
+        assertSnakeTilePosition(expected: (7,11), actual: snake.vector[2].cell, message: "tail")
         
-        XCTAssertEqual(CellType.Snake, grid[12,6]!.type, "cell type should be of type Snake")
-        XCTAssertEqual(CellType.Snake, grid[12,7]!.type, "cell type should be of type Snake")
-        XCTAssertEqual(CellType.Snake, grid[11,7]!.type, "cell type should be of type Snake")
-        XCTAssertEqual(CellType.Empty, grid[10,7]!.type, "cell type should be of type Empty")
+        XCTAssertEqual(CellType.Snake, grid[6,12]!.type, "cell type should be of type Snake")
+        XCTAssertEqual(CellType.Snake, grid[7,12]!.type, "cell type should be of type Snake")
+        XCTAssertEqual(CellType.Snake, grid[7,11]!.type, "cell type should be of type Snake")
+        XCTAssertEqual(CellType.Empty, grid[7,10]!.type, "cell type should be of type Empty")
         
         XCTAssertFalse(snakeGame.isGameOver, "should not be Game Over")
     }
@@ -88,11 +88,11 @@ class SnakeGameTests: XCTestCase {
         // assemble
         var snakeGame = SnakeGame(gameViewSize: CGSizeMake(375.0, 667.0), rows: 25, columns: 15)
         var grid = snakeGame.grid
-        var snake = snakeGame.snakeMechanic.player // (12,7), (11,7), (10,7)
+        var snake = snakeGame.snakeMechanic.player // (7,12), (7,11), (10,7)
         
         snakeGame.updateDirection(.East)
-        snakeGame.snakeMechanic.updatePlayerPosition() // (12,8), (12,7), (11,7)
-        snakeGame.snakeMechanic.updatePlayerPosition() // (12,8), (12,8), (12,7)
+        snakeGame.snakeMechanic.updatePlayerPosition() // (12,8), (7,12), (7,11)
+        snakeGame.snakeMechanic.updatePlayerPosition() // (12,8), (12,8), (7,12)
         
         snakeGame.updateDirection(.South)
 
@@ -100,14 +100,14 @@ class SnakeGameTests: XCTestCase {
         snakeGame.snakeMechanic.updatePlayerPosition()
         
         // assert
-        assertSnakeTilePosition(expected: (11,9), actual: snake.vector[0].cell, message: "head")
-        assertSnakeTilePosition(expected: (12,9), actual: snake.vector[1].cell, message: "middle")
-        assertSnakeTilePosition(expected: (12,8), actual: snake.vector[2].cell, message: "tail")
+        assertSnakeTilePosition(expected: (9,11), actual: snake.vector[0].cell, message: "head")
+        assertSnakeTilePosition(expected: (9,12), actual: snake.vector[1].cell, message: "middle")
+        assertSnakeTilePosition(expected: (8,12), actual: snake.vector[2].cell, message: "tail")
         
-        XCTAssertEqual(CellType.Snake, grid[11,9]!.type, "cell type should be of type Snake")
-        XCTAssertEqual(CellType.Snake, grid[12,9]!.type, "cell type should be of type Snake")
-        XCTAssertEqual(CellType.Snake, grid[12,8]!.type, "cell type should be of type Snake")
-        XCTAssertEqual(CellType.Empty, grid[12,7]!.type, "cell type should be of type Empty")
+        XCTAssertEqual(CellType.Snake, grid[9,11]!.type, "cell type should be of type Snake")
+        XCTAssertEqual(CellType.Snake, grid[9,12]!.type, "cell type should be of type Snake")
+        XCTAssertEqual(CellType.Snake, grid[8,12]!.type, "cell type should be of type Snake")
+        XCTAssertEqual(CellType.Empty, grid[7,12]!.type, "cell type should be of type Empty")
         
         XCTAssertFalse(snakeGame.isGameOver, "should not be Game Over")
     }
@@ -116,83 +116,83 @@ class SnakeGameTests: XCTestCase {
         // assemble
         var snakeGame = SnakeGame(gameViewSize: CGSizeMake(375.0, 667.0), rows: 25, columns: 15)
         var grid = snakeGame.grid
-        var snake = snakeGame.snakeMechanic.player // (12,7), (11,7), (10,7)
+        var snake = snakeGame.snakeMechanic.player // (7,12), (7,11), (10,7)
         
         // act
         snakeGame.updateDirection(.South)
         snakeGame.snakeMechanic.updatePlayerPosition()
         
         // assert
-        assertSnakeTilePosition(expected: (13,7), actual: snake.vector[0].cell, message: "head")
-        assertSnakeTilePosition(expected: (12,7), actual: snake.vector[1].cell, message: "middle")
-        assertSnakeTilePosition(expected: (11,7), actual: snake.vector[2].cell, message: "tail")
+        assertSnakeTilePosition(expected: (7,13), actual: snake.vector[0].cell, message: "head")
+        assertSnakeTilePosition(expected: (7,12), actual: snake.vector[1].cell, message: "middle")
+        assertSnakeTilePosition(expected: (7,11), actual: snake.vector[2].cell, message: "tail")
     }
     
     func test_updateDirectionNorth_currentDirectionSouth() {
         // assemble
         var snakeGame = SnakeGame(gameViewSize: CGSizeMake(375.0, 667.0), rows: 25, columns: 15)
         var grid = snakeGame.grid
-        var snake = snakeGame.snakeMechanic.player // (12,7), (11,7), (10,7)
+        var snake = snakeGame.snakeMechanic.player // (7,12), (7,11), (10,7)
         
         snakeGame.updateDirection(.West)
-        snakeGame.snakeMechanic.updatePlayerPosition()  // (12,6), (12,7), (11,7)
+        snakeGame.snakeMechanic.updatePlayerPosition()  // (12,6), (7,12), (7,11)
 
         snakeGame.updateDirection(.South)
-        snakeGame.snakeMechanic.updatePlayerPosition() // (11,6), (12,6), (12,7)
+        snakeGame.snakeMechanic.updatePlayerPosition() // (11,6), (12,6), (7,12)
         
         // act
         snakeGame.updateDirection(.North)
         snakeGame.snakeMechanic.updatePlayerPosition()
         
         // assert
-        assertSnakeTilePosition(expected: (10,6), actual: snake.vector[0].cell, message: "head")
-        assertSnakeTilePosition(expected: (11,6), actual: snake.vector[1].cell, message: "middle")
-        assertSnakeTilePosition(expected: (12,6), actual: snake.vector[2].cell, message: "tail")
+        assertSnakeTilePosition(expected: (6,10), actual: snake.vector[0].cell, message: "head")
+        assertSnakeTilePosition(expected: (6,11), actual: snake.vector[1].cell, message: "middle")
+        assertSnakeTilePosition(expected: (6,12), actual: snake.vector[2].cell, message: "tail")
     }
     
     func test_updateDirectionEast_currentDirectionWest() {
         // assemble
         var snakeGame = SnakeGame(gameViewSize: CGSizeMake(375.0, 667.0), rows: 25, columns: 15)
         var grid = snakeGame.grid
-        var snake = snakeGame.snakeMechanic.player // (12,7), (11,7), (10,7)
+        var snake = snakeGame.snakeMechanic.player // (7,12), (7,11), (10,7)
         
         snakeGame.updateDirection(.West)
-        snakeGame.snakeMechanic.updatePlayerPosition() // (12,6), (12,7), (11,77)
+        snakeGame.snakeMechanic.updatePlayerPosition() // (12,6), (7,12), (7,117)
         
         // act
         snakeGame.updateDirection(.East)
         snakeGame.snakeMechanic.updatePlayerPosition()
         
         // assert
-        assertSnakeTilePosition(expected: (12,5), actual: snake.vector[0].cell, message: "head")
-        assertSnakeTilePosition(expected: (12,6), actual: snake.vector[1].cell, message: "middle")
-        assertSnakeTilePosition(expected: (12,7), actual: snake.vector[2].cell, message: "tail")
+        assertSnakeTilePosition(expected: (5,12), actual: snake.vector[0].cell, message: "head")
+        assertSnakeTilePosition(expected: (6,12), actual: snake.vector[1].cell, message: "middle")
+        assertSnakeTilePosition(expected: (7,12), actual: snake.vector[2].cell, message: "tail")
     }
     
     func test_updateDirectionWest_currentDirectionEast() {
         // assemble
         var snakeGame = SnakeGame(gameViewSize: CGSizeMake(375.0, 667.0), rows: 25, columns: 15)
         var grid = snakeGame.grid
-        var snake = snakeGame.snakeMechanic.player // (12,7), (11,7), (10,7)
+        var snake = snakeGame.snakeMechanic.player // (7,12), (7,11), (10,7)
         
         snakeGame.updateDirection(.East)
-        snakeGame.snakeMechanic.updatePlayerPosition() // (12,8), (12,7), (11,7)
+        snakeGame.snakeMechanic.updatePlayerPosition() // (12,8), (7,12), (7,11)
         
         // act
         snakeGame.updateDirection(.West)
         snakeGame.snakeMechanic.updatePlayerPosition()
         
         // assert
-        assertSnakeTilePosition(expected: (12,9), actual: snake.vector[0].cell, message: "head")
-        assertSnakeTilePosition(expected: (12,8), actual: snake.vector[1].cell, message: "middle")
-        assertSnakeTilePosition(expected: (12,7), actual: snake.vector[2].cell, message: "tail")
+        assertSnakeTilePosition(expected: (9,12), actual: snake.vector[0].cell, message: "head")
+        assertSnakeTilePosition(expected: (8,12), actual: snake.vector[1].cell, message: "middle")
+        assertSnakeTilePosition(expected: (7,12), actual: snake.vector[2].cell, message: "tail")
     }
     
     func test_powerUpPosition() {
         // assemble
         var snakeGame = SnakeGame(gameViewSize: CGSizeMake(375.0, 667.0), rows: 25, columns: 15)
         var grid = snakeGame.grid
-        var snake = snakeGame.snakeMechanic.player // (12,7), (11,7), (10,7)
+        var snake = snakeGame.snakeMechanic.player // (7,12), (7,11), (10,7)
         
         // act
         var powerUp = snakeGame.snakeMechanic.powerUp
@@ -206,9 +206,9 @@ class SnakeGameTests: XCTestCase {
         // assemble
         var snakeGame = SnakeGame(gameViewSize: CGSizeMake(375.0, 667.0), rows: 25, columns: 15)
         var grid = snakeGame.grid
-        var snake = snakeGame.snakeMechanic.player // (12,7), (11,7), (10,7)
+        var snake = snakeGame.snakeMechanic.player // (7,12), (7,11), (10,7)
 
-        snakeGame.snakeMechanic.powerUp = PowerUpElement(cell: grid[13,7]!)
+        snakeGame.snakeMechanic.powerUp = PowerUpElement(cell: grid[7,13]!)
 
         // act
         snakeGame.snakeMechanic.updatePlayerPosition()
@@ -216,15 +216,15 @@ class SnakeGameTests: XCTestCase {
         // assert
         XCTAssertEqual(1, snakeGame.score, "score should be 1")
         XCTAssertEqual(4, snake.length, "snake should have a length of 4")
-        assertSnakeTilePosition(expected: (13,7), actual: snake.vector[0].cell, message: "head")
-        assertSnakeTilePosition(expected: (12,7), actual: snake.vector[1].cell, message: "middle 1")
-        assertSnakeTilePosition(expected: (11,7), actual: snake.vector[2].cell, message: "middle 2")
-        assertSnakeTilePosition(expected: (10,7), actual: snake.vector[3].cell, message: "tail")
+        assertSnakeTilePosition(expected: (7,13), actual: snake.vector[0].cell, message: "head")
+        assertSnakeTilePosition(expected: (7,12), actual: snake.vector[1].cell, message: "middle 1")
+        assertSnakeTilePosition(expected: (7,11), actual: snake.vector[2].cell, message: "middle 2")
+        assertSnakeTilePosition(expected: (7,10), actual: snake.vector[3].cell, message: "tail")
         
-        XCTAssertEqual(CellType.Snake, grid[13,7]!.type, "cell type should be of type Snake")
-        XCTAssertEqual(CellType.Snake, grid[12,7]!.type, "cell type should be of type Snake")
-        XCTAssertEqual(CellType.Snake, grid[11,7]!.type, "cell type should be of type Snake")
-        XCTAssertEqual(CellType.Snake, grid[10,7]!.type, "cell type should be of type Empty")
+        XCTAssertEqual(CellType.Snake, grid[7,13]!.type, "cell type should be of type Snake")
+        XCTAssertEqual(CellType.Snake, grid[7,12]!.type, "cell type should be of type Snake")
+        XCTAssertEqual(CellType.Snake, grid[7,11]!.type, "cell type should be of type Snake")
+        XCTAssertEqual(CellType.Snake, grid[7,10]!.type, "cell type should be of type Empty")
         
         XCTAssertFalse(snakeGame.isGameOver, "should not be Game Over")
     }
@@ -233,7 +233,7 @@ class SnakeGameTests: XCTestCase {
         // assemble
         var snakeGame = SnakeGame(gameViewSize: CGSizeMake(375.0, 667.0), rows: 25, columns: 15)
         var grid = snakeGame.grid
-        snakeGame.snakeMechanic.player = Snake(startingCell: grid[24, 6]!)
+        snakeGame.snakeMechanic.player = Snake(startingCell: grid[6,24]!)
         
         // act
         snakeGame.snakeMechanic.updatePlayerPosition()
@@ -246,7 +246,7 @@ class SnakeGameTests: XCTestCase {
         // assemble
         var snakeGame = SnakeGame(gameViewSize: CGSizeMake(375.0, 667.0), rows: 25, columns: 15)
         var grid = snakeGame.grid
-        snakeGame.snakeMechanic.player = Snake(startingCell: grid[2, 6]!)
+        snakeGame.snakeMechanic.player = Snake(startingCell: grid[6,2]!)
         
         snakeGame.updateDirection(.West)
         snakeGame.snakeMechanic.updatePlayerPosition()
@@ -265,9 +265,9 @@ class SnakeGameTests: XCTestCase {
         // assemble
         var snakeGame = SnakeGame(gameViewSize: CGSizeMake(375.0, 667.0), rows: 25, columns: 15)
         var grid = snakeGame.grid
-        var snake = snakeGame.snakeMechanic.player // (12,7), (11,7), (10,7)
+        var snake = snakeGame.snakeMechanic.player // (7,12), (7,11), (10,7)
         
-        snakeGame.snakeMechanic.player = Snake(startingCell: grid[12,14]!)
+        snakeGame.snakeMechanic.player = Snake(startingCell: grid[14,12]!)
         
         // act
         snakeGame.updateDirection(.East)
@@ -281,9 +281,9 @@ class SnakeGameTests: XCTestCase {
         // assemble
         var snakeGame = SnakeGame(gameViewSize: CGSizeMake(375.0, 667.0), rows: 25, columns: 15)
         var grid = snakeGame.grid
-        var snake = snakeGame.snakeMechanic.player // (12,7), (11,7), (10,7)
+        var snake = snakeGame.snakeMechanic.player
         
-        snakeGame.snakeMechanic.player = Snake(startingCell: grid[24,0]!)
+        snakeGame.snakeMechanic.player = Snake(startingCell: grid[0,24]!)
         
         // act
         snakeGame.updateDirection(.South)
@@ -344,15 +344,15 @@ class SnakeGameTests: XCTestCase {
         // assert
         snake = snakeGameControl.player
         XCTAssertEqual(3, snake.length, "Snake length should be 3")
-        assertSnakeTilePosition(expected: (12,7), actual: snake.vector[0].cell, message: "head")
-        assertSnakeTilePosition(expected: (11,7), actual: snake.vector[1].cell, message: "middle")
-        assertSnakeTilePosition(expected: (10,7), actual: snake.vector[2].cell, message: "tail")
+        assertSnakeTilePosition(expected: (7,12), actual: snake.vector[0].cell, message: "head")
+        assertSnakeTilePosition(expected: (7,11), actual: snake.vector[1].cell, message: "middle")
+        assertSnakeTilePosition(expected: (7,10), actual: snake.vector[2].cell, message: "tail")
         
-        XCTAssertEqual(CellType.Empty, grid[13,7]!.type, "cell type should be of type Empty")
-        XCTAssertEqual(CellType.Snake, grid[12,7]!.type, "cell type should be of type Snake")
-        XCTAssertEqual(CellType.Snake, grid[11,7]!.type, "cell type should be of type Snake")
-        XCTAssertEqual(CellType.Snake, grid[10,7]!.type, "cell type should be of type Snake")
-        XCTAssertEqual(CellType.Empty, grid[9,7]!.type, "cell type should be of type Empty")
+        XCTAssertEqual(CellType.Empty, grid[7,13]!.type, "cell type should be of type Empty")
+        XCTAssertEqual(CellType.Snake, grid[7,12]!.type, "cell type should be of type Snake")
+        XCTAssertEqual(CellType.Snake, grid[7,11]!.type, "cell type should be of type Snake")
+        XCTAssertEqual(CellType.Snake, grid[7,10]!.type, "cell type should be of type Snake")
+        XCTAssertEqual(CellType.Empty, grid[7,9]!.type, "cell type should be of type Empty")
         
         XCTAssertFalse(snakeGame.isGameOver, "should not be Game Over")
         XCTAssertEqual(0, snakeGame.score, "score should be 0")
@@ -432,9 +432,9 @@ class SnakeGameTests: XCTestCase {
     
     //MARK: assert helpers
     
-    private func assertSnakeTilePosition(#expected: (row: Int, column: Int), actual: Cell, message: String = "") {
-        XCTAssertEqual(expected.row, actual.row, "wrong row (\(message))")
-        XCTAssertEqual(expected.column, actual.column, "wrong column (\(message))")
+    private func assertSnakeTilePosition(#expected: (x: Int, y: Int), actual: Cell, message: String = "") {
+        XCTAssertEqual(expected.x, actual.x, "wrong column (\(message))")
+        XCTAssertEqual(expected.y, actual.y, "wrong row (\(message))")
     }
 }
 

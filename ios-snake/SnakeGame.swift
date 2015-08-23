@@ -47,12 +47,13 @@ public class SnakeGame: SnakeGameDelegate {
     func getRandomEmptyCell() -> Cell {
         // not a very elegant solution, but will do for now...
         
-        var randomRow = Int(arc4random_uniform(UInt32(self.grid.rows)))
-        var randomCol = Int(arc4random_uniform(UInt32(self.grid.columns)))
-        var potentialCell = grid[randomRow, randomCol]!
+        var randomX = Int(arc4random_uniform(UInt32(self.grid.columns)))
+        var randomY = Int(arc4random_uniform(UInt32(self.grid.rows)))
+
+        var potentialCell = grid[randomX, randomY]!
         
         while (potentialCell.type != .Empty) {
-            potentialCell = grid[randomRow, randomCol]!
+            potentialCell = grid[randomX, randomY]!
         }
         
         return potentialCell

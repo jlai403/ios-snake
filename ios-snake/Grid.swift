@@ -26,16 +26,16 @@ public class Grid {
         }
     }
     
-    subscript(rowIndex: Int, colIndex: Int) -> Cell? {
+    subscript(x: Int, y: Int) -> Cell? {
         get {
-            if (outOfBounds(rowIndex, colIndex)) {
+            if (outOfBounds(x, y)) {
                 return nil
             } else {
-                return cells[rowIndex * columns + colIndex]!
+                return cells[y * columns + x]!
             }
         }
         set {
-            self.cells[rowIndex * self.columns + colIndex] = newValue
+            self.cells[y * self.columns + x] = newValue
         }
     }
     
@@ -45,10 +45,10 @@ public class Grid {
         return cells[row * self.columns + col]!
     }
     
-    private func outOfBounds(rowIndex: Int, _ colIndex: Int) -> Bool {
-        var invalidRow = rowIndex < 0 || rowIndex >= self.rows
-        var invalidCol = colIndex < 0 || colIndex >= self.columns
-        return invalidRow || invalidCol
+    private func outOfBounds(x: Int, _ y: Int) -> Bool {
+        var invalidX = x < 0 || x >= self.columns
+        var invalidY = y < 0 || y >= self.rows
+        return invalidX || invalidY
     }
     
     init(cellSize: CGSize, rows: Int, columns: Int) {
@@ -65,9 +65,9 @@ public class Grid {
     }
     
     private func initEmptyGrid() {
-        for (var row=0; row<self.rows; row++) {
-            for (var col=0; col<self.columns; col++) {
-                cells[row*columns + col] = Cell.empty(grid: self, row: row, column: col)
+        for (var x=0; x<self.columns; x++) {
+            for (var y=0; y<self.rows; y++) {
+                cells[y*columns + x] = Cell.empty(grid: self, x: x, y: y)
             }
         }
     }

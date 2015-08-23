@@ -35,7 +35,6 @@ TODO:
 
 
 TECH DEBT:
-- refactor grid row/column variables to be x/y
 - SKTextures for game elements (snake, powerup)
 
 

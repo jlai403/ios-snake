@@ -80,8 +80,8 @@ class GameGridTests: XCTestCase {
         var center = grid.center()
         
         // assert
-        XCTAssertEqual(7, center.column, "wrong center column")
-        XCTAssertEqual(12, center.row, "wrong center row")
+        XCTAssertEqual(7, center.x, "wrong center column")
+        XCTAssertEqual(12, center.y, "wrong center row")
         XCTAssertEqual(CGPointMake(168, 288), center.position, "wrong center position")
         
     }
@@ -98,8 +98,8 @@ class GameGridTests: XCTestCase {
         var zeroPosition = grid[0,0]!
             
         // assert
-        XCTAssertEqual(0, zeroPosition.column, "wrong center column")
-        XCTAssertEqual(0, zeroPosition.row, "wrong center row")
+        XCTAssertEqual(0, zeroPosition.x, "wrong center column")
+        XCTAssertEqual(0, zeroPosition.y, "wrong center row")
         XCTAssertEqual(CGPointZero, zeroPosition.position, "should be 0,0")
         
     }
@@ -116,8 +116,8 @@ class GameGridTests: XCTestCase {
         var gridPosition = grid[1,1]!
         
         // assert
-        XCTAssertEqual(1, gridPosition.column, "wrong center column")
-        XCTAssertEqual(1, gridPosition.row, "wrong center row")
+        XCTAssertEqual(1, gridPosition.x, "wrong center column")
+        XCTAssertEqual(1, gridPosition.y, "wrong center row")
         XCTAssertEqual(CGPointMake(24, 24), gridPosition.position, "should be 23,23")
         
     }

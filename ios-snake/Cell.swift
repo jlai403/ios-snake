@@ -3,8 +3,8 @@ import UIKit
 public class Cell: Equatable {
 
     var grid: Grid
-    var row: Int
-    var column: Int
+    var x: Int
+    var y: Int
     var type: CellType
 
     
@@ -14,42 +14,42 @@ public class Cell: Equatable {
     
     var position: CGPoint {
         get {
-            var x = CGFloat(self.column) * size.width
-            var y = CGFloat(self.row) * size.height
+            var x = CGFloat(self.x) * size.width
+            var y = CGFloat(self.y) * size.height
             return CGPointMake(x, y)
         }
     }
     
-    private init(grid: Grid, row: Int, column: Int, type: CellType) {
+    private init(grid: Grid, x: Int, y: Int, type: CellType) {
         self.grid = grid
-        self.row = row
-        self.column = column
+        self.x = x
+        self.y = y
         self.type = type
     }
     
-    class func empty(#grid: Grid, row: Int, column: Int) -> Cell {
-        return Cell(grid: grid, row: row, column: column, type: .Empty)
+    class func empty(#grid: Grid, x: Int, y: Int) -> Cell {
+        return Cell(grid: grid, x: x, y: y, type: .Empty)
     }
     
     func north() -> Cell? {
-        return self.grid[self.row+1, self.column]
+        return self.grid[self.x, self.y+1]
     }
     
     func south() -> Cell? {
-        return self.grid[self.row-1, self.column]
+        return self.grid[self.x, self.y-1]
     }
     
     func east() -> Cell? {
-        return self.grid[self.row, self.column+1]
+        return self.grid[self.x+1, self.y]
     }
     
     func west() -> Cell? {
-        return self.grid[self.row, self.column-1]
+        return self.grid[self.x-1, self.y]
     }
 }
 
 public func ==(lhs: Cell, rhs: Cell) -> Bool {
-    var rowsEqual = lhs.row == rhs.row
-    var columnsEqual = lhs.column == rhs.column
-    return rowsEqual && columnsEqual
+    var equalX = lhs.x == rhs.x
+    var equalY = lhs.y == rhs.y
+    return equalX && equalY
 }
