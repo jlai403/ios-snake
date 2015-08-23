@@ -39,6 +39,12 @@ public class Grid {
         }
     }
     
+    public func random() -> Cell {
+        var randomX = Int(arc4random_uniform(UInt32(self.columns)))
+        var randomY = Int(arc4random_uniform(UInt32(self.rows)))
+        return self[randomX,randomY]!
+    }
+    
     public func center() -> Cell {
         var row = Int(floor(Double(self.rows) / 2))
         var col = Int(floor(Double(self.columns) / 2))

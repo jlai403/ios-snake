@@ -31,7 +31,7 @@ class SnakeGameTests: XCTestCase {
         XCTAssertEqual(CellType.Snake, grid[7,13]!.type, "cell type should be of type Snake")
         XCTAssertEqual(CellType.Snake, grid[7,12]!.type, "cell type should be of type Snake")
         XCTAssertEqual(CellType.Snake, grid[7,11]!.type, "cell type should be of type Snake")
-        XCTAssertEqual(CellType.Empty, grid[7,10]!.type, "cell type should be of type Empty")
+        XCTAssertNotEqual(CellType.Snake, grid[7,10]!.type, "cell type should not be of type Snake")
         
         XCTAssertFalse(snakeGame.isGameOver, "should not be Game Over")
     }
@@ -55,7 +55,7 @@ class SnakeGameTests: XCTestCase {
         XCTAssertEqual(CellType.Snake, grid[8,12]!.type, "cell type should be of type Snake")
         XCTAssertEqual(CellType.Snake, grid[7,12]!.type, "cell type should be of type Snake")
         XCTAssertEqual(CellType.Snake, grid[7,11]!.type, "cell type should be of type Snake")
-        XCTAssertEqual(CellType.Empty, grid[7,10]!.type, "cell type should be of type Empty")
+        XCTAssertNotEqual(CellType.Snake, grid[7,10]!.type, "cell type should not be of type Snake")
         
         XCTAssertFalse(snakeGame.isGameOver, "should not be Game Over")
     }
@@ -79,7 +79,7 @@ class SnakeGameTests: XCTestCase {
         XCTAssertEqual(CellType.Snake, grid[6,12]!.type, "cell type should be of type Snake")
         XCTAssertEqual(CellType.Snake, grid[7,12]!.type, "cell type should be of type Snake")
         XCTAssertEqual(CellType.Snake, grid[7,11]!.type, "cell type should be of type Snake")
-        XCTAssertEqual(CellType.Empty, grid[7,10]!.type, "cell type should be of type Empty")
+        XCTAssertNotEqual(CellType.Snake, grid[7,10]!.type, "cell type should not be of type Snake")
         
         XCTAssertFalse(snakeGame.isGameOver, "should not be Game Over")
     }
@@ -107,7 +107,7 @@ class SnakeGameTests: XCTestCase {
         XCTAssertEqual(CellType.Snake, grid[9,11]!.type, "cell type should be of type Snake")
         XCTAssertEqual(CellType.Snake, grid[9,12]!.type, "cell type should be of type Snake")
         XCTAssertEqual(CellType.Snake, grid[8,12]!.type, "cell type should be of type Snake")
-        XCTAssertEqual(CellType.Empty, grid[7,12]!.type, "cell type should be of type Empty")
+        XCTAssertNotEqual(CellType.Snake, grid[7,12]!.type, "cell type should not be of type Snake")
         
         XCTAssertFalse(snakeGame.isGameOver, "should not be Game Over")
     }
@@ -224,7 +224,7 @@ class SnakeGameTests: XCTestCase {
         XCTAssertEqual(CellType.Snake, grid[7,13]!.type, "cell type should be of type Snake")
         XCTAssertEqual(CellType.Snake, grid[7,12]!.type, "cell type should be of type Snake")
         XCTAssertEqual(CellType.Snake, grid[7,11]!.type, "cell type should be of type Snake")
-        XCTAssertEqual(CellType.Snake, grid[7,10]!.type, "cell type should be of type Empty")
+        XCTAssertEqual(CellType.Snake, grid[7,10]!.type, "cell type should be of type Snake")
         
         XCTAssertFalse(snakeGame.isGameOver, "should not be Game Over")
     }
@@ -348,11 +348,11 @@ class SnakeGameTests: XCTestCase {
         assertSnakeTilePosition(expected: (7,11), actual: snake.vector[1].cell, message: "middle")
         assertSnakeTilePosition(expected: (7,10), actual: snake.vector[2].cell, message: "tail")
         
-        XCTAssertEqual(CellType.Empty, grid[7,13]!.type, "cell type should be of type Empty")
+        XCTAssertNotEqual(CellType.Snake, grid[7,13]!.type, "cell type should not be of type Snake")
         XCTAssertEqual(CellType.Snake, grid[7,12]!.type, "cell type should be of type Snake")
         XCTAssertEqual(CellType.Snake, grid[7,11]!.type, "cell type should be of type Snake")
         XCTAssertEqual(CellType.Snake, grid[7,10]!.type, "cell type should be of type Snake")
-        XCTAssertEqual(CellType.Empty, grid[7,9]!.type, "cell type should be of type Empty")
+        XCTAssertNotEqual(CellType.Snake, grid[7,9]!.type, "cell type should not be of type Snake")
         
         XCTAssertFalse(snakeGame.isGameOver, "should not be Game Over")
         XCTAssertEqual(0, snakeGame.score, "score should be 0")
