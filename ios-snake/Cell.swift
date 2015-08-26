@@ -9,7 +9,9 @@ public class Cell: Equatable {
 
     
     var size: CGSize {
-        get { return self.grid.cellSize }
+        get {
+            return self.grid.cellSize
+        }
     }
     
     var position: CGPoint {

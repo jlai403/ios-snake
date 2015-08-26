@@ -1,6 +1,6 @@
 import SpriteKit
 
-public class SnakeElement: SKShapeNode {
+public class SnakeElement: SKSpriteNode {
     
     var cell: Cell
     var successor: SnakeElement?
@@ -10,8 +10,7 @@ public class SnakeElement: SKShapeNode {
     
     init(cell: Cell, successor: SnakeElement? = nil) {
         self.cell = cell
-        super.init()
-        self.render()
+        super.init(texture: TextureManager.sharedInstance.tileTexutre, color: Colors.blue, size: self.cell.size)
         self.update(successor)
     }
 
@@ -19,20 +18,17 @@ public class SnakeElement: SKShapeNode {
         fatalError("not implemented")
     }
     
-    private func render() {
-        self.path = CGPathCreateWithRoundedRect(CGRect(origin: CGPointZero, size: cell.size), 0, 0, nil)
-        self.position = cell.position
-        
-        self.lineWidth = 0.5
-        self.fillColor = Colors.blue
-        self.strokeColor = Colors.whiteColor()
-        
-        self.zPosition = GameSceneZPositions.GAME_ELEMENT
-    }
-    
-    public func update(successor: SnakeElement?) {
+    private func update(successor: SnakeElement?) {
+        self.render()
         self.setElementSuccessor(successor)
         self.setPosition(self.cell)
+    }
+    
+    private func render() {
+        self.anchorPoint = CGPointZero
+        self.colorBlendFactor = 1.0
+        self.position = cell.position
+        self.zPosition = GameSceneZPositions.GAME_ELEMENT
     }
     
     public func setElementSuccessor(successor: SnakeElement?) {

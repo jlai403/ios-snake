@@ -35,8 +35,6 @@ TODO:
 
 
 TECH DEBT:
-- SKTextures for game elements (snake, powerup)
-
 
 BUGS: 
 - game over when swiping too fast?

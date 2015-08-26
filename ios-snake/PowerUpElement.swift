@@ -1,13 +1,11 @@
 import SpriteKit
 
-public class PowerUpElement: SKShapeNode {
+public class PowerUpElement: SKSpriteNode {
     var cell: Cell
     
     init(cell: Cell) {
         self.cell = cell
-        super.init()
-        
-        self.render()
+        super.init(texture: TextureManager.sharedInstance.tileTexutre, color: Colors.pomegranate, size: self.cell.size)
         self.update()
     }
 
@@ -19,7 +17,8 @@ public class PowerUpElement: SKShapeNode {
         self.removeFromParent()
     }
     
-    func update() {
+    private func update() {
+        self.render()
         self.setPosition(self.cell)
     }
     
@@ -27,17 +26,12 @@ public class PowerUpElement: SKShapeNode {
     public func setPosition(cell: Cell) {
         self.cell = cell
         self.cell.type = .PowerUp
-        var debug = self
         self.position = cell.position
     }
     
     private func render() {
-        self.path = CGPathCreateWithRoundedRect(CGRect(origin: CGPointZero, size: cell.size), 0, 0, nil)
-        
-        self.lineWidth = 1.5
-        self.fillColor = Colors.pomegranate
-        self.strokeColor = Colors.whiteColor()
-        
+        self.anchorPoint = CGPointZero
+        self.colorBlendFactor = 1.0
         self.zPosition = GameSceneZPositions.GAME_ELEMENT
     }
 
