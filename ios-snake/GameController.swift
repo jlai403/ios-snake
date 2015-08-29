@@ -4,10 +4,10 @@ import SpriteKit
 class GameController: UIViewController, SnakeGameControllerDelegate, UIAlertViewDelegate {
 
     @IBOutlet weak var gameView: SKView!
-    
     weak var snakeGame: SnakeGame!
     
     override func viewDidLoad() {
+        super.viewDidLoad()
         self.navigationController?.navigationBarHidden = true
         
         if (ConfigConstants.DEBUG) {
@@ -17,16 +17,16 @@ class GameController: UIViewController, SnakeGameControllerDelegate, UIAlertView
     }
     
     override func viewDidLayoutSubviews() {
-        initGame()
+        initSnakeGame()
+        self.gameView.presentScene(self.snakeGame.scene)
     }
     
-    private func initGame() {
+    private func initSnakeGame() {
         self.snakeGame = SnakeGame(gameViewSize: self.gameView.frame.size, rows: ConfigConstants.GAME_GRID_ROWS, columns: ConfigConstants.GAME_GRID_COLS)
         self.snakeGame.delegate = self
     }
 
     override func viewDidAppear(animated: Bool) {
-        self.gameView.presentScene(self.snakeGame.scene)
         self.snakeGame.start()
     }
     
