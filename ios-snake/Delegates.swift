@@ -3,12 +3,10 @@ protocol SnakeGameControllerDelegate {
 }
 
 protocol SnakeGameDelegate {
-    func getRandomEmptyCell() -> Cell
-    func center() -> Cell
+    var grid: Grid { get }
     
     func present(snake: Snake)
-    func present(node: SnakeNode)
-    func present(node: PowerUpNode)
+    func present(node: ISpriteKitNode)
     func gameOver()
     func incrementScore(increment: Int)
 }

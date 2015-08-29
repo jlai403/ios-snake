@@ -1,12 +1,16 @@
 import SpriteKit
 
-public class SnakeNode: SKSpriteNode {
+public protocol ISpriteKitNode: class {
+    var presented: Bool { get set }
+}
+
+public class SnakeNode: SKSpriteNode, ISpriteKitNode {
     
     var cell: Cell
     var successor: SnakeNode?
     var predecessor: SnakeNode?
     
-    var presented: Bool = false
+    public var presented: Bool = false
     
     init(cell: Cell, successor: SnakeNode? = nil) {
         self.cell = cell

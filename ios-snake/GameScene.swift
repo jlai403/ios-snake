@@ -49,8 +49,10 @@ public class GameScene: SKScene {
         self.view!.layer.addSublayer(layer)
     }
 
-    public func addToGrid(node: SKNode) {
-        self.grid.addChild(node)
+    public func addChildNodeToGrid(skNode: ISpriteKitNode) {
+        if let node = skNode as? SKNode {
+            self.grid.addChild(node)
+        }
     }
     
     public func updateScore(score: Int) {

@@ -40,19 +40,6 @@ public class SnakeGame: SnakeGameDelegate {
     }
     
     // MARK: SnakeGameControlDelegate
-    func center() -> Cell {
-        return self.grid.center()
-    }
-    
-    func getRandomEmptyCell() -> Cell {
-        // not a very elegant solution, but will do for now...
-        var potentialCell = grid.random()        
-        while (potentialCell.type != .Empty) {
-            potentialCell = grid.random()
-        }
-        
-        return potentialCell
-    }
     
     func present(snake: Snake) {
         var unpresentedSnakeElements = snake.vector.filter { (element) in !element.presented }
@@ -61,15 +48,11 @@ public class SnakeGame: SnakeGameDelegate {
         }
     }
     
-    func present(node: SnakeNode) {
-        self.scene.addToGrid(node)
+    func present(node: ISpriteKitNode) {
+        self.scene.addChildNodeToGrid(node)
         node.presented = true
     }
-    
-    func present(node: PowerUpNode) {
-        self.scene.addToGrid(node)
-    }
-    
+
     func incrementScore(increment: Int) {
         self.score += increment
         self.scene.updateScore(self.score)

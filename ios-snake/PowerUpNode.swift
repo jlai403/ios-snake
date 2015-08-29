@@ -1,7 +1,9 @@
 import SpriteKit
 
-public class PowerUpNode: SKSpriteNode {
+public class PowerUpNode: SKSpriteNode, ISpriteKitNode {
     var cell: Cell
+    
+    public var presented: Bool = false
     
     init(cell: Cell) {
         self.cell = cell

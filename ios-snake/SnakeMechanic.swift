@@ -21,13 +21,13 @@ public class SnakeMechanic: NSObject {
     
     private func initializePlayer() {
         self.cardinalDirection = CardinalDirection.North
-        self.player = Snake(startingCell: self.delegate.center())
+        self.player = Snake(startingCell: self.delegate.grid.center())
         self.snakeEffects.applyGradient(self.player)
         self.delegate.present(player)
     }
     
     private func initializePowerUp() {
-        self.powerUp = PowerUpNode(cell: self.delegate.getRandomEmptyCell())
+        self.powerUp = PowerUpNode(cell: self.delegate.grid.randomEmptyCell())
         self.delegate.present(powerUp)
     }
     
@@ -39,7 +39,7 @@ public class SnakeMechanic: NSObject {
     
     public func reset() {
         self.initializePlayer()
-        self.powerUp.setPosition(self.delegate.getRandomEmptyCell()) // power up does not get deinit, therefore not removed from parent.
+        self.powerUp.setPosition(self.delegate.grid.randomEmptyCell()) // power up does not get deinit, therefore not removed from parent.
     }
     
     public func updateDirection(direction: CardinalDirection) {
@@ -76,7 +76,7 @@ public class SnakeMechanic: NSObject {
             let destination = destination!
             if (destination.type == .PowerUp) {
                 self.player.consume(self.powerUp)
-                self.powerUp.setPosition(self.delegate.getRandomEmptyCell())
+                self.powerUp.setPosition(self.delegate.grid.randomEmptyCell())
                 
                 self.snakeEffects.applyGradient(self.player)
                 self.snakeEffects.blink(self.player.head)

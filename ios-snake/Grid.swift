@@ -39,10 +39,20 @@ public class Grid {
         }
     }
     
-    public func random() -> Cell {
+    public func randomCell() -> Cell {
         var randomX = Int(arc4random_uniform(UInt32(self.columns)))
         var randomY = Int(arc4random_uniform(UInt32(self.rows)))
         return self[randomX,randomY]!
+    }
+    
+    public func randomEmptyCell() -> Cell {
+        // not a very elegant solution, but will do for now...
+        var potentialCell = randomCell()
+        while (potentialCell.type != .Empty) {
+            potentialCell = randomCell()
+        }
+        
+        return potentialCell
     }
     
     public func center() -> Cell {
