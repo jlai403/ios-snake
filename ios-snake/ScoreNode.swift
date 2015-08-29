@@ -12,6 +12,7 @@ public class ScoreNode: SKLabelNode {
     }
     
     private func update() {
+        self.updateScore(0)
         self.fontName = "HelveticaNeue-UltraLight"
         self.fontColor = Colors.blackColor()
         self.fontSize = 22.0

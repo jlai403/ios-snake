@@ -25,13 +25,15 @@ public class GameScene: SKScene {
     }
     
     private func positionNodes() {
-        self.grid.position.x = (self.frame.width - self.grid.frame.width) / 2
+        var xPos = (self.frame.width - self.grid.frame.width) / 2
+        
+        self.grid.position.x = xPos
         self.grid.position.y = (self.frame.height - self.grid.frame.height) / 2
         
-        self.scoreLabel.position.x = self.grid.position.x
+        self.scoreLabel.position.x = xPos
         self.scoreLabel.position.y = self.grid.frame.maxY + 5.0
         
-        self.levelLabel.position.x = self.grid.position.x
+        self.levelLabel.position.x = xPos
         self.levelLabel.position.y = self.scoreLabel.frame.maxY + 5.0
     }
     

@@ -12,6 +12,7 @@ public class LevelNode: SKLabelNode {
     }
     
     private func update() {
+        self.updateLevel(1)
         self.fontName = "HelveticaNeue-Thin"
         self.fontColor = Colors.blackColor()
         self.fontSize = 12.0

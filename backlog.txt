@@ -28,6 +28,8 @@ Add Screens
 
 
 TECH DEBT:
+- Sad cases
+	- user quits app
 
 BUGS: 
 - game over when swiping too fast?
