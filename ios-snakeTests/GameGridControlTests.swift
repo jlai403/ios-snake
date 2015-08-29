@@ -208,7 +208,7 @@ class SnakeGameTests: XCTestCase {
         var grid = snakeGame.grid
         var snake = snakeGame.snakeMechanic.player // (7,12), (7,11), (10,7)
 
-        snakeGame.snakeMechanic.powerUp = PowerUpElement(cell: grid[7,13]!)
+        snakeGame.snakeMechanic.powerUp = PowerUpNode(cell: grid[7,13]!)
 
         // act
         snakeGame.snakeMechanic.updatePlayerPosition()

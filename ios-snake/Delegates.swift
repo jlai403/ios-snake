@@ -7,8 +7,8 @@ protocol SnakeGameDelegate {
     func center() -> Cell
     
     func present(snake: Snake)
-    func present(node: SnakeElement)
-    func present(node: PowerUpElement)
+    func present(node: SnakeNode)
+    func present(node: PowerUpNode)
     func gameOver()
     func incrementScore(increment: Int)
 }

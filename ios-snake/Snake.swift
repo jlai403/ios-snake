@@ -2,7 +2,7 @@ import SpriteKit
 
 public class Snake {
     
-    var vector: [SnakeElement] = []
+    var vector: [SnakeNode] = []
     
     var length: Int {
         get {
@@ -10,13 +10,13 @@ public class Snake {
         }
     }
     
-    var head: SnakeElement {
+    var head: SnakeNode {
         get {
             return self.vector.firstOrDefault({ (bodyNode) in bodyNode.isHead() })!
         }
     }
     
-    var tail: SnakeElement {
+    var tail: SnakeNode {
         get {
             return self.vector.firstOrDefault({ (bodyNode) in bodyNode.isTail() })!
         }
@@ -26,8 +26,8 @@ public class Snake {
         var cell = startingCell
         
         for (var i=0; i<ConfigConstants.START_SNAKE_LENGTH; i++) {
-            var successor: SnakeElement? = i==0 ? nil : self.vector[i-1]
-            var predecessor = SnakeElement(cell: cell, successor:successor)
+            var successor: SnakeNode? = i==0 ? nil : self.vector[i-1]
+            var predecessor = SnakeNode(cell: cell, successor:successor)
             self.vector.append(predecessor)
             
             if (self.vector.count < ConfigConstants.START_SNAKE_LENGTH) {
@@ -55,15 +55,15 @@ public class Snake {
     }
     
     private func moveVectorForward() {
-        var snakeElement = tail
-        while let successor = snakeElement.successor {
-            snakeElement.moveForward()
-            snakeElement = successor
+        var SnakeNode = tail
+        while let successor = SnakeNode.successor {
+            SnakeNode.moveForward()
+            SnakeNode = successor
         }
     }
     
-    public func consume(powerUp: PowerUpElement) {
-        var newHead = SnakeElement(cell: powerUp.cell)
+    public func consume(powerUp: PowerUpNode) {
+        var newHead = SnakeNode(cell: powerUp.cell)
         self.head.setElementSuccessor(newHead)
         self.vector.insert(newHead, atIndex: 0)
     }

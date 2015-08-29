@@ -22,11 +22,11 @@
 		6C6ED5B21B59DC01004B3633 /* GridGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C6ED5B01B59DBB8004B3633 /* GridGenerator.swift */; };
 		6C71AA871B646DC7009E80C8 /* SnakeEffects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C71AA861B646DC7009E80C8 /* SnakeEffects.swift */; };
 		6C71AA881B646E4E009E80C8 /* SnakeEffects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C71AA861B646DC7009E80C8 /* SnakeEffects.swift */; };
-		6C851EF71B5B6178002225A9 /* SnakeElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C851EF61B5B6178002225A9 /* SnakeElement.swift */; };
+		6C851EF71B5B6178002225A9 /* SnakeNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C851EF61B5B6178002225A9 /* SnakeNode.swift */; };
 		6C851EF91B5B6193002225A9 /* Grid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C851EF81B5B6193002225A9 /* Grid.swift */; };
 		6C851EFD1B5B61DA002225A9 /* CellType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C851EFC1B5B61DA002225A9 /* CellType.swift */; };
 		6C851EFE1B5B645A002225A9 /* Grid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C851EF81B5B6193002225A9 /* Grid.swift */; };
-		6C851EFF1B5B6466002225A9 /* SnakeElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C851EF61B5B6178002225A9 /* SnakeElement.swift */; };
+		6C851EFF1B5B6466002225A9 /* SnakeNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C851EF61B5B6178002225A9 /* SnakeNode.swift */; };
 		6C851F001B5B6482002225A9 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB576181B531C9200DEDCCE /* GameScene.swift */; };
 		6C851F011B5B6482002225A9 /* Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C851EFA1B5B61A5002225A9 /* Cell.swift */; };
 		6C851F021B5B6482002225A9 /* CellType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C851EFC1B5B61DA002225A9 /* CellType.swift */; };
@@ -53,8 +53,8 @@
 		6CE494661B55F36F00E193A9 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C0CB2851B531FA000796B92 /* Colors.swift */; };
 		6CEF650E1B631CB000D28E6D /* SnakeMechanic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CEF650D1B631CB000D28E6D /* SnakeMechanic.swift */; };
 		6CEF650F1B631CDF00D28E6D /* SnakeMechanic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CEF650D1B631CB000D28E6D /* SnakeMechanic.swift */; };
-		6CF8F0ED1B61D99500AE3361 /* PowerUpElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CF8F0EC1B61D99500AE3361 /* PowerUpElement.swift */; };
-		6CF8F0EE1B61DAA000AE3361 /* PowerUpElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CF8F0EC1B61D99500AE3361 /* PowerUpElement.swift */; };
+		6CF8F0ED1B61D99500AE3361 /* PowerUpNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CF8F0EC1B61D99500AE3361 /* PowerUpNode.swift */; };
+		6CF8F0EE1B61DAA000AE3361 /* PowerUpNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CF8F0EC1B61D99500AE3361 /* PowerUpNode.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,7 +77,7 @@
 		6C6ED5AD1B59D540004B3633 /* GameGridTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameGridTests.swift; sourceTree = "<group>"; };
 		6C6ED5B01B59DBB8004B3633 /* GridGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridGenerator.swift; sourceTree = "<group>"; };
 		6C71AA861B646DC7009E80C8 /* SnakeEffects.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnakeEffects.swift; sourceTree = "<group>"; };
-		6C851EF61B5B6178002225A9 /* SnakeElement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnakeElement.swift; sourceTree = "<group>"; };
+		6C851EF61B5B6178002225A9 /* SnakeNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnakeNode.swift; sourceTree = "<group>"; };
 		6C851EF81B5B6193002225A9 /* Grid.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Grid.swift; sourceTree = "<group>"; };
 		6C851EFA1B5B61A5002225A9 /* Cell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cell.swift; sourceTree = "<group>"; };
 		6C851EFC1B5B61DA002225A9 /* CellType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellType.swift; sourceTree = "<group>"; };
@@ -100,7 +100,7 @@
 		6CC3DA961B64B6D400D07BD9 /* GameOverAlertView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameOverAlertView.swift; sourceTree = "<group>"; };
 		6CE494631B55E34A00E193A9 /* ArrayExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayExtensions.swift; sourceTree = "<group>"; };
 		6CEF650D1B631CB000D28E6D /* SnakeMechanic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnakeMechanic.swift; sourceTree = "<group>"; };
-		6CF8F0EC1B61D99500AE3361 /* PowerUpElement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PowerUpElement.swift; sourceTree = "<group>"; };
+		6CF8F0EC1B61D99500AE3361 /* PowerUpNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PowerUpNode.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +141,7 @@
 		6C3BDB9D1B8C38DF000DA151 /* Scene */ = {
 			isa = PBXGroup;
 			children = (
+				6CEAB5C31B9134FA009CCEE6 /* Nodes */,
 				6CB576181B531C9200DEDCCE /* GameScene.swift */,
 				6C3BDB9E1B8C38F1000DA151 /* TextureManager.swift */,
 			);
@@ -214,7 +215,6 @@
 		6CB576151B531C2E00DEDCCE /* Game */ = {
 			isa = PBXGroup;
 			children = (
-				6CEF65121B631F4400D28E6D /* Power Up */,
 				6CEF65111B631F3D00D28E6D /* Snake */,
 				6CEF65101B631F0200D28E6D /* Environment */,
 			);
@@ -238,6 +238,15 @@
 			name = Utility;
 			sourceTree = "<group>";
 		};
+		6CEAB5C31B9134FA009CCEE6 /* Nodes */ = {
+			isa = PBXGroup;
+			children = (
+				6CF8F0EC1B61D99500AE3361 /* PowerUpNode.swift */,
+				6C851EF61B5B6178002225A9 /* SnakeNode.swift */,
+			);
+			name = Nodes;
+			sourceTree = "<group>";
+		};
 		6CEF65101B631F0200D28E6D /* Environment */ = {
 			isa = PBXGroup;
 			children = (
@@ -255,7 +264,6 @@
 				6CC3DA931B64B5D500D07BD9 /* Delegates.swift */,
 				6CB5DB571B5F4FF700739D68 /* SnakeGame.swift */,
 				6C0CB2831B531E6400796B92 /* Snake.swift */,
-				6C851EF61B5B6178002225A9 /* SnakeElement.swift */,
 				6C71AA861B646DC7009E80C8 /* SnakeEffects.swift */,
 				6C287A541B54A291009994F5 /* CardinalDirection.swift */,
 				6CEF650D1B631CB000D28E6D /* SnakeMechanic.swift */,
@@ -263,14 +271,6 @@
 				6C959BDF1B799B2D00954D49 /* LevelManager.swift */,
 			);
 			name = Snake;
-			sourceTree = "<group>";
-		};
-		6CEF65121B631F4400D28E6D /* Power Up */ = {
-			isa = PBXGroup;
-			children = (
-				6CF8F0EC1B61D99500AE3361 /* PowerUpElement.swift */,
-			);
-			name = "Power Up";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -375,13 +375,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				29E1267D1B6683F400F3EB04 /* Cell.swift in Sources */,
-				6CF8F0ED1B61D99500AE3361 /* PowerUpElement.swift in Sources */,
+				6CF8F0ED1B61D99500AE3361 /* PowerUpNode.swift in Sources */,
 				6CB5DB581B5F4FF700739D68 /* SnakeGame.swift in Sources */,
 				6CC3DA971B64B6D400D07BD9 /* GameOverAlertView.swift in Sources */,
 				6C6ED5B11B59DBB8004B3633 /* GridGenerator.swift in Sources */,
 				6C3BDB9F1B8C38F1000DA151 /* TextureManager.swift in Sources */,
 				6CB575F61B531B4C00DEDCCE /* GameController.swift in Sources */,
-				6C851EF71B5B6178002225A9 /* SnakeElement.swift in Sources */,
+				6C851EF71B5B6178002225A9 /* SnakeNode.swift in Sources */,
 				6C71AA871B646DC7009E80C8 /* SnakeEffects.swift in Sources */,
 				6C959BE01B799B2D00954D49 /* LevelManager.swift in Sources */,
 				6C0CB2861B531FA000796B92 /* Colors.swift in Sources */,
@@ -409,13 +409,13 @@
 				6CC3DA951B64B60400D07BD9 /* Delegates.swift in Sources */,
 				6C71AA881B646E4E009E80C8 /* SnakeEffects.swift in Sources */,
 				6CEF650F1B631CDF00D28E6D /* SnakeMechanic.swift in Sources */,
-				6CF8F0EE1B61DAA000AE3361 /* PowerUpElement.swift in Sources */,
+				6CF8F0EE1B61DAA000AE3361 /* PowerUpNode.swift in Sources */,
 				6CB5DB5A1B5F583900739D68 /* ConfigConstants.swift in Sources */,
 				6CB5DB591B5F500A00739D68 /* SnakeGame.swift in Sources */,
 				6C851F001B5B6482002225A9 /* GameScene.swift in Sources */,
 				6C851F011B5B6482002225A9 /* Cell.swift in Sources */,
 				6C851F021B5B6482002225A9 /* CellType.swift in Sources */,
-				6C851EFF1B5B6466002225A9 /* SnakeElement.swift in Sources */,
+				6C851EFF1B5B6466002225A9 /* SnakeNode.swift in Sources */,
 				6C851EFE1B5B645A002225A9 /* Grid.swift in Sources */,
 				6C6ED5B21B59DC01004B3633 /* GridGenerator.swift in Sources */,
 				6CE494661B55F36F00E193A9 /* Colors.swift in Sources */,

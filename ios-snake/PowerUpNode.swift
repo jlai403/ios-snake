@@ -1,6 +1,6 @@
 import SpriteKit
 
-public class PowerUpElement: SKSpriteNode {
+public class PowerUpNode: SKSpriteNode {
     var cell: Cell
     
     init(cell: Cell) {

@@ -1,14 +1,14 @@
 import SpriteKit
 
-public class SnakeElement: SKSpriteNode {
+public class SnakeNode: SKSpriteNode {
     
     var cell: Cell
-    var successor: SnakeElement?
-    var predecessor: SnakeElement?
+    var successor: SnakeNode?
+    var predecessor: SnakeNode?
     
     var presented: Bool = false
     
-    init(cell: Cell, successor: SnakeElement? = nil) {
+    init(cell: Cell, successor: SnakeNode? = nil) {
         self.cell = cell
         super.init(texture: TextureManager.sharedInstance.tileTexutre, color: Colors.blue, size: self.cell.size)
         self.update(successor)
@@ -18,7 +18,7 @@ public class SnakeElement: SKSpriteNode {
         fatalError("not implemented")
     }
     
-    private func update(successor: SnakeElement?) {
+    private func update(successor: SnakeNode?) {
         self.render()
         self.setElementSuccessor(successor)
         self.setPosition(self.cell)
@@ -30,7 +30,7 @@ public class SnakeElement: SKSpriteNode {
         self.position = cell.position
     }
     
-    public func setElementSuccessor(successor: SnakeElement?) {
+    public func setElementSuccessor(successor: SnakeNode?) {
         successor?.predecessor = self
         self.successor = successor
     }

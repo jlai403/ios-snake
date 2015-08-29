@@ -12,7 +12,7 @@ public class SnakeEffects {
         }
     }
     
-    public func blink(element: SnakeElement) {
+    public func blink(element: SnakeNode) {
         var alpha = element.alpha
         var fade = SKAction.runBlock{ element.alpha *= 0.50 }
         var wait = SKAction.waitForDuration(0.25)

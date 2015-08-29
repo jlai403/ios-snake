@@ -5,7 +5,7 @@ public class SnakeMechanic: NSObject {
     var cardinalDirection: CardinalDirection!
     
     var player: Snake!
-    var powerUp: PowerUpElement!
+    var powerUp: PowerUpNode!
     
     var snakeEffects: SnakeEffects
     var delegate: SnakeGameDelegate
@@ -27,7 +27,7 @@ public class SnakeMechanic: NSObject {
     }
     
     private func initializePowerUp() {
-        self.powerUp = PowerUpElement(cell: self.delegate.getRandomEmptyCell())
+        self.powerUp = PowerUpNode(cell: self.delegate.getRandomEmptyCell())
         self.delegate.present(powerUp)
     }
     
