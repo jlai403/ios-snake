@@ -10,7 +10,7 @@ public class SnakeGame: SnakeGameDelegate {
     var score: Int = 0
     var isGameOver: Bool = false
     
-    var delegate: SnakeGameControllerDelegate?
+    weak var delegate: SnakeGameControllerDelegate?
     
     init(gameViewSize: CGSize, rows: Int, columns: Int) {
         self.grid = GridGenerator.createGrid(viewSize: gameViewSize, rows: rows, columns: columns)
@@ -20,6 +20,7 @@ public class SnakeGame: SnakeGameDelegate {
     }
     
     deinit {
+        println("deinit SnakeGame")
         self.levelManager = nil
         self.snakeMechanic = nil
         self.delegate = nil

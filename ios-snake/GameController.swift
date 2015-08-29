@@ -6,6 +6,10 @@ class GameController: UIViewController, SnakeGameControllerDelegate, UIAlertView
     @IBOutlet weak var gameView: SKView!
     weak var snakeGame: SnakeGame!
     
+    deinit {
+        println("deinit GameController")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBarHidden = true
@@ -19,6 +23,14 @@ class GameController: UIViewController, SnakeGameControllerDelegate, UIAlertView
     override func viewDidLayoutSubviews() {
         initSnakeGame()
         self.gameView.presentScene(self.snakeGame.scene)
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        self.gameView.scene?.removeAllActions()
+        self.gameView.scene?.removeAllChildren()
+        self.gameView.scene?.removeFromParent()
+        self.gameView.presentScene(nil)
+        self.snakeGame = nil
     }
     
     private func initSnakeGame() {
@@ -51,9 +63,6 @@ class GameController: UIViewController, SnakeGameControllerDelegate, UIAlertView
     }
     
     private func goBackHome() {
-        self.gameView.scene?.removeAllActions()
-        self.gameView.scene?.removeAllChildren()
-        self.gameView.scene?.removeFromParent()
         self.performSegueWithIdentifier("goBackHomeSegue", sender: self)
     }
     

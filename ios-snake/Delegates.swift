@@ -1,4 +1,4 @@
-protocol SnakeGameControllerDelegate {
+protocol SnakeGameControllerDelegate: class {
     func notifyGameOver(score: Int)
 }
 

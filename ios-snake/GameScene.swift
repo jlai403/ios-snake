@@ -19,6 +19,10 @@ public class GameScene: SKScene {
         fatalError("Not implemented")
     }
     
+    deinit {
+        println("deinit GameScene")
+    }
+    
     private func update() {
         self.backgroundColor = Colors.whiteColor()
         self.positionNodes()
