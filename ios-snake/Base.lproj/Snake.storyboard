@@ -1,10 +1,68 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="zwI-C7-bmf">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
+        <!--Home Controller-->
+        <scene sceneID="W50-Hj-OJU">
+            <objects>
+                <viewController id="zwI-C7-bmf" customClass="HomeController" customModule="snake" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="8qh-Jy-nmq"/>
+                        <viewControllerLayoutGuide type="bottom" id="n8w-go-Qyo"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ozf-QM-jmH">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hRj-gA-4hk">
+                                <rect key="frame" x="252" y="232" width="95" height="36"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="20"/>
+                                <state key="normal" title="New Game">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="startNewGame:" destination="zwI-C7-bmf" eventType="touchUpInside" id="8cL-MD-2In"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f0T-TE-lAJ">
+                                <rect key="frame" x="265" y="276" width="68" height="36"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="20"/>
+                                <state key="normal" title="Settings">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Mc-al-fzf">
+                                <rect key="frame" x="269" y="320" width="60" height="36"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="20"/>
+                                <state key="normal" title="Scores">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="f0T-TE-lAJ" firstAttribute="top" secondItem="hRj-gA-4hk" secondAttribute="bottom" constant="8" id="Ap4-SD-wIl"/>
+                            <constraint firstAttribute="centerX" secondItem="7Mc-al-fzf" secondAttribute="centerX" constant="1" id="Aw4-Rz-rDX"/>
+                            <constraint firstItem="7Mc-al-fzf" firstAttribute="top" secondItem="f0T-TE-lAJ" secondAttribute="bottom" constant="8" id="DmB-mn-Ysm"/>
+                            <constraint firstAttribute="centerX" secondItem="f0T-TE-lAJ" secondAttribute="centerX" constant="0.5" id="iRH-tl-NZq"/>
+                            <constraint firstAttribute="centerX" secondItem="hRj-gA-4hk" secondAttribute="centerX" id="pyZ-zP-C2C"/>
+                            <constraint firstAttribute="centerY" secondItem="hRj-gA-4hk" secondAttribute="centerY" constant="50" id="uB7-Lj-FtI"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="showDetail" identifier="startGameSegue" id="DqE-3P-MJi"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="80W-ar-C0o" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="142" y="449"/>
+        </scene>
         <!--Game Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -85,9 +143,11 @@
                     </view>
                     <connections>
                         <outlet property="gameView" destination="tuN-rZ-kpl" id="UYR-sy-84d"/>
+                        <segue destination="z51-Qd-GNN" kind="unwind" identifier="goBackHomeSegue" unwindAction="goBackHome:" id="0gx-H4-iOo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <exit id="z51-Qd-GNN" userLabel="Exit" sceneMemberID="exit"/>
                 <swipeGestureRecognizer direction="up" id="8C4-Ih-CcO">
                     <connections>
                         <action selector="changeDirections:" destination="BYZ-38-t0r" id="HqN-wc-7C5"/>
@@ -109,6 +169,7 @@
                     </connections>
                 </swipeGestureRecognizer>
             </objects>
+            <point key="canvasLocation" x="879" y="449"/>
         </scene>
     </scenes>
 </document>

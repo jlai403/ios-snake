@@ -32,5 +32,6 @@ TECH DEBT:
 	- user quits app
 
 BUGS: 
+- ugly grey transition when starting game
 - game over when swiping too fast?
 - slight lag when consuming

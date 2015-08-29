@@ -19,6 +19,12 @@ public class SnakeGame: SnakeGameDelegate {
         self.levelManager = LevelManager(target: self.snakeMechanic, selector: "updatePlayerPosition")
     }
     
+    deinit {
+        self.levelManager = nil
+        self.snakeMechanic = nil
+        self.delegate = nil
+    }
+    
     public func start() {
         self.scene.updateScore(self.score)
         self.scene.updateLevel(self.levelManager.currentLevel.level)

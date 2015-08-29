@@ -5,7 +5,7 @@ class GameController: UIViewController, SnakeGameControllerDelegate, UIAlertView
 
     @IBOutlet var gameView: SKView!
     
-    var snakeGame: SnakeGame!
+    weak var snakeGame: SnakeGame!
     
     override func viewDidLoad() {
         if (ConfigConstants.DEBUG) {
@@ -48,6 +48,12 @@ class GameController: UIViewController, SnakeGameControllerDelegate, UIAlertView
         }
     }
     
+    private func goBackHome() {
+        self.gameView.scene?.removeAllChildren()
+        self.gameView.presentScene(nil)
+        self.performSegueWithIdentifier("goBackHomeSegue", sender: self)
+    }
+    
     // MARK: SnakeGameDelegate
     
     func notifyGameOver(score: Int) {
@@ -65,10 +71,12 @@ class GameController: UIViewController, SnakeGameControllerDelegate, UIAlertView
     private func gameOverAlertActions(buttonIndex: Int) {
         switch (buttonIndex) {
         case 0:
-            snakeGame.reset()
-            snakeGame.start()
+            self.goBackHome()
             break
         case 1:
+            snakeGame.reset()
+            snakeGame.start()
+        case 2:
             exit(0)
         default:
             fatalError("impossible action")
