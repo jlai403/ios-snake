@@ -1,4 +1,4 @@
 
-public protocol ISpriteKitNode {
-    var presented: Bool { get set}
+public protocol ISpriteKitNode: class {
+    var presented: Bool { get set }
 }

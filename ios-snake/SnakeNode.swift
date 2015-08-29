@@ -1,9 +1,5 @@
 import SpriteKit
 
-public protocol ISpriteKitNode: class {
-    var presented: Bool { get set }
-}
-
 public class SnakeNode: SKSpriteNode, ISpriteKitNode {
     
     var cell: Cell

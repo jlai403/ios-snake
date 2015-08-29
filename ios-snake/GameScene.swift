@@ -3,11 +3,14 @@ import SpriteKit
 public class GameScene: SKScene {
     
     private var grid: GridNode
-    private var scoreLabel: ScoreLabelNode
+    private var scoreLabel: ScoreNode
+    private var levelLabel: LevelNode
     
     public init(size: CGSize, gridSize: CGSize) {
         self.grid = GridNode(size: gridSize)
-        self.scoreLabel = ScoreLabelNode()
+        self.scoreLabel = ScoreNode()
+        self.levelLabel = LevelNode()
+        
         super.init(size: size)
         self.update()
     }
@@ -27,6 +30,9 @@ public class GameScene: SKScene {
         
         self.scoreLabel.position.x = self.grid.position.x
         self.scoreLabel.position.y = self.grid.frame.maxY + 5.0
+        
+        self.levelLabel.position.x = self.grid.position.x
+        self.levelLabel.position.y = self.scoreLabel.frame.maxY + 5.0
     }
     
     
@@ -38,6 +44,7 @@ public class GameScene: SKScene {
     private func renderNodes() {
         self.addChild(self.grid)
         self.addChild(self.scoreLabel)
+        self.addChild(self.levelLabel)
     }
     
     private func renderBorder() {
@@ -56,6 +63,10 @@ public class GameScene: SKScene {
     }
     
     public func updateScore(score: Int) {
-        self.scoreLabel.text = "SCORE: \(score)"
+        self.scoreLabel.updateScore(score)
+    }
+    
+    public func updateLevel(level: Int) {
+        self.levelLabel.updateLevel(level)
     }
 }

@@ -1,6 +1,6 @@
 import SpriteKit
 
-public class ScoreNode: SKLabelNode {
+public class LevelNode: SKLabelNode {
     
     override init() {
         super.init()
@@ -12,13 +12,13 @@ public class ScoreNode: SKLabelNode {
     }
     
     private func update() {
-        self.fontName = "HelveticaNeue-UltraLight"
+        self.fontName = "HelveticaNeue-Thin"
         self.fontColor = Colors.blackColor()
-        self.fontSize = 22.0
+        self.fontSize = 12.0
         self.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.Left
     }
     
-    public func updateScore(score: Int) {
-        self.text = "SCORE: \(score)"
+    public func updateLevel(level: Int) {
+        self.text = "LEVEL: \(level)"
     }
 }

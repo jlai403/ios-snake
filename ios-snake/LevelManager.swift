@@ -53,8 +53,13 @@ public class LevelManager {
         LevelManager.currentTimerInterval = currentLevel.timerInterval
     }
     
-    public func stopTimer() {
+    private func stopTimer() {
         self.timer?.invalidate()
         self.timer = nil
+    }
+    
+    public func reset() {
+        self.stopTimer()
+        self.currentLevelIndex = 0
     }
 }

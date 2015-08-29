@@ -58,8 +58,6 @@
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
-                                <exclude reference="P4I-e1-qs3"/>
-                                <exclude reference="Zfb-I7-KIa"/>
                                 <exclude reference="6Zs-FU-jO1"/>
                                 <exclude reference="Cd7-FN-6bO"/>
                                 <exclude reference="Lfm-vf-MSP"/>
@@ -70,6 +68,8 @@
                                 <exclude reference="kGh-kv-qqU"/>
                                 <exclude reference="ruy-2r-egy"/>
                                 <exclude reference="zWe-fA-r5J"/>
+                                <exclude reference="P4I-e1-qs3"/>
+                                <exclude reference="Zfb-I7-KIa"/>
                                 <exclude reference="1fz-HE-bzC"/>
                                 <exclude reference="ASy-we-2qd"/>
                                 <exclude reference="CDS-Qd-pRA"/>

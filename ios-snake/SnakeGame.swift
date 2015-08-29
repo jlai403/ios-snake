@@ -21,6 +21,7 @@ public class SnakeGame: SnakeGameDelegate {
     
     public func start() {
         self.scene.updateScore(self.score)
+        self.scene.updateLevel(self.levelManager.currentLevel.level)
         levelManager.startTimer()
     }
     
@@ -55,13 +56,14 @@ public class SnakeGame: SnakeGameDelegate {
 
     func incrementScore(increment: Int) {
         self.score += increment
-        self.scene.updateScore(self.score)
         levelManager.levelUp(self)
+        self.scene.updateScore(self.score)
+        self.scene.updateLevel(self.levelManager.currentLevel.level)
     }
     
     func gameOver() {
         self.isGameOver = true
-        self.levelManager.stopTimer()
+        self.levelManager.reset()
         self.delegate?.notifyGameOver(self.score)
     }
 }
