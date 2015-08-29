@@ -1,13 +1,9 @@
 iOS Snake
 
 TODO:
-
-- Move score outside of grid
-	- smaller grid
-
 - Levels
     - notify level change
-	- tighten level threshold
+	
 - Countdown to game start
 
 - Pause menu
