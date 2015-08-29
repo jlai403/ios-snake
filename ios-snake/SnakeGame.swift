@@ -14,7 +14,7 @@ public class SnakeGame: SnakeGameDelegate {
     
     init(gameViewSize: CGSize, rows: Int, columns: Int) {
         self.grid = GridGenerator.createGrid(viewSize: gameViewSize, rows: rows, columns: columns)
-        self.scene = GameScene(size: grid.size)
+        self.scene = GameScene(size: gameViewSize, gridSize: grid.size)
         self.snakeMechanic = SnakeMechanic(delegate: self)
         self.levelManager = LevelManager(target: self.snakeMechanic, selector: "updatePlayerPosition")
     }
@@ -62,12 +62,13 @@ public class SnakeGame: SnakeGameDelegate {
     }
     
     func present(node: SnakeElement) {
-        self.scene.addChild(node)
+        self.scene.grid.addChild(node)
         node.presented = true
+                var debug = self.scene.grid
     }
     
     func present(node: PowerUpElement) {
-        self.scene.addChild(node)
+        self.scene.grid.addChild(node)
     }
     
     func incrementScore(increment: Int) {

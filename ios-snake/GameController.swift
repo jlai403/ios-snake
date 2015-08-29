@@ -25,10 +25,10 @@ class GameController: UIViewController, SnakeGameControllerDelegate, UIAlertView
     }
 
     private func realignViews() {
-        self.gameView.frame.size = self.snakeGame.grid.size
-        self.gameView.center = self.view.center
-        var gameView = self.gameView
-        var game = self.snakeGame
+//        self.gameView.frame.size = self.snakeGame.grid.size
+//        self.gameView.center = self.view.center
+//        var gameView = self.gameView
+//        var game = self.snakeGame
         
         self.gameView.layer.borderColor = Colors.colorFor(0xAEAEAE).CGColor
         self.gameView.layer.borderWidth = 1.0

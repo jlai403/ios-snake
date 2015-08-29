@@ -2,12 +2,11 @@ import UIKit
 
 public class Cell: Equatable {
 
-    var grid: Grid
+    private var grid: Grid
     var x: Int
     var y: Int
     var type: CellType
 
-    
     var size: CGSize {
         get {
             return self.grid.cellSize

@@ -30,6 +30,14 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "snake.GameScene.(setupGrid in _41B3B65099D2FC48EC4133368DF243DD) (snake.GameScene)(C.CGSize) -&gt; ():GameScene.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "grid.frame">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "ios_snake.GameScene.updateDirection (ios_snake.GameScene)(ios_snake.SnakeMovementDirection) -&gt; ():GameScene.swift">
       </ContextState>
       <ContextState

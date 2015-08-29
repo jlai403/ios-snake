@@ -2,6 +2,9 @@ iOS Snake
 
 TODO:
 
+- Move score outside of grid
+	- smaller grid
+
 - Levels
     - notify level change
 	- tighten level threshold
@@ -13,9 +16,6 @@ TODO:
     - Quit
 
 - Home screen
-
-- Move score outside of grid
-	- smaller grid
 
 - Styling
 	- select color/ background

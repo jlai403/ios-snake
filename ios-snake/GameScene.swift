@@ -2,20 +2,27 @@ import SpriteKit
 
 public class GameScene: SKScene {
     
+    var grid: SKSpriteNode!
     var scoreLabel: SKLabelNode!
     
-    public override init(size: CGSize) {
+    public init(size: CGSize, gridSize: CGSize) {
         super.init(size: size)
-        setupScene()
-        styleScene()
+        setupScene(gridSize)
     }
 
     required public init?(coder aDecoder: NSCoder) {
         fatalError("Not implemented")
     }
     
-    private func setupScene() {
+    private func setupScene(gridSize: CGSize) {
+        setupGrid(gridSize)
         setupScoreLabel()
+    }
+    
+    private func setupGrid(size: CGSize) {
+        self.grid = SKSpriteNode(color: Colors.colorFor(0xFEFEFE), size: size)
+        self.grid.anchorPoint = CGPointZero
+        self.addChild(self.grid)
     }
     
     private func setupScoreLabel() {
@@ -24,30 +31,37 @@ public class GameScene: SKScene {
         self.scoreLabel.fontColor = Colors.blackColor()
         self.scoreLabel.fontSize = 22.0
         self.scoreLabel.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.Left
-        
-        var margin: CGFloat = 5.0
-        var scorePositionX = margin
-        var scorePositionY = self.size.height - self.scoreLabel.frame.height - margin
-        self.scoreLabel.position = CGPointMake(scorePositionX, scorePositionY)
-        self.scoreLabel.zPosition = GameSceneZPositions.INTERFACE
         self.addChild(self.scoreLabel)
     }
     
-    private func styleScene() {
-        self.backgroundColor = Colors.colorFor(0xFEFEFE)
+    override public func didMoveToView(view: SKView) {
+        render()
+        
+        var layer = CAShapeLayer()
+        layer.borderColor = Colors.colorFor(0xAEAEAE).CGColor
+        layer.borderWidth = 1.0
+        layer.frame = self.grid.frame
+        
+        self.view!.layer.addSublayer(layer)
     }
     
-    override public func didMoveToView(view: SKView) {
+    private func render() {
+        self.backgroundColor = Colors.whiteColor()
+        positionGrid()
+        positionScoreLabel()
+    }
+    
+    private func positionGrid() {
+        self.grid.position.x = (self.view!.frame.width - self.grid.frame.width) / 2
+        self.grid.position.y = (self.view!.frame.height - self.grid.frame.height) / 2
+    }
+    
+    private func positionScoreLabel() {
+        self.scoreLabel.position.x = self.grid.position.x
+        self.scoreLabel.position.y = self.grid.frame.maxY + 5.0
     }
     
     public func updateScore(score: Int) {
         self.scoreLabel.text = "SCORE: \(score)"
     }
-}
-
-public struct GameSceneZPositions {
-
-    static var INTERFACE: CGFloat = 100.0
-    static var GAME_ELEMENT: CGFloat = 0.0
-    
 }

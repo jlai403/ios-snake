@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tuN-rZ-kpl" userLabel="Grid View" customClass="SKView">
-                                <rect key="frame" x="16" y="70" width="568" height="480"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" red="0.98039215686274506" green="0.98039215686274506" blue="0.98039215686274506" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" id="Do1-V3-A0H"/>
@@ -36,7 +36,9 @@
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="tuN-rZ-kpl" secondAttribute="bottom" constant="50" id="1fz-HE-bzC"/>
+                            <constraint firstAttribute="centerX" secondItem="tuN-rZ-kpl" secondAttribute="centerX" id="4Nm-lr-of2"/>
                             <constraint firstItem="tuN-rZ-kpl" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="6Zs-FU-jO1"/>
+                            <constraint firstItem="tuN-rZ-kpl" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="AAs-Re-1Jy"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="tuN-rZ-kpl" secondAttribute="bottom" id="ASy-we-2qd"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="tuN-rZ-kpl" secondAttribute="bottom" constant="5" id="CDS-Qd-pRA"/>
                             <constraint firstAttribute="centerY" secondItem="tuN-rZ-kpl" secondAttribute="centerY" id="Cd7-FN-6bO"/>
@@ -44,10 +46,12 @@
                             <constraint firstAttribute="trailingMargin" secondItem="tuN-rZ-kpl" secondAttribute="trailing" id="Lfm-vf-MSP"/>
                             <constraint firstItem="y3c-jy-aDJ" firstAttribute="top" secondItem="tuN-rZ-kpl" secondAttribute="bottom" id="P4I-e1-qs3"/>
                             <constraint firstItem="tuN-rZ-kpl" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="50" id="Pod-NK-Z9Z"/>
+                            <constraint firstAttribute="centerY" secondItem="tuN-rZ-kpl" secondAttribute="centerY" id="Rzn-Cz-xaB"/>
                             <constraint firstItem="tuN-rZ-kpl" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="WBV-3t-hrP"/>
                             <constraint firstAttribute="trailingMargin" secondItem="tuN-rZ-kpl" secondAttribute="trailing" id="ZUq-c9-o27"/>
                             <constraint firstItem="y3c-jy-aDJ" firstAttribute="top" secondItem="tuN-rZ-kpl" secondAttribute="bottom" constant="150" id="Zfb-I7-KIa"/>
                             <constraint firstItem="tuN-rZ-kpl" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="150" id="cC2-yv-d4R"/>
+                            <constraint firstItem="tuN-rZ-kpl" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" id="isu-Yg-9ZE"/>
                             <constraint firstAttribute="width" secondItem="tuN-rZ-kpl" secondAttribute="width" id="kGh-kv-qqU"/>
                             <constraint firstAttribute="centerX" secondItem="tuN-rZ-kpl" secondAttribute="centerX" id="ruy-2r-egy"/>
                             <constraint firstItem="tuN-rZ-kpl" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="150" id="zWe-fA-r5J"/>
@@ -59,10 +63,14 @@
                                 <exclude reference="6Zs-FU-jO1"/>
                                 <exclude reference="Cd7-FN-6bO"/>
                                 <exclude reference="Lfm-vf-MSP"/>
+                                <exclude reference="Pod-NK-Z9Z"/>
+                                <exclude reference="WBV-3t-hrP"/>
+                                <exclude reference="ZUq-c9-o27"/>
                                 <exclude reference="cC2-yv-d4R"/>
                                 <exclude reference="kGh-kv-qqU"/>
                                 <exclude reference="ruy-2r-egy"/>
                                 <exclude reference="zWe-fA-r5J"/>
+                                <exclude reference="1fz-HE-bzC"/>
                                 <exclude reference="ASy-we-2qd"/>
                                 <exclude reference="CDS-Qd-pRA"/>
                                 <exclude reference="DAl-cN-dSs"/>

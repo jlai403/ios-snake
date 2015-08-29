@@ -32,7 +32,6 @@ public class PowerUpElement: SKSpriteNode {
     private func render() {
         self.anchorPoint = CGPointZero
         self.colorBlendFactor = 1.0
-        self.zPosition = GameSceneZPositions.GAME_ELEMENT
     }
 
     

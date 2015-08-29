@@ -28,7 +28,6 @@ public class SnakeElement: SKSpriteNode {
         self.anchorPoint = CGPointZero
         self.colorBlendFactor = 1.0
         self.position = cell.position
-        self.zPosition = GameSceneZPositions.GAME_ELEMENT
     }
     
     public func setElementSuccessor(successor: SnakeElement?) {
