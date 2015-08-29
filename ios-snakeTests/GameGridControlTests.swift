@@ -17,7 +17,8 @@ class SnakeGameTests: XCTestCase {
         var snakeGame = SnakeGame(gameViewSize: CGSizeMake(375.0, 667.0), rows: 25, columns: 15)
         var grid = snakeGame.grid
         var snake = snakeGame.snakeMechanic.player // (7,12), (7,11), (10,7)
-
+        snakeGame.snakeMechanic.powerUp.setPosition(grid[14,24]!)
+        
         snakeGame.updateDirection(.North)
     
         // act
@@ -41,6 +42,7 @@ class SnakeGameTests: XCTestCase {
         var snakeGame = SnakeGame(gameViewSize: CGSizeMake(375.0, 667.0), rows: 25, columns: 15)
         var grid = snakeGame.grid
         var snake = snakeGame.snakeMechanic.player // (7,12), (7,11), (10,7)
+        snakeGame.snakeMechanic.powerUp.setPosition(grid[14,24]!)
         
         snakeGame.updateDirection(.East)
         
@@ -65,6 +67,7 @@ class SnakeGameTests: XCTestCase {
         var snakeGame = SnakeGame(gameViewSize: CGSizeMake(375.0, 667.0), rows: 25, columns: 15)
         var grid = snakeGame.grid
         var snake = snakeGame.snakeMechanic.player // (7,12), (7,11), (10,7)
+        snakeGame.snakeMechanic.powerUp.setPosition(grid[14,24]!)
         
         snakeGame.updateDirection(.West)
         
@@ -89,6 +92,7 @@ class SnakeGameTests: XCTestCase {
         var snakeGame = SnakeGame(gameViewSize: CGSizeMake(375.0, 667.0), rows: 25, columns: 15)
         var grid = snakeGame.grid
         var snake = snakeGame.snakeMechanic.player // (7,12), (7,11), (10,7)
+        snakeGame.snakeMechanic.powerUp.setPosition(grid[14,24]!)
         
         snakeGame.updateDirection(.East)
         snakeGame.snakeMechanic.updatePlayerPosition() // (12,8), (7,12), (7,11)
@@ -117,6 +121,7 @@ class SnakeGameTests: XCTestCase {
         var snakeGame = SnakeGame(gameViewSize: CGSizeMake(375.0, 667.0), rows: 25, columns: 15)
         var grid = snakeGame.grid
         var snake = snakeGame.snakeMechanic.player // (7,12), (7,11), (10,7)
+        snakeGame.snakeMechanic.powerUp.setPosition(grid[14,24]!)
         
         // act
         snakeGame.updateDirection(.South)
@@ -133,6 +138,7 @@ class SnakeGameTests: XCTestCase {
         var snakeGame = SnakeGame(gameViewSize: CGSizeMake(375.0, 667.0), rows: 25, columns: 15)
         var grid = snakeGame.grid
         var snake = snakeGame.snakeMechanic.player // (7,12), (7,11), (10,7)
+        snakeGame.snakeMechanic.powerUp.setPosition(grid[14,24]!)
         
         snakeGame.updateDirection(.West)
         snakeGame.snakeMechanic.updatePlayerPosition()  // (12,6), (7,12), (7,11)
@@ -155,6 +161,7 @@ class SnakeGameTests: XCTestCase {
         var snakeGame = SnakeGame(gameViewSize: CGSizeMake(375.0, 667.0), rows: 25, columns: 15)
         var grid = snakeGame.grid
         var snake = snakeGame.snakeMechanic.player // (7,12), (7,11), (10,7)
+        snakeGame.snakeMechanic.powerUp.setPosition(grid[14,24]!)
         
         snakeGame.updateDirection(.West)
         snakeGame.snakeMechanic.updatePlayerPosition() // (12,6), (7,12), (7,117)
@@ -174,6 +181,7 @@ class SnakeGameTests: XCTestCase {
         var snakeGame = SnakeGame(gameViewSize: CGSizeMake(375.0, 667.0), rows: 25, columns: 15)
         var grid = snakeGame.grid
         var snake = snakeGame.snakeMechanic.player // (7,12), (7,11), (10,7)
+        snakeGame.snakeMechanic.powerUp.setPosition(grid[14,24]!)
         
         snakeGame.updateDirection(.East)
         snakeGame.snakeMechanic.updatePlayerPosition() // (12,8), (7,12), (7,11)
@@ -322,6 +330,7 @@ class SnakeGameTests: XCTestCase {
         var grid = snakeGame.grid
         var snakeGameControl = snakeGame.snakeMechanic
         var snake = snakeGameControl.player
+        snakeGame.snakeMechanic.powerUp.setPosition(grid[14,24]!)
         
         snakeGameControl.powerUp.setPosition(snake.head.cell.north()!)
         snakeGame.snakeMechanic.updatePlayerPosition()
