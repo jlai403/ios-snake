@@ -62,13 +62,12 @@ public class SnakeGame: SnakeGameDelegate {
     }
     
     func present(node: SnakeNode) {
-        self.scene.grid.addChild(node)
+        self.scene.addToGrid(node)
         node.presented = true
-                var debug = self.scene.grid
     }
     
     func present(node: PowerUpNode) {
-        self.scene.grid.addChild(node)
+        self.scene.addToGrid(node)
     }
     
     func incrementScore(increment: Int) {

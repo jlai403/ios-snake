@@ -16,22 +16,11 @@ class GameController: UIViewController, SnakeGameControllerDelegate, UIAlertView
     
     override func viewDidLayoutSubviews() {
         initGame()
-        realignViews()
     }
     
     private func initGame() {
         self.snakeGame = SnakeGame(gameViewSize: self.gameView.frame.size, rows: ConfigConstants.GAME_GRID_ROWS, columns: ConfigConstants.GAME_GRID_COLS)
         self.snakeGame.delegate = self
-    }
-
-    private func realignViews() {
-//        self.gameView.frame.size = self.snakeGame.grid.size
-//        self.gameView.center = self.view.center
-//        var gameView = self.gameView
-//        var game = self.snakeGame
-        
-        self.gameView.layer.borderColor = Colors.colorFor(0xAEAEAE).CGColor
-        self.gameView.layer.borderWidth = 1.0
     }
 
     override func viewDidAppear(animated: Bool) {
