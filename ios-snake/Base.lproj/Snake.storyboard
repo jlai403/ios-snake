@@ -1,14 +1,30 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="zwI-C7-bmf">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="kFV-Br-jXT">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Home Controller-->
+        <!--Navigation Controller-->
+        <scene sceneID="Avr-Ds-IIu">
+            <objects>
+                <navigationController id="kFV-Br-jXT" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="APr-zB-ufA">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="zwI-C7-bmf" kind="relationship" relationship="rootViewController" id="t0b-xP-P7o"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9oA-Yt-wJD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-633" y="562"/>
+        </scene>
+        <!--Home-->
         <scene sceneID="W50-Hj-OJU">
             <objects>
-                <viewController id="zwI-C7-bmf" customClass="HomeController" customModule="snake" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Home" id="zwI-C7-bmf" customClass="HomeController" customModule="snake" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="8qh-Jy-nmq"/>
                         <viewControllerLayoutGuide type="bottom" id="n8w-go-Qyo"/>
@@ -28,13 +44,16 @@
                                     <action selector="startNewGame:" destination="zwI-C7-bmf" eventType="touchUpInside" id="8cL-MD-2In"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f0T-TE-lAJ">
-                                <rect key="frame" x="265" y="276" width="68" height="36"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vjr-6R-0P6">
+                                <rect key="frame" x="256" y="276" width="88" height="36"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="20"/>
-                                <state key="normal" title="Settings">
+                                <state key="normal" title="Multiplayer">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="startMultiplayerGame:" destination="zwI-C7-bmf" eventType="touchUpInside" id="jPz-Ss-XUh"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Mc-al-fzf">
                                 <rect key="frame" x="269" y="320" width="60" height="36"/>
@@ -43,30 +62,60 @@
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="goToScoreboard:" destination="zwI-C7-bmf" eventType="touchUpInside" id="6EQ-Lf-NNd"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f0T-TE-lAJ">
+                                <rect key="frame" x="265" y="364" width="68" height="36"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="20"/>
+                                <state key="normal" title="Settings">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="goToSettings:" destination="zwI-C7-bmf" eventType="touchUpInside" id="aq0-0P-Pdj"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="f0T-TE-lAJ" firstAttribute="top" secondItem="hRj-gA-4hk" secondAttribute="bottom" constant="8" id="Ap4-SD-wIl"/>
                             <constraint firstAttribute="centerX" secondItem="7Mc-al-fzf" secondAttribute="centerX" constant="1" id="Aw4-Rz-rDX"/>
+                            <constraint firstAttribute="centerX" secondItem="vjr-6R-0P6" secondAttribute="centerX" constant="-0.5" id="DBH-Bx-QsR"/>
                             <constraint firstItem="7Mc-al-fzf" firstAttribute="top" secondItem="f0T-TE-lAJ" secondAttribute="bottom" constant="8" id="DmB-mn-Ysm"/>
+                            <constraint firstItem="f0T-TE-lAJ" firstAttribute="top" secondItem="7Mc-al-fzf" secondAttribute="bottom" constant="8" id="Pcg-eg-0Mo"/>
+                            <constraint firstItem="vjr-6R-0P6" firstAttribute="top" secondItem="hRj-gA-4hk" secondAttribute="bottom" constant="8" id="Qmr-xI-x4y"/>
+                            <constraint firstItem="f0T-TE-lAJ" firstAttribute="top" secondItem="vjr-6R-0P6" secondAttribute="bottom" constant="8" id="UgS-vx-yn1"/>
                             <constraint firstAttribute="centerX" secondItem="f0T-TE-lAJ" secondAttribute="centerX" constant="0.5" id="iRH-tl-NZq"/>
                             <constraint firstAttribute="centerX" secondItem="hRj-gA-4hk" secondAttribute="centerX" id="pyZ-zP-C2C"/>
+                            <constraint firstItem="7Mc-al-fzf" firstAttribute="top" secondItem="vjr-6R-0P6" secondAttribute="bottom" constant="8" id="rDQ-8F-8oe"/>
                             <constraint firstAttribute="centerY" secondItem="hRj-gA-4hk" secondAttribute="centerY" constant="50" id="uB7-Lj-FtI"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="DmB-mn-Ysm"/>
+                                <exclude reference="Ap4-SD-wIl"/>
+                                <exclude reference="UgS-vx-yn1"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <navigationItem key="navigationItem" id="I53-E1-F0j"/>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="showDetail" identifier="startGameSegue" id="DqE-3P-MJi"/>
+                        <segue destination="Ayp-dS-Yok" kind="show" identifier="goToSettingsSegue" id="KLZ-u8-Mwx"/>
+                        <segue destination="iGC-z9-fIn" kind="show" identifier="goToScoreboardSegue" id="da5-p8-JK4"/>
+                        <segue destination="AQd-bO-AsA" kind="show" identifier="startMultiplayerGameSegue" id="R8W-Ag-7YJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="80W-ar-C0o" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="142" y="449"/>
+            <point key="canvasLocation" x="90" y="567"/>
         </scene>
-        <!--Game Controller-->
+        <!--Game-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="GameController" customModule="snake" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Game" id="BYZ-38-t0r" customClass="GameController" customModule="snake" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -169,7 +218,97 @@
                     </connections>
                 </swipeGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="879" y="449"/>
+            <point key="canvasLocation" x="863" y="-281"/>
+        </scene>
+        <!--Multiplayer Game Controller-->
+        <scene sceneID="JDj-G1-23u">
+            <objects>
+                <viewController id="AQd-bO-AsA" customClass="MultiplayerGameController" customModule="snake" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="sLh-QI-tam"/>
+                        <viewControllerLayoutGuide type="bottom" id="2iT-gA-tQk"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="d4g-4C-gXd">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Coming Soon!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bw9-xB-d4u">
+                                <rect key="frame" x="240" y="288" width="120.5" height="24"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="20"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerY" secondItem="bw9-xB-d4u" secondAttribute="centerY" id="cEH-97-X3D"/>
+                            <constraint firstAttribute="centerX" secondItem="bw9-xB-d4u" secondAttribute="centerX" constant="-0.25" id="cmG-NH-8LE"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="c7Z-e5-HHl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="863" y="479"/>
+        </scene>
+        <!--Settings-->
+        <scene sceneID="ZB0-dt-nUW">
+            <objects>
+                <viewController title="Settings" id="Ayp-dS-Yok" customClass="SettingsController" customModule="snake" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="igI-HP-LM3"/>
+                        <viewControllerLayoutGuide type="bottom" id="ZrN-Xm-rND"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="P1j-Zb-r6F">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Coming Soon!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WS0-JO-lN4">
+                                <rect key="frame" x="240" y="287.5" width="120.5" height="24"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="20"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerY" secondItem="WS0-JO-lN4" secondAttribute="centerY" constant="0.5" id="6aS-lI-fEY"/>
+                            <constraint firstAttribute="centerX" secondItem="WS0-JO-lN4" secondAttribute="centerX" id="jrr-xc-eaU"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PXs-9a-DyL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="863" y="1179"/>
+        </scene>
+        <!--Scoreboard-->
+        <scene sceneID="4LH-fN-hwH">
+            <objects>
+                <viewController title="Scoreboard" id="iGC-z9-fIn" customClass="ScoreboardController" customModule="snake" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="FjG-F7-Z1x"/>
+                        <viewControllerLayoutGuide type="bottom" id="5GZ-jk-mDg"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="dCg-5T-Au4">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Coming Soon!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Ok-4C-Nu1">
+                                <rect key="frame" x="240" y="288" width="120.5" height="24"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="20"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerY" secondItem="9Ok-4C-Nu1" secondAttribute="centerY" id="0Gc-jN-2kE"/>
+                            <constraint firstAttribute="centerX" secondItem="9Ok-4C-Nu1" secondAttribute="centerX" id="aHm-aP-ufz"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2zy-My-twY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="863" y="1862"/>
         </scene>
     </scenes>
 </document>

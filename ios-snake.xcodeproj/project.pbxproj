@@ -48,6 +48,7 @@
 		6CC3DA941B64B5D500D07BD9 /* Delegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CC3DA931B64B5D500D07BD9 /* Delegates.swift */; };
 		6CC3DA951B64B60400D07BD9 /* Delegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CC3DA931B64B5D500D07BD9 /* Delegates.swift */; };
 		6CC3DA971B64B6D400D07BD9 /* GameOverAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CC3DA961B64B6D400D07BD9 /* GameOverAlertView.swift */; };
+		6CE335AD1B91C06F008D0F69 /* MultiplayerGameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CE335AC1B91C06F008D0F69 /* MultiplayerGameController.swift */; };
 		6CE494641B55E34A00E193A9 /* ArrayExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CE494631B55E34A00E193A9 /* ArrayExtensions.swift */; };
 		6CE494651B55E6C700E193A9 /* ArrayExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CE494631B55E34A00E193A9 /* ArrayExtensions.swift */; };
 		6CE494661B55F36F00E193A9 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C0CB2851B531FA000796B92 /* Colors.swift */; };
@@ -60,6 +61,8 @@
 		6CEAB5D11B915027009CCEE6 /* ISpriteKitNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CEAB5D01B915027009CCEE6 /* ISpriteKitNode.swift */; };
 		6CEAB5D21B915076009CCEE6 /* ISpriteKitNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CEAB5D01B915027009CCEE6 /* ISpriteKitNode.swift */; };
 		6CEAB5D41B9155CD009CCEE6 /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CEAB5D31B9155CD009CCEE6 /* HomeController.swift */; };
+		6CEAB5D61B915960009CCEE6 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CEAB5D51B915960009CCEE6 /* SettingsController.swift */; };
+		6CEAB5D81B915977009CCEE6 /* ScoreboardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CEAB5D71B915977009CCEE6 /* ScoreboardController.swift */; };
 		6CEF650E1B631CB000D28E6D /* SnakeMechanic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CEF650D1B631CB000D28E6D /* SnakeMechanic.swift */; };
 		6CEF650F1B631CDF00D28E6D /* SnakeMechanic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CEF650D1B631CB000D28E6D /* SnakeMechanic.swift */; };
 		6CF8F0ED1B61D99500AE3361 /* PowerUpNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CF8F0EC1B61D99500AE3361 /* PowerUpNode.swift */; };
@@ -107,12 +110,15 @@
 		6CB5DB571B5F4FF700739D68 /* SnakeGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnakeGame.swift; sourceTree = "<group>"; };
 		6CC3DA931B64B5D500D07BD9 /* Delegates.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Delegates.swift; sourceTree = "<group>"; };
 		6CC3DA961B64B6D400D07BD9 /* GameOverAlertView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameOverAlertView.swift; sourceTree = "<group>"; };
+		6CE335AC1B91C06F008D0F69 /* MultiplayerGameController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultiplayerGameController.swift; sourceTree = "<group>"; };
 		6CE494631B55E34A00E193A9 /* ArrayExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayExtensions.swift; sourceTree = "<group>"; };
 		6CEAB5C41B9135C2009CCEE6 /* GridNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridNode.swift; sourceTree = "<group>"; };
 		6CEAB5C61B9135CB009CCEE6 /* ScoreNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreNode.swift; sourceTree = "<group>"; };
 		6CEAB5CD1B914ED8009CCEE6 /* LevelNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelNode.swift; sourceTree = "<group>"; };
 		6CEAB5D01B915027009CCEE6 /* ISpriteKitNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ISpriteKitNode.swift; sourceTree = "<group>"; };
 		6CEAB5D31B9155CD009CCEE6 /* HomeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
+		6CEAB5D51B915960009CCEE6 /* SettingsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
+		6CEAB5D71B915977009CCEE6 /* ScoreboardController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreboardController.swift; sourceTree = "<group>"; };
 		6CEF650D1B631CB000D28E6D /* SnakeMechanic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnakeMechanic.swift; sourceTree = "<group>"; };
 		6CF8F0EC1B61D99500AE3361 /* PowerUpNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PowerUpNode.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -141,6 +147,9 @@
 			children = (
 				6CB575F51B531B4C00DEDCCE /* GameController.swift */,
 				6CEAB5D31B9155CD009CCEE6 /* HomeController.swift */,
+				6CEAB5D51B915960009CCEE6 /* SettingsController.swift */,
+				6CEAB5D71B915977009CCEE6 /* ScoreboardController.swift */,
+				6CE335AC1B91C06F008D0F69 /* MultiplayerGameController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -410,6 +419,7 @@
 				6CB576191B531C9200DEDCCE /* GameScene.swift in Sources */,
 				6C0CB2881B532A9600796B92 /* ConfigConstants.swift in Sources */,
 				6C851EFD1B5B61DA002225A9 /* CellType.swift in Sources */,
+				6CEAB5D81B915977009CCEE6 /* ScoreboardController.swift in Sources */,
 				6C0CB2841B531E6400796B92 /* Snake.swift in Sources */,
 				6C959BE21B799B4D00954D49 /* Level.swift in Sources */,
 				6CEF650E1B631CB000D28E6D /* SnakeMechanic.swift in Sources */,
@@ -417,6 +427,8 @@
 				6CEAB5C71B9135CB009CCEE6 /* ScoreNode.swift in Sources */,
 				6C287A551B54A291009994F5 /* CardinalDirection.swift in Sources */,
 				6CEAB5D41B9155CD009CCEE6 /* HomeController.swift in Sources */,
+				6CE335AD1B91C06F008D0F69 /* MultiplayerGameController.swift in Sources */,
+				6CEAB5D61B915960009CCEE6 /* SettingsController.swift in Sources */,
 				6CEAB5D11B915027009CCEE6 /* ISpriteKitNode.swift in Sources */,
 				6CB575F41B531B4C00DEDCCE /* AppDelegate.swift in Sources */,
 				6CE494641B55E34A00E193A9 /* ArrayExtensions.swift in Sources */,

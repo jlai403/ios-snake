@@ -3,11 +3,13 @@ import SpriteKit
 
 class GameController: UIViewController, SnakeGameControllerDelegate, UIAlertViewDelegate {
 
-    @IBOutlet var gameView: SKView!
+    @IBOutlet weak var gameView: SKView!
     
     weak var snakeGame: SnakeGame!
     
     override func viewDidLoad() {
+        self.navigationController?.navigationBarHidden = true
+        
         if (ConfigConstants.DEBUG) {
             self.gameView.showsFPS = true
             self.gameView.showsNodeCount = true
@@ -49,8 +51,9 @@ class GameController: UIViewController, SnakeGameControllerDelegate, UIAlertView
     }
     
     private func goBackHome() {
+        self.gameView.scene?.removeAllActions()
         self.gameView.scene?.removeAllChildren()
-        self.gameView.presentScene(nil)
+        self.gameView.scene?.removeFromParent()
         self.performSegueWithIdentifier("goBackHomeSegue", sender: self)
     }
     
