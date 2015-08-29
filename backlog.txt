@@ -1,17 +1,14 @@
 iOS Snake
 
 TODO:
-- Levels
-    - notify level change
-	
-- Countdown to game start
 
-- Pause menu
-    - Settings
-    - Restart
-    - Quit
-
-- Home screen
+Add Screens 
+	- Home screen
+	- Countdown to game start
+	- Pause menu
+	    - Settings
+	    - Restart
+	    - Quit
 
 - Styling
 	- select color/ background
@@ -27,10 +24,11 @@ TODO:
 
 - Bluetooth/ Multiplayer
 
-- Hexagonal Grid
+- Hexagonal Grid (different mode/game???)
 
 
 TECH DEBT:
 
 BUGS: 
 - game over when swiping too fast?
+- slight lag when consuming
