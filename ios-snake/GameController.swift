@@ -4,7 +4,7 @@ import SpriteKit
 class GameController: UIViewController, SnakeGameControllerDelegate, UIAlertViewDelegate {
 
     @IBOutlet weak var gameView: SKView!
-    weak var snakeGame: SnakeGame!
+    var snakeGame: SnakeGame!
     
     deinit {
         println("deinit GameController")
@@ -30,7 +30,6 @@ class GameController: UIViewController, SnakeGameControllerDelegate, UIAlertView
         self.gameView.scene?.removeAllChildren()
         self.gameView.scene?.removeFromParent()
         self.gameView.presentScene(nil)
-        self.snakeGame = nil
     }
     
     private func initSnakeGame() {

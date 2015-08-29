@@ -8,7 +8,7 @@ public class SnakeMechanic: NSObject {
     var powerUp: PowerUpNode!
     
     var snakeEffects: SnakeEffects
-    var delegate: SnakeGameDelegate
+    weak var delegate: SnakeGameDelegate!
     
     init(delegate: SnakeGameDelegate) {
         self.delegate = delegate

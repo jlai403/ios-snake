@@ -2,7 +2,7 @@ protocol SnakeGameControllerDelegate: class {
     func notifyGameOver(score: Int)
 }
 
-protocol SnakeGameDelegate {
+protocol SnakeGameDelegate: class {
     var grid: Grid { get }
     
     func present(snake: Snake)
