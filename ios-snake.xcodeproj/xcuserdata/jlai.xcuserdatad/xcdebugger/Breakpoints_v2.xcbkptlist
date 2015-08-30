@@ -25,7 +25,7 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "ios-snake/SnakeMechanic.swift"
+            filePath = "ios-snake/GameMechanic.swift"
             timestampString = "462499546.402178"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"

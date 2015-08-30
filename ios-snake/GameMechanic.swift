@@ -1,6 +1,6 @@
 import Foundation
 
-public class SnakeMechanic: NSObject {
+public class GameMechanic: NSObject {
     
     var cardinalDirection: CardinalDirection!
     

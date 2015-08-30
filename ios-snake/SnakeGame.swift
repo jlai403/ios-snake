@@ -6,7 +6,7 @@ public class SnakeGame: SnakeGameDelegate {
     var scene: GameScene
     
     var levelManager: LevelManager!
-    var snakeMechanic: SnakeMechanic!
+    var gameMechanic: GameMechanic!
     var score: Int = 0
     var isGameOver: Bool = false
     
@@ -15,14 +15,14 @@ public class SnakeGame: SnakeGameDelegate {
     init(gameViewSize: CGSize, rows: Int, columns: Int) {
         self.grid = GridGenerator.createGrid(viewSize: gameViewSize, rows: rows, columns: columns)
         self.scene = GameScene(size: gameViewSize, gridSize: grid.size)
-        self.snakeMechanic = SnakeMechanic(delegate: self)
-        self.levelManager = LevelManager(target: self.snakeMechanic, selector: "updatePlayerPosition")
+        self.gameMechanic = GameMechanic(delegate: self)
+        self.levelManager = LevelManager(target: self.gameMechanic, selector: "updatePlayerPosition")
     }
     
     deinit {
         println("deinit SnakeGame")
         self.levelManager = nil
-        self.snakeMechanic = nil
+        self.gameMechanic = nil
         self.delegate = nil
     }
     
@@ -34,13 +34,13 @@ public class SnakeGame: SnakeGameDelegate {
     
     public func reset() {
         self.grid.clear()
-        self.snakeMechanic.reset()
+        self.gameMechanic.reset()
         self.score = 0
         self.isGameOver = false
     }
    
     public func updateDirection(direction: CardinalDirection) {
-        self.snakeMechanic.updateDirection(direction)
+        self.gameMechanic.updateDirection(direction)
     }
     
     public func currentLevel() -> Int {
