@@ -220,10 +220,10 @@
             </objects>
             <point key="canvasLocation" x="863" y="-281"/>
         </scene>
-        <!--Multiplayer Game Controller-->
+        <!--Multiplayer-->
         <scene sceneID="JDj-G1-23u">
             <objects>
-                <viewController id="AQd-bO-AsA" customClass="MultiplayerGameController" customModule="snake" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Multiplayer" id="AQd-bO-AsA" customClass="MultiplayerGameController" customModule="snake" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="sLh-QI-tam"/>
                         <viewControllerLayoutGuide type="bottom" id="2iT-gA-tQk"/>
