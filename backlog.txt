@@ -2,29 +2,34 @@ iOS Snake
 
 TODO:
 
-Add Screens 
-	- Home screen
-	- Countdown to game start
+Screens
+	- Multiplayer
+	- Scoreboard
+	- Settings
 	- Pause menu
 	    - Settings
 	    - Restart
 	    - Quit
 
 - Styling
+	- Countdown to game start
 	- select color/ background
+	- smoother corners when turning/ changing directions
+	- new texture for power ups
 
 - Special effects
 	- gravity on game over
 	- particle system on power up consumption
 
 - Power ups
+	- show +1 when consuming power ups
+	- +2/ time bound
 	- speed boost
 	- shoot
-	- +2
 
-- Bluetooth/ Multiplayer
+- Bluetooth/ multiplayer
 
-- Hexagonal Grid (different mode/game???)
+- Hexagonal grid (different mode/game???)
 
 
 TECH DEBT:
