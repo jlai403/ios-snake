@@ -2,6 +2,10 @@ iOS Snake
 
 TODO:
 
+- +2/ time bound
+- new texture for power ups
+
+
 Screens
 	- Multiplayer
 	- Scoreboard
@@ -15,15 +19,13 @@ Screens
 	- Countdown to game start
 	- select color/ background
 	- smoother corners when turning/ changing directions
-	- new texture for power ups
 
 - Special effects
 	- gravity on game over
 	- particle system on power up consumption
+	- render tiles around player
 
 - Power ups
-	- show +1 when consuming power ups
-	- +2/ time bound
 	- speed boost
 	- shoot
 
