@@ -65,6 +65,7 @@ public class SnakeGame: SnakeGameDelegate {
         self.score += increment
         levelManager.levelUp(self)
         self.scene.updateScore(self.score)
+        self.scene.showScoreIncrement(increment)
         self.scene.updateLevel(self.levelManager.currentLevel.level)
     }
     

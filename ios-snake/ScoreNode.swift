@@ -23,3 +23,23 @@ public class ScoreNode: SKLabelNode {
         self.text = "SCORE: \(score)"
     }
 }
+
+public class ScoreIncrementNode: SKLabelNode {
+    
+    init(increment: Int) {
+        super.init()
+        self.update(increment)
+    }
+    
+    required public init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    private func update(increment: Int) {
+        self.text = "+\(increment)"
+        self.fontName = "HelveticaNeue-UltraLight"
+        self.fontColor = Colors.blackColor()
+        self.fontSize = 22.0
+        self.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.Left
+    }
+}

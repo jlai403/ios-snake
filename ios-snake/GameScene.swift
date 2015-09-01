@@ -72,6 +72,18 @@ public class GameScene: SKScene {
         self.scoreLabel.updateScore(score)
     }
     
+    public func showScoreIncrement(increment: Int) {
+        var incrementScoreLabel = ScoreIncrementNode(increment: increment)
+        incrementScoreLabel.position = CGPointMake(self.scoreLabel.frame.maxX + 5.0, self.scoreLabel.frame.minY)
+        self.addChild(incrementScoreLabel)
+
+        var fadeOut = SKAction.fadeOutWithDuration(1.0)
+        fadeOut.timingMode = SKActionTimingMode.EaseInEaseOut
+        incrementScoreLabel.runAction(fadeOut) {
+            incrementScoreLabel.removeFromParent()
+        }
+    }
+    
     public func updateLevel(level: Int) {
         self.levelLabel.updateLevel(level)
     }
