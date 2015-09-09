@@ -75,18 +75,21 @@ public class GameMechanic: NSObject {
         } else {
             let destination = destination!
             if (destination.type == .PowerUp) {
-                self.player.consume(self.powerUp)
-                self.powerUp.setPosition(self.delegate.grid.randomEmptyCell())
-                
-                self.snakeEffects.applyGradient(self.player)
-                self.snakeEffects.blink(self.player.head)
-                
-                self.delegate.incrementScore(1)
+                self.performPowerUpConsumption(destination)
             } else {
                 self.player.move(destination)
             }
             self.delegate.present(player)
         }
+    }
+    
+    private func performPowerUpConsumption(destination: Cell) {
+        self.player.consume(destination)
+        self.snakeEffects.applyGradient(self.player)
+        self.snakeEffects.blink(self.player.head)
+        
+        self.powerUp.setPosition(self.delegate.grid.randomEmptyCell())
+        self.delegate.incrementScore(1)
     }
     
     private func getDestinationCell(player: Snake, direction: CardinalDirection) -> Cell? {

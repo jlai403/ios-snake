@@ -37,6 +37,7 @@ Screens
 TECH DEBT:
 - Sad cases
 	- user quits app
+- Snake Effects??
 
 BUGS: 
 - game over when swiping too fast?

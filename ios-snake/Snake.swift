@@ -62,9 +62,9 @@ public class Snake {
         }
     }
     
-    public func consume(powerUp: PowerUpNode) {
-        var newHead = SnakeNode(cell: powerUp.cell)
-        self.head.setElementSuccessor(newHead)
-        self.vector.insert(newHead, atIndex: 0)
+    public func consume(destination: Cell) {
+        var newTail = SnakeNode(cell: tail.cell.south()!, successor: self.tail)
+        self.vector.append(newTail)
+        self.move(destination)
     }
 }
