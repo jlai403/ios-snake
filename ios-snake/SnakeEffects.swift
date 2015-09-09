@@ -4,7 +4,7 @@ import SpriteKit
 public class SnakeEffects {
     
     public func applyGradient(player: Snake) {
-        var alphaDifference = 1.0 / CGFloat(player.length)
+        var alphaDifference = 0.5 / CGFloat(player.length)
         var alpha = CGFloat(1.0)
         for element in player.vector {
             element.alpha = alpha
