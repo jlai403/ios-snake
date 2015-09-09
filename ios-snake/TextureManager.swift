@@ -4,10 +4,12 @@ class TextureManager {
     
     static var sharedInstance = TextureManager()
     
-    var tileTexutre: SKTexture
+    var tileTexture: SKTexture
+    var powerUpTexture: SKTexture
     
     private init() {
-        tileTexutre = SKTexture(imageNamed: "Square Tile")
+        tileTexture = SKTexture(imageNamed: "Square Tile")
+        powerUpTexture = SKTexture(imageNamed: "Power Up Tile")
     }
 
 }

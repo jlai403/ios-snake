@@ -12,11 +12,11 @@ public class SnakeEffects {
         }
     }
     
-    public func blink(element: SnakeNode) {
-        var alpha = element.alpha
-        var fade = SKAction.runBlock{ element.alpha *= 0.50 }
+    public func blink(node: SnakeNode) {
+        var alpha = node.alpha
+        var fade = SKAction.runBlock{ node.alpha *= 0.30 }
         var wait = SKAction.waitForDuration(0.25)
-        var brighten = SKAction.runBlock{ element.alpha /= 0.50 }
-        element.runAction(SKAction.sequence([fade, wait, brighten, wait, fade, wait, brighten]))
+        var brighten = SKAction.runBlock{ node.alpha /= 0.30 }
+        node.runAction(SKAction.sequence([fade, wait, brighten, wait, fade, wait, brighten]))
     }
 }

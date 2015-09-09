@@ -7,7 +7,7 @@ public class PowerUpNode: SKSpriteNode, ISpriteKitNode {
     
     init(cell: Cell) {
         self.cell = cell
-        super.init(texture: TextureManager.sharedInstance.tileTexutre, color: Colors.pomegranate, size: self.cell.size)
+        super.init(texture: TextureManager.sharedInstance.powerUpTexture, color: Colors.pomegranate, size: self.cell.size)
         self.update()
     }
 

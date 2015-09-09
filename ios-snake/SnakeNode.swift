@@ -10,7 +10,7 @@ public class SnakeNode: SKSpriteNode, ISpriteKitNode {
     
     init(cell: Cell, successor: SnakeNode? = nil) {
         self.cell = cell
-        super.init(texture: TextureManager.sharedInstance.tileTexutre, color: Colors.blue, size: self.cell.size)
+        super.init(texture: TextureManager.sharedInstance.tileTexture, color: Colors.blue, size: self.cell.size)
         self.update(successor)
     }
 
