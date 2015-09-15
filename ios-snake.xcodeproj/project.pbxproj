@@ -22,6 +22,9 @@
 		6C6ED5B21B59DC01004B3633 /* GridGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C6ED5B01B59DBB8004B3633 /* GridGenerator.swift */; };
 		6C71AA871B646DC7009E80C8 /* SnakeEffects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C71AA861B646DC7009E80C8 /* SnakeEffects.swift */; };
 		6C71AA881B646E4E009E80C8 /* SnakeEffects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C71AA861B646DC7009E80C8 /* SnakeEffects.swift */; };
+		6C81A74C1BA3B996008CDB26 /* ScoreboardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C81A74B1BA3B996008CDB26 /* ScoreboardManager.swift */; };
+		6C81A74F1BA3BA33008CDB26 /* ScoreboardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C81A74B1BA3B996008CDB26 /* ScoreboardManager.swift */; };
+		6C81A7841BA3BE65008CDB26 /* ScoreboardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C81A7821BA3BE3D008CDB26 /* ScoreboardTests.swift */; };
 		6C851EF71B5B6178002225A9 /* SnakeNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C851EF61B5B6178002225A9 /* SnakeNode.swift */; };
 		6C851EF91B5B6193002225A9 /* Grid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C851EF81B5B6193002225A9 /* Grid.swift */; };
 		6C851EFD1B5B61DA002225A9 /* CellType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C851EFC1B5B61DA002225A9 /* CellType.swift */; };
@@ -65,6 +68,10 @@
 		6CEAB5D81B915977009CCEE6 /* ScoreboardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CEAB5D71B915977009CCEE6 /* ScoreboardController.swift */; };
 		6CEF650E1B631CB000D28E6D /* GameMechanic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CEF650D1B631CB000D28E6D /* GameMechanic.swift */; };
 		6CEF650F1B631CDF00D28E6D /* GameMechanic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CEF650D1B631CB000D28E6D /* GameMechanic.swift */; };
+		6CF0AB881BA7A59A0031D2B6 /* HighScoreEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C81A78A1BA3C918008CDB26 /* HighScoreEntry.swift */; };
+		6CF0AB891BA7A5A40031D2B6 /* Snake.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6C81A7411BA3B7AF008CDB26 /* Snake.xcdatamodeld */; };
+		6CF0AB8A1BA7A5C20031D2B6 /* Snake.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6C81A7411BA3B7AF008CDB26 /* Snake.xcdatamodeld */; };
+		6CF0AB8B1BA7A5C20031D2B6 /* HighScoreEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C81A78A1BA3C918008CDB26 /* HighScoreEntry.swift */; };
 		6CF8F0ED1B61D99500AE3361 /* PowerUpNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CF8F0EC1B61D99500AE3361 /* PowerUpNode.swift */; };
 		6CF8F0EE1B61DAA000AE3361 /* PowerUpNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CF8F0EC1B61D99500AE3361 /* PowerUpNode.swift */; };
 /* End PBXBuildFile section */
@@ -89,6 +96,10 @@
 		6C6ED5AD1B59D540004B3633 /* GameGridTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameGridTests.swift; sourceTree = "<group>"; };
 		6C6ED5B01B59DBB8004B3633 /* GridGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridGenerator.swift; sourceTree = "<group>"; };
 		6C71AA861B646DC7009E80C8 /* SnakeEffects.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnakeEffects.swift; sourceTree = "<group>"; };
+		6C81A7421BA3B7AF008CDB26 /* Snake.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Snake.xcdatamodel; sourceTree = "<group>"; };
+		6C81A74B1BA3B996008CDB26 /* ScoreboardManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreboardManager.swift; sourceTree = "<group>"; };
+		6C81A7821BA3BE3D008CDB26 /* ScoreboardTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreboardTests.swift; sourceTree = "<group>"; };
+		6C81A78A1BA3C918008CDB26 /* HighScoreEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HighScoreEntry.swift; sourceTree = "<group>"; };
 		6C851EF61B5B6178002225A9 /* SnakeNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnakeNode.swift; sourceTree = "<group>"; };
 		6C851EF81B5B6193002225A9 /* Grid.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Grid.swift; sourceTree = "<group>"; };
 		6C851EFA1B5B61A5002225A9 /* Cell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cell.swift; sourceTree = "<group>"; };
@@ -172,6 +183,15 @@
 			name = Scene;
 			sourceTree = "<group>";
 		};
+		6C81A7441BA3B835008CDB26 /* Scoreboard */ = {
+			isa = PBXGroup;
+			children = (
+				6C81A74B1BA3B996008CDB26 /* ScoreboardManager.swift */,
+				6C81A78A1BA3C918008CDB26 /* HighScoreEntry.swift */,
+			);
+			name = Scoreboard;
+			sourceTree = "<group>";
+		};
 		6CB575E51B531B4C00DEDCCE = {
 			isa = PBXGroup;
 			children = (
@@ -194,6 +214,7 @@
 		6CB575F01B531B4C00DEDCCE /* ios-snake */ = {
 			isa = PBXGroup;
 			children = (
+				6C81A7411BA3B7AF008CDB26 /* Snake.xcdatamodeld */,
 				6CB575FC1B531B4C00DEDCCE /* LaunchScreen.xib */,
 				6CB575F71B531B4C00DEDCCE /* Snake.storyboard */,
 				6C0CB2871B532A9600796B92 /* ConfigConstants.swift */,
@@ -223,6 +244,7 @@
 			children = (
 				6C6ED5AD1B59D540004B3633 /* GameGridTests.swift */,
 				6CB576091B531B4C00DEDCCE /* SnakeGameTests.swift */,
+				6C81A7821BA3BE3D008CDB26 /* ScoreboardTests.swift */,
 				6CB576071B531B4C00DEDCCE /* Supporting Files */,
 			);
 			path = "ios-snakeTests";
@@ -239,6 +261,7 @@
 		6CB576151B531C2E00DEDCCE /* Game */ = {
 			isa = PBXGroup;
 			children = (
+				6C81A7441BA3B835008CDB26 /* Scoreboard */,
 				6CEF65111B631F3D00D28E6D /* Snake */,
 				6CEF65101B631F0200D28E6D /* Environment */,
 			);
@@ -402,6 +425,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6CF0AB891BA7A5A40031D2B6 /* Snake.xcdatamodeld in Sources */,
+				6CF0AB881BA7A59A0031D2B6 /* HighScoreEntry.swift in Sources */,
 				29E1267D1B6683F400F3EB04 /* Cell.swift in Sources */,
 				6CF8F0ED1B61D99500AE3361 /* PowerUpNode.swift in Sources */,
 				6CB5DB581B5F4FF700739D68 /* SnakeGame.swift in Sources */,
@@ -429,6 +454,7 @@
 				6CEAB5D41B9155CD009CCEE6 /* HomeController.swift in Sources */,
 				6CE335AD1B91C06F008D0F69 /* MultiplayerGameController.swift in Sources */,
 				6CEAB5D61B915960009CCEE6 /* SettingsController.swift in Sources */,
+				6C81A74C1BA3B996008CDB26 /* ScoreboardManager.swift in Sources */,
 				6CEAB5D11B915027009CCEE6 /* ISpriteKitNode.swift in Sources */,
 				6CB575F41B531B4C00DEDCCE /* AppDelegate.swift in Sources */,
 				6CE494641B55E34A00E193A9 /* ArrayExtensions.swift in Sources */,
@@ -439,6 +465,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6CF0AB8A1BA7A5C20031D2B6 /* Snake.xcdatamodeld in Sources */,
+				6CF0AB8B1BA7A5C20031D2B6 /* HighScoreEntry.swift in Sources */,
+				6C81A7841BA3BE65008CDB26 /* ScoreboardTests.swift in Sources */,
+				6C81A74F1BA3BA33008CDB26 /* ScoreboardManager.swift in Sources */,
 				6CEAB5D21B915076009CCEE6 /* ISpriteKitNode.swift in Sources */,
 				6CEAB5CF1B914F0F009CCEE6 /* LevelNode.swift in Sources */,
 				6CEAB5C81B913744009CCEE6 /* GridNode.swift in Sources */,
@@ -584,10 +614,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = "ios-snake/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OBJC_INTERFACE_HEADER_NAME = "";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -596,10 +630,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = "ios-snake/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OBJC_INTERFACE_HEADER_NAME = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
@@ -669,6 +706,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		6C81A7411BA3B7AF008CDB26 /* Snake.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				6C81A7421BA3B7AF008CDB26 /* Snake.xcdatamodel */,
+			);
+			currentVersion = 6C81A7421BA3B7AF008CDB26 /* Snake.xcdatamodel */;
+			path = Snake.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 6CB575E61B531B4C00DEDCCE /* Project object */;
 }

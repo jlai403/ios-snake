@@ -60,6 +60,14 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "snake.AppDelegate.(managedObjectModel.getter : ObjectiveC.NSManagedObjectModel).(closure #1):AppDelegate.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "NSBundle.mainBundle()">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "ios_snake.GameController.viewDidLoad (ios_snake.GameController)() -&gt; ():GameEnvironmentController.swift">
       </ContextState>
       <ContextState

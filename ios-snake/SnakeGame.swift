@@ -73,5 +73,8 @@ public class SnakeGame: SnakeGameDelegate {
         self.isGameOver = true
         self.levelManager.reset()
         self.delegate?.notifyGameOver(self.score)
+        
+        ScoreboardManager.sharedInstance.log("AAA", score: self.score)
+        
     }
 }
