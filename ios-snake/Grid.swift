@@ -40,8 +40,8 @@ public class Grid {
     }
     
     public func randomCell() -> Cell {
-        var randomX = Int(arc4random_uniform(UInt32(self.columns)))
-        var randomY = Int(arc4random_uniform(UInt32(self.rows)))
+        let randomX = Int(arc4random_uniform(UInt32(self.columns)))
+        let randomY = Int(arc4random_uniform(UInt32(self.rows)))
         return self[randomX,randomY]!
     }
     
@@ -56,14 +56,14 @@ public class Grid {
     }
     
     public func center() -> Cell {
-        var row = Int(floor(Double(self.rows) / 2))
-        var col = Int(floor(Double(self.columns) / 2))
+        let row = Int(floor(Double(self.rows) / 2))
+        let col = Int(floor(Double(self.columns) / 2))
         return cells[row * self.columns + col]!
     }
     
     private func outOfBounds(x: Int, _ y: Int) -> Bool {
-        var invalidX = x < 0 || x >= self.columns
-        var invalidY = y < 0 || y >= self.rows
+        let invalidX = x < 0 || x >= self.columns
+        let invalidY = y < 0 || y >= self.rows
         return invalidX || invalidY
     }
     

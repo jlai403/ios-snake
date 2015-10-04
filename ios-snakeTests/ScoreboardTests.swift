@@ -15,15 +15,20 @@ class ScoreboardTests: XCTestCase {
         var coordinator: NSPersistentStoreCoordinator? = NSPersistentStoreCoordinator(managedObjectModel: self.managedObjectModel)
         var error: NSError? = nil
         var failureReason = "There was an error creating or loading the application’s saved data."
-        if coordinator!.addPersistentStoreWithType(NSInMemoryStoreType, configuration: nil, URL: nil, options: nil, error: &error) == nil {
+        do {
+            try coordinator!.addPersistentStoreWithType(NSInMemoryStoreType, configuration: nil, URL: nil, options: nil)
+        } catch var error1 as NSError {
+            error = error1
             coordinator = nil
-            let dict = NSMutableDictionary()
+            var dict = [NSObject : AnyObject]()
             dict[NSLocalizedDescriptionKey] = "Failed to initialize the application’s saved data"
             dict[NSLocalizedFailureReasonErrorKey] = failureReason
             dict[NSUnderlyingErrorKey] = error
-            error = NSError(domain: "YOUR_ERROR_DOMAIN", code: 9999, userInfo: dict as [NSObject : AnyObject])
+            error = NSError(domain: "YOUR_ERROR_DOMAIN", code: 9999, userInfo: dict)
             NSLog("Unresolved error (error), (error!.userInfo)")
             abort()
+        } catch {
+            fatalError()
         }
         
         return coordinator
@@ -51,21 +56,21 @@ class ScoreboardTests: XCTestCase {
     
     func test_log() {
         // assemble
-        var name = "AAA"
-        var score = 10
+        let name = "AAA"
+        let score = 10
         
         // act
         ScoreboardManager.sharedInstance.log(name, score: score)
         
         // assert
-        var highScores = ScoreboardManager.sharedInstance.fetchHighScores()
+        let highScores = ScoreboardManager.sharedInstance.fetchHighScores()
         XCTAssertEqual(1, highScores.count, "should have 1 high score entry")
     }
     
     func test_clearScores() {
         // assemble
-        var name = "AAA"
-        var score = 10
+        let name = "AAA"
+        let score = 10
 
         ScoreboardManager.sharedInstance.log(name, score: score)
         
@@ -73,7 +78,7 @@ class ScoreboardTests: XCTestCase {
         ScoreboardManager.sharedInstance.clear()
         
         // assert
-        var highScores = ScoreboardManager.sharedInstance.fetchHighScores()
+        let highScores = ScoreboardManager.sharedInstance.fetchHighScores()
         XCTAssertEqual(0, highScores.count, "should have no high score entries")
     }
 }

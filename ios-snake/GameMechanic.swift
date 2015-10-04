@@ -32,8 +32,8 @@ public class GameMechanic: NSObject {
     }
     
     private func isGameOver(destination: Cell?) -> Bool {
-        var outOfBounds = destination == nil
-        var blocked = destination?.type == .Snake
+        let outOfBounds = destination == nil
+        let blocked = destination?.type == .Snake
         return outOfBounds || blocked
     }
     
@@ -59,8 +59,6 @@ public class GameMechanic: NSObject {
             return self.cardinalDirection != CardinalDirection.West
         case .West:
             return self.cardinalDirection != CardinalDirection.East
-        default:
-            fatalError("invalid cardinal direction")
         }
     }
     
@@ -69,7 +67,7 @@ public class GameMechanic: NSObject {
     }
     
     private func move(player: Snake) {
-        var destination = getDestinationCell(player, direction: self.cardinalDirection)
+        let destination = getDestinationCell(player, direction: self.cardinalDirection)
         if (self.isGameOver(destination)) {
             self.delegate.gameOver()
         } else {
@@ -93,7 +91,7 @@ public class GameMechanic: NSObject {
     }
     
     private func getDestinationCell(player: Snake, direction: CardinalDirection) -> Cell? {
-        var headCell = player.head.cell
+        let headCell = player.head.cell
         var destinationCell: Cell?
         
         switch (direction) {
@@ -105,8 +103,6 @@ public class GameMechanic: NSObject {
             destinationCell = headCell.east()
         case .West:
             destinationCell = headCell.west()
-        default:
-            fatalError("invalid cardinal direction")
         }
         
         return destinationCell

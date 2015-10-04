@@ -7,7 +7,7 @@ class GameController: UIViewController, SnakeGameControllerDelegate, UIAlertView
     var snakeGame: SnakeGame!
     
     deinit {
-        println("deinit GameController")
+        print("deinit GameController")
     }
     
     override func viewDidLoad() {
@@ -42,7 +42,7 @@ class GameController: UIViewController, SnakeGameControllerDelegate, UIAlertView
     }
     
     @IBAction func changeDirections(sender: UISwipeGestureRecognizer) {
-        var direction = getCardinalDirection(sender.direction)
+        let direction = getCardinalDirection(sender.direction)
         self.snakeGame.updateDirection(direction)
     }
     
@@ -68,7 +68,7 @@ class GameController: UIViewController, SnakeGameControllerDelegate, UIAlertView
     // MARK: SnakeGameDelegate
     
     func notifyGameOver(score: Int) {
-        var gameOverAlert = GameOverAlertView()
+        let gameOverAlert = GameOverAlertView()
         gameOverAlert.delegate = self
         gameOverAlert.show(score)
     }

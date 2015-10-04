@@ -4,7 +4,7 @@ import SpriteKit
 public class SnakeEffects {
     
     public func applyGradient(player: Snake) {
-        var alphaDifference = 0.5 / CGFloat(player.length)
+        let alphaDifference = 0.5 / CGFloat(player.length)
         var alpha = CGFloat(1.0)
         for element in player.vector {
             element.alpha = alpha
@@ -13,10 +13,9 @@ public class SnakeEffects {
     }
     
     public func blink(node: SnakeNode) {
-        var alpha = node.alpha
-        var fade = SKAction.runBlock{ node.alpha *= 0.30 }
-        var wait = SKAction.waitForDuration(0.25)
-        var brighten = SKAction.runBlock{ node.alpha /= 0.30 }
+        let fade = SKAction.runBlock{ node.alpha *= 0.30 }
+        let wait = SKAction.waitForDuration(0.25)
+        let brighten = SKAction.runBlock{ node.alpha /= 0.30 }
         node.runAction(SKAction.sequence([fade, wait, brighten, wait, fade, wait, brighten]))
     }
 }

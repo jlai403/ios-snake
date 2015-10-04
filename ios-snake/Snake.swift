@@ -26,8 +26,8 @@ public class Snake {
         var cell = startingCell
         
         for (var i=0; i<ConfigConstants.START_SNAKE_LENGTH; i++) {
-            var successor: SnakeNode? = i==0 ? nil : self.vector[i-1]
-            var predecessor = SnakeNode(cell: cell, successor:successor)
+            let successor: SnakeNode? = i==0 ? nil : self.vector[i-1]
+            let predecessor = SnakeNode(cell: cell, successor:successor)
             self.vector.append(predecessor)
             
             if (self.vector.count < ConfigConstants.START_SNAKE_LENGTH) {
@@ -63,7 +63,7 @@ public class Snake {
     }
     
     public func consume(destination: Cell) {
-        var newTail = SnakeNode(cell: tail.cell.south()!, successor: self.tail)
+        let newTail = SnakeNode(cell: tail.cell.south()!, successor: self.tail)
         self.vector.append(newTail)
         self.move(destination)
     }

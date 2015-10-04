@@ -20,7 +20,7 @@ public class GameScene: SKScene {
     }
     
     deinit {
-        println("deinit GameScene")
+        print("deinit GameScene")
     }
     
     private func update() {
@@ -29,7 +29,7 @@ public class GameScene: SKScene {
     }
     
     private func positionNodes() {
-        var xPos = (self.frame.width - self.grid.frame.width) / 2
+        let xPos = (self.frame.width - self.grid.frame.width) / 2
         
         self.grid.position.x = xPos
         self.grid.position.y = (self.frame.height - self.grid.frame.height) / 2
@@ -54,7 +54,7 @@ public class GameScene: SKScene {
     }
     
     private func renderBorder() {
-        var layer = CAShapeLayer()
+        let layer = CAShapeLayer()
         layer.borderColor = Colors.colorFor(0xAEAEAE).CGColor
         layer.borderWidth = 1.0
         layer.frame = self.grid.frame
@@ -73,11 +73,11 @@ public class GameScene: SKScene {
     }
     
     public func showScoreIncrement(increment: Int) {
-        var incrementScoreLabel = ScoreIncrementNode(increment: increment)
+        let incrementScoreLabel = ScoreIncrementNode(increment: increment)
         incrementScoreLabel.position = CGPointMake(self.scoreLabel.frame.maxX + 5.0, self.scoreLabel.frame.minY)
         self.addChild(incrementScoreLabel)
 
-        var fadeOut = SKAction.fadeOutWithDuration(1.0)
+        let fadeOut = SKAction.fadeOutWithDuration(1.0)
         fadeOut.timingMode = SKActionTimingMode.EaseInEaseOut
         incrementScoreLabel.runAction(fadeOut) {
             incrementScoreLabel.removeFromParent()

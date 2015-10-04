@@ -15,8 +15,8 @@ public class Cell: Equatable {
     
     var position: CGPoint {
         get {
-            var x = CGFloat(self.x) * size.width
-            var y = CGFloat(self.y) * size.height
+            let x = CGFloat(self.x) * size.width
+            let y = CGFloat(self.y) * size.height
             return CGPointMake(x, y)
         }
     }
@@ -28,7 +28,7 @@ public class Cell: Equatable {
         self.type = type
     }
     
-    class func empty(#grid: Grid, x: Int, y: Int) -> Cell {
+    class func empty(grid grid: Grid, x: Int, y: Int) -> Cell {
         return Cell(grid: grid, x: x, y: y, type: .Empty)
     }
     
@@ -50,7 +50,7 @@ public class Cell: Equatable {
 }
 
 public func ==(lhs: Cell, rhs: Cell) -> Bool {
-    var equalX = lhs.x == rhs.x
-    var equalY = lhs.y == rhs.y
+    let equalX = lhs.x == rhs.x
+    let equalY = lhs.y == rhs.y
     return equalX && equalY
 }

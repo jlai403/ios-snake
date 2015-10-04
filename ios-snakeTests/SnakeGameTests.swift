@@ -6,17 +6,19 @@ class SnakeGameTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
+        ScoreboardManager.sharedInstance = DoNothingScoreboardManager()
     }
     
     override func tearDown() {
         super.tearDown()
+        ScoreboardManager.sharedInstance = ScoreboardManager()
     }
     
     func test_moveNorth() {
         // assemble
-        var snakeGame = SnakeGame(gameViewSize: CGSizeMake(375.0, 667.0), rows: 25, columns: 15)
-        var grid = snakeGame.grid
-        var snake = snakeGame.gameMechanic.player // (7,12), (7,11), (10,7)
+        let snakeGame = SnakeGame(gameViewSize: CGSizeMake(375.0, 667.0), rows: 25, columns: 15)
+        let grid = snakeGame.grid
+        let snake = snakeGame.gameMechanic.player // (7,12), (7,11), (10,7)
         snakeGame.gameMechanic.powerUp.setPosition(grid[14,24]!)
         
         snakeGame.updateDirection(.North)
@@ -39,9 +41,9 @@ class SnakeGameTests: XCTestCase {
     
     func test_moveEast() {
         // assemble
-        var snakeGame = SnakeGame(gameViewSize: CGSizeMake(375.0, 667.0), rows: 25, columns: 15)
-        var grid = snakeGame.grid
-        var snake = snakeGame.gameMechanic.player // (7,12), (7,11), (10,7)
+        let snakeGame = SnakeGame(gameViewSize: CGSizeMake(375.0, 667.0), rows: 25, columns: 15)
+        let grid = snakeGame.grid
+        let snake = snakeGame.gameMechanic.player // (7,12), (7,11), (10,7)
         snakeGame.gameMechanic.powerUp.setPosition(grid[14,24]!)
         
         snakeGame.updateDirection(.East)
@@ -64,9 +66,9 @@ class SnakeGameTests: XCTestCase {
     
     func test_moveWest() {
         // assemble
-        var snakeGame = SnakeGame(gameViewSize: CGSizeMake(375.0, 667.0), rows: 25, columns: 15)
-        var grid = snakeGame.grid
-        var snake = snakeGame.gameMechanic.player // (7,12), (7,11), (10,7)
+        let snakeGame = SnakeGame(gameViewSize: CGSizeMake(375.0, 667.0), rows: 25, columns: 15)
+        let grid = snakeGame.grid
+        let snake = snakeGame.gameMechanic.player // (7,12), (7,11), (10,7)
         snakeGame.gameMechanic.powerUp.setPosition(grid[14,24]!)
         
         snakeGame.updateDirection(.West)
@@ -89,9 +91,9 @@ class SnakeGameTests: XCTestCase {
     
     func test_moveSouth_moveEast2x() {
         // assemble
-        var snakeGame = SnakeGame(gameViewSize: CGSizeMake(375.0, 667.0), rows: 25, columns: 15)
-        var grid = snakeGame.grid
-        var snake = snakeGame.gameMechanic.player // (7,12), (7,11), (10,7)
+        let snakeGame = SnakeGame(gameViewSize: CGSizeMake(375.0, 667.0), rows: 25, columns: 15)
+        let grid = snakeGame.grid
+        let snake = snakeGame.gameMechanic.player // (7,12), (7,11), (10,7)
         snakeGame.gameMechanic.powerUp.setPosition(grid[14,24]!)
         
         snakeGame.updateDirection(.East)
@@ -118,9 +120,9 @@ class SnakeGameTests: XCTestCase {
     
     func test_updateDirectionSouth_currentDirectionNorth() {
         // assemble
-        var snakeGame = SnakeGame(gameViewSize: CGSizeMake(375.0, 667.0), rows: 25, columns: 15)
-        var grid = snakeGame.grid
-        var snake = snakeGame.gameMechanic.player // (7,12), (7,11), (10,7)
+        let snakeGame = SnakeGame(gameViewSize: CGSizeMake(375.0, 667.0), rows: 25, columns: 15)
+        let grid = snakeGame.grid
+        let snake = snakeGame.gameMechanic.player // (7,12), (7,11), (10,7)
         snakeGame.gameMechanic.powerUp.setPosition(grid[14,24]!)
         
         // act
@@ -135,9 +137,9 @@ class SnakeGameTests: XCTestCase {
     
     func test_updateDirectionNorth_currentDirectionSouth() {
         // assemble
-        var snakeGame = SnakeGame(gameViewSize: CGSizeMake(375.0, 667.0), rows: 25, columns: 15)
-        var grid = snakeGame.grid
-        var snake = snakeGame.gameMechanic.player // (7,12), (7,11), (10,7)
+        let snakeGame = SnakeGame(gameViewSize: CGSizeMake(375.0, 667.0), rows: 25, columns: 15)
+        let grid = snakeGame.grid
+        let snake = snakeGame.gameMechanic.player // (7,12), (7,11), (10,7)
         snakeGame.gameMechanic.powerUp.setPosition(grid[14,24]!)
         
         snakeGame.updateDirection(.West)
@@ -158,9 +160,9 @@ class SnakeGameTests: XCTestCase {
     
     func test_updateDirectionEast_currentDirectionWest() {
         // assemble
-        var snakeGame = SnakeGame(gameViewSize: CGSizeMake(375.0, 667.0), rows: 25, columns: 15)
-        var grid = snakeGame.grid
-        var snake = snakeGame.gameMechanic.player // (7,12), (7,11), (10,7)
+        let snakeGame = SnakeGame(gameViewSize: CGSizeMake(375.0, 667.0), rows: 25, columns: 15)
+        let grid = snakeGame.grid
+        let snake = snakeGame.gameMechanic.player // (7,12), (7,11), (10,7)
         snakeGame.gameMechanic.powerUp.setPosition(grid[14,24]!)
         
         snakeGame.updateDirection(.West)
@@ -178,9 +180,9 @@ class SnakeGameTests: XCTestCase {
     
     func test_updateDirectionWest_currentDirectionEast() {
         // assemble
-        var snakeGame = SnakeGame(gameViewSize: CGSizeMake(375.0, 667.0), rows: 25, columns: 15)
-        var grid = snakeGame.grid
-        var snake = snakeGame.gameMechanic.player // (7,12), (7,11), (10,7)
+        let snakeGame = SnakeGame(gameViewSize: CGSizeMake(375.0, 667.0), rows: 25, columns: 15)
+        let grid = snakeGame.grid
+        let snake = snakeGame.gameMechanic.player // (7,12), (7,11), (10,7)
         snakeGame.gameMechanic.powerUp.setPosition(grid[14,24]!)
         
         snakeGame.updateDirection(.East)
@@ -198,12 +200,11 @@ class SnakeGameTests: XCTestCase {
     
     func test_powerUpPosition() {
         // assemble
-        var snakeGame = SnakeGame(gameViewSize: CGSizeMake(375.0, 667.0), rows: 25, columns: 15)
-        var grid = snakeGame.grid
-        var snake = snakeGame.gameMechanic.player // (7,12), (7,11), (10,7)
+        let snakeGame = SnakeGame(gameViewSize: CGSizeMake(375.0, 667.0), rows: 25, columns: 15)
+        let snake = snakeGame.gameMechanic.player // (7,12), (7,11), (10,7)
         
         // act
-        var powerUp = snakeGame.gameMechanic.powerUp
+        let powerUp = snakeGame.gameMechanic.powerUp
         
         // assert
         XCTAssertNotEqual(powerUp.cell, snake.vector[0].cell, "power up cell position is already taken by snake")
@@ -212,9 +213,9 @@ class SnakeGameTests: XCTestCase {
     
     func test_consumePowerUp() {
         // assemble
-        var snakeGame = SnakeGame(gameViewSize: CGSizeMake(375.0, 667.0), rows: 25, columns: 15)
-        var grid = snakeGame.grid
-        var snake = snakeGame.gameMechanic.player // (7,12), (7,11), (10,7)
+        let snakeGame = SnakeGame(gameViewSize: CGSizeMake(375.0, 667.0), rows: 25, columns: 15)
+        let grid = snakeGame.grid
+        let snake = snakeGame.gameMechanic.player // (7,12), (7,11), (10,7)
 
         snakeGame.gameMechanic.powerUp = PowerUpNode(cell: grid[7,13]!)
 
@@ -239,8 +240,8 @@ class SnakeGameTests: XCTestCase {
     
     func test_gameOver_north() {
         // assemble
-        var snakeGame = SnakeGame(gameViewSize: CGSizeMake(375.0, 667.0), rows: 25, columns: 15)
-        var grid = snakeGame.grid
+        let snakeGame = SnakeGame(gameViewSize: CGSizeMake(375.0, 667.0), rows: 25, columns: 15)
+        let grid = snakeGame.grid
         snakeGame.gameMechanic.player = Snake(startingCell: grid[6,24]!)
         
         // act
@@ -252,8 +253,8 @@ class SnakeGameTests: XCTestCase {
     
     func test_gameOver_south() {
         // assemble
-        var snakeGame = SnakeGame(gameViewSize: CGSizeMake(375.0, 667.0), rows: 25, columns: 15)
-        var grid = snakeGame.grid
+        let snakeGame = SnakeGame(gameViewSize: CGSizeMake(375.0, 667.0), rows: 25, columns: 15)
+        let grid = snakeGame.grid
         snakeGame.gameMechanic.player = Snake(startingCell: grid[6,2]!)
         
         snakeGame.updateDirection(.West)
@@ -271,9 +272,8 @@ class SnakeGameTests: XCTestCase {
     
     func test_gameOver_east() {
         // assemble
-        var snakeGame = SnakeGame(gameViewSize: CGSizeMake(375.0, 667.0), rows: 25, columns: 15)
-        var grid = snakeGame.grid
-        var snake = snakeGame.gameMechanic.player // (7,12), (7,11), (10,7)
+        let snakeGame = SnakeGame(gameViewSize: CGSizeMake(375.0, 667.0), rows: 25, columns: 15)
+        let grid = snakeGame.grid
         
         snakeGame.gameMechanic.player = Snake(startingCell: grid[14,12]!)
         
@@ -287,9 +287,8 @@ class SnakeGameTests: XCTestCase {
     
     func test_gameOver_west() {
         // assemble
-        var snakeGame = SnakeGame(gameViewSize: CGSizeMake(375.0, 667.0), rows: 25, columns: 15)
-        var grid = snakeGame.grid
-        var snake = snakeGame.gameMechanic.player
+        let snakeGame = SnakeGame(gameViewSize: CGSizeMake(375.0, 667.0), rows: 25, columns: 15)
+        let grid = snakeGame.grid
         
         snakeGame.gameMechanic.player = Snake(startingCell: grid[0,24]!)
         
@@ -303,9 +302,9 @@ class SnakeGameTests: XCTestCase {
     
     func test_gameOver_snakeInTheWay() {
         // assemble
-        var snakeGame = SnakeGame(gameViewSize: CGSizeMake(375.0, 667.0), rows: 25, columns: 15)
-        var snakeGameControl = snakeGame.gameMechanic
-        var player = snakeGameControl.player
+        let snakeGame = SnakeGame(gameViewSize: CGSizeMake(375.0, 667.0), rows: 25, columns: 15)
+        let snakeGameControl = snakeGame.gameMechanic
+        let player = snakeGameControl.player
         
         snakeGameControl.powerUp.setPosition(player.head.cell.north()!)
         snakeGame.gameMechanic.updatePlayerPosition()
@@ -326,9 +325,9 @@ class SnakeGameTests: XCTestCase {
     
     func test_resetGame() {
         // assemble
-        var snakeGame = SnakeGame(gameViewSize: CGSizeMake(375.0, 667.0), rows: 25, columns: 15)
-        var grid = snakeGame.grid
-        var snakeGameControl = snakeGame.gameMechanic
+        let snakeGame = SnakeGame(gameViewSize: CGSizeMake(375.0, 667.0), rows: 25, columns: 15)
+        let grid = snakeGame.grid
+        let snakeGameControl = snakeGame.gameMechanic
         var snake = snakeGameControl.player
         snakeGame.gameMechanic.powerUp.setPosition(grid[14,24]!)
         
@@ -369,10 +368,9 @@ class SnakeGameTests: XCTestCase {
     
     func test_levelUp_2() {
         // assemble
-        var snakeGame = SnakeGame(gameViewSize: CGSizeMake(375.0, 667.0), rows: 25, columns: 15)
-        var grid = snakeGame.grid
-        var snakeGameControl = snakeGame.gameMechanic
-        var snake = snakeGameControl.player
+        let snakeGame = SnakeGame(gameViewSize: CGSizeMake(375.0, 667.0), rows: 25, columns: 15)
+        let snakeGameControl = snakeGame.gameMechanic
+        let snake = snakeGameControl.player
         
         snakeGameControl.powerUp.setPosition(snake.head.cell.north()!)
         snakeGame.gameMechanic.updatePlayerPosition()
@@ -394,10 +392,9 @@ class SnakeGameTests: XCTestCase {
     
     func test_levelUp_3() {
         // assemble
-        var snakeGame = SnakeGame(gameViewSize: CGSizeMake(375.0, 667.0), rows: 25, columns: 15)
-        var grid = snakeGame.grid
-        var snakeGameControl = snakeGame.gameMechanic
-        var snake = snakeGameControl.player
+        let snakeGame = SnakeGame(gameViewSize: CGSizeMake(375.0, 667.0), rows: 25, columns: 15)
+        let snakeGameControl = snakeGame.gameMechanic
+        let snake = snakeGameControl.player
         
         snakeGameControl.powerUp.setPosition(snake.head.cell.north()!)
         snakeGame.gameMechanic.updatePlayerPosition()
@@ -441,9 +438,8 @@ class SnakeGameTests: XCTestCase {
     
     //MARK: assert helpers
     
-    private func assertSnakeTilePosition(#expected: (x: Int, y: Int), actual: Cell, message: String = "") {
+    private func assertSnakeTilePosition(expected expected: (x: Int, y: Int), actual: Cell, message: String = "") {
         XCTAssertEqual(expected.x, actual.x, "wrong column (\(message))")
         XCTAssertEqual(expected.y, actual.y, "wrong row (\(message))")
     }
 }
-

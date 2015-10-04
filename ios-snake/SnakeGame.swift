@@ -20,7 +20,7 @@ public class SnakeGame: SnakeGameDelegate {
     }
     
     deinit {
-        println("deinit SnakeGame")
+        print("deinit SnakeGame")
         self.levelManager = nil
         self.gameMechanic = nil
         self.delegate = nil
@@ -50,7 +50,7 @@ public class SnakeGame: SnakeGameDelegate {
     // MARK: SnakeGameControlDelegate
     
     func present(snake: Snake) {
-        var unpresentedSnakeElements = snake.vector.filter { (element) in !element.presented }
+        let unpresentedSnakeElements = snake.vector.filter { (element) in !element.presented }
         for snakeElement in unpresentedSnakeElements {
             self.present(snakeElement)
         }
