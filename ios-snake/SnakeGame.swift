@@ -74,7 +74,9 @@ public class SnakeGame: SnakeGameDelegate {
         self.levelManager.reset()
         self.delegate?.notifyGameOver(self.score)
         
-        ScoreboardManager.sharedInstance.log("AAA", score: self.score)
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "MM-dd-yyyy"
+        ScoreboardManager.sharedInstance.log(dateFormatter.stringFromDate(NSDate()), score: self.score)
         
     }
 }
