@@ -30,11 +30,23 @@ public class ScoreboardManager: IScoreboardManager {
         let highScoreEntry = HighScoreEntry(entity: entity!, insertIntoManagedObjectContext: self.managedObjectContext)
         highScoreEntry.username = username
         highScoreEntry.score = score
+        do {
+            try self.managedObjectContext.save()
+        } catch {
+            print("An error occured when logging high score.")
+        }
+        
     }
     
     public func fetchHighScores() -> [HighScoreEntry] {
         let fetchRequest = NSFetchRequest(entityName: "HighScoreEntry")
-        let highScoreEntries = (try! self.managedObjectContext.executeFetchRequest(fetchRequest)) as! [HighScoreEntry]
+        var highScoreEntries: [HighScoreEntry] = []
+        do {
+            highScoreEntries = try self.managedObjectContext.executeFetchRequest(fetchRequest) as! [HighScoreEntry]
+        } catch {
+            print("An error occurred when fetching high score entries.")
+        }
+        
         return highScoreEntries
     }
     
